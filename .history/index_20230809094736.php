@@ -28,9 +28,9 @@ try{
                         if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
                         $apiController->getVoiturefiche($url[2]);
                     break;
-                    case "contact":$apiController->getContact();
+                    case "contact":$apiController->getC();
                     break;
-                    case "avis": $apiController->getAvis();
+                    case "avis": echo "page avis";
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }

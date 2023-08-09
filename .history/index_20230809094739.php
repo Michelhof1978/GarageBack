@@ -30,7 +30,7 @@ try{
                     break;
                     case "contact":$apiController->getContact();
                     break;
-                    case "avis": $apiController->getAvis();
+                    case "avis": echo "page avis";
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }

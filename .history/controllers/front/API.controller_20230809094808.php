@@ -17,12 +17,6 @@ class APIController{
         echo " page voiturefiltre".$idVoiturefiche." demandées";
     }
 
-    public function getContact(){
-        echo "contact";
-    }
-
-    public function getAvis(){
-        echo "avis";
-    }
+    
 }
 

@@ -21,8 +21,6 @@ class APIController{
         echo "contact";
     }
 
-    public function getAvis(){
-        echo "avis";
-    }
+    
 }
 

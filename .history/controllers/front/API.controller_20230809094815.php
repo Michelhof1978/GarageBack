@@ -20,9 +20,5 @@ class APIController{
     public function getContact(){
         echo "contact";
     }
-
-    public function getAvis(){
-        echo "avis";
-    }
 }
 

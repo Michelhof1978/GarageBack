@@ -16,13 +16,6 @@ class APIController{
     public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
         echo " page voiturefiltre".$idVoiturefiche." demandées";
     }
-
-    public function getContact(){
-        echo "contact";
-    }
-
-    public function getAvis(){
-        echo "avis";
-    }
+    
 }
 

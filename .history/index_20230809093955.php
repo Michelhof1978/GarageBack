@@ -19,18 +19,16 @@ try{
                     case "accueil": $apiController->getAccueil();
                     break;
                     case "prestations": 
-                        if(empty($url[2])) throw new Exception ("L'identifiant de la prestation est manquant");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
+                        if(empty($url[2])) throw new Exception ("L'identifiant de la prestation est manquant'");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
                         $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
                     break;
-                    case "voituresfiltre": $apiController->getVoituresfiltre();
+                    case "voituresfiltre": $apiController->gt();
                     break;
-                    case "voiturefiche": //On affiche la page voitureFiche et on ajoute à l'indice 2 la voiture selectionnée avec un Id.
-                        if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
-                        $apiController->getVoiturefiche($url[2]);
+                    case "voiturefiche": echo "page voitureFiche".$url[2]." demandées";//On affiche la page voitureFiche et on ajoute à l'indice 2 la voiture selectionnée avec un Id.
                     break;
-                    case "contact":$apiController->getContact();
+                    case "contact": echo "page contact";
                     break;
-                    case "avis": $apiController->getAvis();
+                    case "avis": echo "page avis";
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }
