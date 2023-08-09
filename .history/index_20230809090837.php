@@ -18,9 +18,7 @@ try{
                 switch($url[1]){//On vérifie la valeur de l'url 1, si elle est égale à accueil, on affiche la page accueil.
                     case "accueil": $apiController->getAccueil();
                     break;
-                    case "prestations": 
-                        if(empty($url[2])) throw new Exception ("La page n'existe pas");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
-                        $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
+                    case "prestations": echo " page prestations".$url[2]." demandées";//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
                     break;
                     case "voituresFiltre": echo "page voituresFiltre";
                     break;

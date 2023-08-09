@@ -3,9 +3,7 @@
 define("URL", str_replace("index.php","",(isset($_SERVER['HTTPS']) ? "https" : "http").
 "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
-//On va récupérer le fichier API.controller.php et je vais gérer une instance de ma classe contrôleur
-require_once("controllers/front/API.controller.php");
-$apiController = new APIController();
+require_once("controllers/front/API.controller.php");//On va récupérer le fichier API.controller.php qui contient la classe APIController. Je vais gérer une instance de ma classe contrôleur
 
 try{
     if(empty($_GET['page'])){
@@ -16,11 +14,9 @@ try{
         switch($url[0]){
             case "front" : //On vérifie la valeur de l'url 0, si elle est égale à front, on va vérifier la valeur de l'url 1.
                 switch($url[1]){//On vérifie la valeur de l'url 1, si elle est égale à accueil, on affiche la page accueil.
-                    case "accueil": $apiController->getAccueil();
+                    case "accueil": echo "page accueil";
                     break;
-                    case "prestations": 
-                        if(empty($url[2])) throw new Exception ("La page n'existe pas");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
-                        $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
+                    case "prestations": echo " page prestations".$url[2]." demandées";//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
                     break;
                     case "voituresFiltre": echo "page voituresFiltre";
                     break;
