@@ -17,10 +17,7 @@ class APIController{
     }
 
     public function getPrestations($idPrestations){//On récupére en paramétre 2 de l'url l'Id
-        $prestations = $this->apiManager->getDBPrestations();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        echo "<pre>";
-        print_r($prestations);
-        echo "</pre>";
+        echo " page prestations".$idPrestations." demandées";
     }
 
     public function getVoituresfiltre(){
@@ -29,9 +26,7 @@ class APIController{
 
     public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
         $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        echo "<pre>";
-        print_r($voiturefiche);
-        echo "</pre>";
+        e
     }
 
     public function getContact(){
