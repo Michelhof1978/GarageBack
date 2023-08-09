@@ -29,14 +29,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
             return $avis;
             }
 
-            public function getDBContact(){
-                $req = "SELECT * FROM contactform";
-                $stmt = $this->getBdd()->prepare($req);//Prépparation de la requête
-                $stmt->execute();//Exécution de la requête
-                    $contact = $stmt->fetchAll(PDO::FETCH_ASSOC);//On va chercher toutes les données de la requête et on les stocke ds la variable $prestations
-                $stmt->closeCursor();//On ferme le curseur
-                return $contact;
-                }
+            
 }
 
 

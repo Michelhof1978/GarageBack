@@ -35,16 +35,14 @@ class APIController{
     }
 
     public function getContact(){
-        $contact = $this->apiManager->getDBContact(); // Appel de la méthode pour récupérer les avis depuis le modèle
         echo "<pre>";
         print_r($contact);
         echo "</pre>";
     }
 
     public function getAvis(){
-        $avis = $this->apiManager->getDBAvis(); // Appel de la méthode pour récupérer les avis depuis le modèle
         echo "<pre>";
-        print_r($avis);
+        print_r($voiturefiche);
         echo "</pre>";
     }
 }
