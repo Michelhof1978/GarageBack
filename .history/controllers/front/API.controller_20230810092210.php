@@ -19,7 +19,7 @@ class APIController{
 
     public function getPrestations($idPrestations){//On récupére en paramétre 2 de l'url l'Id
         $prestations = $this->apiManager->getDBPrestations();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJson($prestations);//On appelle la fonction ds model
+        Model::sendJson($prestations);//
        
         // echo "<pre>";
         // print_r($prestations);

@@ -19,11 +19,9 @@ class APIController{
 
     public function getPrestations($idPrestations){//On récupére en paramétre 2 de l'url l'Id
         $prestations = $this->apiManager->getDBPrestations();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJson($prestations);//On appelle la fonction ds model
-       
-        // echo "<pre>";
-        // print_r($prestations);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($prestations);
+        echo "</pre>";
     }
 
     public function getVoituresfiltre(){
@@ -32,27 +30,25 @@ class APIController{
 
     public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
         $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJson($voiturefiche);
-        // echo "<pre>";
-        // print_r($voiturefiche);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($voiturefiche);
+        echo "</pre>";
     }
 
     public function getContact(){
         $contact = $this->apiManager->getDBContact(); // Appel de la méthode pour récupérer les avis depuis le modèle
-        Model::sendJson($contact);
+        Model 
         
-        // echo "<pre>";
-        // print_r($contact);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($contact);
+        echo "</pre>";
     }
 
     public function getAvis(){
         $avis = $this->apiManager->getDBAvis(); // Appel de la méthode pour récupérer les avis depuis le modèle
-        Model::sendJson($avis);
-        // echo "<pre>";
-        // print_r($avis);
-        // echo "</pre>";
+        echo "<pre>";
+        print_r($avis);
+        echo "</pre>";
     }
 
     // public function getGarage(){
