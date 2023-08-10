@@ -37,15 +37,6 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
                 $stmt->closeCursor();//On ferme le curseur
                 return empty($contact) ? [] : $contact;
                 }
-
-                // public function getDBGarage(){
-                // $req = "SELECT * FROM garage";
-                // $stmt = $this->getBdd()->prepare($req);//Prépparation de la requête
-                // $stmt->execute();//Exécution de la requête
-                //     $garage = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                // $stmt->closeCursor();//On ferme le curseur
-                // return empty($garage) ? [] : $garage;
-                // }
 }
 
 

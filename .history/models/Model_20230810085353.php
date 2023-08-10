@@ -18,9 +18,5 @@ abstract class Model{
     }
 
     //fonction pour convertir les datas en format JSON
-    public static function sendJSON($info){
-        header("Access-Control-Allow-Origin: *");//On autorise l'accés à l'API, cela evitera une CROSS error 
-        header("Content-Type: application/json");//On précise que l'on va envoyer du JSON
-        echo json_encode($info);
-    }
+    public st
 }
