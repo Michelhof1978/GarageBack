@@ -8,7 +8,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
          $stmt->execute();//Exécution de la requête
             $voiturefiche = $stmt->fetchAll(PDO::FETCH_ASSOC);//On va chercher toutes les données de la requête et on les stocke ds la variable $voiturefiche
         $stmt->closeCursor();//On ferme le curseur
-        return empty($voiturefiche) ? [] : $voiturefiche;//J ai rajouté empty pour dire que si pad de données, ça nous renvoie quand même un tableau vide, cela peut éviter certaines erreurs
+        return empty($voiturefiche) ? [] ;
         }
 
     public function getDBPrestations(){
@@ -17,16 +17,16 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
         $stmt->execute();//Exécution de la requête
             $prestations = $stmt->fetchAll(PDO::FETCH_ASSOC);//On va chercher toutes les données de la requête et on les stocke ds la variable $prestations
         $stmt->closeCursor();//On ferme le curseur
-        return empty($prestations) ? [] : $prestations;
+        return $prestations;
         }
-        
+
         public function getDBAvis(){
             $req = "SELECT * FROM avis";
             $stmt = $this->getBdd()->prepare($req);//Prépparation de la requête
             $stmt->execute();//Exécution de la requête
                 $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);//On va chercher toutes les données de la requête et on les stocke ds la variable $prestations
             $stmt->closeCursor();//On ferme le curseur
-            return empty($avis) ? [] : $avis;
+            return $avis;
             }
 
             public function getDBContact(){
@@ -35,7 +35,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
                 $stmt->execute();//Exécution de la requête
                     $contact = $stmt->fetchAll(PDO::FETCH_ASSOC);//On va chercher toutes les données de la requête et on les stocke ds la variable $prestations
                 $stmt->closeCursor();//On ferme le curseur
-                return empty($contact) ? [] : $contact;
+                return $contact;
                 }
 }
 
