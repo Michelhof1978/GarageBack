@@ -30,17 +30,6 @@ class APIController{
         echo "voiture filtre";
     }
 
-    public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
-        $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJson($voiturefiche);
-        // echo "<pre>";
-        // print_r($voiturefiche);
-        // echo "</pre>";
-    }
-
-
-
-    //VOIR LES DONNEES SOUS FORMAT TABLEAU
     // public function getVoiturefiche($idVoiturefiche) {
     //     $voiturefiche = $this->apiManager->getDBVoiturefiche();
     //     $selectedVoiture = null;
@@ -58,7 +47,50 @@ class APIController{
     //     }
     //     echo "</table>";
     // }
-      
+    
+    
+    
+    
+    
+    
+    
+    
+        // echo "<pre>";
+        // print_r($voiturefiche);
+        // echo "</pre>";
+    
+
+    
+    //   function formatdatavoiture($tableauvoiturefiche) {
+    //     $tab = [];
+    //     foreach ($tableauvoiturefiche as $ligne) {
+    //         $tab[] = [
+    //             "id" => $ligne["vehicule_id"],
+    //             "familles" => $ligne["vehicule_familles"],
+    //             "marque" => $ligne["vehicule_marque"],
+    //             "modele" => $ligne["vehicule_modele"],
+    //             "annee" => $ligne["vehicule_annee"],
+    //             "kilometrage" => $ligne["vehicule_kilometrage"],
+    //             "boitevitesse" => $ligne["vehicule_boitevitesse"],
+    //             "energie" => $ligne["vehicule_energie"],
+    //             "datecirculation" => $ligne["vehicule_datecirculation"],
+    //             "puissance" => $ligne["vehicule_puissance"],
+    //             "places" => $ligne["vehicule_places"],
+    //             "couleur" => $ligne["vehicule_couleur"],
+    //             "reference" => $ligne["vehicule_reference"],
+    //             "prix" => $ligne["vehicule_prix"],
+    //             "imagevoiture" => $ligne["vehicule_imagevoiture"],
+    //             "imagecritere" => $ligne["vehicule_imagecritere"],
+    //             "description" => $ligne["vehicule_description"]
+    //         ];
+    //     }
+    //     echo "</pre>";
+    //     print_r($tab);
+    //     // return $tab;
+    // }
+    
+       
+    
         
 
     public function getContact(){

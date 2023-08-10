@@ -39,8 +39,6 @@ class APIController{
     }
 
 
-
-    //VOIR LES DONNEES SOUS FORMAT TABLEAU
     // public function getVoiturefiche($idVoiturefiche) {
     //     $voiturefiche = $this->apiManager->getDBVoiturefiche();
     //     $selectedVoiture = null;
