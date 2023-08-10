@@ -82,7 +82,7 @@ class APIController{
 
     public function getAvis(){
         $avis = $this->apiManager->getDBAvis(); // Appel de la méthode pour récupérer les avis depuis le modèle
-        Model::sendJSON($avis);
+        Model::sendJson($avis);
         // echo "<pre>";
         // print_r($avis);
         // echo "</pre>";

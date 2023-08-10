@@ -19,7 +19,7 @@ class APIController{
 
     public function getPrestations($idPrestations){//On récupére en paramétre 2 de l'url l'Id
         $prestations = $this->apiManager->getDBPrestations();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJSON($prestations);//On appelle la fonction ds model
+        Model::sendJson($prestations);//On appelle la fonction ds model
        
         // echo "<pre>";
         // print_r($prestations);
@@ -32,48 +32,17 @@ class APIController{
 
     public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
         $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJSON($voiturefiche);
+       
         // echo "<pre>";
         // print_r($voiturefiche);
         // echo "</pre>";
     }
 
-    
-    //   function formatdatavoiture($tableauvoiturefiche) {
-    //     $tab = [];
-    //     foreach ($tableauvoiturefiche as $ligne) {
-    //         $tab[] = [
-    //             "id" => $ligne["vehicule_id"],
-    //             "familles" => $ligne["vehicule_familles"],
-    //             "marque" => $ligne["vehicule_marque"],
-    //             "modele" => $ligne["vehicule_modele"],
-    //             "annee" => $ligne["vehicule_annee"],
-    //             "kilometrage" => $ligne["vehicule_kilometrage"],
-    //             "boitevitesse" => $ligne["vehicule_boitevitesse"],
-    //             "energie" => $ligne["vehicule_energie"],
-    //             "datecirculation" => $ligne["vehicule_datecirculation"],
-    //             "puissance" => $ligne["vehicule_puissance"],
-    //             "places" => $ligne["vehicule_places"],
-    //             "couleur" => $ligne["vehicule_couleur"],
-    //             "reference" => $ligne["vehicule_reference"],
-    //             "prix" => $ligne["vehicule_prix"],
-    //             "imagevoiture" => $ligne["vehicule_imagevoiture"],
-    //             "imagecritere" => $ligne["vehicule_imagecritere"],
-    //             "description" => $ligne["vehicule_description"]
-    //         ];
-    //     }
-    //     echo "</pre>";
-    //     print_r($tab);
-    //     // return $tab;
-    // }
-    
-       
-    
-        
+    private function formatdatavoiture($tavoiturefiche)
 
     public function getContact(){
         $contact = $this->apiManager->getDBContact(); // Appel de la méthode pour récupérer les avis depuis le modèle
-        Model::sendJSON($contact);
+        Model::sendJson($contact);
         
         // echo "<pre>";
         // print_r($contact);
@@ -82,7 +51,7 @@ class APIController{
 
     public function getAvis(){
         $avis = $this->apiManager->getDBAvis(); // Appel de la méthode pour récupérer les avis depuis le modèle
-        Model::sendJSON($avis);
+        Model::sendJson($avis);
         // echo "<pre>";
         // print_r($avis);
         // echo "</pre>";
