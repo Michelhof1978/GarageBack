@@ -3,17 +3,14 @@ require_once("models/Model.php");
 
 class APIManager extends Model{ //va hériter de Model et qui permettra la connexion à la BDD
     
-    public function getDBVoiturefiche(){
+    public function getDBVoiturefiche() {
         $req = "SELECT * FROM vehicule";
-        $stmt = $this->getBdd()->prepare($req);//Prépparation de la requête
-          $stmt->execute();//Exécution de la requête
-             $voiturefiche = $stmt->fetchAll(PDO::FETCH_ASSOC);//On va chercher toutes les données de la requête et on les stocke ds la variable $voiturefiche
-         $stmt->closeCursor();//On ferme le curseur
-         return empty($voiturefiche) ? [] : $voiturefiche;//J ai rajouté empty pour dire que si pad de données, ça nous renvoie quand même un tableau vide, cela peut éviter certaines erreurs
-         }
-    
-    
-    
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->execute();
+        $voiturefiche = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $voiturefiche; // Retourne toutes les données des véhicules
+    }
     
     
     

@@ -40,7 +40,7 @@ class APIController{
 
 
 
-    //VOIR LES DONNEES SOUS FORMAT TABLEAU
+    //v
     // public function getVoiturefiche($idVoiturefiche) {
     //     $voiturefiche = $this->apiManager->getDBVoiturefiche();
     //     $selectedVoiture = null;

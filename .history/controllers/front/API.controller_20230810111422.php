@@ -30,17 +30,8 @@ class APIController{
         echo "voiture filtre";
     }
 
-    public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
-        $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-        Model::sendJson($voiturefiche);
-        // echo "<pre>";
-        // print_r($voiturefiche);
-        // echo "</pre>";
-    }
+    
 
-
-
-    //VOIR LES DONNEES SOUS FORMAT TABLEAU
     // public function getVoiturefiche($idVoiturefiche) {
     //     $voiturefiche = $this->apiManager->getDBVoiturefiche();
     //     $selectedVoiture = null;

@@ -24,13 +24,14 @@ try{
                     break;
                     case "voituresfiltre": $apiController->getVoituresfiltre();
                     break;
-                    case "voiturefiche": //On affiche la page voitureFiche et on ajoute à l'indice 2 la voiture selectionnée avec un Id.
-                        if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
+                    case "voiturefiche":
+                        if (empty($url[2])) throw new Exception("L'identifiant de la voiture est manquant");
                         $apiController->getVoiturefiche($url[2]);
+                        break;
+                    
+                    case "contact":$apiController->getContact();
                     break;
-                    case "contact": echo "page contact";
-                    break;
-                    case "avis": echo "page avis";
+                    case "avis": $apiController->getAvis();
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }
