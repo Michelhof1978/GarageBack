@@ -45,6 +45,9 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+    }
+    
+    
     
 
     public function getDBPrestations(){

@@ -26,29 +26,32 @@ class APIController{
         // echo "</pre>";
     }
 
-    public function getVoiturefiche() {
-        $filtres = [
-            'marque' => $_GET['marque'] ?? null,
-            'modele' => $_GET['modele'] ?? null,
-            'annee' => $_GET['annee'] ?? null
-            // ... Ajoutez d'autres filtres ici ...
-        ];
+    public function getDBVoiturefiche($filters) {
+    $whereClauses = [];
+    $params = [];
 
-        $resultats = $this->apiManager->getVoiturefiche($filtres);
-        Model::sendJSON($resultats);
+    if (isset($filters['marque']) && $filters['marque'] !== 'Toutes') {
+        $whereClauses[] = 'marque = :marque';
+        $params[':marque'] = $filters['marque'];
     }
 
-    // public function getVoituresfiltre(){
-    //     echo "voiture filtre";
-    // }
+    if (isset($filters['anneeMin'])) {
+        $whereClauses[] = 'annee >= :anneeMin';
+        $params[':anneeMin'] = $filters['anneeMin'];
+    }
 
-    // public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
-    //     $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-    //     Model::sendJson($voiturefiche);
-    //     // echo "<pre>";
-    //     // print_r($voiturefiche);
-    //     // echo "</pre>";
-    // }
+    if (isset($filters['anneeMax'])) {
+        $whereClauses[] = 'annee <= :anneeMax';
+        $params[':anneeMax'] = $filters['anneeMax'];
+    }
+
+    public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
+        $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
+        Model::sendJson($voiturefiche);
+        // echo "<pre>";
+        // print_r($voiturefiche);
+        // echo "</pre>";
+    }
 
 
 

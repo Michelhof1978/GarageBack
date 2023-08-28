@@ -26,29 +26,20 @@ class APIController{
         // echo "</pre>";
     }
 
-    public function getVoiturefiche() {
-        $filtres = [
-            'marque' => $_GET['marque'] ?? null,
-            'modele' => $_GET['modele'] ?? null,
-            'annee' => $_GET['annee'] ?? null
-            // ... Ajoutez d'autres filtres ici ...
-        ];
-
-        $resultats = $this->apiManager->getVoiturefiche($filtres);
-        Model::sendJSON($resultats);
+    public function getVoituresfiltre() {
+        $filters = $_GET;
+    
+        $voitures = $this->manager->getDBVoiturefiche($filters);
+        echo json_encode($voitures);
     }
 
-    // public function getVoituresfiltre(){
-    //     echo "voiture filtre";
-    // }
-
-    // public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
-    //     $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-    //     Model::sendJson($voiturefiche);
-    //     // echo "<pre>";
-    //     // print_r($voiturefiche);
-    //     // echo "</pre>";
-    // }
+    public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
+        $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
+        Model::sendJson($voiturefiche);
+        // echo "<pre>";
+        // print_r($voiturefiche);
+        // echo "</pre>";
+    }
 
 
 

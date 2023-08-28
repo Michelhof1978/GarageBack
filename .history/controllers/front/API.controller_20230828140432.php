@@ -34,7 +34,7 @@ class APIController{
             // ... Ajoutez d'autres filtres ici ...
         ];
 
-        $resultats = $this->apiManager->getVoiturefiche($filtres);
+        $resultats = $this->apiManager->getVehicule($filtres);
         Model::sendJSON($resultats);
     }
 

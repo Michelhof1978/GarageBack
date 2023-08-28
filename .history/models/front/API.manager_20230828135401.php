@@ -12,7 +12,9 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     //      return empty($voiturefiche) ? [] : $voiturefiche;//J ai rajouté empty pour dire que si pad de données, ça nous renvoie quand même un tableau vide, cela peut éviter certaines erreurs
     //      }
 
-        public function getVoiturefiche($filtres = []) {
+  
+
+        public function getVehicule($filtres = []) {
             $req = "SELECT * FROM vehicule WHERE 1=1";
     
             if(isset($filtres['marque']) && $filtres['marque'] !== '') {
@@ -45,6 +47,9 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+    }
+    
+    
     
 
     public function getDBPrestations(){
