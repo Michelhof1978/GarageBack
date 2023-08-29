@@ -24,7 +24,7 @@ try{
                     break;
                     case "voiturefiche": //On affiche la page voitureFiche et on ajoute à l'indice 2 la voiture selectionnée avec un Id.
                         if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
-                        $apiController->getVoitureSearch($url[2]);
+                        $apiController->getVoiturefiche($url[2]);
                     break;
                     case "contact": echo "page contact";
                     break;

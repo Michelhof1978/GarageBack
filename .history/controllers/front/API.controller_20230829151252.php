@@ -26,7 +26,7 @@ class APIController{
         // echo "</pre>";
     }
 
-    public function getVoitureSearch() {
+    public function getVoitureS() {
         $filtres = [
             'marque' => $_GET['marque'] ?? null,
             'famille' => $_GET['famille'] ?? null,
@@ -35,7 +35,7 @@ class APIController{
           
         ];
 
-        $resultats = $this->apiManager->getVoitureSearch($filtres);
+        $resultats = $this->apiManager->getVoiturefiche($filtres);
         Model::sendJSON($resultats);
     }
 

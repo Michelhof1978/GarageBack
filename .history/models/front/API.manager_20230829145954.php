@@ -12,21 +12,17 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     //      return empty($voiturefiche) ? [] : $voiturefiche;//J ai rajouté empty pour dire que si pad de données, ça nous renvoie quand même un tableau vide, cela peut éviter certaines erreurs
     //      }
 
-        public function getVoitureSearch($filtres = []) {
+        public function getVoiturefiche($filtres = []) {
             $req = "SELECT * FROM vehicule WHERE 1=1";
     
             if(isset($filtres['marque']) && $filtres['marque'] !== '') {
                 $req .= " AND marque = :marque";
             }
-            if(isset($filtres['famille']) && $filtres['famille'] !== '') {
-                $req .= " AND famille = :famille";
+            if(isset($filtres['modele']) && $filtres['modele'] !== '') {
+                $req .= " AND modele = :modele";
             }
             if(isset($filtres['annee']) && $filtres['annee'] !== '') {
                 $req .= " AND annee = :annee";
-            }
-            if(isset($filtres['kilometrage']) && $filtres['kilometrage'] !== '') {
-                $req .= " AND kilometrage = :kilometrage";
-
             }
     
             // ... Ajoutez d'autres conditions ici ...
@@ -43,9 +39,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
                 $stmt->bindParam(":annee", $filtres['annee']);
             }
     
-            if(isset($filtres['kilometrage']) && $filtres['kilometrage'] !== '') {
-                $stmt->bindParam(":kilometrage", $filtres['kilometrage']);
-            }
+            // ... Liez d'autres paramètres ici ...
     
             $stmt->execute();
     

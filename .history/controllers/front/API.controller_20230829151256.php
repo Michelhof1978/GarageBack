@@ -35,7 +35,7 @@ class APIController{
           
         ];
 
-        $resultats = $this->apiManager->getVoitureSearch($filtres);
+        $resultats = $this->apiManager->getVoiturefiche($filtres);
         Model::sendJSON($resultats);
     }
 

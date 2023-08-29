@@ -26,60 +26,76 @@ class APIController{
         // echo "</pre>";
     }
 
-    public function getVoitureSearch() {
+    public function getVoiturefiche() {
         $filtres = [
             'marque' => $_GET['marque'] ?? null,
-            'famille' => $_GET['famille'] ?? null,
-            'annee' => $_GET['annee'] ?? null,
-            'kilometrage' => $_GET['kilometrage'] ?? null
-          
+            'modele' => $_GET['modele'] ?? null,
+            'annee' => $_GET['annee'] ?? null
+            // ... Ajoutez d'autres filtres ici ...
         ];
 
-        $resultats = $this->apiManager->getVoitureSearch($filtres);
+        $resultats = $this->apiManager->getVoiturefiche($filtres);
         Model::sendJSON($resultats);
     }
 
-
     // Supposons que vous ayez déjà inclus vos fichiers et initialisé la connexion à la base de données
 
-    // public function getVehiculeDetails($id) {
-    //     $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
-    //     $stmt = $this->apiManager->getBdd()->prepare($req);
-    //     $stmt->bindParam(":id", $id);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
+    public function getVehiculeDetails($id) {
+        $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
+        $stmt = $this->apiManager->getBdd()->prepare($req);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
-    // public function handleGetVehiculeDetails() {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    //         if (isset($_GET['id'])) {
-    //             $id = $_GET['id'];
+    public function handleGetVehiculeDetails() {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
                 
-    //             $vehicule = $this->getVehiculeDetails($id);
+                $vehicule = $this->getVehiculeDetails($id);
                 
-    //             if ($vehicule) {
-    //                 header('Content-Type: application/json');
-    //                 echo json_encode($vehicule);
-    //                 exit();
-    //             } else {
-    //                 http_response_code(404);
-    //                 echo json_encode(['error' => 'Véhicule non trouvé']);
-    //                 exit();
-    //             }
-    //         } else {
-    //             http_response_code(400);
-    //             echo json_encode(['error' => 'ID du véhicule manquant']);
-    //             exit();
+                if ($vehicule) {
+                    header('Content-Type: application/json');
+                    echo json_encode($vehicule);
+                    exit();
+                } else {
+                    http_response_code(404);
+                    echo json_encode(['error' => 'Véhicule non trouvé']);
+                    exit();
+                }
+            } else {
+                http_response_code(400);
+                echo json_encode(['error' => 'ID du véhicule manquant']);
+                exit();
+            }
+        }
+    }
+
+
+
+
+
+
+    //VOIR LES DONNEES SOUS FORMAT TABLEAU
+    // public function getVoiturefiche($idVoiturefiche) {
+    //     $voiturefiche = $this->apiManager->getDBVoiturefiche();
+    //     $selectedVoiture = null;
+    
+    //     foreach ($voiturefiche as $voiture) {
+    //         if ($voiture['idVehicule'] == $idVoiturefiche) {
+    //             $selectedVoiture = $voiture;
+    //             break;
     //         }
     //     }
+    
+    //     echo "<table border='1'>";
+    //     foreach ($selectedVoiture as $key => $value) {
+    //         echo "<tr><td>$key</td><td>$value</td></tr>";
+    //     }
+    //     echo "</table>";
     // }
-
-
-
-
-
-
-   
+      
         
 
     public function getContact(){
@@ -106,24 +122,3 @@ class APIController{
     //     echo "</pre>";
     // }
 }
-
-
- //VOIR LES DONNEES SOUS FORMAT TABLEAU
-    // public function getVoiturefiche($idVoiturefiche) {
-    //     $voiturefiche = $this->apiManager->getDBVoiturefiche();
-    //     $selectedVoiture = null;
-    
-    //     foreach ($voiturefiche as $voiture) {
-    //         if ($voiture['idVehicule'] == $idVoiturefiche) {
-    //             $selectedVoiture = $voiture;
-    //             break;
-    //         }
-    //     }
-    
-    //     echo "<table border='1'>";
-    //     foreach ($selectedVoiture as $key => $value) {
-    //         echo "<tr><td>$key</td><td>$value</td></tr>";
-    //     }
-    //     echo "</table>";
-    // }
-      

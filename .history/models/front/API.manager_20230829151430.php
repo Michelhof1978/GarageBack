@@ -27,7 +27,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
             if(isset($filtres['kilometrage']) && $filtres['kilometrage'] !== '') {
                 $req .= " AND kilometrage = :kilometrage";
 
-            }
+
     
             // ... Ajoutez d'autres conditions ici ...
     

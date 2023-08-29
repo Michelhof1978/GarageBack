@@ -12,7 +12,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     //      return empty($voiturefiche) ? [] : $voiturefiche;//J ai rajouté empty pour dire que si pad de données, ça nous renvoie quand même un tableau vide, cela peut éviter certaines erreurs
     //      }
 
-        public function getVoitureSearch($filtres = []) {
+        public function getVoiturefiche($filtres = []) {
             $req = "SELECT * FROM vehicule WHERE 1=1";
     
             if(isset($filtres['marque']) && $filtres['marque'] !== '') {
@@ -24,10 +24,10 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
             if(isset($filtres['annee']) && $filtres['annee'] !== '') {
                 $req .= " AND annee = :annee";
             }
-            if(isset($filtres['kilometrage']) && $filtres['kilometrage'] !== '') {
-                $req .= " AND kilometrage = :kilometrage";
+            if(isset($filtres['kilometrage']) && $filtres['annee'] !== '') {
+                $req .= " AND kilometrage = :annee";
 
-            }
+
     
             // ... Ajoutez d'autres conditions ici ...
     

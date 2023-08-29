@@ -26,20 +26,19 @@ class APIController{
         // echo "</pre>";
     }
 
-    public function getVoitureSearch() {
+    public function getVoiturefiche() {
         $filtres = [
             'marque' => $_GET['marque'] ?? null,
-            'famille' => $_GET['famille'] ?? null,
-            'annee' => $_GET['annee'] ?? null,
-            'kilometrage' => $_GET['kilometrage'] ?? null
-          
+            'modele' => $_GET['modele'] ?? null,
+            'annee' => $_GET['annee'] ?? null
+            // ... Ajoutez d'autres filtres ici ...
         ];
 
-        $resultats = $this->apiManager->getVoitureSearch($filtres);
+        $resultats = $this->apiManager->getVoiturefiche($filtres);
         Model::sendJSON($resultats);
     }
 
-
+    
     // Supposons que vous ayez déjà inclus vos fichiers et initialisé la connexion à la base de données
 
     // public function getVehiculeDetails($id) {
