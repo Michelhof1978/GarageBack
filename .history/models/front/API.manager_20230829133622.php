@@ -45,15 +45,6 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-
-        public function getVehiculeDetails($id) {
-            $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
-            $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindParam(":id", $id);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        }
-        
     
 
     public function getDBPrestations(){

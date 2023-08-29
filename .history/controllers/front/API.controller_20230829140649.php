@@ -38,39 +38,39 @@ class APIController{
         Model::sendJSON($resultats);
     }
 
-    // Supposons que vous ayez déjà inclus vos fichiers et initialisé la connexion à la base de données
+    <?php
 
-    public function getVehiculeDetails($id) {
-        $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
-        $stmt = $this->apiManager->getBdd()->prepare($req);
-        $stmt->bindParam(":id", $id);
+// Supposons que vous ayez déjà inclus vos fichiers et initialisé la connexion à la base de données
+
+// Endpoint pour récupérer les détails d'un véhicule par ID
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        
+        // Requête SQL pour récupérer les détails du véhicule par ID
+        $sql = "SELECT * FROM vehicule WHERE idVehicule = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function handleGetVehiculeDetails() {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                
-                $vehicule = $this->getVehiculeDetails($id);
-                
-                if ($vehicule) {
-                    header('Content-Type: application/json');
-                    echo json_encode($vehicule);
-                    exit();
-                } else {
-                    http_response_code(404);
-                    echo json_encode(['error' => 'Véhicule non trouvé']);
-                    exit();
-                }
-            } else {
-                http_response_code(400);
-                echo json_encode(['error' => 'ID du véhicule manquant']);
-                exit();
-            }
+        
+        // Récupération des résultats
+        $vehicule = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($vehicule) {
+            // Retourner les détails du véhicule en tant que réponse JSON
+            header('Content-Type: application/json');
+            echo json_encode($vehicule);
+        } else {
+            // Retourner une réponse d'erreur si le véhicule n'est pas trouvé
+            http_response_code(404);
+            echo json_encode(['error' => 'Véhicule non trouvé']);
         }
+    } else {
+        // Retourner une réponse d'erreur si l'ID n'est pas fourni
+        http_response_code(400);
+        echo json_encode(['error' => 'ID du véhicule manquant']);
     }
+}
 
 
     // public function getVoituresfiltre(){

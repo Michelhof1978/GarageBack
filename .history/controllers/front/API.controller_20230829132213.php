@@ -26,64 +26,17 @@ class APIController{
         // echo "</pre>";
     }
 
-    public function getVoiturefiche() {
-        $filtres = [
-            'marque' => $_GET['marque'] ?? null,
-            'modele' => $_GET['modele'] ?? null,
-            'annee' => $_GET['annee'] ?? null
-            // ... Ajoutez d'autres filtres ici ...
-        ];
-
-        $resultats = $this->apiManager->getVoiturefiche($filtres);
-        Model::sendJSON($resultats);
+    public function getVoituresfiltre(){
+        echo "voiture filtre";
     }
 
-    // Supposons que vous ayez déjà inclus vos fichiers et initialisé la connexion à la base de données
-
-    public function getVehiculeDetails($id) {
-        $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
-        $stmt = $this->apiManager->getBdd()->prepare($req);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
+        $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
+        Model::sendJson($voiturefiche);
+        // echo "<pre>";
+        // print_r($voiturefiche);
+        // echo "</pre>";
     }
-
-    public function handleGetVehiculeDetails() {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                
-                $vehicule = $this->getVehiculeDetails($id);
-                
-                if ($vehicule) {
-                    header('Content-Type: application/json');
-                    echo json_encode($vehicule);
-                    exit();
-                } else {
-                    http_response_code(404);
-                    echo json_encode(['error' => 'Véhicule non trouvé']);
-                    exit();
-                }
-            } else {
-                http_response_code(400);
-                echo json_encode(['error' => 'ID du véhicule manquant']);
-                exit();
-            }
-        }
-    }
-
-
-    // public function getVoituresfiltre(){
-    //     echo "voiture filtre";
-    // }
-
-    // public function getVoiturefiche($idVoiturefiche){//On récupére en paramétre 2 de l'url l'Id
-    //     $voiturefiche = $this->apiManager->getDBVoiturefiche();//On va chercher la méthode getVoiturefiche() de la classe APIManager et on la stocke ds la variable $voiturefiche.
-    //     Model::sendJson($voiturefiche);
-    //     // echo "<pre>";
-    //     // print_r($voiturefiche);
-    //     // echo "</pre>";
-    // }
 
 
 
@@ -132,3 +85,4 @@ class APIController{
     //     echo "</pre>";
     // }
 }
+

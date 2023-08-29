@@ -3,6 +3,16 @@ require_once("models/Model.php");
 
 class APIManager extends Model{ //va hériter de Model et qui permettra la connexion à la BDD
     
+    // public function getVoitureDetails($id) {
+    //     $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
+        
+    //     $stmt = $this->getBdd()->prepare($req);
+    //     $stmt->bindParam(":id", $id);
+    //     $stmt->execute();
+        
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
+    
     // public function getDBVoiturefiche(){
     //     $req = "SELECT * FROM vehicule";
     //     $stmt = $this->getBdd()->prepare($req);//Prépparation de la requête
@@ -12,48 +22,39 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
     //      return empty($voiturefiche) ? [] : $voiturefiche;//J ai rajouté empty pour dire que si pad de données, ça nous renvoie quand même un tableau vide, cela peut éviter certaines erreurs
     //      }
 
-        public function getVoiturefiche($filtres = []) {
-            $req = "SELECT * FROM vehicule WHERE 1=1";
+        // public function getVoiturefiche($filtres = []) {
+        //     $req = "SELECT * FROM vehicule WHERE 1=1";
     
-            if(isset($filtres['marque']) && $filtres['marque'] !== '') {
-                $req .= " AND marque = :marque";
-            }
-            if(isset($filtres['modele']) && $filtres['modele'] !== '') {
-                $req .= " AND modele = :modele";
-            }
-            if(isset($filtres['annee']) && $filtres['annee'] !== '') {
-                $req .= " AND annee = :annee";
-            }
+        //     if(isset($filtres['marque']) && $filtres['marque'] !== '') {
+        //         $req .= " AND marque = :marque";
+        //     }
+        //     if(isset($filtres['modele']) && $filtres['modele'] !== '') {
+        //         $req .= " AND modele = :modele";
+        //     }
+        //     if(isset($filtres['annee']) && $filtres['annee'] !== '') {
+        //         $req .= " AND annee = :annee";
+        //     }
     
-            // ... Ajoutez d'autres conditions ici ...
+        //     // ... Ajoutez d'autres conditions ici ...
     
-            $stmt = $this->getBdd()->prepare($req);
+        //     $stmt = $this->getBdd()->prepare($req);
     
-            if(isset($filtres['marque']) && $filtres['marque'] !== '') {
-                $stmt->bindParam(":marque", $filtres['marque']);
-            }
-            if(isset($filtres['modele']) && $filtres['modele'] !== '') {
-                $stmt->bindParam(":modele", $filtres['modele']);
-            }
-            if(isset($filtres['annee']) && $filtres['annee'] !== '') {
-                $stmt->bindParam(":annee", $filtres['annee']);
-            }
+        //     if(isset($filtres['marque']) && $filtres['marque'] !== '') {
+        //         $stmt->bindParam(":marque", $filtres['marque']);
+        //     }
+        //     if(isset($filtres['modele']) && $filtres['modele'] !== '') {
+        //         $stmt->bindParam(":modele", $filtres['modele']);
+        //     }
+        //     if(isset($filtres['annee']) && $filtres['annee'] !== '') {
+        //         $stmt->bindParam(":annee", $filtres['annee']);
+        //     }
     
-            // ... Liez d'autres paramètres ici ...
+        //     // ... Liez d'autres paramètres ici ...
     
-            $stmt->execute();
+        //     $stmt->execute();
     
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        }
-
-        public function getVehiculeDetails($id) {
-            $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
-            $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindParam(":id", $id);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        }
-        
+        //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // }
     
 
     public function getDBPrestations(){
@@ -92,4 +93,5 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
                 // return empty($garage) ? [] : $garage;
                 // }
 }
+
 

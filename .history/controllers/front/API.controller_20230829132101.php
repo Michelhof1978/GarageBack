@@ -26,6 +26,13 @@ class APIController{
         // echo "</pre>";
     }
 
+    //------------------------------------------------------------------------------------------
+    // public function getVehiculeDetails($id)
+    // {
+    //     $details = $this->apiManager->getVoitureDetails($id);
+
+    //     return response()->json($details);
+    // }
     public function getVoiturefiche() {
         $filtres = [
             'marque' => $_GET['marque'] ?? null,
@@ -37,41 +44,6 @@ class APIController{
         $resultats = $this->apiManager->getVoiturefiche($filtres);
         Model::sendJSON($resultats);
     }
-
-    // Supposons que vous ayez déjà inclus vos fichiers et initialisé la connexion à la base de données
-
-    public function getVehiculeDetails($id) {
-        $req = "SELECT * FROM vehicule WHERE idVehicule = :id";
-        $stmt = $this->apiManager->getBdd()->prepare($req);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public function handleGetVehiculeDetails() {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                
-                $vehicule = $this->getVehiculeDetails($id);
-                
-                if ($vehicule) {
-                    header('Content-Type: application/json');
-                    echo json_encode($vehicule);
-                    exit();
-                } else {
-                    http_response_code(404);
-                    echo json_encode(['error' => 'Véhicule non trouvé']);
-                    exit();
-                }
-            } else {
-                http_response_code(400);
-                echo json_encode(['error' => 'ID du véhicule manquant']);
-                exit();
-            }
-        }
-    }
-
 
     // public function getVoituresfiltre(){
     //     echo "voiture filtre";
@@ -132,3 +104,4 @@ class APIController{
     //     echo "</pre>";
     // }
 }
+
