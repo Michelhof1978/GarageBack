@@ -10,7 +10,8 @@ define('__ROOT__', dirname(__FILE__));
 require_once ("controllers/front/vehicule_controller.php");
 $apiController = new VehiculeController();
 
-require_once ("controllers/front/contact_controller.php");
+require_once ("controllers/front/vehicule_controller.php");
+
 $contact_controller = new ContactController();
 
 

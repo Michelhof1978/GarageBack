@@ -8,11 +8,8 @@ define('__ROOT__', dirname(__FILE__));
 // On va récupérer le fichier API.controller.php et je vais gérer une instance de ma classe contrôleur
 
 require_once ("controllers/front/vehicule_controller.php");
+
 $apiController = new VehiculeController();
-
-require_once ("controllers/front/contact_controller.php");
-$contact_controller = new ContactController();
-
 
 try{
     if(empty($_GET['page'])){

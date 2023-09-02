@@ -7,11 +7,7 @@ define('__ROOT__', dirname(__FILE__));
 
 // On va récupérer le fichier API.controller.php et je vais gérer une instance de ma classe contrôleur
 
-require_once ("controllers/front/vehicule_controller.php");
-$apiController = new VehiculeController();
 
-require_once ("controllers/front/contact_controller.php");
-$contact_controller = new ContactController();
 
 
 try{
@@ -33,7 +29,7 @@ try{
                         if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
                         $apiController->getCarsByFilters($url[2]);
                     break;
-                    case "contact" : $contact_controller -> getContact();
+                    case "contact" : $apiController -> getContact();
                     break;
                     // case "avis": echo "page avis";
                     // break;

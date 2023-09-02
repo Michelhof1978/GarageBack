@@ -10,10 +10,6 @@ define('__ROOT__', dirname(__FILE__));
 require_once ("controllers/front/vehicule_controller.php");
 $apiController = new VehiculeController();
 
-require_once ("controllers/front/contact_controller.php");
-$contact_controller = new ContactController();
-
-
 try{
     if(empty($_GET['page'])){
         throw new Exception("La page n'existe pas");//Si l'URL est vide ou faussée, on lève une exception et on affiche une page d erreur.
