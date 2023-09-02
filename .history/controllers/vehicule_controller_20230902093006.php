@@ -1,7 +1,5 @@
 <?php //CONTROLLER
-define('__ROOT__', __DIR__);
-require_once __ROOT__ . '/GarageBack/controllers/vehicule_controller.php';
-
+require_once('__ROOT__''\models\vehicule_model.php');
 
 // Création du controlleur du côté front qui va regrouper toutes nos routes
 class VehiculeController{

@@ -1,5 +1,4 @@
 <?php
-require_once(__ROOT__.'..\controllers\vehicule_controller.php');
 //   define('__ROOT__', dirname(dirname(__FILE__)));
 
 //   require_once(__ROOT__.'..\controllers\vehicule_controller.php');
