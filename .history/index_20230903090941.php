@@ -1,0 +1,1 @@
+import Contact from '../../containers/Site/contact';

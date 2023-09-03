@@ -1,18 +1,11 @@
-<?php
+<?php 
 // 1. Création du fichier index.php dans lequel on définit une constante URL.
-define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+define("URL", str_replace("index.php","",(isset($_SERVER['HTTPS']) ? "https" : "http").
+"://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
-// Définition de la constante __ROOT__
-define('__ROOT__', dirname(__FILE__));
-
-// On va récupérer le fichier API.controller.php et je vais gérer une instance de ma classe contrôleur
-
-require_once ("controllers/front/vehicule_controller.php");
-$apiController = new VehiculeController();
-
-require_once ("controllers/front/contact_controller.php");
-$contact_controller = new ContactController();
-
+//On va récupérer le fichier API.controller.php et je vais gérer une instance de ma classe contrôleur
+require_once("controllers/front/API.controller.php");
+$apiController = new APIController();
 
 try{
     if(empty($_GET['page'])){
@@ -25,18 +18,18 @@ try{
                 switch($url[1]){//On vérifie la valeur de l'url 1, si elle est égale à accueil, on affiche la page accueil.
                     case "accueil": $apiController->getAccueil();
                     break;
-                    // case "prestations": 
-                    //     if(empty($url[2])) throw new Exception ("L'identifiant de la prestation est manquant");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
-                    //     $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
-                    // break;
+                    case "prestations": 
+                        if(empty($url[2])) throw new Exception ("L'identifiant de la prestation est manquant");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
+                        $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
+                    break;
                     case "voiturefiche": //On affiche la page voitureFiche et on ajoute à l'indice 2 la voiture selectionnée avec un Id.
                         if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
-                        $apiController->getCarsByFilters($url[2]);
+                        $apiController->getVoitureSearch($url[2]);
                     break;
-                    case "contact" : $contact_controller -> getContact();
+                    case "contact": getC;
                     break;
-                    // case "avis": echo "page avis";
-                    // break;
+                    case "avis": echo "page avis";
+                    break;
                     default : throw new Exception ("La page n'existe pas");
                 }
             break;
