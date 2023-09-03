@@ -17,6 +17,6 @@ class AdminController {
 //Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
         echo password_hash("adminmichelaquiche", PASSWORD_DEFAULT); //Ainsi le mdp sera cypté 
         
-       
+        echo "connexion";
     }
 }
