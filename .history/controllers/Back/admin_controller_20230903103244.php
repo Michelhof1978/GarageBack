@@ -8,6 +8,6 @@ class AdminController {
 
     public function getPageLogin() {
         echo "page de login";
-        require_once "views/login.view.php";
+        // require_once "views/login.view.php";
     }
 }
