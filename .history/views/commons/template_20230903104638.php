@@ -8,11 +8,8 @@
 <body>
     <?php require_once("views/commons/menu.php"); ?>
     
-    <!-- On va afficher le contenu de la variable content qui est rempli depuis la page login view -->
-       <div>
-       <h1><?= $titre ?></h1>
-<?= $content ?>
-
-    </div>
+    {# /// On va afficher le contenu de la variable content qui est rempli depuis la page login view #}
+       <?php $content ?>
+       
 </body>
 </html>
