@@ -1,5 +1,5 @@
 <?php
-require_once("models/Model.php");
+// require_once("models/Model.php");
 
 // class APIManager extends Model{ //va hériter de Model et qui permettra la connexion à la BDD
 
@@ -20,7 +20,7 @@ require_once("models/Model.php");
 
 //             }
     
-//           
+//             // ... Ajoutez d'autres conditions ici ...
     
 //             $stmt = $this->getBdd()->prepare($req);
     

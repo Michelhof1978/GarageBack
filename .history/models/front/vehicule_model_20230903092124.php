@@ -63,8 +63,8 @@ public function getCarsByFilters($filters) {
 
     return $results;
 }
-
+<<<<<<< HEAD
  }
-
- 
+=======
+ }
 

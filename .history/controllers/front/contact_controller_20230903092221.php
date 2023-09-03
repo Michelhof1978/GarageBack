@@ -33,8 +33,8 @@ class ContactController {
         // $subject = "Message de : " . $obj->nom;
         // $message = $obj->message;
         // $headers = "From : " . $obj->email;
-
+<<<<<<< HEAD
         // mail($to, $subject, $message, $headers);
-
-    
+=======
+        // mail($to, $subject, $message, $headers);
 

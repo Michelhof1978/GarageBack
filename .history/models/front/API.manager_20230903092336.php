@@ -20,7 +20,7 @@ require_once("models/Model.php");
 
 //             }
     
-//           
+//             // ... Ajoutez d'autres conditions ici ...
     
 //             $stmt = $this->getBdd()->prepare($req);
     
