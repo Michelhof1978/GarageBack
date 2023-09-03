@@ -6,8 +6,8 @@ class AdminController {
         
     }
 
-    public function getPageLogin() {
+    public function getageLogin() {
         echo "page de login";
-        require_once "views/login.view.php";
+        // require_once "views/login.view.php";
     }
 }

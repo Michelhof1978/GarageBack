@@ -13,9 +13,8 @@ $apiController = new VehiculeController();
 require_once ("controllers/front/contact_controller.php");
 $contact_controller = new ContactController();
 
-require_once ("controllers/back/admin_controller.php");
-$admin_controller = new AdminController();
-
+require_once ("controllers/front/contact_controller.php");
+$contact_controller = new ContactController();
 try{
     if(empty($_GET['page'])){
         throw new Exception("La page n'existe pas");//Si l'URL est vide ou faussée, on lève une exception et on affiche une page d erreur.
@@ -42,12 +41,7 @@ try{
                     default : throw new Exception ("La page n'existe pas");
                 }
             break;
-            case "back" :
-                 switch($url[1]) {
-                case "login" : $admin_controller->getPageLogin(); 
-                break;
-            default : throw new Exception ("La page n'existe pas");
-                 }
+            case "back" : echo "page back end demandée";
             break;
             default : throw new Exception ("La page n'existe pas");//On léve encore une exeption que s'il n'y a pas front ou back mais autre chose de marqué ds l'url, on affichera un message d'erreur.
         }

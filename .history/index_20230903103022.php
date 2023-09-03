@@ -47,7 +47,7 @@ try{
                 case "login" : $admin_controller->getPageLogin(); 
                 break;
             default : throw new Exception ("La page n'existe pas");
-                 }
+            
             break;
             default : throw new Exception ("La page n'existe pas");//On léve encore une exeption que s'il n'y a pas front ou back mais autre chose de marqué ds l'url, on affichera un message d'erreur.
         }
