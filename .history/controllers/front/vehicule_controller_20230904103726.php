@@ -1,5 +1,6 @@
 <?php //CONTROLLER
 
+require_once("models/front/vehicule_model.php");
 require_once(__ROOT__.'\models\front\vehicule_model.php');
 
 

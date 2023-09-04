@@ -22,46 +22,7 @@ public function getCarsByFilters($filters) {
 
     // Construct the SQL query based on filters
     $sql = "SELECT * FROM vehicule WHERE 1"; //1 pour que ça soit toujours vrai même si pas de filtres
-
-    if (isset($filters['famille'])) { //vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
-        $sql .= " AND famille = :famille";
-    }
-
-    if (isset($filters['marque'])) {
-        $sql .= " AND marque = :marque";
-    }
-
-    if (isset($filters['kilometremin'])) {
-        $sql .= " AND kilometrage >= :kilometremin";
-    }
-
-    if (isset($filters['kilometremax'])) {
-        $sql .= " AND kilometrage <= :kilometremax";
-    }
-
-    if (isset($filters['anneemin'])) {
-        $sql .= " AND annee >= :anneemin";
-    }
-    if (isset($filters['anneemax'])) {
-        $sql .= " AND annee <= :anneemax";
-    }
-
-    if (isset($filters['prixmin'])) {
-        $sql .= " AND prix >= :prixmin";
-    }
-
-
-    if (isset($filters['prixmax'])) {
-        $sql .= " AND prix <= :prixmax";
-    }
-
-      if (isset($filters['limite'])) { // On va limiter le nombre de voitures à l'affichage
-            $sql .= " LIMIT :limite";
-         
-      }
-    // Prepare and execute the query
-    $stmt = $this->dbh->prepare($sql);
-   // Bind other parameters if they are set
+    // Bind other parameters if they are set
 if (isset($filters['famille'])) {
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }
@@ -101,8 +62,49 @@ if (isset($filters['limite'])) {
 // Execute the query
 $stmt->execute();
 
+Envoyer un message à @goriot
 
 
+    // if (isset($filters['famille'])) { 
+    //     $sql .= " AND famille = :famille";
+    // }
+
+    // if (isset($filters['marque'])) {
+    //     $sql .= " AND marque = :marque";
+    // }
+
+    // if (isset($filters['kilometremin'])) {
+    //     $sql .= " AND kilometrage >= :kilometremin";
+    // }
+
+    // if (isset($filters['kilometremax'])) {
+    //     $sql .= " AND kilometrage <= :kilometremax";
+    // }
+
+    // if (isset($filters['anneemin'])) {
+    //     $sql .= " AND annee >= :anneemin";
+    // }
+    // if (isset($filters['anneemax'])) {
+    //     $sql .= " AND annee <= :anneemax";
+    // }
+
+    // if (isset($filters['prixmin'])) {
+    //     $sql .= " AND prix >= :prixmin";
+    // }
+
+
+    // if (isset($filters['prixmax'])) {
+    //     $sql .= " AND prix <= :prixmax";
+    // }
+
+    // if (isset($filters['limite'])) { // On va limiter le nombre de voitures à l'affichage
+    //     $sql .= " LIMIT :limite";
+    //     $filters[':limite'] = $filters['limite']; // Lier la limite au paramètre
+    // }
+
+    // Prepare and execute the query
+    $stmt = $this->dbh->prepare($sql);
+    $stmt->execute($filters);
 
     // Fetch results
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -115,5 +117,5 @@ $stmt->execute();
 
  }
 
-
+ 
 

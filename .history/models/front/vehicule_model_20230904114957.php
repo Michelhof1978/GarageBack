@@ -58,9 +58,10 @@ public function getCarsByFilters($filters) {
       if (isset($filters['limite'])) { // On va limiter le nombre de voitures à l'affichage
             $sql .= " LIMIT :limite";
          
-      }
+
     // Prepare and execute the query
     $stmt = $this->dbh->prepare($sql);
+    
    // Bind other parameters if they are set
 if (isset($filters['famille'])) {
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
@@ -101,7 +102,7 @@ if (isset($filters['limite'])) {
 // Execute the query
 $stmt->execute();
 
-
+Envoyer un message à @goriot
 
 
     // Fetch results
@@ -115,5 +116,5 @@ $stmt->execute();
 
  }
 
-
+ 
 
