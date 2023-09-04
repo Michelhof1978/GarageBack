@@ -20,7 +20,7 @@ class AdminManager extends Model{
     //Fonction qui fera les vérifications
     public function isConnexionValid($login, $password) {
         $passwordBD = $this->getPasswordUser($login);
-        return password_verify($password, $passwordBD);//renvoi un booleen
+        return password_verify($password, $passwordBD);
     }// Vérifira si le mdp correspond ou pas en renvoyant juste true ou false
 
     }

@@ -14,13 +14,13 @@ class AdminManager extends Model{
         $stmt->bindValue(":login", $login,PDO::PARAM_STR);
         $stmt->execute();
         $admin = $stmt->fetch(PDO::FETCH_ASSOC); //On récupére les informations saisies 
-        $stmt->closeCursor();
+        $stmt
         return $admin['password'];
     }
     //Fonction qui fera les vérifications
     public function isConnexionValid($login, $password) {
         $passwordBD = $this->getPasswordUser($login);
-        return password_verify($password, $passwordBD);//renvoi un booleen
+        return password_verify($password, $passwordBD);
     }// Vérifira si le mdp correspond ou pas en renvoyant juste true ou false
 
     }

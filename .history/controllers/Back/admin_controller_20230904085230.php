@@ -9,7 +9,7 @@ require "./controllers/back/security.class.php";
 require "./models/back/admin_manager.php";
 
 class AdminController {
-        private $AdminManager; //Déclaration d une propriéte privée
+        private $AdminManager; //
 
     public function __construct()
     {

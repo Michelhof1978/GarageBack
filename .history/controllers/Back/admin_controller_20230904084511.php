@@ -9,7 +9,7 @@ require "./controllers/back/security.class.php";
 require "./models/back/admin_manager.php";
 
 class AdminController {
-        private $AdminManager; //Déclaration d une propriéte privée
+        private $AdminManager;
 
     public function __construct()
     {
@@ -25,8 +25,8 @@ class AdminController {
 //vérification si les informations ds login et mdp ont bien été saisis
 if (!empty($_POST["login"]) && !empty($_POST["password"])) {
     
-    $login = Securite::secureHtml($_POST["login"]);
-    $password = Securite::secureHtml($_POST["password"]);
+    $login = Securit::secureHtml($_POST["login"]);
+    $password = Security::secureHtml($_POST["password"]);
     if($this->AdminManager->isConnexionValid($login, $password)) {
         //Si true, on va pouvoir générer une session
         $_SESSION['access'] = "admin";

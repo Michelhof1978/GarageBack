@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <!--Pour la connexion à login, aprés l'url, on ajoutera back/login-->
+                Pour la connexion
                 <a class="nav-link" href="<?= URL ?>back/login">Login</a>
             </li>
             <li class="nav-item dropdown">
@@ -20,9 +20,6 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= URL ?>back/login">Déconnexion</a>
             </li>
         </ul>
     </div>

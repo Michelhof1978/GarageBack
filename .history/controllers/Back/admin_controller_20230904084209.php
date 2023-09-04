@@ -9,7 +9,7 @@ require "./controllers/back/security.class.php";
 require "./models/back/admin_manager.php";
 
 class AdminController {
-        private $AdminManager; //Déclaration d une propriéte privée
+        private $AdminManager;
 
     public function __construct()
     {
@@ -21,12 +21,15 @@ class AdminController {
         require_once "views/login_view.php";
     }
     
-    public function connexion(){
+   
+    }
+
+     public function connexion(){
 //vérification si les informations ds login et mdp ont bien été saisis
 if (!empty($_POST["login"]) && !empty($_POST["password"])) {
     
-    $login = Securite::secureHtml($_POST["login"]);
-    $password = Securite::secureHtml($_POST["password"]);
+    $login = Security::secureHtml($_POST["login"]);
+    $password = Security::secureHtml($_POST["password"]);
     if($this->AdminManager->isConnexionValid($login, $password)) {
         //Si true, on va pouvoir générer une session
         $_SESSION['access'] = "admin";
@@ -49,4 +52,3 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
         public function getAccueilAdmin(){
             require "views/accueilAdmin_view.php";
         }
-    }

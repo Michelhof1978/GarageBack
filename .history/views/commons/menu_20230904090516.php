@@ -22,7 +22,8 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= URL ?>back/login">Déconnexion</a>
+                <!--Pour la connexion à login, aprés l'url, on ajoutera back/login-->
+                <a class="nav-link" href="<?= URL ?>back/login">Login</a>
             </li>
         </ul>
     </div>

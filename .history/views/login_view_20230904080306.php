@@ -11,11 +11,11 @@ Permet de mettre en mémoire tampon la sortie générée. */
 <form method="POST" action="<?= URL ?>back/connexion">
     <!-- Permet d'aller sur l'URL en ajoutant "back/connexion" à la fin pour accéder à la page de connexion -->
     <div class="form-group">
-        <label for="login">Identifiant</label>
+        <label for="login">Connexion Espace Pro</label>
         <input type="text" class="form-control" id="login" name="login" aria-describedby="loginHelp">
     </div>
     <div class="form-group">
-        <label for="password">Mot De Passe</label>
+        <label for="password">Mot </label>
         <input type="password" class="form-control" id="password" name="password">
     </div>
     <button type="submit" class="btn btn-primary">Valider</button>

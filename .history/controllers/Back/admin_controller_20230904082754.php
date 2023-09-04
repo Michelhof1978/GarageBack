@@ -9,7 +9,7 @@ require "./controllers/back/security.class.php";
 require "./models/back/admin_manager.php";
 
 class AdminController {
-        private $AdminManager; //Déclaration d une propriéte privée
+        private $AdminManager;
 
     public function __construct()
     {
@@ -25,8 +25,8 @@ class AdminController {
 //vérification si les informations ds login et mdp ont bien été saisis
 if (!empty($_POST["login"]) && !empty($_POST["password"])) {
     
-    $login = Securite::secureHtml($_POST["login"]);
-    $password = Securite::secureHtml($_POST["password"]);
+    $login = Security::secureHtml($_POST["login"]);
+    $password = Security::secureHtml($_POST["password"]);
     if($this->AdminManager->isConnexionValid($login, $password)) {
         //Si true, on va pouvoir générer une session
         $_SESSION['access'] = "admin";
@@ -42,11 +42,11 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
         //UTILISATION D UNE METHODE CRYPTE DU MDP
 //Pour une connexion sécurisé, cette fonction va générer un mot de passe que je vais générer
 //Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
-        //echo password_", PASSWORD_DEFAULT); //Ainsi le mdp sera cypté 
+        echo password_", PASSWORD_DEFAULT); //Ainsi le mdp sera cypté 
          }
         
         }
         public function getAccueilAdmin(){
             require "views/accueilAdmin_view.php";
         }
-    }
+    }}
