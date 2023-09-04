@@ -9,7 +9,7 @@
 <body>
     <?php require_once("views/commons/menu.php"); ?>
     <div class="container">
-        <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-primary"><?= $titre ?></h1>
+        <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-primay"><?= $titre ?></h1>
         <?= $content ?>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

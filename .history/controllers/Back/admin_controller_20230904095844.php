@@ -47,8 +47,8 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
         
         }
         public function getAccueilAdmin(){
-            if(Securite::verifAccessSession()){ //vérification si l utilisateur a bie les accés ou non
-                require "views/accueilAdmin_view.php";
+            if(Securite::verifAccessSession()){
+
             }
            
         }

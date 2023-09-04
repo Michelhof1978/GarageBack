@@ -19,7 +19,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= URL ?>back/admin">Accueil Pro</a>
+                <a class="nav-link" href="<?= URL ?>back/deconnexion">Accueil</a>
             </li>
             <li class="nav-item">
                 <!--Pour la connexion à login, aprés l'url, on ajoutera back/login-->

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Garrage Parrot</a>
+    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,14 +19,11 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= URL ?>back/admin">Accueil Pro</a>
-            </li>
-            <li class="nav-item">
                 <!--Pour la connexion à login, aprés l'url, on ajoutera back/login-->
-                <a class="nav-link" href="<?= URL ?>back/login">Connexion</a>
+                <a class="nav-link" href="<?= URL ?>back/login"></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= URL ?>back/deconnexion">Déconnexion</a>
+                <a class="nav-link" href="<?= URL ?>back/deconnexon">Déconnexion</a>
             </li>
         </ul>
     </div>

@@ -47,14 +47,8 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
         
         }
         public function getAccueilAdmin(){
-            if(Securite::verifAccessSession()){ //vérification si l utilisateur a bie les accés ou non
-                require "views/accueilAdmin_view.php";
-            }
-           
+            require "views/accueilAdmin_view.php";
         }
 
-        public function deconnexion(){
-           session_destroy(); //Va supprimer la variable de session
-           header('Location: '.URL."back/login");//redirection sur la page connexion
-        }
+        public
     }

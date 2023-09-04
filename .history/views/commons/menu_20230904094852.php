@@ -19,9 +19,6 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= URL ?>back/admin">Accueil Pro</a>
-            </li>
-            <li class="nav-item">
                 <!--Pour la connexion à login, aprés l'url, on ajoutera back/login-->
                 <a class="nav-link" href="<?= URL ?>back/login">Connexion</a>
             </li>

@@ -24,6 +24,6 @@ Permet de mettre en mémoire tampon la sortie générée. */
 <?php
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
 $content = ob_get_clean();
-$titre = "Connexion Espace Pro";
+$titre = "Connexion";
 require "views/commons/template.php";
 ?>

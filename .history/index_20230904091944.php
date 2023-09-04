@@ -57,7 +57,7 @@ try{
                     break;
                     case "admin": $admin_controller->getAccueilAdmin();
                     break; 
-                    case "deconnexion": $admin_controller->deconnexion();
+                    case "deconnexion": $admin_controller->getAccueil();
                     break; 
             default : throw new Exception ("La page n'existe pas");
                  }
