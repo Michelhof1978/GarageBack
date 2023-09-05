@@ -60,7 +60,6 @@ $controller = new VehiculeController();
 
 }else {
     // echo"pas getrequests";
-    
     http_response_code(404);
     echo json_encode(["error" => "endpoint not found"]);
 }

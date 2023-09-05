@@ -1,6 +1,6 @@
 <?php
 
-// Va traiter les requêtes HTTP entrantes et effectue différentes actions en fonction de la méthode de la requête et des paramètres fournis dans l'URI
+//
 
 $methode = $_SERVER['REQUEST_METHOD']; //Extrait la méthode de la requête, faire certaines instructions suivant la méthode
 $uri = $_SERVER['REQUEST_URI']; // URI = permet d'identification du chemin
@@ -60,7 +60,6 @@ $controller = new VehiculeController();
 
 }else {
     // echo"pas getrequests";
-    
     http_response_code(404);
     echo json_encode(["error" => "endpoint not found"]);
 }

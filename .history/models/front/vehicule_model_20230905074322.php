@@ -65,7 +65,7 @@ public function getCarsByFilters($filters) {
     $stmt = $this->dbh->prepare($sql);
 
 
-   //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
+   // gère la liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
 if (isset($filters['famille'])) {
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }
