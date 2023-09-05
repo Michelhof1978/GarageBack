@@ -69,9 +69,9 @@ class AdminController {
 // echo "Mot de passe en clair : $plainPassword\n";
 // echo "Mot de passe haché : $hashedPassword\n";
 
-        //  }
+         }
         
-        // }
+        }
         public function getAccueilAdmin(){
             if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
                 require "views/accueilAdmin_view.php";
@@ -85,4 +85,4 @@ class AdminController {
            session_destroy(); //Va supprimer la variable de session
            header('Location: '.URL."back/login");//redirection sur la page connexion
         }
-    }
+    

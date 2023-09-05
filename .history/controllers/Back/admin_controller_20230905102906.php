@@ -21,43 +21,26 @@ class AdminController {
         
         require_once "views/login_view.php";
     }
-
-
-    public function connexion(){
-        if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-            $login = Securite::secureHtml($_POST["login"]);
-            $password = Securite::secureHtml($_POST["password"]);
-            
-            // Utilisé pour déboguer, à enlever une fois que ça fonctionne
-            echo "Login : $login<br>";
-            echo "Password : $password<br>";
-            
-            if($this->AdminManager->isConnexionValid($login, $password)) {
-                $_SESSION['access'] = "admin";
-                header('Location: '.URL."back/admin");
-            } else {
-                header('Location: '.URL."back/login");
+    
+    class AdminController {
+        // ...
+        
+        public function connexion() {
+            if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+                $login = Securite::secureHtml($_POST["login"]);
+                $password = Securite::secureHtml($_POST["password"]);
+                if ($this->AdminManager->isConnexionValid($login, $password)) {
+                    $_SESSION['access'] = "admin";
+                    header('Location: ' . URL . "back/admin");
+                } else {
+                    header('Location: ' . URL . "back/login");
+                }
             }
         }
+    
+        // ...
     }
     
-    
-//     public function connexion(){
-// //vérification si les informations ds login et mdp ont bien été saisis
-// if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-    
-//     $login = Securite::secureHtml($_POST["login"]);
-//     $password = Securite::secureHtml($_POST["password"]);
-//     if($this->AdminManager->isConnexionValid($login, $password)) {
-//         //Si true, on va pouvoir générer une session
-//         $_SESSION['access'] = "admin";
-//         header('Location: '.URL."back/admin");//redirection après connexion true vers la page admin
-
-//         //Si c'est TRUE donc que les infos sont bien rempli, on le redirigera vers la page Admi sinon on le redirige de nouveau sur la page de login
-//     }else {
-//         header('Location: '.URL."back/login");
-//     }
-
 
 
 //         UTILISATION D UNE METHODE CRYPTE DU MDP
@@ -69,9 +52,9 @@ class AdminController {
 // echo "Mot de passe en clair : $plainPassword\n";
 // echo "Mot de passe haché : $hashedPassword\n";
 
-        //  }
+         }
         
-        // }
+        }
         public function getAccueilAdmin(){
             if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
                 require "views/accueilAdmin_view.php";

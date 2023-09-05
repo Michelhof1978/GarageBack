@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <?php if (!Securite::verifAccessSession()) : ?>
+            <?php if (Securite::verifAccessSession()) : ?> <!-- Utilisation de ":" pour commencer un bloc de code -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?= URL ?>back/login">Connexion</a>
                 </li>

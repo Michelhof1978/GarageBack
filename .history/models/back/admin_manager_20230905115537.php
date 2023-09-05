@@ -18,16 +18,16 @@ class AdminManager extends Model{
         return $admin['password'];
     }
 
-    private function getPasswordAdmin($login) {
-        // $req = 'SELECT * FROM administrateur WHERE login = ' . $login;
-        $req = 'SELECT * FROM administrateur WHERE login = ' . $login;
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":login", $login,PDO::PARAM_STR);
-        $stmt->execute();
-        $admin = $stmt->fetch(PDO::FETCH_ASSOC); //On récupére les informations saisies 
-        $stmt->closeCursor();
-        return $admin['password'];
-    }
+    // private function getPasswordAdmin($login) {
+    //     // $req = 'SELECT * FROM administrateur WHERE login = ' . $login;
+    //     $req = 'SELECT * FROM administrateur WHERE login = ' . $login;
+    //     $stmt = $this->getBdd()->prepare($req);
+    //     $stmt->bindValue(":login", $login,PDO::PARAM_STR);
+    //     $stmt->execute();
+    //     $admin = $stmt->fetch(PDO::FETCH_ASSOC); //On récupére les informations saisies 
+    //     $stmt->closeCursor();
+    //     return $admin['password'];
+    // }
     //Fonction qui fera les vérifications
     // 
     public function isConnexionValid($login, $password) {

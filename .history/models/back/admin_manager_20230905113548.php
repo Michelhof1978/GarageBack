@@ -9,7 +9,7 @@ class AdminManager extends Model{
     //Cette fonction va rechercher les informations et la renverra au controller
    private function getPasswordUser($login) {
         // $req = 'SELECT * FROM administrateur WHERE login = ' . $login;
-        $req = 'SELECT * FROM employes WHERE login = ' . $login;
+        $req = 'SELECT * FROM employers WHERE login = ' . $login;
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":login", $login,PDO::PARAM_STR);//login et password ecrie identiquement par rapport au noms noté ds la table.
         $stmt->execute();
@@ -33,9 +33,9 @@ class AdminManager extends Model{
     public function isConnexionValid($login, $password) {
         $passwordBD = $this->getPasswordUser($login);
         
-        // // Utilisé pour déboguer, à enlever une fois que ça fonctionne
-        // echo "Password saisi : $password<br>";
-        // echo "Password enregistré : $passwordBD<br>";
+        // Utilisé pour déboguer, à enlever une fois que ça fonctionne
+        echo "Password saisi : $password<br>";
+        echo "Password enregistré : $passwordBD<br>";
         
         return password_verify($password, $passwordBD);
     }
