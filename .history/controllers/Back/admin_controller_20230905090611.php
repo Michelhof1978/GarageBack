@@ -47,7 +47,7 @@ if (!empty($_POST["login"]) && !empty($_POST["password"])) {
         
         }
         public function getAccueilAdmin(){
-            if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
+            if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien
                 require "views/accueilAdmin_view.php";
             }else{
                 header('Location: '.URL."back/login");
