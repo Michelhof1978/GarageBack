@@ -7,8 +7,7 @@ ini_set('display_errors', '1');
 session_start();
 
 // 1. Création du fichier index.php dans lequel on définit une constante URL.
-define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http")
- . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 // Définition de la constante __ROOT__
 define('__ROOT__', dirname(__FILE__));

@@ -1,7 +1,7 @@
 <?php
 require_once ".controllers/back/security.class.php";
 
-class EspaceproController{
+class Espaceproc{
     public function __construct() {
 
     }
