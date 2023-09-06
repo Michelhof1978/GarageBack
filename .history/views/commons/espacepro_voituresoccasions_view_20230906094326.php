@@ -1,9 +1,10 @@
-<?php ob_start();
+<?php ob_start(); ?>
+
+
 // //Aide pour meilleur affichage des description des erreurs ds la console
 // error_reporting(E_ALL);
 // ini_set('display_errors', '1');
 
-?>
 <table class="table">
   <thead>
     <tr>
@@ -58,4 +59,4 @@
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
 $content = ob_get_clean();
 $titre = "VOITURES D'OCCASIONS";
-require_once(__ROOT__.'\views\commons/template.php');
+template

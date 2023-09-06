@@ -11,13 +11,7 @@ class EspaceproManager extends Model {
         $stmt->execute();
         $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        
-    if (!$voituresoccasions) {
-        // Donné à mettre ici
-        
-        return [];
-    }
-
+        V
         $stmt->closeCursor();
         return $voituresoccasions;
     }

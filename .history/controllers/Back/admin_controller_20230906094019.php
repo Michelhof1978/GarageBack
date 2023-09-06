@@ -16,7 +16,7 @@ class AdminController {
     public function __construct()
     {
         $this->AdminManager = new AdminManager();
-        // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
+        $this->hashPassword(); // Appeler la fonction de hachage ci dessous
     }
 
     public function GetPageLogin() {

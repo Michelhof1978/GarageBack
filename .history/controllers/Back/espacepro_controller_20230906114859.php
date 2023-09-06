@@ -16,11 +16,13 @@ class EspaceproController{
 
 
     public function voituresoccasions() {
-        if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions();
-            require_once "views/commons/espacepro_voituresoccasions_view.php";
-        } else {
-            throw new Exception("Vous n'avez pas accès à cette page");
+        public function voituresoccasions() {
+            if (Securite::verifAccessSession()) {
+                $vehicules = $this->espaceproManager->getVoituresoccasions();
+                require_once "views/commons/espacepro_voituresoccasions_view.php";
+            } else {
+                throw new Exception("Vous n'avez pas accès à cette page");
+            }
         }
     }
 }

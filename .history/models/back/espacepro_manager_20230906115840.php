@@ -13,11 +13,10 @@ class EspaceproManager extends Model {
 
         
     if (!$voituresoccasions) {
-        // Donné à mettre ici
-        
+        // Aucune donnée trouvée, gérer cette situation ici
         return [];
     }
-
+    
         $stmt->closeCursor();
         return $voituresoccasions;
     }

@@ -17,8 +17,10 @@ class EspaceproController{
 
     public function voituresoccasions() {
         if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions();
+            $voituresoccasions = $this->espaceproManager->getVoituresoccasions();
             require_once "views/commons/espacepro_voituresoccasions_view.php";
+            require_once(__ROOT__.'\views\back\security.class.php');
+
         } else {
             throw new Exception("Vous n'avez pas accès à cette page");
         }

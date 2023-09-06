@@ -13,8 +13,7 @@ class EspaceproManager extends Model {
 
         
     if (!$voituresoccasions) {
-        // Donné à mettre ici
-        
+        // Donné
         return [];
     }
 
