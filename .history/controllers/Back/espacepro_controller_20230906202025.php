@@ -17,15 +17,38 @@ class EspaceproController {
         $this->espaceproManager = new EspaceproManager();
     }
 
-    public function voituresoccasions()
-    {
-        if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
-            require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
-         } //else {
-        //     throw new Exception("Vous n'avez pas accès à cette page");
-        // }
+    // public function voituresoccasions()
+    // {
+    //     if (Securite::verifAccessSession()) {
+    //         $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
+    //         require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
+    //     } else {
+    //         throw new Exception("Vous n'avez pas accès à cette page");
+    //     }
+    // }
+
+    class EspaceproController {
+      
+    
+        public function voituresoccasions() {
+            if (Securite::verifAccessSession()) {
+                // L'utilisateur a l'autorisation d'accéder à cette page
+                // Récupérer les données des véhicules
+                $vehicules = $this->espaceproManager->getVehicule();
+    
+                // Inclure la vue pour afficher les données
+                require_once(__ROOT__ . '/views/commons/espacepro_vehicule_view.php');
+            } else {
+                // L'utilisateur n'a pas l'autorisation d'accéder à cette page
+                // Redirigez-le vers la page de connexion ou affichez un message d'erreur
+                header("Location: login.php"); // Remplacez login.php par votre page de connexion
+                exit;
+            }
+        }
+    
+        
     }
+    
     
 
     public function messagerie()
