@@ -23,6 +23,8 @@
       <th scope="col">Description</th>
       <th scope="col">Prix</th>
       <th scope="col">Réference</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
 
       <th scope="col" colspan="2">actions</th>
     </tr>

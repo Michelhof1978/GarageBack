@@ -8,7 +8,7 @@ class EspaceproController{
     private $espaceproManager;
 
     public function __construct() { //On va générer une instance de EspaceproController
-        $this->espaceproManager = new EspaceproManager();
+        $this->$espacepromanager = new EspaceproManager();
     }
 
     public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur

@@ -19,10 +19,12 @@
       <th scope="col">1 ère mise en Circulation</th>
       <th scope="col">Puissance</th>
       <th scope="col">Places</th>
-      <th scope="col">Couleur</th>
-      <th scope="col">Description</th>
-      <th scope="col">Prix</th>
-      <th scope="col">Réference</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
 
       <th scope="col" colspan="2">actions</th>
     </tr>

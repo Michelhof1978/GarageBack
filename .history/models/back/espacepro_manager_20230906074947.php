@@ -24,7 +24,7 @@ class EspaceproManager extends Model {
 
     public function getContenu(){
         $sql = "SELECT * FROM contenu";
-       $stmt = $this->getBdd()->prepare($sql);
+       $stmt = $this->getBdd()->prepare($req);
        $stmt->execute();
        $contenu = $stmt->fetchAll(PDO::FETCH_ASSOC);
        $stmt->closeCursor();
@@ -33,7 +33,7 @@ class EspaceproManager extends Model {
 
     public function getHoraire(){
         $sql = "SELECT * FROM horaire";
-       $stmt = $this->getBdd()->prepare($sql);
+       $stmt = $this->getBdd()->prepare($req);
        $stmt->execute();
        $horaire = $stmt->fetchAll(PDO::FETCH_ASSOC);
        $stmt->closeCursor();
@@ -42,7 +42,7 @@ class EspaceproManager extends Model {
 
     public function getVoituresoccasions(){
         $sql = "SELECT * FROM voituresoccasions";
-       $stmt = $this->getBdd()->prepare($sql);
+       $stmt = $this->getBdd()->prepare($req);
        $stmt->execute();
        $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
        $stmt->closeCursor();

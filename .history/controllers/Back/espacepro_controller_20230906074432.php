@@ -8,13 +8,13 @@ class EspaceproController{
     private $espaceproManager;
 
     public function __construct() { //On va générer une instance de EspaceproController
-        $this->espaceproManager = new EspaceproManager();
+        $espacepromanager = new EspaceproManager();
     }
 
     public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
         if(Securite::verifAccessSession()){
             $messagerie = $this->espaceproManager->getMessagerie();
-            // print_r($messagerie); //Vérification si je reçois toutes les informations au niveau de ma requête
+            // print_r($messagerie);
             require_once "views/commons/espacepro_messagerie_view.php";
         }else{
             throw new Exception ("Vous n'avez pas accès à cette page");
@@ -56,7 +56,7 @@ class EspaceproController{
     public function voituresoccasions(){
         if(Securite::verifAccessSession()){
             $voituresoccasions = $this->espaceproManager->getVoituresoccasions();
-             // print_r($voituresoccasions);
+            
             require_once "views/commons/espacepro_voituresoccasions_view.php";
         }else{
             throw new Exception ("Vous n'avez pas accès à cette page");
