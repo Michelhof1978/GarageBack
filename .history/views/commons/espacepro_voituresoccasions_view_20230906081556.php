@@ -31,25 +31,9 @@
     <?php foreach ($vehicules as $vehicule): ?>
     <tr>
       <th scope="row">1</th>
-      <td><?= $vehicule['vehicule_id']?></td>
-      <td><?= $vehicule['vehicule_famille']?></td>
-      <td><?= $vehicule['vehicule_marque']?></td>
-      <td><?= $vehicule['vehicule_modele']?></td>
-      <td><?= $vehicule['vehicule_annee']?></td>
-      <td><?= $vehicule['vehicule_kilometrage']?></td>
-      <td><?= $vehicule['vehicule_boitevitesse']?></td>
-      <td><?= $vehicule['vehicule_energie']?></td>
-      <td><?= $vehicule['vehicule_datecirculation']?></td>
-      <td><?= $vehicule['vehicule_puissance']?></td>
-      <td><?= $vehicule['vehicule_places']?></td>
-      <td><?= $vehicule['vehicule_couleur']?></td>
-      <td><?= $vehicule['vehicule_description']?></td>
-      <td><?= $vehicule['vehicule_prix']?></td>
-
-      <td><button class="btn btn-warning">Modifier</button></td>
-      <td><button class="btn btn-danger">Supprimer</button></td>
-
-
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
     </tr>
 <?php endforeach; ?>
   </tbody>

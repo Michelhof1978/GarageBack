@@ -44,11 +44,7 @@
       <td><?= $vehicule['vehicule_places']?></td>
       <td><?= $vehicule['vehicule_couleur']?></td>
       <td><?= $vehicule['vehicule_description']?></td>
-      <td><?= $vehicule['vehicule_prix']?></td>
-
-      <td><button class="btn btn-warning">Modifier</button></td>
-      <td><button class="btn btn-danger">Supprimer</button></td>
-
+      <td><?= $vehicule['vehicule_']?></td>
 
     </tr>
 <?php endforeach; ?>

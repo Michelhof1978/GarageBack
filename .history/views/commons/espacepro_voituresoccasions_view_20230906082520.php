@@ -47,7 +47,7 @@
       <td><?= $vehicule['vehicule_prix']?></td>
 
       <td><button class="btn btn-warning">Modifier</button></td>
-      <td><button class="btn btn-danger">Supprimer</button></td>
+      <td><button class="btn btn-danger">Modifier</button></td>
 
 
     </tr>

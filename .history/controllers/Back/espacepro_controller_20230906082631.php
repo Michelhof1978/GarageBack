@@ -1,6 +1,6 @@
 <?php
 require_once "controllers/back/security.class.php";
-require_once "models/back/espacepro_manager.php";
+require_once ".models/back/espacepro_manager.php";
 
 
 class EspaceproController{
