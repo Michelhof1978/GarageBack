@@ -9,13 +9,12 @@ require_once(__ROOT__.'\models\model.php');
 
 class AdminManager extends Model{
     //Cette fonction va rechercher les informations et la renverra au controller
-    private function getPasswordUser($login) {
-        // Remarque : assurez-vous que la requête SQL est correcte et sécurisée
-        $req = 'SELECT password FROM employes WHERE login = :login';
+   private function getPasswordUser($login) {
+        $req = 'SELECT * FROM employes WHERE login = ' . $login;
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+        $stmt->bindValue(":login", $login,PDO::PARAM_STR);//login et password ecrie identiquement par rapport au noms noté ds la table.
         $stmt->execute();
-        $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+        $admin = $stmt->fetch(PDO::FETCH_ASSOC); //On récupére les informations saisies 
         $stmt->closeCursor();
         return $admin['password'];
     }
@@ -34,10 +33,15 @@ class AdminManager extends Model{
     public function isConnexionValid($login, $password) {
         $passwordBD = $this->getPasswordUser($login);
         
-        if ($passwordBD !== false && password_verify($password, $passwordBD)) {
-            return true; // Authentification réussie
+        // Utilisé pour déboguer, à enlever une fois que ça fonctionne
+        // echo "Password saisi : $password<br>";
+        // echo "Password enregistré : $passwordBD<br>";
+        
+        // Comparaison du mot de passe saisi avec le mot de passe haché enregistré
+        if (password_verify($password, $passwordBD)) {
+            return true; // Le mot de passe est valide
         } else {
-            return false; // Authentification échouée
+            return false; // Le mot de passe est invalide
         }
     }
     

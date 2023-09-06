@@ -34,10 +34,15 @@ class AdminManager extends Model{
     public function isConnexionValid($login, $password) {
         $passwordBD = $this->getPasswordUser($login);
         
-        if ($passwordBD !== false && password_verify($password, $passwordBD)) {
-            return true; // Authentification réussie
+        // Utilisé pour déboguer, à enlever une fois que ça fonctionne
+        // echo "Password saisi : $password<br>";
+        // echo "Password enregistré : $passwordBD<br>";
+        
+        // Comparaison du mot de passe saisi avec le mot de passe haché enregistré
+        if (password_verify($password, $passwordBD)) {
+            return true; // Le mot de passe est valide
         } else {
-            return false; // Authentification échouée
+            return false; // Le mot de passe est invalide
         }
     }
     

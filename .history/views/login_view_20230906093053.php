@@ -8,7 +8,7 @@ ini_set('display_errors', '1');
 /* Ce commentaire ne sera pas affiché dans le HTML final.
 Permet de mettre en mémoire tampon la sortie générée. */
 ?>
-<form method="POST" action="<?= URL ?>back/connexion">
+<form method="POST" action="<?= URL ?>back/login">
     <!-- Permet d'aller sur l'URL en ajoutant "back/connexion" à la fin pour accéder à la page de connexion -->
     <div class="form-group">
         <label for="login">Identifiant</label>

@@ -26,4 +26,6 @@ Permet de mettre en mémoire tampon la sortie générée. */
 $content = ob_get_clean();
 $titre = "Connexion Espace Pro";
 require_once(__ROOT__.'\views\commons/template.php');
+
+require "views/commons/template.php";
 ?>

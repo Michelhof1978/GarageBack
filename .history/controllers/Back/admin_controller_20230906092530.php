@@ -30,17 +30,27 @@ require_once(__ROOT__.'\views\login_view.php');
         if (!empty($_POST["login"]) && !empty($_POST["password"])) {
             $login = Securite::secureHtml($_POST["login"]);
             $password = Securite::secureHtml($_POST["password"]);
-
+            
+            // Utilisé pour déboguer, à enlever une fois que ça fonctionne
+            echo "Login saisi : $login<br>";
+            echo "Password saisi : $password<br>";
+            
             if($this->AdminManager->isConnexionValid($login, $password)) {
+                // Authentification réussie
                 $_SESSION['access'] = "admin";
                 header('Location: '.URL."back/admin");
             } else {
+                // Authentification échouée
+                echo "L'authentification a échoué.";
                 header('Location: '.URL."back/login");
             }
         } else {
+            // Les champs de connexion ne sont pas tous remplis
+            echo "Veuillez saisir à la fois le nom d'utilisateur et le mot de passe.";
             header('Location: '.URL."back/login");
         }
     }
+    
     
 //         UTILISATION D UNE METHODE CRYPTE DU MDP
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 

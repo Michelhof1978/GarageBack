@@ -1,6 +1,6 @@
 <?php
-
-require_once(__ROOT__.'\models\model.php');
+require_once 'models/model.php';
+require_once(__ROOT__.'\models\.php');
 
 
 class EspaceproManager extends Model {

@@ -45,13 +45,13 @@ require_once(__ROOT__.'\views\login_view.php');
 //         UTILISATION D UNE METHODE CRYPTE DU MDP
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 
 // Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
-public function hashPassword() {
-    $plainPassword = "michelaquiche"; // Mot de passe en clair pour les tests
-    $hashedPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
+// public function hashPassword() {
+//     $plainPassword = "michelaquiche"; // Mot de passe en clair pour les tests
+//     $hashedPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
 
-    echo "Mot de passe en clair : $plainPassword\n";
-    echo "Mot de passe haché : $hashedPassword\n";
-}
+//     echo "Mot de passe en clair : $plainPassword\n";
+//     echo "Mot de passe haché : $hashedPassword\n";
+// }
 // Utilisé pour déboguer, à enlever une fois que ça fonctionne
         
         

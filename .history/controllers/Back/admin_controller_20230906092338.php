@@ -30,15 +30,17 @@ require_once(__ROOT__.'\views\login_view.php');
         if (!empty($_POST["login"]) && !empty($_POST["password"])) {
             $login = Securite::secureHtml($_POST["login"]);
             $password = Securite::secureHtml($_POST["password"]);
-
+            
+            // // Utilisé pour déboguer, à enlever une fois que ça fonctionne
+            // echo "Login : $login<br>";
+            // echo "Password : $password<br>";
+            
             if($this->AdminManager->isConnexionValid($login, $password)) {
                 $_SESSION['access'] = "admin";
                 header('Location: '.URL."back/admin");
             } else {
                 header('Location: '.URL."back/login");
             }
-        } else {
-            header('Location: '.URL."back/login");
         }
     }
     

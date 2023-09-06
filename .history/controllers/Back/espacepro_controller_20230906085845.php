@@ -1,4 +1,6 @@
 <?php
+require_once "controllers/back/security.class.php";
+require_once "models/back/espacepro_manager.php";
 
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
