@@ -1,19 +1,10 @@
 <?php
-
+require_once 'models/model.php';
 require_once(__ROOT__.'\models\model.php');
 
 
 class EspaceproManager extends Model {
 
-    public function getVoituresoccasions(){
-        $sql = "SELECT * FROM vehicule"; // Utilisez le nom de table correct ici
-        $stmt = $this->getBdd()->prepare($sql);
-        $stmt->execute();
-        $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
-        return $voituresoccasions;
-    }
-    
     public function getMessagerie(){
         $sql = "SELECT * FROM messagerie";
        $stmt = $this->getBdd()->prepare($sql);
@@ -51,5 +42,12 @@ class EspaceproManager extends Model {
        return $horaire;
     }
 
-    
+    public function getVoituresoccasions(){
+        $sql = "SELECT * FROM voituresoccasions";
+       $stmt = $this->getBdd()->prepare($sql);
+       $stmt->execute();
+       $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       $stmt->closeCursor();
+       return $voituresoccasions;
+    }
 }

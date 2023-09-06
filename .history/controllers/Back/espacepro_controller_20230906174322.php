@@ -5,40 +5,61 @@ require_once(__ROOT__.'\models\back\espacepro_manager.php');
 require_once(__ROOT__.'\models\model.php');
 require_once(__ROOT__.'\datagestion\vehicule_data.php');
 
-// Utilisation du contrôleur pour afficher les voitures d'occasion
-$controller = new EspaceproController();
-$controller->voituresoccasions();
 
-class EspaceproController {
-
-    private $espaceproManager;
+class EspaceproController{
 
     public function __construct() {
         $this->espaceproManager = new EspaceproManager();
     }
 
-    public function voituresoccasions()
-    {
+    public function voituresoccasions() {
         if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
+            $vehicules = $this->espaceproManager->getVehicules();
             require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
         } else {
             throw new Exception("Vous n'avez pas accès à cette page");
         }
     }
-    
-
-    public function messagerie()
-    {
-        if (Securite::verifAccessSession()) {
-            $messagerie = $this->espaceproManager->getMessagerie();
-            require_once(__ROOT__ . "views/commons/espacepro_messagerie_view.php");
-        } else {
-            throw new Exception("Vous n'avez pas accès à cette page");
-        }
-    }
 }
-        
+
+$controller = new EspaceproController();
+$controller->voituresoccasions();
+?>
+Vue (espacepro_vehicule_view.php) :
+
+php
+Copy code
+<?php ob_start(); ?>
+<table class="table">
+    <thead>
+        <tr>
+            <!-- Vos en-têtes de colonnes ici -->
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($vehicules as $vehicule): ?>
+            <tr>
+                <!-- Vos données de véhicule ici -->
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php
+$content = ob_get_clean();
+$titre = "VOITURES D'OCCASIONS";
+require_once(__ROOT__ . '\views\commons\template.php');
+?>
+Maintenant, le code reflète correctement le nom de votre table "vehicule". Assurez-vous d'avoir effectué ces modifications pour éviter toute confusion.
+
+
+
+
+
+
+        // Utilisation du contrôleur pour afficher les voitures d'occasion
+        $controller = new EspaceproController();
+        $controller->vehicule();
 
 
     // public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur

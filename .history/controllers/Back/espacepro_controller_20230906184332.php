@@ -5,27 +5,32 @@ require_once(__ROOT__.'\models\back\espacepro_manager.php');
 require_once(__ROOT__.'\models\model.php');
 require_once(__ROOT__.'\datagestion\vehicule_data.php');
 
-// Utilisation du contrôleur pour afficher les voitures d'occasion
-$controller = new EspaceproController();
-$controller->voituresoccasions();
 
 class EspaceproController {
-
     private $espaceproManager;
 
     public function __construct() {
         $this->espaceproManager = new EspaceproManager();
     }
 
-    public function voituresoccasions()
-    {
+    public function voituresoccasions() {
         if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
-            require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
+            try {
+                // Aucune insertion de données ici car nous récupérons seulement les données
+                $vehicules = $this->espaceproManager->getVehicules();
+                require_once(__ROOT__ . '/views/commons/espacepro_vehicule_view.php');
+            } catch (PDOException $e) {
+                die("Erreur lors de la récupération des données: " . $e->getMessage());
+            }
         } else {
             throw new Exception("Vous n'avez pas accès à cette page");
         }
     }
+}
+
+
+
+
     
 
     public function messagerie()
@@ -37,7 +42,7 @@ class EspaceproController {
             throw new Exception("Vous n'avez pas accès à cette page");
         }
     }
-}
+
         
 
 
@@ -82,7 +87,7 @@ class EspaceproController {
     //     }else{
     //         throw new Exception ("Vous n'avez pas accès à cette page");
     //     }
-    // }
+    }
 
 
 

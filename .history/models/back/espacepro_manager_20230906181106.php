@@ -5,15 +5,16 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
-    public function getVoituresoccasions(){
-        $sql = "SELECT * FROM vehicule"; // Utilisez le nom de table correct ici
-        $stmt = $this->getBdd()->prepare($sql);
-        $stmt->execute();
-        $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
-        return $voituresoccasions;
+    public function voituresoccasions() {
+        if (Securite::verifAccessSession()) {
+            $vehicules = $this->espaceproManager->getVoituresoccasions();
+            require_once "views/commons/espacepro_voituresoccasions_view.php";
+        } else {
+            throw new Exception("Vous n'avez pas accès à cette page");
+        }
     }
     
+
     public function getMessagerie(){
         $sql = "SELECT * FROM messagerie";
        $stmt = $this->getBdd()->prepare($sql);
@@ -52,4 +53,4 @@ class EspaceproManager extends Model {
     }
 
     
-}
+    }

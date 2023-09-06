@@ -5,39 +5,34 @@ require_once(__ROOT__.'\models\back\espacepro_manager.php');
 require_once(__ROOT__.'\models\model.php');
 require_once(__ROOT__.'\datagestion\vehicule_data.php');
 
-// Utilisation du contrôleur pour afficher les voitures d'occasion
-$controller = new EspaceproController();
-$controller->voituresoccasions();
 
-class EspaceproController {
+class EspaceproController{
 
     private $espaceproManager;
 
-    public function __construct() {
+    public function __construct() { //On va générer une instance de EspaceproController
         $this->espaceproManager = new EspaceproManager();
     }
 
-    public function voituresoccasions()
-    {
-        if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
-            require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
-        } else {
-            throw new Exception("Vous n'avez pas accès à cette page");
-        }
-    }
-    
 
-    public function messagerie()
-    {
+    public function voituresoccasions() {
         if (Securite::verifAccessSession()) {
-            $messagerie = $this->espaceproManager->getMessagerie();
-            require_once(__ROOT__ . "views/commons/espacepro_messagerie_view.php");
+            try {
+                // Insertion des données dans la base de données ici
+                // ...
+                
+                echo "Données insérées avec succès!";
+            } catch (PDOException $e) {
+                die("Erreur lors de l'insertion des données: " . $e->getMessage());
+            }
+            
+            require_once(__ROOT__.'/views/commons/espacepro_vehicule_view.php');
         } else {
             throw new Exception("Vous n'avez pas accès à cette page");
         }
     }
-}
+// Utilisation du contrôleur pour afficher les voitures d'occasion
+
         
 
 

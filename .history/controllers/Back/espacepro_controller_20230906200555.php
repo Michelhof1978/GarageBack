@@ -17,15 +17,27 @@ class EspaceproController {
         $this->espaceproManager = new EspaceproManager();
     }
 
-    public function voituresoccasions()
-    {
-        if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
-            require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
-        } else {
-            throw new Exception("Vous n'avez pas accès à cette page");
+    class EspaceproController {
+
+        private $espaceproManager;
+    
+        public function __construct() {
+            $this->espaceproManager = new EspaceproManager();
+        }
+    
+        public function voituresoccasions() {
+            if (Securite::verifAccessSession()) {
+                $vehicules = $this->espaceproManager->getVehicules();
+                require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
+            } else {
+                throw new Exception("Vous n'avez pas accès à cette page");
+            }
         }
     }
+
+
+
+
     
 
     public function messagerie()
@@ -37,7 +49,7 @@ class EspaceproController {
             throw new Exception("Vous n'avez pas accès à cette page");
         }
     }
-}
+
         
 
 
@@ -82,7 +94,7 @@ class EspaceproController {
     //     }else{
     //         throw new Exception ("Vous n'avez pas accès à cette page");
     //     }
-    // }
+    }
 
 
 

@@ -3,42 +3,18 @@
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
 require_once(__ROOT__.'\models\model.php');
-require_once(__ROOT__.'\datagestion\vehicule_data.php');
 
-// Utilisation du contrôleur pour afficher les voitures d'occasion
-$controller = new EspaceproController();
-$controller->voituresoccasions();
 
-class EspaceproController {
 
-    private $espaceproManager;
+class EspaceproController{
 
-    public function __construct() {
-        $this->espaceproManager = new EspaceproManager();
-    }
-
-    public function voituresoccasions()
-    {
-        if (Securite::verifAccessSession()) {
-            $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
-            require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
-        } else {
-            throw new Exception("Vous n'avez pas accès à cette page");
+     public function voituresoccasions() {
+        // Vérifier si l'utilisateur est authentifié et a les bonnes autorisations
+        if (!$this->isUserAuthenticated() || !$this->hasRequiredPermissions()) {
+            // Rediriger vers une page d'erreur d'accès non autorisé
+            header('Location: /acces-non-autorise.php');
+            exit;
         }
-    }
-    
-
-    public function messagerie()
-    {
-        if (Securite::verifAccessSession()) {
-            $messagerie = $this->espaceproManager->getMessagerie();
-            require_once(__ROOT__ . "views/commons/espacepro_messagerie_view.php");
-        } else {
-            throw new Exception("Vous n'avez pas accès à cette page");
-        }
-    }
-}
-        
 
 
     // public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
@@ -50,8 +26,14 @@ class EspaceproController {
     //         throw new Exception ("Vous n'avez pas accès à cette page");
     //     }
     // }
-    
-
+    public function voituresoccasions() {
+        // Vérifier si l'utilisateur est authentifié et a les bonnes autorisations
+        if (!$this->isUserAuthenticated() || !$this->hasRequiredPermissions()) {
+            // Rediriger vers une page d'erreur d'accès non autorisé
+            header('Location: /acces-non-autorise.php');
+            exit;
+        }
+    }
     // public function avis(){
     //         if(Securite::verifAccessSession()){
     //             $avis = $this->espaceproManager->getAvis();
