@@ -11,9 +11,9 @@
     <div class="container">
         <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-primary"><?= $titre ?></h1>
        <?php if(!empty($_SESSION['alert'])) : ?> <!-- if  :  endif  -->
-    <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger" role="alert">
             A simple danger alert—check it out!
-     </div>
+        </div>
         <?php endif; ?>
                 <?= $_SESSION['message'] ?>
             </div>

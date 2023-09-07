@@ -10,13 +10,7 @@
     <?php require_once("views/commons/menu.php"); ?>
     <div class="container">
         <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-primary"><?= $titre ?></h1>
-       <?php if(!empty($_SESSION['alert'])) : ?> <!-- if  :  endif  -->
-    <div class="alert alert-danger" role="alert">
-            A simple danger alert—check it out!
-     </div>
-        <?php endif; ?>
-                <?= $_SESSION['message'] ?>
-            </div>
+       
         <?= $content ?>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -26,7 +26,7 @@ class EspaceproController {
         //     throw new Exception("Vous n'avez pas accès à cette page");
         //  }
     }
-}
+    
 
     public function suppression(){
 

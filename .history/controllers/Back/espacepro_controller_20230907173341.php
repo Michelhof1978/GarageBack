@@ -26,16 +26,13 @@ class EspaceproController {
         //     throw new Exception("Vous n'avez pas accès à cette page");
         //  }
     }
-}
 
     public function suppression(){
-
         if(Securite::verifAccessSession()){
             // Utilisez simplement $_POST['idVehicule'] pour obtenir l'identifiant
             $idVehicule = (int)$_POST['idVehicule'];
             $this->espaceproManager->deleteDBvehicule($idVehicule);
             header("Location: ".URL."back/espacepro/voituresoccasions");
-
         } else {
             throw new Exception("Vous n'avez pas accès à cette page");
         }
