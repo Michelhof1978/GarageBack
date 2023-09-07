@@ -7,7 +7,6 @@
             <thead>
                 <tr>
                     <th scope="col">Référence</th>
-                    <th scope="col">Photo</th>
                     <th scope="col">Famille</th>
                     <th scope="col">Marque</th>
                     <th scope="col">Modèle</th>
@@ -21,7 +20,6 @@
                     <th scope="col">Couleur</th>
                     <th scope="col">Description</th>
                     <th scope="col">Prix</th>
-                    <th scope="col">Critère</th>
                     <th scope="col" colspan="2">Actions</th>
                 </tr>
             </thead>

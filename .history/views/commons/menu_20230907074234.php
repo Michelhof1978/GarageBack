@@ -33,4 +33,4 @@
         </ul>
     </div>
 </nav>
-<?php require_once(__ROOT__ . '\views\commons\template.php');?>
+<?php endforeach; ?>

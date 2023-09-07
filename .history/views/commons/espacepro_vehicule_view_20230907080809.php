@@ -7,7 +7,6 @@
             <thead>
                 <tr>
                     <th scope="col">Référence</th>
-                    <th scope="col">Photo</th>
                     <th scope="col">Famille</th>
                     <th scope="col">Marque</th>
                     <th scope="col">Modèle</th>
@@ -21,7 +20,6 @@
                     <th scope="col">Couleur</th>
                     <th scope="col">Description</th>
                     <th scope="col">Prix</th>
-                    <th scope="col">Critère</th>
                     <th scope="col" colspan="2">Actions</th>
                 </tr>
             </thead>
@@ -29,7 +27,6 @@
                 <?php foreach ($vehicules as $vehicule): ?>
                     <tr>
                         <th scope="row"><?= $vehicule['idVehicule'] ?></th>
-                        <td><?= $vehicule['imageVoiture'] ?></td>
                         <td><?= $vehicule['famille'] ?></td>
                         <td><?= $vehicule['marque'] ?></td>
                         <td><?= $vehicule['modele'] ?></td>
@@ -43,7 +40,7 @@
                         <td><?= $vehicule['couleur'] ?></td>
                         <td><?= $vehicule['description'] ?></td>
                         <td><?= $vehicule['prix'] ?></td>
-                        <td><?= $vehicule['imageCritere'] ?></td>
+                        <td><?= $vehicule['imageCrie'] ?></td>
                         <td><button class="btn btn-warning">Modifier</button></td>
                         <td><button class="btn btn-danger">Supprimer</button></td>
                     </tr>

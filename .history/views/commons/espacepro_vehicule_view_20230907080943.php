@@ -20,8 +20,8 @@
                     <th scope="col">Places</th>
                     <th scope="col">Couleur</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Référence</th>
                     <th scope="col">Prix</th>
-                    <th scope="col">Critère</th>
                     <th scope="col" colspan="2">Actions</th>
                 </tr>
             </thead>

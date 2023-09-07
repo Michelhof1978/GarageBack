@@ -1,13 +1,21 @@
-<?php ob_start(); ?> <!--pour commencer la temporisation de la sortie. Cela signifie que le contenu généré après cette instruction sera mis en mémoire tampon-->
+<?php ob_start(); ?>
 
-
-    <div class="container-fluid no-margin">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des véhicules</title>
+    <!-- Inclure Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
         <h1 class="text-center">Liste des véhicules</h1>
         <table class="table table-striped mx-0"> <!-- Ajout de la classe mx-0 ici -->
             <thead>
                 <tr>
                     <th scope="col">Référence</th>
-                    <th scope="col">Photo</th>
                     <th scope="col">Famille</th>
                     <th scope="col">Marque</th>
                     <th scope="col">Modèle</th>
@@ -21,7 +29,6 @@
                     <th scope="col">Couleur</th>
                     <th scope="col">Description</th>
                     <th scope="col">Prix</th>
-                    <th scope="col">Critère</th>
                     <th scope="col" colspan="2">Actions</th>
                 </tr>
             </thead>
@@ -29,7 +36,6 @@
                 <?php foreach ($vehicules as $vehicule): ?>
                     <tr>
                         <th scope="row"><?= $vehicule['idVehicule'] ?></th>
-                        <td><?= $vehicule['imageVoiture'] ?></td>
                         <td><?= $vehicule['famille'] ?></td>
                         <td><?= $vehicule['marque'] ?></td>
                         <td><?= $vehicule['modele'] ?></td>
@@ -43,7 +49,6 @@
                         <td><?= $vehicule['couleur'] ?></td>
                         <td><?= $vehicule['description'] ?></td>
                         <td><?= $vehicule['prix'] ?></td>
-                        <td><?= $vehicule['imageCritere'] ?></td>
                         <td><button class="btn btn-warning">Modifier</button></td>
                         <td><button class="btn btn-danger">Supprimer</button></td>
                     </tr>
@@ -51,6 +56,13 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Inclure Bootstrap JavaScript et jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
 
 <?php
 $content = ob_get_clean();

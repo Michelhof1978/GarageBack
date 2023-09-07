@@ -30,7 +30,6 @@
                     <a class="nav-link" href="<?= URL ?>back/deconnexion">Déconnexion</a>
                 </li>
             <?php endif; ?>
-        </ul>
+        </ul
     </div>
 </nav>
-<?php require_once(__ROOT__ . '\views\commons\template.php');?>
