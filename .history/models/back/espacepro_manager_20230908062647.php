@@ -14,33 +14,13 @@ class EspaceproManager extends Model {
         return $voituresoccasions;
     }
 
-    public function deleteDBvehicule($idVehicule) {
-        $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule"; // Utilisez le nom correct de la colonne
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+    public function deleteDBvehicule($idVehicule){
+        $sql = "DELETE FROM vehicule WHERE idVehicule = :idVehicule";
+        $stmt = $this->getBdd()->prepare($sql);
+        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT); //on confirme bien ici que c'est bien un entier que l'on veut récupérer
         $stmt->execute();
         $stmt->closeCursor();
     }
-    
-    
-    
-
-    public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-            $stmt->closeCursor();
-            return ($resultat) ? $resultat['nb'] : 0;
-        } else {
-            // Gérez l'erreur de la requête de base de données.
-            return 0; // Ou gérez-la d'une autre manière appropriée.
-        }
-    }
-    
-    
-    
     
     
     public function getMessagerie(){

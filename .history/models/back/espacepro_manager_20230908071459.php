@@ -14,19 +14,16 @@ class EspaceproManager extends Model {
         return $voituresoccasions;
     }
 
-    public function deleteDBvehicule($idVehicule) {
-        $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule"; // Utilisez le nom correct de la colonne
+    public function deleteDBvehicule($idVehicule){
+        $req ="Delete from vehicule where vehicule_id= :idVehicule";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+        $stmt->bindValue(":idVehicule",$idVehicule,PDO::PARAM_INT);
         $stmt->execute();
         $stmt->closeCursor();
     }
-    
-    
-    
 
     public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
+        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE vehicule_id = :idVehicule";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
         if ($stmt->execute()) {
@@ -38,7 +35,6 @@ class EspaceproManager extends Model {
             return 0; // Ou gérez-la d'une autre manière appropriée.
         }
     }
-    
     
     
     

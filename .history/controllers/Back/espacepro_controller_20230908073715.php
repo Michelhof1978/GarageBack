@@ -31,8 +31,8 @@ class EspaceproController {
 
 public function suppression() {
     if (isset($_POST['vehicule_id'])) {
-        $idVehicule = (int)Securite::secureHTML($_POST['vehicule_id']);
-        
+        $idVehicule = (int) Securite::secureHTML($_POST['vehicul']);
+
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
             $_SESSION['alert'] = [
                 "message" => "Le véhicule n'a pas été supprimé",
@@ -45,13 +45,13 @@ public function suppression() {
                 "type" => "alert-success"
             ];
         }
-       
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
-        exit(); // Ajoutez cette ligne pour éviter toute sortie supplémentaire
+
+        header('Location: ' . URL . 'back/espacepro/voituresoccasions');
     } else {
         throw new Exception("Accès Refusé");
     }
 }
+
 
 
     

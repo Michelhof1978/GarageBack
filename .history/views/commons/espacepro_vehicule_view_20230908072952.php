@@ -50,7 +50,8 @@
                         <td>
                             <form method="POST" action="<?=URL?>back/espacepro/validationSuppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="vehicule_id" value="<?= $vehicule['idVehicule'] ?>">
-                    <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
+
+                            <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                             </form>
                         </td>
                     </tr>

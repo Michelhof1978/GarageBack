@@ -46,7 +46,7 @@ public function suppression() {
             ];
         }
        
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
+        header('Location: '.URL.'back/espacepro/voituresoccasions');
         exit(); // Ajoutez cette ligne pour éviter toute sortie supplémentaire
     } else {
         throw new Exception("Accès Refusé");

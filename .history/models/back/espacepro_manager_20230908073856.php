@@ -26,7 +26,7 @@ class EspaceproManager extends Model {
     
 
     public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
+        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE vehicule_id = :idVehicule";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
         if ($stmt->execute()) {
@@ -38,7 +38,6 @@ class EspaceproManager extends Model {
             return 0; // Ou gérez-la d'une autre manière appropriée.
         }
     }
-    
     
     
     

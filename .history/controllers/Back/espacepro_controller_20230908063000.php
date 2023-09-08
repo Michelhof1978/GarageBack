@@ -28,31 +28,22 @@ class EspaceproController {
     }
 }
 
-
 public function suppression() {
-    if (isset($_POST['vehicule_id'])) {
-        $idVehicule = (int)Securite::secureHTML($_POST['vehicule_id']);
-        
-        if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été supprimé",
-                "type" => "alert-danger"
-            ];
-        } else {
-            $this->espaceproManager->deleteDBvehicule($idVehicule);
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule est supprimé",
-                "type" => "alert-success"
-            ];
-        }
-       
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
-        exit(); // Ajoutez cette ligne pour éviter toute sortie supplémentaire
+    if (Securite::verifAccessSession()) {
+        $_SESSION['alerte'] = [
+            "message" => "Le véhicule est bien supprimé",
+            "type" => "alert-success",
+        ];
+
+        // Utilisation de la mise en mémoire tampon pour éviter l'erreur de l'en-tête
+        ob_start();
+        header("Location: " . URL . "back/espacepro/voituresoccasions");
+        ob_end_flush();
+        exit(); // Assurez-vous de terminer l'exécution du script après la redirection
     } else {
-        throw new Exception("Accès Refusé");
+        throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
-
 
     
         

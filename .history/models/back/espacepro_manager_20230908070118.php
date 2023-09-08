@@ -14,33 +14,25 @@ class EspaceproManager extends Model {
         return $voituresoccasions;
     }
 
-    public function deleteDBvehicule($idVehicule) {
-        $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule"; // Utilisez le nom correct de la colonne
+    public function deleteDBfamille($idFamille){
+        $req ="Delete from famille where famille_id= :idFamille";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+        $stmt->bindValue(":idFamille",$idFamille,PDO::PARAM_INT);
         $stmt->execute();
         $stmt->closeCursor();
     }
-    
-    
-    
 
-    public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
+    public function compterVehicule($idFamille){
+        $req ="Select count(*) as 'nb'
+        from vehicule = vehicu_id
+        where f.famille_id = :idFamille";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-            $stmt->closeCursor();
-            return ($resultat) ? $resultat['nb'] : 0;
-        } else {
-            // Gérez l'erreur de la requête de base de données.
-            return 0; // Ou gérez-la d'une autre manière appropriée.
-        }
+        $stmt->bindValue(":idFamille",$idFamille,PDO::PARAM_INT);
+        $stmt->execute();
+        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $resultat['nb'];
     }
-    
-    
-    
     
     
     public function getMessagerie(){

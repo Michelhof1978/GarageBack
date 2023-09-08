@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<?php require_once("views/commons/menu.php"); ?>
+    <?php require_once("views/commons/menu.php"); ?>
     <div class="container">
-        <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-info"><?= $titre ?></h1>
-        <?php if(!empty($_SESSION['alert'])) : ?> 
-            <div class="alert <?= $_SESSION['alert']['type'] ?>" role="alert">
-                <?= $_SESSION['alert']['message'] ?>
+        <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-primary"><?= $titre ?></h1>
+       <?php if(!empty($_SESSION['alert'])) : ?> <!-- if  :  endif  -->
+    <div class="alert alert-danger" role="alert">
+            <?=$_SESSION['alert']{?>
+     </div>
+        <?php endif; ?>
+                <?= $_SESSION['message'] ?>
             </div>
-        <?php 
-            unset($_SESSION['alert']);
-            endif; 
-        ?>
         <?= $content ?>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -28,32 +28,42 @@ class EspaceproController {
     }
 }
 
+    public function suppression(){
 
-public function suppression() {
-    if (isset($_POST['vehicule_id'])) {
-        $idVehicule = (int)Securite::secureHTML($_POST['vehicule_id']);
-        
-        if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été supprimé",
-                "type" => "alert-danger"
-            ];
+        if(Securite::verifAccessSession()){
+           $_SESSION['alerte'] = [
+            "message" => "Le véhicule est bien supprimé",
+            "type" => "alert-success",
+           ];
+           header("Location: ".URL."back/espacepro/voituresoccasions");
         } else {
-            $this->espaceproManager->deleteDBvehicule($idVehicule);
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule est supprimé",
-                "type" => "alert-success"
-            ];
+            throw new Exception("Vous n'avez pas accès à cette page");
         }
-       
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
-        exit(); // Ajoutez cette ligne pour éviter toute sortie supplémentaire
-    } else {
-        throw new Exception("Accès Refusé");
+    }
+
+    public function suppression(){
+        if(Securite::verifAccessSession()){
+            $idFamille = (int)Securite::secureHTML($_POST['famille_id']);
+            
+            if($this->famillesManager->compterAnimaux($idFamille) > 0){
+                $_SESSION['alert'] = [
+                    "message" => "Le véhicule" n'a pas été supprimé",
+                    "type" => "alert-danger"
+                ];
+            } else {
+                $this->espaceproManagerManager->deleteDBvehicule($idVehicule);
+                $_SESSION['alert'] = [
+                    "message" => "Le vehicule est supprimé",
+                    "type" => "alert-success"
+                ];
+            }
+           
+            header('Location: '.URL.'back/espacepro/voituresoccasions');
+        } else {
+            throw new Exception("Accée Refusé ");
+        }
     }
 }
-
-
     
         
  public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur

@@ -29,30 +29,29 @@ class EspaceproController {
 }
 
 
-public function suppression() {
-    if (isset($_POST['vehicule_id'])) {
-        $idVehicule = (int)Securite::secureHTML($_POST['vehicule_id']);
-        
-        if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été supprimé",
-                "type" => "alert-danger"
-            ];
+    public function suppression(){
+        if(isset($_POST['vehicule_id'])){
+            $idVehicule = (int)Securite::secureHTML($_POST['vehicule_id']);
+            
+            if($this->espaceproManager->compterVehicule($idVehicule) > 0){
+                $_SESSION['alert'] = [
+                    "message" => "Le véhicule n'a pas été supprimé",
+                    "type" => "alert-danger"
+                ];
+            } else {
+                $this->espaceproManager->deleteDBvehicule($idVehicule);
+                $_SESSION['alert'] = [
+                    "message" => "Le vehicule est supprimé",
+                    "type" => "alert-success"
+                ];
+               
+            }
+           
+            header('Location: '.URL.'back/espacepro/voituresoccasions');
         } else {
-            $this->espaceproManager->deleteDBvehicule($idVehicule);
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule est supprimé",
-                "type" => "alert-success"
-            ];
+            throw new Exception("Accée Refusé ");
         }
-       
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
-        exit(); // Ajoutez cette ligne pour éviter toute sortie supplémentaire
-    } else {
-        throw new Exception("Accès Refusé");
     }
-}
-
 
     
         

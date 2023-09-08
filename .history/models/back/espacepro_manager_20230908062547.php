@@ -15,31 +15,24 @@ class EspaceproManager extends Model {
     }
 
     public function deleteDBvehicule($idVehicule) {
-        $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule"; // Utilisez le nom correct de la colonne
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-        $stmt->execute();
-        $stmt->closeCursor();
-    }
-    
-    
-    
-
-    public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+        try {
+            $sql = "DELETE FROM vehicule WHERE idVehicule = :idVehicule";
+            $stmt = $this->getBdd()->prepare($sql);
+            $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+            $stmt->execute();
             $stmt->closeCursor();
-            return ($resultat) ? $resultat['nb'] : 0;
-        } else {
-            // Gérez l'erreur de la requête de base de données.
-            return 0; // Ou gérez-la d'une autre manière appropriée.
+        } catch (PDOException $e) {
+            // Gérez les exceptions liées à la base de données ici
+            // Vous pouvez ajouter un message d'erreur dans la session si nécessaire
+            $_SESSION['alerte'] = [
+                "message" => "Erreur lors de la suppression du véhicule : " . $e->getMessage(),
+                "type" => "alert-danger",
+            ];
+            // Redirigez l'utilisateur vers une page d'erreur ou ailleurs si nécessaire
+            header("Location: " . URL . "back/espacepro/erreur");
+            exit; // Assurez-vous de terminer l'exécution du script après la redirection
         }
     }
-    
-    
     
     
     
