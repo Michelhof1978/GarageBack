@@ -15,18 +15,12 @@ class EspaceproManager extends Model {
     }
 
     public function deleteDBvehicule($idVehicule) {
-        try {
-            $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";
-            $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-            $stmt->execute();
-            $stmt->closeCursor();
-        } catch (PDOException $e) {
-            // Gérer l'erreur de la requête de suppression
-            echo "Erreur de suppression : " . $e->getMessage();
-        }
+        $req = "DELETE FROM *`vehicule` WHERE `idVehicule` = :idVehicule"; // Utilisez le nom correct de la colonne
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+        $stmt->execute();
+        $stmt->closeCursor();
     }
-    
     
     
     

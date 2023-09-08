@@ -52,7 +52,7 @@ public function suppression() {
         }
     
         // Rediriger l'utilisateur
-        //header('Location: '.URL.'/back/espacepro/voituresoccasions');
+        header('Location: '.URL.'/back/espacepro/voituresoccasions');
         exit();
     } else {
         // Gérer l'erreur des données postées invalides
@@ -60,7 +60,7 @@ public function suppression() {
         header('Location: '.URL.'/page_erreur.php');
         exit();
     }
-}    
+    
 
     
         

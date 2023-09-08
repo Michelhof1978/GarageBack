@@ -1,5 +1,4 @@
 <?php
-ob_start();
 
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
@@ -31,36 +30,9 @@ class EspaceproController {
 
 
 public function suppression() {
-    if (isset($_POST['vehicule_id']) && is_numeric($_POST['vehicule_id']) && !empty($_POST['vehicule_id'])) {
-        // Récupérer l'ID du véhicule
-        $idVehicule = (int) $_POST['vehicule_id'];
-    
-        // Vérifier si le véhicule existe dans la base de données
-        if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            // Le véhicule existe, donc nous pouvons le supprimer
-            $this->espaceproManager->deleteDBvehicule($idVehicule);
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule est supprimé",
-                "type" => "alert-success"
-            ];
-        } else {
-            // Le véhicule n'existe pas, afficher un message d'erreur
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été trouvé",
-                "type" => "alert-danger"
-            ];
-        }
-    
-        // Rediriger l'utilisateur
-        //header('Location: '.URL.'/back/espacepro/voituresoccasions');
-        exit();
-    } else {
-        // Gérer l'erreur des données postées invalides
-        // Par exemple, rediriger l'utilisateur vers une page d'erreur
-        header('Location: '.URL.'/page_erreur.php');
-        exit();
-    }
-}    
+   
+}
+
 
     
         
@@ -109,7 +81,7 @@ public function suppression() {
 
 }
 
-ob_end_flush();
+
 
 
 

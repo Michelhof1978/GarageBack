@@ -15,35 +15,29 @@ class EspaceproManager extends Model {
     }
 
     public function deleteDBvehicule($idVehicule) {
-        try {
-            $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";
-            $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-            $stmt->execute();
-            $stmt->closeCursor();
-        } catch (PDOException $e) {
-            // Gérer l'erreur de la requête de suppression
-            echo "Erreur de suppression : " . $e->getMessage();
-        }
+        $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+        $stmt->execute();
+        $stmt->closeCursor();
     }
-    
     
     
     
 
-    public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-            $stmt->closeCursor();
-            return ($resultat) ? $resultat['nb'] : 0;
-        } else {
-            // Gérez l'erreur de la requête de base de données.
-            return 0; // Ou gérez-la d'une autre manière appropriée.
-        }
-    }
+    // public function compterVehicule($idVehicule){
+    //     $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; // Utilisez le nom correct de la colonne
+    //     $stmt = $this->getBdd()->prepare($req);
+    //     $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+    //     if ($stmt->execute()) {
+    //         $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+    //         $stmt->closeCursor();
+    //         return ($resultat) ? $resultat['nb'] : 0;
+    //     } else {
+    //         // Gérez l'erreur de la requête de base de données.
+    //         return 0; // Ou gérez-la d'une autre manière appropriée.
+    //     }
+    // }
     
     
     

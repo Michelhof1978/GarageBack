@@ -1,5 +1,4 @@
 <?php
-ob_start();
 
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
@@ -32,35 +31,36 @@ class EspaceproController {
 
 public function suppression() {
     if (isset($_POST['vehicule_id']) && is_numeric($_POST['vehicule_id']) && !empty($_POST['vehicule_id'])) {
-        // Récupérer l'ID du véhicule
-        $idVehicule = (int) $_POST['vehicule_id'];
+        // Continuer avec la suppression
     
-        // Vérifier si le véhicule existe dans la base de données
+        // Récupérer l'id du véhicule
+        $idVehicule = (int) Securite::secureHTML($_POST['vehicule_id']);
+    
+        // Vérifier s'il y a des véhicules liés avant de supprimer
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            // Le véhicule existe, donc nous pouvons le supprimer
+            $_SESSION['alert'] = [
+                "message" => "Le véhicule n'a pas été supprimé",
+                "type" => "alert-danger"
+            ];
+        } else {
+            // Supprimer le véhicule
             $this->espaceproManager->deleteDBvehicule($idVehicule);
             $_SESSION['alert'] = [
                 "message" => "Le véhicule est supprimé",
                 "type" => "alert-success"
             ];
-        } else {
-            // Le véhicule n'existe pas, afficher un message d'erreur
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été trouvé",
-                "type" => "alert-danger"
-            ];
         }
     
         // Rediriger l'utilisateur
-        //header('Location: '.URL.'/back/espacepro/voituresoccasions');
-        exit();
+        header('Location: '.URL.'/back/espacepro/voituresoccasions');
+        exit(); // Ajoutez cette ligne pour éviter toute sortie supplémentaire
     } else {
         // Gérer l'erreur des données postées invalides
         // Par exemple, rediriger l'utilisateur vers une page d'erreur
         header('Location: '.URL.'/page_erreur.php');
         exit();
     }
-}    
+}
 
     
         
@@ -109,7 +109,7 @@ public function suppression() {
 
 }
 
-ob_end_flush();
+
 
 
 
