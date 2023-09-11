@@ -79,16 +79,13 @@ try{
                             break;
                             case "validationSuppression" : $espacepro_controller->Suppression(); //echo "suppression";
                             break;
-                            case "creation" : $espacepro_controller->creation(); //echo "creation";
-                            break;
                             default : throw new Exception ("La page n'existe pas");
 
                         }
-                        break;
             default : throw new Exception ("La page n'existe pas");
                  }
             break;
-            default : throw new Exception ("La page n'existe pas"); //On léve encore une exeption que s'il n'y a pas front ou back mais autre chose de marqué ds l'url, on affichera un message d'erreur.
+            default : throw new Exception ("La page n'existe pas");//On léve encore une exeption que s'il n'y a pas front ou back mais autre chose de marqué ds l'url, on affichera un message d'erreur.
         }
     }
 } catch (Exception $e){

@@ -2,7 +2,7 @@
  <!--pour commencer la temporisation de la sortie.
   Cela signifie que le contenu généré après cette instruction sera mis en mémoire tampon-->
 
- 
+
 
     <div class="container-fluid no-margin">
         <h1 class="text-center">Liste des véhicules</h1>
@@ -32,9 +32,7 @@
                 <?php foreach ($vehicules as $vehicule): ?>
                     <?php
                         //Affichage des éléments
-                        if (empty($_POST['idVehicule']) || $_POST['idvehicule'] !== $vehicule['idvehicule']) :
-                            // A gauche; l information qui a été posté et droite, c'est les informations de la bdd?>
-                  
+                        if(empty$_POST['idVehicule'] !== $vehicule['idvehicule'])  : // A gauche; l information qui a été posté et droite, c'est les informations de la bdd?>
                     <tr>
                         <th scope="row"><?= $vehicule['idVehicule'] ?></th>
                         <td><?= $vehicule['imageVoiture'] ?></td>
@@ -54,10 +52,8 @@
                         <td><?= $vehicule['imageCritere'] ?></td>
 
                         <td>
-                        <form method="POST" action="" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
-                            <input type="hidden" name="vehicule_id" value="<?= $vehicule['idVehicule'] ?>">
-                            <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
-                            </form>
+                            <input type="POST" name="vehicule_id" value="<?= $vehicule['idVehicule'] ?>">
+                    <button type="submit" class="btn btn-danger" name="modifier">Modifier</button>
                 
                 </td>
 
@@ -68,32 +64,6 @@
                             </form>
                         </td>
                     </tr>
-                   <?php else: ?>
-                <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
-                    <tr>
-                        <td><?= $famille['idvehicule'] ?></td>
-                        <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>
-                        <td><input type="text" name="modele" class="form-control" value="<?= $vehicule['model'] ?>" /></td>
-                        <td><input type="text" name="annee" class="form-control" value="<?= $vehicule['annee'] ?>" /></td>
-                        <td><input type="text" name="kilometrage" class="form-control" value="<?= $vehicule['kilometrage'] ?>" /></td>
-                        <td><input type="text" name="boitevitesse" class="form-control" value="<?= $vehicule['boitevitesse'] ?>" /></td>
-                        <td><input type="text" name="energie" class="form-control" value="<?= $vehicule['energie'] ?>" /></td>
-                        <td><input type="text" name="datecirculation" class="form-control" value="<?= $vehicule['datecirculation'] ?>" /></td>
-                        <td><input type="text" name="puissance" class="form-control" value="<?= $vehicule['puissance'] ?>" /></td>
-                        <td><input type="text" name="places" class="form-control" value="<?= $vehicule['places'] ?>" /></td>
-                        <td><input type="text" name="couleur" class="form-control" value="<?= $vehicule['couleur'] ?>" /></td>
-                        <td><textarea name='description' class="form-control" rows="3"><?= $vehicule['description'] ?></textarea></td>
-                        <td><input type="text" name="prix" class="form-control" value="<?= $vehicule['prix'] ?>" /></td>
-                        <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
-                        <td><input type="text" name="imageCritere" class="form-control" value="<?= $vehicule['imageCritere'] ?>" /></td>
-                        
-                    
-                        <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idvehicule'] ?>" />
-                            <button class="btn btn-primary" type="submit">Valider</button>
-                        </td>
-                    </tr>
-                </form>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>

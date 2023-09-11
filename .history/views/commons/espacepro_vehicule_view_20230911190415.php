@@ -89,7 +89,7 @@
                         
                     
                         <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idvehicule'] ?>" />
+                            <input type="hidden" name="famille_id" value="<?= $famille['famille_id'] ?>" />
                             <button class="btn btn-primary" type="submit">Valider</button>
                         </td>
                     </tr>

@@ -75,20 +75,17 @@ try{
                             break;
                             case "voituresoccasions" : $espacepro_controller->voituresoccasions(); //echo "voituresoccasions";
                             break;
-                            case "validationModification" : $espacepro_controller->Modification(); //echo "modification";
+                            case "validationModification" : $espacepro_controller->Suppression(); //echo "voituresoccasions";
                             break;
-                            case "validationSuppression" : $espacepro_controller->Suppression(); //echo "suppression";
-                            break;
-                            case "creation" : $espacepro_controller->creation(); //echo "creation";
+                            case "validationSuppression" : $espacepro_controller->Suppression(); //echo "voituresoccasions";
                             break;
                             default : throw new Exception ("La page n'existe pas");
 
                         }
-                        break;
             default : throw new Exception ("La page n'existe pas");
                  }
             break;
-            default : throw new Exception ("La page n'existe pas"); //On léve encore une exeption que s'il n'y a pas front ou back mais autre chose de marqué ds l'url, on affichera un message d'erreur.
+            default : throw new Exception ("La page n'existe pas");//On léve encore une exeption que s'il n'y a pas front ou back mais autre chose de marqué ds l'url, on affichera un message d'erreur.
         }
     }
 } catch (Exception $e){

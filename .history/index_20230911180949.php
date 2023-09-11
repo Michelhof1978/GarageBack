@@ -79,12 +79,10 @@ try{
                             break;
                             case "validationSuppression" : $espacepro_controller->Suppression(); //echo "suppression";
                             break;
-                            case "creation" : $espacepro_controller->creation(); //echo "creation";
-                            break;
+                            case 
                             default : throw new Exception ("La page n'existe pas");
 
                         }
-                        break;
             default : throw new Exception ("La page n'existe pas");
                  }
             break;

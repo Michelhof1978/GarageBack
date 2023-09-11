@@ -84,7 +84,7 @@ try{
                             default : throw new Exception ("La page n'existe pas");
 
                         }
-                        break;
+                        
             default : throw new Exception ("La page n'existe pas");
                  }
             break;

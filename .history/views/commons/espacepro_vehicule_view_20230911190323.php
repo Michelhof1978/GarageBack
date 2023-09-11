@@ -82,14 +82,13 @@
                         <td><input type="text" name="puissance" class="form-control" value="<?= $vehicule['puissance'] ?>" /></td>
                         <td><input type="text" name="places" class="form-control" value="<?= $vehicule['places'] ?>" /></td>
                         <td><input type="text" name="couleur" class="form-control" value="<?= $vehicule['couleur'] ?>" /></td>
-                        <td><textarea name='description' class="form-control" rows="3"><?= $vehicule['description'] ?></textarea></td>
-                        <td><input type="text" name="prix" class="form-control" value="<?= $vehicule['prix'] ?>" /></td>
-                        <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
-                        <td><input type="text" name="imageCritere" class="form-control" value="<?= $vehicule['imageCritere'] ?>" /></td>
+                        <td><textarea name='description' class="form-control" rows="3"><?= $famille['description'] ?></textarea></td>
+                     
                         
-                    
+                        
+                        
                         <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idvehicule'] ?>" />
+                            <input type="hidden" name="famille_id" value="<?= $famille['famille_id'] ?>" />
                             <button class="btn btn-primary" type="submit">Valider</button>
                         </td>
                     </tr>
