@@ -1,0 +1,56 @@
+<?php ob_start(); ?>
+
+
+// //Aide pour meilleur affichage des description des erreurs ds la console
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Famille</th>
+      <th scope="col">Marque</th>
+      <th scope="col">Modèle</th>
+      <th scope="col">Année</th>
+      <th scope="col">Kilométrage</th>
+      <th scope="col">Boite de Vitesse</th>
+      <th scope="col">Energie</th>
+      <th scope="col">1 ère mise en Circulation</th>
+      <th scope="col">Puissance</th>
+      <th scope="col">Places</th>
+      <th scope="col">Couleur</th>
+      <th scope="col">D</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+      <th scope="col">Last</th>
+
+      <th scope="col" colspan="2">actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+// Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
+$content = ob_get_clean();
+$titre = "VOITURES D'OCCASIONS";
+require "views/commons/template.php";
