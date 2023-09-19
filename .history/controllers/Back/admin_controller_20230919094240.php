@@ -13,16 +13,16 @@ require_once(__ROOT__.'\controllers\back\test_connexion.php');
 class AdminController {
         private $AdminManager; //Déclaration d une propriéte privée
 
-    public function __construct()
-    {
-        $this->AdminManager = new AdminManager();
-        // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
-    }
+//     public function __construct()
+//     {
+//         $this->AdminManager = new AdminManager();
+//         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
+//     }
 
-    public function GetPageLogin() {
-require_once(__ROOT__.'\views\login_view.php');
+//     public function GetPageLogin() {
+// require_once(__ROOT__.'\views\login_view.php');
         
-    }
+//     }
     
 
 

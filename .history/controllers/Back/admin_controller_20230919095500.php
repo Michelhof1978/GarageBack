@@ -13,16 +13,16 @@ require_once(__ROOT__.'\controllers\back\test_connexion.php');
 class AdminController {
         private $AdminManager; //Déclaration d une propriéte privée
 
-    public function __construct()
-    {
-        $this->AdminManager = new AdminManager();
-        // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
-    }
+//     public function __construct()
+//     {
+//         $this->AdminManager = new AdminManager();
+//         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
+//     }
 
-    public function GetPageLogin() {
-require_once(__ROOT__.'\views\login_view.php');
+//     public function GetPageLogin() {
+// require_once(__ROOT__.'\views\login_view.php');
         
-    }
+//     }
     
 
 
@@ -43,7 +43,7 @@ require_once(__ROOT__.'\views\login_view.php');
     // }
     
 //    
-//     UTILISATION D UNE METHODE CRYPTE DU MDP
+//    POUR GENERER UN MDP
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 
 // Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
 // public function hashPassword() {

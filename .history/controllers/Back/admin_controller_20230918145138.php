@@ -42,8 +42,9 @@ require_once(__ROOT__.'\views\login_view.php');
     //     }
     // }
     
-//    
-//     UTILISATION D UNE METHODE CRYPTE DU MDP
+//-----------------------------------------------------------------------------
+                //GENERATEUR DE MDP HACHE
+//         UTILISATION D UNE METHODE CRYPTE DU MDP
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 
 // Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
 // public function hashPassword() {
@@ -54,7 +55,7 @@ require_once(__ROOT__.'\views\login_view.php');
 //     echo "Mot de passe haché : $hashedPassword\n";
 // }
 // Utilisé pour déboguer, à enlever une fois que ça fonctionne
-        
+//-----------------------------------------------------------------------------    
         
         public function getAccueilAdmin(){
             if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis

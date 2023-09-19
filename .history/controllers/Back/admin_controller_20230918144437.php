@@ -16,7 +16,7 @@ class AdminController {
     public function __construct()
     {
         $this->AdminManager = new AdminManager();
-        // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
+         $this->assword(); // Appeler la fonction de hachage ci dessous
     }
 
     public function GetPageLogin() {
@@ -26,24 +26,30 @@ require_once(__ROOT__.'\views\login_view.php');
     
 
 
-    // public function connexion(){
-    //     if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-    //         $login = Securite::secureHtml($_POST["login"]);
-    //         $password = Securite::secureHtml($_POST["password"]);
+    public function connexion(){
 
-    //         if($this->AdminManager->isConnexionValid($login, $password)) {
-    //             $_SESSION['access'] = "admin";
-    //             header('Location: '.URL."back/admin");
-    //         } else {
-    //             header('Location: '.URL."back/login");
-    //         }
-    //     } else {
-    //         header('Location: '.URL."back/login");
-    //     }
-    // }
+        $password = "michelaquiche"; // Remplacez cela par le mot de passe que vous souhaitez hacher
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        echo password_hash("michelaquiche", PASSWORD_DEFAULT); // Appeler la fonction de hachage ci dessous
+        echo "connexion";
+        
+        // if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+        //     $login = Securite::secureHtml($_POST["login"]);
+        //     $password = Securite::secureHtml($_POST["password"]);
+
+        //     if($this->AdminManager->isConnexionValid($login, $password)) {
+        //         $_SESSION['access'] = "admin";
+        //         header('Location: '.URL."back/admin");
+        //     } else {
+        //         header('Location: '.URL."back/login");
+        //     }
+        // } else {
+        //     header('Location: '.URL."back/login");
+        // }
+    }
     
-//    
-//     UTILISATION D UNE METHODE CRYPTE DU MDP
+//         UTILISATION D UNE METHODE CRYPTE DU MDP
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 
 // Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
 // public function hashPassword() {

@@ -26,24 +26,29 @@ require_once(__ROOT__.'\views\login_view.php');
     
 
 
-    // public function connexion(){
-    //     if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-    //         $login = Securite::secureHtml($_POST["login"]);
-    //         $password = Securite::secureHtml($_POST["password"]);
+    public function connexion(){
+        $plainPassword = "michelaquiche"; // Mot de passe en clair pour les tests
+             $hashedPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
+        
+             echo "Mot de passe en clair : $plainPassword\n";
+             echo "Mot de passe haché : $hashedPassword\n";
+             
+        // if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+        //     $login = Securite::secureHtml($_POST["login"]);
+        //     $password = Securite::secureHtml($_POST["password"]);
 
-    //         if($this->AdminManager->isConnexionValid($login, $password)) {
-    //             $_SESSION['access'] = "admin";
-    //             header('Location: '.URL."back/admin");
-    //         } else {
-    //             header('Location: '.URL."back/login");
-    //         }
-    //     } else {
-    //         header('Location: '.URL."back/login");
-    //     }
-    // }
+        //     if($this->AdminManager->isConnexionValid($login, $password)) {
+        //         $_SESSION['access'] = "admin";
+        //         header('Location: '.URL."back/admin");
+        //     } else {
+        //         header('Location: '.URL."back/login");
+        //     }
+        // } else {
+        //     header('Location: '.URL."back/login");
+        // }
+    }
     
-//    
-//     UTILISATION D UNE METHODE CRYPTE DU MDP
+//         UTILISATION D UNE METHODE CRYPTE DU MDP
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 
 // Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
 // public function hashPassword() {

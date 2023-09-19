@@ -13,16 +13,16 @@ require_once(__ROOT__.'\controllers\back\test_connexion.php');
 class AdminController {
         private $AdminManager; //Déclaration d une propriéte privée
 
-    public function __construct()
-    {
-        $this->AdminManager = new AdminManager();
-        // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
-    }
+//     public function __construct()
+//     {
+//         $this->AdminManager = new AdminManager();
+//         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
+//     }
 
-    public function GetPageLogin() {
-require_once(__ROOT__.'\views\login_view.php');
+//     public function GetPageLogin() {
+// require_once(__ROOT__.'\views\login_view.php');
         
-    }
+//     }
     
 
 
@@ -42,10 +42,11 @@ require_once(__ROOT__.'\views\login_view.php');
     //     }
     // }
     
-//    
-//     UTILISATION D UNE METHODE CRYPTE DU MDP
+//   -------------------------------------------------------------------- 
+//    POUR GENERER UN MDP HACHE LORS DES TESTS DE CONNEXION
 // Pour une connexion sécurisé, cette fonction va générer un mot de passe 
 // Je vais utiliser le PASSWORD_DEFAULT qui est apparemment le plus sécurisé d aujourdh'ui
+
 // public function hashPassword() {
 //     $plainPassword = "michelaquiche"; // Mot de passe en clair pour les tests
 //     $hashedPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
@@ -54,7 +55,7 @@ require_once(__ROOT__.'\views\login_view.php');
 //     echo "Mot de passe haché : $hashedPassword\n";
 // }
 // Utilisé pour déboguer, à enlever une fois que ça fonctionne
-        
+     
         
         public function getAccueilAdmin(){
             if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
