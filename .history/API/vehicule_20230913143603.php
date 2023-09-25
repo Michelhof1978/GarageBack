@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__.'\controllers\front\vehicule_controller.php');
+require_once(__ROOT__.'\\controllers\vehicule_controller.php');
 //   define('__ROOT__', dirname(dirname(__FILE__)));
 
 //   require_once(__ROOT__.'..\controllers\vehicule_controller.php');
@@ -31,7 +31,7 @@ if (isset($_GET['kilometremax'])) {
 }
 
 if (isset($_GET['anneemin'])) {
-    $filters['anneemin']= intval($_GET['anneemin']);
+    $filters['anneemin']= intval($_GET['annemin']);
 }
 
 if (isset($_GET['anneemax'])) {

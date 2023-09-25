@@ -1,18 +1,5 @@
-<?php
 
-//Aide pour meilleur affichage des description des erreurs ds la console
- error_reporting(E_ALL);
- ini_set('display_errors', '1');
-
-
-require_once(__ROOT__.'\models\back\admin_manager.php');
-require_once(__ROOT__.'\controllers\back\security.class.php');
-require_once(__ROOT__.'\controllers\back\test_connexion.php');
-
-
-class AdminController {
-
-    ///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
        //GENERATEUR DE MDP HACHE A INSERER DS LA BDD
 // A insérer au tout départ sans le reste du code.
 //En cliquant sur valider sans rien écrire ds le formulaire, cela va générer un mdp haché que je pourrais utiliser ds ma bdd pour tests
@@ -27,7 +14,21 @@ class AdminController {
 //     echo "connexion";
 // }
 //////////////////////////////////////////////////////////////////////////
+<?php
 
+<?php
+
+//Aide pour meilleur affichage des description des erreurs ds la console
+ error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+
+
+require_once(__ROOT__.'\models\back\admin_manager.php');
+require_once(__ROOT__.'\controllers\back\security.class.php');
+require_once(__ROOT__.'\controllers\back\test_connexion.php');
+
+
+class AdminController {
         private $AdminManager; //Déclaration d une propriéte privée
 
     public function __construct()

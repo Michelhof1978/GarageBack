@@ -31,7 +31,7 @@ if (isset($_GET['kilometremax'])) {
 }
 
 if (isset($_GET['anneemin'])) {
-    $filters['anneemin']= intval($_GET['anneemin']);
+    $filters['anneemin']= intval($_GET['annemin']);
 }
 
 if (isset($_GET['anneemax'])) {
