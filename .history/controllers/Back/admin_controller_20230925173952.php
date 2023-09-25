@@ -27,7 +27,6 @@ class AdminController {
 //     echo "connexion";
 // }
 //////////////////////////////////////////////////////////////////////////
-
         private $AdminManager; //Déclaration d une propriéte privée
 
     public function __construct()
