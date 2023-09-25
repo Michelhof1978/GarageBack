@@ -1,7 +1,4 @@
 <?php //CONTROLLER
-//Aide pour meilleur affichage des description des erreurs ds la console
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 
 require_once(__ROOT__.'\models\front\vehicule_model.php');
 
@@ -21,7 +18,6 @@ public function getCarsByFilters($filtres){
     header('Content-Type: application/json');
         echo json_encode($cars);
 }
-
 
 
 

@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-//Aide pour meilleur affichage des description des erreurs ds la console
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
-=======
->>>>>>> filters
  class VehiculeModel{
 
 private $dbh;
@@ -68,11 +61,11 @@ public function getCarsByFilters($filters) {
          
       }
 
-    // Preparation et execution de la requête sql
+    // Prepara
     $stmt = $this->dbh->prepare($sql);
 
 
-   //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
+   // Bind other parameters if they are set
 if (isset($filters['famille'])) {
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }

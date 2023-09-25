@@ -1,12 +1,9 @@
 <?php //CONTROLLER
-//Aide pour meilleur affichage des description des erreurs ds la console
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 
 require_once(__ROOT__.'\models\front\vehicule_model.php');
 
 
-//contrôleur qui va manipuler les données de véhicules dans l'application. Elle utilisera un modèle (VehiculeModel) pour accéder aux données et gérer les opérations liées aux véhicules. 
+//contrôleur qui va manipul des données de véhicules dans le contexte d'une application. Elle utilise un modèle (VehiculeModel) pour accéder aux données et gérer les opérations liées aux véhicules. 
 // Création du controlleur du côté front qui va regrouper toutes nos routes
 class VehiculeController{
     //Crérera automatiquement une instance de classe APIManager et la stockera ds la propriété $apiManager. Cela sera utile pour gérer le JSON par la suite.
@@ -21,7 +18,6 @@ public function getCarsByFilters($filtres){
     header('Content-Type: application/json');
         echo json_encode($cars);
 }
-
 
 
 

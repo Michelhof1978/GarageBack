@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-//Aide pour meilleur affichage des description des erreurs ds la console
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
-=======
->>>>>>> filters
  class VehiculeModel{
 
 private $dbh;
@@ -25,11 +18,11 @@ public function __construct()
     
 }
 
-//fonction  publique qui prend un paramètre $filters qui est un tableau associatif contenant les filtres pour la recherche des voitures.
+//Cette fonction est définie comme publique et prend un paramètre $filters qui est un tableau associatif contenant les filtres pour la recherche des voitures.
 public function getCarsByFilters($filters) { 
 
-    // construire la requête SQL de base qui récupère toutes les colonnes (*) de la table "vehicule". La condition WHERE 1 est utilisée pour que la requête soit toujours vraie, même s'il n'y a pas de filtres spécifiés.
-    $sql = "SELECT * FROM vehicule WHERE 1"; 
+    // Construct the SQL query based on filters
+    $sql = "SELECT * FROM vehicule WHERE 1"; //1 pour que ça soit toujours vrai même si pas de filtres
 
     if (isset($filters['famille'])) { //vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
         $sql .= " AND famille = :famille";
@@ -68,11 +61,11 @@ public function getCarsByFilters($filters) {
          
       }
 
-    // Preparation et execution de la requête sql
+    // Prepare and execute the query
     $stmt = $this->dbh->prepare($sql);
 
 
-   //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
+   // Bind other parameters if they are set
 if (isset($filters['famille'])) {
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }

@@ -44,21 +44,21 @@ require_once(__ROOT__.'\views\login_view.php');
     
 
 
-    public function connexion(){
-        if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-            $login = Securite::secureHtml($_POST["login"]);
-            $password = Securite::secureHtml($_POST["password"]);
+    // public function connexion(){
+    //     if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+    //         $login = Securite::secureHtml($_POST["login"]);
+    //         $password = Securite::secureHtml($_POST["password"]);
 
-            if($this->AdminManager->isConnexionValid($login, $password)) {
-                $_SESSION['access'] = "admin";
-                header('Location: '.URL."back/admin");
-            } else {
-                header('Location: '.URL."back/login");
-            }
-        } else {
-            header('Location: '.URL."back/login");
-        }
-    }
+    //         if($this->AdminManager->isConnexionValid($login, $password)) {
+    //             $_SESSION['access'] = "admin";
+    //             header('Location: '.URL."back/admin");
+    //         } else {
+    //             header('Location: '.URL."back/login");
+    //         }
+    //     } else {
+    //         header('Location: '.URL."back/login");
+    //     }
+    // }
     
 
         
