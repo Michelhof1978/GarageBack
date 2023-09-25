@@ -16,7 +16,6 @@ class AdminController {
        //GENERATEUR DE MDP HACHE A INSERER DS LA BDD
 // A insérer au tout départ sans le reste du code.
 //En cliquant sur valider sans rien écrire ds le formulaire, cela va générer un mdp haché que je pourrais utiliser ds ma bdd pour tests
-
 // public function GetPageLogin() {
 //     require_once(__ROOT__.'\views\login_view.php');
             
@@ -37,28 +36,28 @@ class AdminController {
         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
     }
 
-    public function getPageLogin() {
+    public function GetPageLogin() {
 require_once(__ROOT__.'\views\login_view.php');
         
     }
     
 
 
-    public function connexion(){
-        if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-            $login = Securite::secureHtml($_POST["login"]);
-            $password = Securite::secureHtml($_POST["password"]);
+    // public function connexion(){
+    //     if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+    //         $login = Securite::secureHtml($_POST["login"]);
+    //         $password = Securite::secureHtml($_POST["password"]);
 
-            if($this->AdminManager->isConnexionValid($login, $password)) {
-                $_SESSION['access'] = "admin";
-                header('Location: '.URL."back/admin");
-            } else {
-                header('Location: '.URL."back/login");
-            }
-        } else {
-            header('Location: '.URL."back/login");
-        }
-    }
+    //         if($this->AdminManager->isConnexionValid($login, $password)) {
+    //             $_SESSION['access'] = "admin";
+    //             header('Location: '.URL."back/admin");
+    //         } else {
+    //             header('Location: '.URL."back/login");
+    //         }
+    //     } else {
+    //         header('Location: '.URL."back/login");
+    //     }
+    // }
     
 
         

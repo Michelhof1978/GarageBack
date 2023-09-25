@@ -7,6 +7,7 @@ require_once(__ROOT__.'\models\front\vehicule_model.php');
 
 
 //contrôleur qui va manipuler les données de véhicules dans l'application. Elle utilisera un modèle (VehiculeModel) pour accéder aux données et gérer les opérations liées aux véhicules. 
+
 // Création du controlleur du côté front qui va regrouper toutes nos routes
 class VehiculeController
 {

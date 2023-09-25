@@ -37,7 +37,7 @@ class AdminController {
         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
     }
 
-    public function getPageLogin() {
+    public function GetPageLogin() {
 require_once(__ROOT__.'\views\login_view.php');
         
     }

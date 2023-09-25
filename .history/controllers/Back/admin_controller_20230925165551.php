@@ -12,11 +12,8 @@ require_once(__ROOT__.'\controllers\back\test_connexion.php');
 
 class AdminController {
 
-    ///////////////////////////////////////////////////////////////////////////
        //GENERATEUR DE MDP HACHE A INSERER DS LA BDD
-// A insérer au tout départ sans le reste du code.
-//En cliquant sur valider sans rien écrire ds le formulaire, cela va générer un mdp haché que je pourrais utiliser ds ma bdd pour tests
-
+// Utilisé pour déboguer, à enlever une fois que ça fonctionne
 // public function GetPageLogin() {
 //     require_once(__ROOT__.'\views\login_view.php');
             
@@ -27,7 +24,6 @@ class AdminController {
 //     echo password_hash(admin, PASSWORD_DEFAULT);
 //     echo "connexion";
 // }
-//////////////////////////////////////////////////////////////////////////
 
         private $AdminManager; //Déclaration d une propriéte privée
 
@@ -37,7 +33,7 @@ class AdminController {
         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
     }
 
-    public function getPageLogin() {
+    public function GetPageLogin() {
 require_once(__ROOT__.'\views\login_view.php');
         
     }
@@ -59,8 +55,7 @@ require_once(__ROOT__.'\views\login_view.php');
             header('Location: '.URL."back/login");
         }
     }
-    
-
+        
         
         public function getAccueilAdmin(){
             if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
