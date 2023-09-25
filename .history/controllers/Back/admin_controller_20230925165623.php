@@ -13,8 +13,7 @@ require_once(__ROOT__.'\controllers\back\test_connexion.php');
 class AdminController {
 ///////////////////////////////////////////////////////////////////////////
        //GENERATEUR DE MDP HACHE A INSERER DS LA BDD
-// A insérer au tout départ sans le reste du code.
-//En cliquant sur valider sans rien écrire ds le formulaire, cela va générer un mdp haché que je pourrais utiliser ds ma bdd pour tests
+// A enlever une fois que ça fonctionne
 // public function GetPageLogin() {
 //     require_once(__ROOT__.'\views\login_view.php');
             
