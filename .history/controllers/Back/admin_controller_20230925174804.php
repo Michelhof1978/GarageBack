@@ -75,4 +75,4 @@ require_once(__ROOT__.'\views\login_view.php');
            session_destroy(); //Va supprimer la variable de session
            header('Location: '.URL."back/login");//redirection sur la page connexion
         }
-    }
+    }git add
