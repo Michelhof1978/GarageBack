@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-//lorsque la connexion est true ,activation des variables de sessions pour pouvoir transmettre les infos de page en page.
+//lorsque la connexion est true ,activation des variables de sessions pour pouvoir transmettre les infos de page en page
 session_start();
 
 // 1. Création du fichier index.php dans lequel on définit une constante URL.

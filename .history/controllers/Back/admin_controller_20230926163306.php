@@ -37,7 +37,7 @@ class AdminController {
         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
     }
 
-    public function getPageLogin() {
+    public function GetPageLogin() {
 require_once(__ROOT__.'\views\login_view.php');
         
     }
@@ -50,7 +50,7 @@ require_once(__ROOT__.'\views\login_view.php');
             $password = Securite::secureHtml($_POST["password"]);
 
             if($this->AdminManager->isConnexionValid($login, $password)) {
-                $_SESSION['access'] = "admin";// Pour activer les variables de session, il va falloir que je les active en début de page ds index.php
+                $_SESSION['access'] = "admin";// Pour activer les variables de session, il va falloir que je les active en
                 header('Location: '.URL."back/admin");
             } else {
                 header('Location: '.URL."back/login");
