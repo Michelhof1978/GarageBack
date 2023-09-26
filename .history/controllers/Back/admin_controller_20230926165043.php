@@ -24,9 +24,9 @@ class AdminController {
 
 // public function connexion() {
 
-//     echo password_hash("michelaquiche", PASSWORD_DEFAULT);
-// //     echo "connexion";
-//  }
+//     echo password_hash(admin, PASSWORD_DEFAULT);
+//     echo "connexion";
+// }
 //////////////////////////////////////////////////////////////////////////
 
         private $AdminManager; //Déclaration d une propriéte privée
@@ -61,7 +61,7 @@ require_once(__ROOT__.'\views\login_view.php');
     }
     
 
-//vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
+        //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
         public function getAccueilAdmin(){
             if(Securite::verifAccessSession()){ 
                 require "./views/accueilAdmin_view.php";

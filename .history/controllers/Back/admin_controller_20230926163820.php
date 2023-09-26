@@ -24,9 +24,9 @@ class AdminController {
 
 // public function connexion() {
 
-//     echo password_hash("michelaquiche", PASSWORD_DEFAULT);
-// //     echo "connexion";
-//  }
+//     echo password_hash(admin, PASSWORD_DEFAULT);
+//     echo "connexion";
+// }
 //////////////////////////////////////////////////////////////////////////
 
         private $AdminManager; //Déclaration d une propriéte privée
@@ -50,7 +50,7 @@ require_once(__ROOT__.'\views\login_view.php');
             $password = Securite::secureHtml($_POST["password"]);
 
             if($this->AdminManager->isConnexionValid($login, $password)) {
-                $_SESSION['access'] = "admin";// Pour activer les variables de session, il va falloir que je les active en début de page ds index.php
+                $_SESSION['access'] = "admin";// Pour activer les variables de session, il va falloir que je les active en début de page ds index.php en ac
                 header('Location: '.URL."back/admin");
             } else {
                 header('Location: '.URL."back/login");
@@ -61,9 +61,9 @@ require_once(__ROOT__.'\views\login_view.php');
     }
     
 
-//vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
+        
         public function getAccueilAdmin(){
-            if(Securite::verifAccessSession()){ 
+            if(Securite::verifAccessSession()){ //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
                 require "./views/accueilAdmin_view.php";
             }else{ 
                 header('Location: '.URL."back/login");
