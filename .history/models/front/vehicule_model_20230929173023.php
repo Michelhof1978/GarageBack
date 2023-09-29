@@ -68,7 +68,7 @@ public function getCarsByFilters($filters) {
 
     // Preparation et execution de la requête sql
     $stmt = $this->dbh->prepare($sql);
-
+<<<<<<< HEAD
 
 
    //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
@@ -108,9 +108,16 @@ if (isset($filters['limite'])) {
     $stmt->bindParam(':limite', $filters['limite'], PDO::PARAM_INT);
 }
 
+// Execute the query
+$stmt->execute();
 
+
+
+=======
     $stmt->execute();
+>>>>>>> admin
 
+    // Fetch results
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 

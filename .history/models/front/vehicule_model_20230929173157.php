@@ -111,6 +111,8 @@ if (isset($filters['limite'])) {
 
     $stmt->execute();
 
+
+    // Fetch results
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 

@@ -70,47 +70,7 @@ public function getCarsByFilters($filters) {
     $stmt = $this->dbh->prepare($sql);
 
 
-
-   //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
-if (isset($filters['famille'])) {
-    $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
-}
-
-if (isset($filters['marque'])) {
-    $stmt->bindParam(':marque', $filters['marque'], PDO::PARAM_STR);
-}
-
-if (isset($filters['kilometremin'])) {
-    $stmt->bindParam(':kilometremin', $filters['kilometremin'], PDO::PARAM_INT);
-}
-
-if (isset($filters['kilometremax'])) {
-    $stmt->bindParam(':kilometremax', $filters['kilometremax'], PDO::PARAM_INT);
-}
-
-if (isset($filters['anneemin'])) {
-    $stmt->bindParam(':anneemin', $filters['anneemin'], PDO::PARAM_INT);
-}
-
-if (isset($filters['anneemax'])) {
-    $stmt->bindParam(':anneemax', $filters['anneemax'], PDO::PARAM_INT);
-}
-
-if (isset($filters['prixmin'])) {
-    $stmt->bindParam(':prixmin', $filters['prixmin'], PDO::PARAM_INT);
-}
-
-if (isset($filters['prixmax'])) {
-    $stmt->bindParam(':prixmax', $filters['prixmax'], PDO::PARAM_INT);
-}
-
-if (isset($filters['limite'])) {
-    $stmt->bindParam(':limite', $filters['limite'], PDO::PARAM_INT);
-}
-
-
-    $stmt->execute();
-
+    // Fetch results
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 

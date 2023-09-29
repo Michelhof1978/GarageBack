@@ -108,9 +108,16 @@ if (isset($filters['limite'])) {
     $stmt->bindParam(':limite', $filters['limite'], PDO::PARAM_INT);
 }
 
+// Execute the query
+$stmt->execute();
+
+
+
 
     $stmt->execute();
+>>>>>>> admin
 
+    // Fetch results
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
