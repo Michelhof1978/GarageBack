@@ -5,7 +5,7 @@ ini_set('display_errors', '1');
 
     class Securite{
         public static function secureHtml($string){
-                return htmlentities($string); //Convertir en html tous les caractères spéciaux pour éviter ainsi certains problèmes comme des injections d url
+                return htmlentities($string); //Convertir en html tous les caractères spéciaux pour éviter ainsi certains problèmes comme des inject
 
         }
         //test de variable de session si elle existe et remplie et qui contient bien les infos admin en répondant par true ou false

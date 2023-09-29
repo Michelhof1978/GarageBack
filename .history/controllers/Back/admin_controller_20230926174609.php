@@ -29,18 +29,18 @@ class AdminController {
 //  }
 //////////////////////////////////////////////////////////////////////////
 
-        private $AdminManager; //Déclaration d une propriéte privée
+//         private $AdminManager; //Déclaration d une propriéte privée
 
-    public function __construct()
-    {
-        $this->AdminManager = new AdminManager();
-        // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
-    }
+//     public function __construct()
+//     {
+//         $this->AdminManager = new AdminManager();
+//         // $this->hashPassword(); // Appeler la fonction de hachage ci dessous
+//     }
 
-    public function getPageLogin() {
-require_once(__ROOT__.'\views\login_view.php');
+//     public function GetPageLogin() {
+// require_once(__ROOT__.'\views\login_view.php');
         
-    }
+//     }
     
 
 // On va gérer la soumission de données de connexion, verifier leur validté et définir une variable de session en fonction de la réussite ou pas de l'authentification et ainsi rediruger à la page admin ou login si echec

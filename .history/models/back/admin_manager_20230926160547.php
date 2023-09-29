@@ -25,7 +25,7 @@ class AdminManager extends Model{
     public function isConnexionValid($login, $password) {
         $passwordBD = $this->getPasswordUser($login);
         
-        if ($passwordBD !== false && password_verify($password, $passwordBD)) {//va vérifier si le password posté correspond au password récupéré
+        if ($passwordBD !== false && password_verify($password, $passwordBD)) {//va vérifier 
             return true; // Authentification réussie
         } else {
             return false; // Authentification échouée
