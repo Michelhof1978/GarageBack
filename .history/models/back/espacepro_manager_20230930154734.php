@@ -5,7 +5,6 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
-    /////VISUALISATION
     public function getVoituresoccasions(){
         $sql = "SELECT * FROM vehicule"; 
         $stmt = $this->getBdd()->prepare($sql);
@@ -15,7 +14,6 @@ class EspaceproManager extends Model {
         return $voituresoccasions;
     }
 
-    ////////SUPPRESSION
     public function deleteDBvehicule($idVehicule) {
         try {
             $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";
@@ -29,20 +27,7 @@ class EspaceproManager extends Model {
         }
     }
     
-    public function compterVehicule($idVehicule){
-        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; 
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-            $stmt->closeCursor();
-            return ($resultat) ? $resultat['nb'] : 0;
-        } else {
-            // Gérez l'erreur de la requête de base de données.
-            return 0; // Ou gérer d'une autre manière appropriée.
-        }
-    }
-////////////FIN SUPPRESSION
+
     //MODIFICATION
     public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque,
      $model, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, 
@@ -92,7 +77,19 @@ class EspaceproManager extends Model {
     
     
 
-    
+    public function compterVehicule($idVehicule){
+        $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; 
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            return ($resultat) ? $resultat['nb'] : 0;
+        } else {
+            // Gérez l'erreur de la requête de base de données.
+            return 0; // Ou gérer d'une autre manière appropriée.
+        }
+    }
     
     
     

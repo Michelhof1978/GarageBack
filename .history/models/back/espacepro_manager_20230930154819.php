@@ -5,7 +5,6 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
-    /////VISUALISATION
     public function getVoituresoccasions(){
         $sql = "SELECT * FROM vehicule"; 
         $stmt = $this->getBdd()->prepare($sql);
@@ -15,7 +14,6 @@ class EspaceproManager extends Model {
         return $voituresoccasions;
     }
 
-    ////////SUPPRESSION
     public function deleteDBvehicule($idVehicule) {
         try {
             $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";
@@ -42,7 +40,7 @@ class EspaceproManager extends Model {
             return 0; // Ou gérer d'une autre manière appropriée.
         }
     }
-////////////FIN SUPPRESSION
+////////////FIN SUPPRESSIO
     //MODIFICATION
     public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque,
      $model, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, 

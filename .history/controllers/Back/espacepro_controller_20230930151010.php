@@ -52,7 +52,7 @@ public function suppression() {
         }
 
         // Rediriger l'utilisateur
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
+        header('Location: '.URL.'back/espacepro/voituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");

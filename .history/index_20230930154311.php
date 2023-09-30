@@ -36,12 +36,12 @@ try{
         switch($url[0]){
             case "front" : //On vérifie la valeur de l'url 0, si elle est égale à front, on va vérifier la valeur de l'url 1.
                 switch($url[1]){//On vérifie la valeur de l'url 1, si elle est égale à accueil, on affiche la page accueil.
-                    // case "accueil": $apiController->getAccueil();
-                    // break;
-                    // case "prestations": 
-                    //     if(empty($url[2])) throw new Exception ("L'identifiant de la prestation est manquant");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
-                    //     $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
-                    // break;
+                    case "accueil": $apiController->getAccueil();
+                    break;
+                    case "prestations": 
+                        if(empty($url[2])) throw new Exception ("L'identifiant de la prestation est manquant");//On s'écurise de nouvel fois l'url pour s'assurer qu'il y a bien une info en position 2 de l'url sinon envoie du message d erreur
+                        $apiController->getPrestations($url[2]);//On affiche la page prestation et on ajoute à l'indice 2 la prestation demandée avec un Id.
+                    break;
                     case "voiturefiche": //On affiche la page voitureFiche et on ajoute à l'indice 2 la voiture selectionnée avec un Id.
                         if(empty($url[2])) throw new Exception ("L'identifiant de la voiture est manquant");
                         $apiController->getCarsByFilters($url[2]);

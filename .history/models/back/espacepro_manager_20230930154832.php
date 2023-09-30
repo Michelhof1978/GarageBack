@@ -5,7 +5,6 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
-    /////VISUALISATION
     public function getVoituresoccasions(){
         $sql = "SELECT * FROM vehicule"; 
         $stmt = $this->getBdd()->prepare($sql);

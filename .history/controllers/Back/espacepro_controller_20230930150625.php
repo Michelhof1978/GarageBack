@@ -34,7 +34,7 @@ public function suppression() {
     if (isset($_POST['idVehicule']) && is_numeric($_POST['idVehicule']) && !empty($_POST['idVehicule'])) {
         // Récupérer l'ID du véhicule
         $idVehicule = (int) $_POST['idVehicule'];
-
+    
         // Vérifier si le véhicule existe dans la base de données
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
             // Le véhicule existe, donc nous pouvons le supprimer
@@ -50,50 +50,50 @@ public function suppression() {
                 "type" => "alert-danger"
             ];
         }
-
+    
         // Rediriger l'utilisateur
-        // header('Location: '.URL.'back/espacepro/voituresoccasions');
+        header('Location: '.URL.'back/espacepro/voituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
-}
+    
 
     
-// public function modification() {
-//     if (Securite::verifAccessSession()) {
-//         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
-//         $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
-//         $famille = Securite::secureHTML($_POST['famille']);
-//         $marque = Securite::secureHTML($_POST['marque']);
-//         $modele = Securite::secureHTML($_POST['modele']);
-//         $annee = Securite::secureHTML($_POST['annee']);
-//         $kilometrage = (int) Securite::secureHTML($_POST['kilometrage']);
-//         $boitevitesse = Securite::secureHTML($_POST['boitevitesse']);
-//         $energie = Securite::secureHTML($_POST['energie']);
-//         $datecirculation = Securite::secureHTML($_POST['datecirculation']);
-//         $puissance = Securite::secureHTML($_POST['puissance']);
-//         $places = (int) Securite::secureHTML($_POST['places']);
-//         $couleur = Securite::secureHTML($_POST['couleur']);
-//         $description = Securite::secureHTML($_POST['description']);
-//         $prix = (float) Securite::secureHTML($_POST['prix']);
-//         $imageCritere = Securite::secureHTML($_POST['imageCritere']);
+public function modification() {
+    if (Securite::verifAccessSession()) {
+        $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
+        $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
+        $famille = Securite::secureHTML($_POST['famille']);
+        $marque = Securite::secureHTML($_POST['marque']);
+        $modele = Securite::secureHTML($_POST['modele']);
+        $annee = Securite::secureHTML($_POST['annee']);
+        $kilometrage = (int) Securite::secureHTML($_POST['kilometrage']);
+        $boitevitesse = Securite::secureHTML($_POST['boitevitesse']);
+        $energie = Securite::secureHTML($_POST['energie']);
+        $datecirculation = Securite::secureHTML($_POST['datecirculation']);
+        $puissance = Securite::secureHTML($_POST['puissance']);
+        $places = (int) Securite::secureHTML($_POST['places']);
+        $couleur = Securite::secureHTML($_POST['couleur']);
+        $description = Securite::secureHTML($_POST['description']);
+        $prix = (float) Securite::secureHTML($_POST['prix']);
+        $imageCritere = Securite::secureHTML($_POST['imageCritere']);
 
-//         $this->espaceproManager->updateVehicule(
-//             $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
-//             $kilometrage, $boitevitesse, $energie, $datecirculation,
-//             $puissance, $places, $couleur, $description, $prix, $imageCritere
-//         );
+        $this->espaceproManager->updateVehicule(
+            $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
+            $kilometrage, $boitevitesse, $energie, $datecirculation,
+            $puissance, $places, $couleur, $description, $prix, $imageCritere
+        );
 
-//         $_SESSION['alert'] = [
-//             "message" => "Le véhicule a bien été modifié",
-//             "type" => "alert-success"
-//         ];
-//         header('Location: ' . URL . 'back/espacepro/voituresoccasions');
-//     } else {
-//         throw new Exception("Vous n'avez pas accès à cette page");
-//     }
-// }
+        $_SESSION['alert'] = [
+            "message" => "Le véhicule a bien été modifié",
+            "type" => "alert-success"
+        ];
+        header('Location: ' . URL . 'back/espacepro/voituresoccasions');
+    } else {
+        throw new Exception("Vous n'avez pas accès à cette page");
+    }
+}
 
         
  public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
