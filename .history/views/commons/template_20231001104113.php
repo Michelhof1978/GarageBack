@@ -22,7 +22,7 @@
                 <?= $_SESSION['alert']['message'] ?>
             </div>
         <?php 
-            unset($_SESSION['alert']);//Dés que la session est vide, on efface le message
+            unset($_SESSION['alert']);//Dés que la session est vide, on efface 
             endif; 
         ?>
         <?= $content ?>

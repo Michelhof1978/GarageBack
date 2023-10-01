@@ -20,10 +20,9 @@ class EspaceproManager extends Model {
         try {
             $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";//Supprimera l'id véhicule de la table véhicule
             $stmt = $this->getBdd()->prepare($req);//préapare requête sql
-            //La méthode bindValue est utilisée pour lier la valeur de :idVehicule avec la valeur de $idVehicule
-            $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);//Ne pas oublier de le convertir en INT car les formulaire sont automatiquement en string
-            $stmt->execute();//pour exécuter la requête SQL de suppression
-            $stmt->closeCursor();//la méthode closeCursor est appelée pour fermer le curseur de la requête, libérant ainsi les ressources associées.
+            $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+            $stmt->execute();
+            $stmt->closeCursor();
         } catch (PDOException $e) {
             // Gérer l'erreur de la requête de suppression
             echo "Erreur de suppression : " . $e->getMessage();

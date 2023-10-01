@@ -14,7 +14,7 @@
         
         
         <?php 
-        //Si session pas vide, on envois une alerte
+        
         if(!empty($_SESSION['alert'])) : 
             
             ?> 
@@ -22,7 +22,7 @@
                 <?= $_SESSION['alert']['message'] ?>
             </div>
         <?php 
-            unset($_SESSION['alert']);//Dés que la session est vide, on efface le message
+            unset($_SESSION['alert']);
             endif; 
         ?>
         <?= $content ?>

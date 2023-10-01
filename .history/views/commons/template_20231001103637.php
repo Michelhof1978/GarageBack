@@ -12,17 +12,12 @@
     <div class="container">
         <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-info"><?= $titre ?></h1>
         
-        
-        <?php 
-        //Si session pas vide, on envois une alerte
-        if(!empty($_SESSION['alert'])) : 
-            
-            ?> 
+        <?php if(!empty($_SESSION['alert'])) : ?> 
             <div class="alert <?= $_SESSION['alert']['type'] ?>" role="alert">
                 <?= $_SESSION['alert']['message'] ?>
             </div>
         <?php 
-            unset($_SESSION['alert']);//Dés que la session est vide, on efface le message
+            unset($_SESSION['alert']);
             endif; 
         ?>
         <?= $content ?>

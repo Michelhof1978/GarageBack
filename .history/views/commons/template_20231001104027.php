@@ -14,15 +14,14 @@
         
         
         <?php 
-        //Si session pas vide, on envois une alerte
-        if(!empty($_SESSION['alert'])) : 
+                if(!empty($_SESSION['alert'])) : 
             
             ?> 
             <div class="alert <?= $_SESSION['alert']['type'] ?>" role="alert">
                 <?= $_SESSION['alert']['message'] ?>
             </div>
         <?php 
-            unset($_SESSION['alert']);//Dés que la session est vide, on efface le message
+            unset($_SESSION['alert']);
             endif; 
         ?>
         <?= $content ?>
