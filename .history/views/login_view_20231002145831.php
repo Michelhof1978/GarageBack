@@ -1,7 +1,5 @@
 <?php
-//CONNEXION ESPACE PRO
- ob_start(); 
- ?>
+ ob_start(); ?>
 
 <?php
 //Aide pour meilleur affichage des description des erreurs ds la console

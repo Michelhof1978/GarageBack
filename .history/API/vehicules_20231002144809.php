@@ -1,5 +1,5 @@
 <?php
-//FILTRES RECHERCHE
+//
 // Va traiter les requêtes HTTP entrantes et effectue différentes actions en fonction de la méthode de la requête et des paramètres fournis dans l'URI
 
 $methode = $_SERVER['REQUEST_METHOD']; //Extrait la méthode de la requête, faire certaines instructions suivant la méthode

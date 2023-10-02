@@ -1,8 +1,6 @@
-<?php
-
- ob_start(); //utilisée pour activer la mise en mémoire tampon de sortie
- ?>
- 
+<?php ob_start(); ?>
+ <!--pour commencer la temporisation de la sortie.
+  Cela signifie que le contenu généré après cette instruction sera mis en mémoire tampon-->
 
  
 
@@ -104,5 +102,5 @@
 <?php
 $content = ob_get_clean();
 $titre = "VOITURES D'OCCASIONS";
-require_once(__ROOT__ . '\views\commons\template.php');
+require_once(__ROOT__ . '\views\commons\espace.php');
 ?>

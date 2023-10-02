@@ -3,7 +3,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-//permet de prévenir certaines vulnérabilités, telles que les attaques par injection  
 
     class Securite{
         public static function secureHtml($string){

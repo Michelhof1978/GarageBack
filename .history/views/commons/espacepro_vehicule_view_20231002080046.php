@@ -1,8 +1,6 @@
-<?php
-
- ob_start(); //utilisée pour activer la mise en mémoire tampon de sortie
- ?>
- 
+<?php ob_start(); ?>
+ <!--pour commencer la temporisation de la sortie.
+  Cela signifie que le contenu généré après cette instruction sera mis en mémoire tampon-->
 
  
 

@@ -22,8 +22,9 @@ class EspaceproController {
     {
         if (Securite::verifAccessSession()) {
             $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
-            require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
-        //  } else {*
+            header('Location: '.URL.'back/espacepro/voituresoccasions');
+
+        //  } else {
         //     throw new Exception("Vous n'avez pas accès à cette page");
         //  }
     }

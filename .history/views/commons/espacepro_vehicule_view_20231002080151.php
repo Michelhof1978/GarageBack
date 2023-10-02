@@ -1,8 +1,6 @@
-<?php
-
- ob_start(); //utilisée pour activer la mise en mémoire tampon de sortie
- ?>
- 
+<?php ob_start(); ?>
+ <!--pour commencer la temporisation de la sortie.
+  Cela signifie que le contenu généré après cette instruction sera mis en mémoire tampon-->
 
  
 
@@ -53,15 +51,16 @@
                         <td><?= $vehicule['imageCritere'] ?></td>
 
                         <td>
-                        <form method="POST" action="<?= URL ?><back/>espacepro/validationModification">
-                            <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
+                        <!-- <form method="POST" action="<?= URL ?><back/>espacepro/validationModification"> -->
+                        <form method="POST" action="<?= URL ?><back/>espacepro/voituresoccasions">
+                        <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                 
                 </td>
 
                         <td>
-                        <form method="POST" action="<?=URL?>back/espacepro/validationSuppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+                        <!-- <form method="POST" action="<?=URL?>back/espacepro/validationSuppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');"> -->
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>

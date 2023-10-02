@@ -12,6 +12,6 @@ ob_start();
 
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
 $content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu dans une variable
-$titre = "Bienvenue à La Page D'Administration";
+$titre = "Bienvenue à La Page 'administration";
 require "views/commons/template.php";
 
