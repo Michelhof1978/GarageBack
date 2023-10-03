@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-//Securité pour  convertir les caractères spéciaux en entités HTML pour éviter les problèmes d'injection de code
+//Securité 
     class Securite{
         public static function secureHtml($string){
                 return htmlentities($string); //Convertir en html tous les caractères spéciaux pour éviter ainsi certains problèmes comme des injections d url

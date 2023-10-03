@@ -33,7 +33,7 @@ class EspaceproController {
 public function suppression() {
     if (isset($_POST['idVehicule']) && is_numeric($_POST['idVehicule']) && !empty($_POST['idVehicule'])) {
         // Récupérer l'ID du véhicule en utilisant secureHTML
-        //Convertit en INT car formulaire automatiquement en chaine de caract
+        //Convertit en INT car
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
     
         // Vérifier si le véhicule existe dans la base de données

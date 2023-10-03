@@ -33,7 +33,6 @@ class EspaceproController {
 public function suppression() {
     if (isset($_POST['idVehicule']) && is_numeric($_POST['idVehicule']) && !empty($_POST['idVehicule'])) {
         // Récupérer l'ID du véhicule en utilisant secureHTML
-        //Convertit en INT car formulaire automatiquement en chaine de caract
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
     
         // Vérifier si le véhicule existe dans la base de données
@@ -92,7 +91,7 @@ public function modification() {
             "type" => "alert-success"
         ];
         header('Location: ' . URL . 'back/espacepro/voituresoccasions');
-        exit();
+        exit
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }

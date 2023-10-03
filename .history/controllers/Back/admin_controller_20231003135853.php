@@ -52,10 +52,9 @@ require_once(__ROOT__.'\views\login_view.php');
             if($this->AdminManager->isConnexionValid($login, $password)) {
                 $_SESSION['access'] = "admin";// Pour activer les variables de session, il va falloir que je les active en début de page ds index.php
                 header('Location: '.URL."back/admin");
-                exit();
             } else {
                 header('Location: '.URL."back/login");
-                exit();
+                
             }
         } 
     }
