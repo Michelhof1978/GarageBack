@@ -24,6 +24,4 @@ $content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu da
 $titre = "Bienvenue à La Page D'Administration";
 require "views/commons/template.php";
 
-?>
-</body>
-</html>
+

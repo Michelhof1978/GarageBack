@@ -16,14 +16,14 @@ ob_start();
     <img class=" col-12 p-0"  src="../assets/logo2.png" alt="logo entreprise parrot">
 
     </div>
+   
+    
 
-
-<?php
-// Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
-$content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu dans une variable
-$titre = "Bienvenue à La Page D'Administration";
-require "views/commons/template.php";
-
-?>
+    <?php
+    // Fin de la mémoire tampon et stockage du contenu dans une variable
+    $content = ob_get_clean();
+    require "views/commons/template.php";
+    ?>
 </body>
 </html>
+
