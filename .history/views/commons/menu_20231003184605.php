@@ -23,7 +23,7 @@
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/avis">Avis</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/contenu">Contenu</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/horaire">Horaire</a>
-                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/voituresoccasions">Voitures d'Occasions</a>
+                        <a class="nav-link" href="<?= URL ?>back/espacepro/voituresoccasions">Voitures d'Occasions</a>
                     </div>
                 </li>
                 <li class="nav-item">

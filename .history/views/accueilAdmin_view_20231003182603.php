@@ -11,19 +11,19 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $titre; ?></title>
 </head>
-<body>
-    <div class="row text-center">
-    <img class=" col-12 p-0"  src="../assets/logo2.png" alt="logo entreprise parrot">
-
-    </div>
-
+<body class="">
+    <!-- Insérez votre image ici -->
+    <img class="text-center col-8 m-1"  src="../assets/logo2.png" alt="logo entreprise parrot">
+    
 
 <?php
+// Aide pour meilleur affichage des description des erreurs ds la console
+ error_reporting(E_ALL);
+ ini_set('display_errors', '1');
+
+
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
 $content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu dans une variable
 $titre = "Bienvenue à La Page D'Administration";
 require "views/commons/template.php";
 
-?>
-</body>
-</html>
