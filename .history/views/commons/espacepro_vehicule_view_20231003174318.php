@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php// ob_start(); ?>
 
 <div class="container-fluid no-margin">
     <h1 class="text-center">Liste des véhicules</h1>

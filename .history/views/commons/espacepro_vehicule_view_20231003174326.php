@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php// ob_start(); ?>
 
 <div class="container-fluid no-margin">
     <h1 class="text-center">Liste des véhicules</h1>
@@ -64,7 +64,7 @@
 </div>
 
 <?php
-$content = ob_get_clean();
+//$content = ob_get_clean();
 $titre = "VOITURES D'OCCASIONS";
 require_once(__ROOT__ . '\views\commons\template.php');
 ?>

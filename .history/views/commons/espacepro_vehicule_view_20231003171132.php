@@ -2,7 +2,7 @@
 
 <div class="container-fluid no-margin">
     <h1 class="text-center">Liste des véhicules</h1>
-    <table class="table table-striped mx-0">
+    <table class="table table-striped mx-0"> 
         <thead>
             <tr>
                 <th scope="col">Référence</th>
@@ -45,7 +45,7 @@
                     <td><?= $vehicule['imageCritere'] ?></td>
 
                     <td>
-                        <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
+                        <form method="POST" action="">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
@@ -58,6 +58,8 @@
                         </form>
                     </td>
                 </tr>
+
+                'idVehicule'
             <?php endforeach; ?>
         </tbody>
     </table>
