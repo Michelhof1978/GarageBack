@@ -87,7 +87,6 @@
                         </td>
                     </tr>
                 </form>
-                
             <?php endforeach; ?>
         </tbody>
     </table>

@@ -1,4 +1,4 @@
-# configuration  réécriture d'URL
+configur la réécriture d'URL
 
 RewriteEngine On
 
