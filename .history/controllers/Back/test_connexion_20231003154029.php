@@ -7,7 +7,7 @@ $hashedPasswordFromDatabase = "$2y$10\$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 if (password_verify($passwordToCheck, $hashedPasswordFromDatabase)) {
     echo "Connexion réussie !";
-  } //else {
+//  } else {
 //       echo "Échec de la connexion.";
 // }
 

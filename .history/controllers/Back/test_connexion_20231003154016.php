@@ -7,9 +7,9 @@ $hashedPasswordFromDatabase = "$2y$10\$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 if (password_verify($passwordToCheck, $hashedPasswordFromDatabase)) {
     echo "Connexion réussie !";
-  } //else {
-//       echo "Échec de la connexion.";
-// }
+ } else {
+      echo "Échec de la connexion.";
+}
 
 
 //Récupération du mot de passe michelaquiche qui sera haché, permettra de recuperer ce hachage et de l insérer ds la bdd

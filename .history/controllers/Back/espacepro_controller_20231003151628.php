@@ -3,7 +3,7 @@ ob_start();
 
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
-
+require_once(__ROOT__.'\models\model.php');
 
 
 // Utilisation du contrôleur pour afficher les voitures d'occasion
@@ -35,7 +35,7 @@ public function suppression() {
 
         // Récupérer l'ID du véhicule en utilisant secureHTML
         //Convertit en INT car formulaire automatiquement en chaine de caract
-        $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
+        $idVehicule = (int) Securite::($_POST['idVehicule']);
     
 
         // Vérifier si le véhicule existe dans la base de données

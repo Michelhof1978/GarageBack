@@ -6,7 +6,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
-
 <form method="POST" action="<?= URL ?>back/connexion">
     <!-- Permet d'aller sur l'URL en ajoutant "back/connexion" à la fin pour accéder à la page de connexion -->
     <div class="form-group">
