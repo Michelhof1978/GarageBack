@@ -84,11 +84,11 @@
 
                         <td colspan="2">
                             <input type="hidden" name="idvehicule" value="<?= $vehicule['idVehicule'] ?>" />
-                            <button class="btn btn-primary" type="submit" name="validerEdition">Valider</button>
+                            <button class="btn btn-primary" type="submit">Valider</button>
                         </td>
-                    </form>
-                </tr>
-                <?php endif; ?>
+                    </tr>
+                </form>
+                
             <?php endforeach; ?>
         </tbody>
     </table>

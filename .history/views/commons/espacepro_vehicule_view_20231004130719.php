@@ -59,9 +59,8 @@
                         </form>
                     </td>
 
-                    </tr>
-                
-                <?php if (isset($_POST['modifier']) && $_POST['idVehicule'] == $vehicule['idVehicule']): ?>
+                </tr>
+
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
                         <td><?= $vehicule['idVehicule'] ?></td>
@@ -84,11 +83,11 @@
 
                         <td colspan="2">
                             <input type="hidden" name="idvehicule" value="<?= $vehicule['idVehicule'] ?>" />
-                            <button class="btn btn-primary" type="submit" name="validerEdition">Valider</button>
+                            <button class="btn btn-primary" type="submit">Valider</button>
                         </td>
-                    </form>
-                </tr>
-                <?php endif; ?>
+                    </tr>
+                </form>
+                
             <?php endforeach; ?>
         </tbody>
     </table>
