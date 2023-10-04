@@ -1,8 +1,18 @@
 <?php ob_start(); ?>
+<style>
+.custom-table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+.custom-table tr:nth-child(5n) {
+    border-bottom: 1px solid #ddd; /* Ajoutez une ligne de séparation après chaque 5e ligne */
+}
+</style>
 
 <div class="container-fluid no-margin">
     <h1 class="text-center">Liste des véhicules</h1>
-    <table class="table table-striped table-responsive w-100 mx-0"> <!-- table-responsive pour gérer l'overflow horizontal -->
+    <table class="table table-striped custom-table">
         <thead>
             <tr>
                 <th scope="col">Référence</th>
@@ -45,12 +55,14 @@
                     <td><?= $vehicule['imageCritere'] ?></td>
 
                     <td>
+
                         <!-- Formulaire pour la modification -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/modification">
+                    <form method="POST" action="<?= URL ?>back/espacepro/modification">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                     </td>
+
                     <td>
                         <!-- Formulaire pour la suppression -->
                         <form method="POST" action="<?= URL ?>back/espacepro/suppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
@@ -59,11 +71,10 @@
                         </form>
                     </td>
 
-                    </tr>
-                
-                <?php if (isset($_POST['modifier']) && $_POST['idVehicule'] == $vehicule['idVehicule']): ?>
+                </tr>
+
                 <tr>
-                    <form method="POST" action="<?= URL ?>back/espacepro/modification">
+                    <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
                         <td><?= $vehicule['idVehicule'] ?></td>
                         <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
                         <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
@@ -84,11 +95,11 @@
 
                         <td colspan="2">
                             <input type="hidden" name="idvehicule" value="<?= $vehicule['idVehicule'] ?>" />
-                            <button class="btn btn-primary" type="submit" name="validerEdition">Valider</button>
+                            <button class="btn btn-primary" type="submit">Valider</button>
                         </td>
-                    </form>
-                </tr>
-                <?php endif; ?>
+                    </tr>
+                </form>
+                
             <?php endforeach; ?>
         </tbody>
     </table>

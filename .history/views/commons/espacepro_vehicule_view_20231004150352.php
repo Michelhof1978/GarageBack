@@ -46,14 +46,14 @@
 
                     <td>
                         <!-- Formulaire pour la modification -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/modification">
+                        <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                     </td>
                     <td>
                         <!-- Formulaire pour la suppression -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/suppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+                        <form method="POST" action="<?= URL ?>back/espacepro/validationSuppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>

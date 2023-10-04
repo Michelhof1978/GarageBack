@@ -46,7 +46,7 @@
 
                     <td>
                         <!-- Formulaire pour la modification -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/modification">
+                        <form method="POST" action="<?= URL ?>back/espacepro/odification">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
