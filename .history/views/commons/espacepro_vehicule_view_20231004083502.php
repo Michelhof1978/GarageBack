@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-
 <div class="container-fluid no-margin">
     <h1 class="text-center">Liste des véhicules</h1>
     <table class="table table-striped table-responsive w-100 mx-0"> <!-- table-responsive pour gérer l'overflow horizontal -->

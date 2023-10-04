@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-
 <div class="container-fluid no-margin">
     <h1 class="text-center">Liste des véhicules</h1>
     <table class="table table-striped table-responsive w-100 mx-0"> <!-- table-responsive pour gérer l'overflow horizontal -->
@@ -45,14 +43,12 @@
                     <td><?= $vehicule['imageCritere'] ?></td>
 
                     <td>
-
                         <!-- Formulaire pour la modification -->
-                    <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
+                        <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                     </td>
-
                     <td>
                         <!-- Formulaire pour la suppression -->
                         <form method="POST" action="<?= URL ?>back/espacepro/validationSuppression" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
@@ -60,8 +56,8 @@
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                     </td>
-
                 </tr>
+            <?php endforeach; ?>
 
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
