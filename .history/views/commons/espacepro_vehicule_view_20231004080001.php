@@ -67,7 +67,6 @@
                     <form method="POST" action="<?= URL ?>back/espacepro/validationModification">
                         <td><?= $vehicule['idVehicule'] ?></td>
                         <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
-                        <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
                         <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>
                         <td><input type="text" name="modele" class="form-control" value="<?= $vehicule['modele'] ?>" /></td>
                         <td><input type="number" name="annee" class="form-control" value="<?= $vehicule['annee'] ?>" /></td>
@@ -80,6 +79,7 @@
                         <td><input type="text" name="couleur" class="form-control" value="<?= $vehicule['couleur'] ?>" /></td>
                         <td><textarea name='description' class="form-control" rows="4"><?= $vehicule['description'] ?></textarea></td>
                         <td><input type="number" name="prix" class="form-control" value="<?= $vehicule['prix'] ?>" /></td>
+                        
                         <td><input type="text" name="imageCritere" class="form-control" value="<?= $vehicule['imageCritere'] ?>" /></td>
 
 

@@ -80,6 +80,7 @@
                         <td><input type="text" name="couleur" class="form-control" value="<?= $vehicule['couleur'] ?>" /></td>
                         <td><textarea name='description' class="form-control" rows="4"><?= $vehicule['description'] ?></textarea></td>
                         <td><input type="number" name="prix" class="form-control" value="<?= $vehicule['prix'] ?>" /></td>
+                        
                         <td><input type="text" name="imageCritere" class="form-control" value="<?= $vehicule['imageCritere'] ?>" /></td>
 
 
