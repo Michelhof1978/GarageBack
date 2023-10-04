@@ -1,0 +1,9 @@
+.custom-table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
+.custom-table tr:nth-child(5n) {
+    border-bottom: 1px solid #ddd; /* Ajoutez une ligne de séparation après chaque 5e ligne */
+}
