@@ -59,7 +59,7 @@ public function suppressionvoituresoccasions() {
 
 
         // Rediriger l'utilisateur
-         header('Location: '.URL.'back/espacepro/visualisationvoituresoccasions');
+         header('Location: '.URL.'back/espacepro/suppressionvoituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -97,7 +97,7 @@ public function modificationvoituresoccasions() {
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
+        header('Location: ' . URL . 'back/espacepro/modificationvoituresoccasions');
         exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -105,14 +105,14 @@ public function modificationvoituresoccasions() {
 }
 
 //CREATION
-public function creationvoituresoccasions(){
-    if (Securite::verifAccessSession()) {
+// public function creationvoituresoccasions(){
+//     if (Securite::verifAccessSession()) {
        
-        require_once(__ROOT__ . '\views\creation_voitures_occasions_view.php');
-      } else {
-         throw new Exception("Vous n'avez pas accès à cette page");
-      }
-}
+//         require_once(__ROOT__ . '\views\creation_voitures_occasions_view.php');
+//       } else {
+//          throw new Exception("Vous n'avez pas accès à cette page");
+//       }
+// }
 
 
 

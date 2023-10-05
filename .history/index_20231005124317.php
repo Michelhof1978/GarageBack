@@ -74,13 +74,13 @@ try{
                             break;
                             case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
                             break;
-                            case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
+                            case "voituresoccasions" : $espacepro_controller->voituresoccasions(); //echo "voituresoccasions";
                             break;
-                             case "modificationvoituresoccasions" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";
+                             case "modification" : $espacepro_controller->modification(); //echo "modification";
                              break;
-                            case "suppressionvoituresoccasions" : $espacepro_controller->suppressionvoituresoccasions(); //echo "suppression";
+                            case "suppression" : $espacepro_controller->suppression(); //echo "suppression";
                             break;
-                            case "creationvoituresoccasions" : $espacepro_controller->creationvoituresoccasions(); //echo "creation";
+                            case "creationvoituresoccasions" : $espacepro_controller->creation(); //echo "creation";
                             break;
                             default : throw new Exception ("La page n'existe pas");
 

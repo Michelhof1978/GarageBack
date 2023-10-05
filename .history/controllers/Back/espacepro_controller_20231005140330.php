@@ -15,11 +15,11 @@ class EspaceproController {
     private $espaceproManager;
 
     public function __construct() {
-        $this->espaceproManager = new EspaceproManager();
+        $this->espace8proManager = new EspaceproManager();
     }
 
     //VISUALISATION
-    public function visualisationvoituresoccasions()//Visualisation des voitures en stock
+    public function voituresoccasions()//Visualisation des voitures en stock
     {
         if (Securite::verifAccessSession()) {
             $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
@@ -59,7 +59,7 @@ public function suppressionvoituresoccasions() {
 
 
         // Rediriger l'utilisateur
-         header('Location: '.URL.'back/espacepro/visualisationvoituresoccasions');
+         header('Location: '.URL.'back/espacepro/suppressionvoituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -97,7 +97,7 @@ public function modificationvoituresoccasions() {
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
+        header('Location: ' . URL . 'back/espacepro/modificationvoituresoccasions');
         exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");

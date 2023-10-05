@@ -23,7 +23,7 @@
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/avis">Avis</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/contenu">Contenu</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/horaire">Horaire</a>
-                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/visualisationvoituresoccasions">Liste des véhicules</a>
+                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/modifsuppvoituresoccasions">Liste des véhicule</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationvoituresoccasions">Ajouter un véhicule</a>
                        
                     </div>

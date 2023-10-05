@@ -59,7 +59,7 @@ public function suppressionvoituresoccasions() {
 
 
         // Rediriger l'utilisateur
-         header('Location: '.URL.'back/espacepro/visualisationvoituresoccasions');
+         header('Location: '.URL.'back/espacepro/modifsuppvoituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -97,7 +97,7 @@ public function modificationvoituresoccasions() {
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
+        header('Location: ' . URL . 'back/espacepro/modifsuppvoituresoccasions');
         exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");

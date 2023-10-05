@@ -4,5 +4,5 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# ça sera toujours la page index.php qui sera appelée
+ça sera toujours la 
 RewriteRule ^(.*)$ index.php?page=$1

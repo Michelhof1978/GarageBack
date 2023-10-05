@@ -74,9 +74,9 @@ try{
                             break;
                             case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
                             break;
-                            case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
+                            case "voituresoccasions" : $espacepro_controller->visualisationvoituresoccasionsvoituresoccasions(); //echo "voituresoccasions";
                             break;
-                             case "modificationvoituresoccasions" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";
+                             case "modificationvoituresoccasions()" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";
                              break;
                             case "suppressionvoituresoccasions" : $espacepro_controller->suppressionvoituresoccasions(); //echo "suppression";
                             break;
