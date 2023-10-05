@@ -46,7 +46,7 @@
 
                     <td>
                         <!-- Formulaire pour la modification -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
+                        <form method="POST" action="<?= URL ?>back/espacepro/voituresoccasions">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
@@ -63,7 +63,7 @@
                 
                 <?php if (isset($_POST['modifier']) && $_POST['idVehicule'] == $vehicule['idVehicule']): ?>
                 <tr>
-                    <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
+                    <form method="POST" action="<?= URL ?>back/espacepro/modificationvoituresoccasions">
                         <td><?= $vehicule['idVehicule'] ?></td>
                         <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
                         <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>

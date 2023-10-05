@@ -114,7 +114,7 @@ public function suppressionvoituresoccasions() {
                 "message" => "Le véhicule a bien été modifié",
                 "type" => "alert-success"
             ];
-            header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
+            header('Location: ' . URL . 'back/espacepro/voituresoccasions');
             exit();
         } 
     } else {

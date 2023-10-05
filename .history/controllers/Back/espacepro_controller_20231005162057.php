@@ -68,69 +68,51 @@ public function suppressionvoituresoccasions() {
 
 
  //MODIFICATION   
- public function modificationvoituresoccasions() {
+public function modificationvoituresoccasions() {
     if (Securite::verifAccessSession()) {
-        if (isset($_POST['idVehicule']) &&
-            isset($_POST['imageVoiture']) &&
-            isset($_POST['famille']) &&
-            isset($_POST['marque']) &&
-            isset($_POST['modele']) &&
-            isset($_POST['annee']) &&
-            isset($_POST['kilometrage']) &&
-            isset($_POST['boitevitesse']) &&
-            isset($_POST['energie']) &&
-            isset($_POST['datecirculation']) &&
-            isset($_POST['puissance']) &&
-            isset($_POST['places']) &&
-            isset($_POST['couleur']) &&
-            isset($_POST['description']) &&
-            isset($_POST['prix']) &&
-            isset($_POST['imageCritere'])) {
-            
-            $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
-            $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
-            $famille = Securite::secureHTML($_POST['famille']);
-            $marque = Securite::secureHTML($_POST['marque']);
-            $modele = Securite::secureHTML($_POST['modele']);
-            $annee = Securite::secureHTML($_POST['annee']);
-            $kilometrage = (int) Securite::secureHTML($_POST['kilometrage']);
-            $boitevitesse = Securite::secureHTML($_POST['boitevitesse']);
-            $energie = Securite::secureHTML($_POST['energie']);
-            $datecirculation = Securite::secureHTML($_POST['datecirculation']);
-            $puissance = Securite::secureHTML($_POST['puissance']);
-            $places = (int) Securite::secureHTML($_POST['places']);
-            $couleur = Securite::secureHTML($_POST['couleur']);
-            $description = Securite::secureHTML($_POST['description']);
-            $prix = (float) Securite::secureHTML($_POST['prix']);
-            $imageCritere = Securite::secureHTML($_POST['imageCritere']);
+        $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
+        $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
+        $famille = Securite::secureHTML($_POST['famille']);
+        $marque = Securite::secureHTML($_POST['marque']);
+        $modele = Securite::secureHTML($_POST['modele']);
+        $annee = Securite::secureHTML($_POST['annee']);
+        $kilometrage = (int) Securite::secureHTML($_POST['kilometrage']);
+        $boitevitesse = Securite::secureHTML($_POST['boitevitesse']);
+        $energie = Securite::secureHTML($_POST['energie']);
+        $datecirculation = Securite::secureHTML($_POST['datecirculation']);
+        $puissance = Securite::secureHTML($_POST['puissance']);
+        $places = (int) Securite::secureHTML($_POST['places']);
+        $couleur = Securite::secureHTML($_POST['couleur']);
+        $description = Securite::secureHTML($_POST['description']);
+        $prix = (float) Securite::secureHTML($_POST['prix']);
+        $imageCritere = Securite::secureHTML($_POST['imageCritere']);
 
-            $this->espaceproManager->updateVehicule(
-                $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
-                $kilometrage, $boitevitesse, $energie, $datecirculation,
-                $puissance, $places, $couleur, $description, $prix, $imageCritere
-            );
+        $this->espaceproManager->updateVehicule(
+            $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
+            $kilometrage, $boitevitesse, $energie, $datecirculation,
+            $puissance, $places, $couleur, $description, $prix, $imageCritere
+        );
 
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule a bien été modifié",
-                "type" => "alert-success"
-            ];
-            header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
-            exit();
-        } 
+        $_SESSION['alert'] = [
+            "message" => "Le véhicule a bien été modifié",
+            "type" => "alert-success"
+        ];
+        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
+        exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
 
 //CREATION
-public function creationvoituresoccasions(){
-    if (Securite::verifAccessSession()) {
+// public function creationvoituresoccasions(){
+//     if (Securite::verifAccessSession()) {
        
-        require_once(__ROOT__ . '\views\creation_voitures_occasions_view.php');
-      } else {
-         throw new Exception("Vous n'avez pas accès à cette page");
-      }
-}
+//         require_once(__ROOT__ . '\views\creation_voitures_occasions_view.php');
+//       } else {
+//          throw new Exception("Vous n'avez pas accès à cette page");
+//       }
+// }
 
 
 

@@ -116,7 +116,10 @@ public function suppressionvoituresoccasions() {
             ];
             header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
             exit();
-        } 
+        } //else {
+            // Gérer le cas où certaines clés ne sont pas définies dans $_POST
+            // Peut-être afficher un message d'erreur ou rediriger vers une autre page
+        //}
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
