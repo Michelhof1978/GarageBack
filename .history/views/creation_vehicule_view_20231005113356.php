@@ -17,8 +17,6 @@ ob_start();
 
     </div>
 
-</body>
-</html>
 
 <?php
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
@@ -27,3 +25,5 @@ $titre = "Bienvenue à La Page D'Administration";
 require "views/commons/template.php";
 
 ?>
+</body>
+</html>

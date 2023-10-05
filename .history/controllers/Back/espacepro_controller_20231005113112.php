@@ -59,7 +59,7 @@ public function suppression() {
 
 
         // Rediriger l'utilisateur
-         //header('Location: '.URL.'back/espacepro/modifsuppvoituresoccasions');
+         //header('Location: '.URL.'back/espacepro/voituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -97,7 +97,7 @@ public function modification() {
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
-        header('Location: ' . URL . 'back/espacepro/modifsuppvoituresoccasions');
+        header('Location: ' . URL . 'back/espacepro/voituresoccasions');
         exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -108,7 +108,7 @@ public function modification() {
 public function creation(){
     if (Securite::verifAccessSession()) {
        
-        require_once(__ROOT__ . '\views\creation_vehicule_view.php');
+        require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }

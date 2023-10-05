@@ -18,19 +18,18 @@ class EspaceproController {
         $this->espaceproManager = new EspaceproManager();
     }
 
-    //VISUALISATION
     public function voituresoccasions()//Visualisation des voitures en stock
     {
         if (Securite::verifAccessSession()) {
             $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
             require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
-        //  } else {
+        //  } else {*
         //     throw new Exception("Vous n'avez pas accès à cette page");
         //  }
     }
 }
 
-//SUPPRESSION
+
 public function suppression() {
     if (isset($_POST['idVehicule']) && is_numeric($_POST['idVehicule']) && !empty($_POST['idVehicule'])) {
 
@@ -59,7 +58,7 @@ public function suppression() {
 
 
         // Rediriger l'utilisateur
-         //header('Location: '.URL.'back/espacepro/modifsuppvoituresoccasions');
+         //header('Location: '.URL.'back/espacepro/voituresoccasions');
         exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
@@ -67,7 +66,7 @@ public function suppression() {
 }
 
 
- //MODIFICATION   
+    
 public function modification() {
     if (Securite::verifAccessSession()) {
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
@@ -97,27 +96,16 @@ public function modification() {
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
-        header('Location: ' . URL . 'back/espacepro/modifsuppvoituresoccasions');
+        header('Location: ' . URL . 'back/espacepro/voituresoccasions');
         exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
 
-//CREATION
-public function creation(){
-    if (Securite::verifAccessSession()) {
-       
-        require_once(__ROOT__ . '\views\creation_vehicule_view.php');
-      } else {
-         throw new Exception("Vous n'avez pas accès à cette page");
-      }
-}
 
 
-
-
- //CONTACT       
+        
  public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
         if(Securite::verifAccessSession()){
             $messagerie = $this->espaceproManager->getMessagerie();

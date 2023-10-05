@@ -79,9 +79,9 @@ try{
                              break;
                             case "suppression" : $espacepro_controller->suppression(); //echo "suppression";
                             break;
-                            case "creation" : $espacepro_controller->creation(); //echo "creation";
-                            break;
-                            default : throw new Exception ("La page n'existe pas");
+                            // case "creation" : $espacepro_controller->creation(); //echo "creation";
+                            // break;
+                            //default : throw new Exception ("La page n'existe pas");
 
                         }
                         break;
