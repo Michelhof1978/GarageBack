@@ -76,7 +76,7 @@ try{
                             //break;
                             case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
                             break;
-                             case "modificationvoituresoccasions" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";
+                             case "visualisationvoituresoccasions" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";
                              break;
                             case "suppressionvoituresoccasions" : $espacepro_controller->suppressionvoituresoccasions(); //echo "suppression";
                             break;

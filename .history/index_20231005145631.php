@@ -66,15 +66,15 @@ try{
                     break; 
                     case "espacepro":
                         switch($url[2]){
-                            //  case "messagerie" : $espacepro_controller->messagerie(); //echo "messagerie";
-                            // break;
-                            // case "avis" : $espacepro_controller->avis(); //echo "avis";
-                            // break;
-                            // case "contenu" : $espacepro_controller->contenu(); //echo "contenu";
-                            // break;
-                            // case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
-                            //break;
-                            case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
+                             case "messagerie" : $espacepro_controller->messagerie(); //echo "messagerie";
+                            break;
+                            case "avis" : $espacepro_controller->avis(); //echo "avis";
+                            break;
+                            case "contenu" : $espacepro_controller->contenu(); //echo "contenu";
+                            break;
+                            case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
+                            break;
+                            case "visualisationvoituresoccasions" : $espacepro_controller->getvisualisationvoituresoccasions(); //echo "voituresoccasions";
                             break;
                              case "modificationvoituresoccasions" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";
                              break;

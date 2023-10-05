@@ -7,7 +7,7 @@ require_once(__ROOT__.'\models\back\espacepro_manager.php');
 
 
 // Utilisation du contrôleur pour afficher les voitures d'occasion
-//$controller = new EspaceproController();
+$controller = new EspaceproController();
 //$controller->visualisationvoituresoccasions();
 
 class EspaceproController {

@@ -118,15 +118,15 @@ public function creationvoituresoccasions(){
 
 
  //CONTACT       
-//  public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
-//         if(Securite::verifAccessSession()){
-//             $messagerie = $this->espaceproManager->getMessagerie();
-//             // print_r($messagerie); //Vérification si je reçois toutes les informations au niveau de ma requête
-//             require_once "views/commons/espacepro_messagerie_view.php";
-//         }else{
-//             throw new Exception ("Vous n'avez pas accès à cette page");
-//         }
-//     }
+ public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
+        if(Securite::verifAccessSession()){
+            $messagerie = $this->espaceproManager->getMessagerie();
+            // print_r($messagerie); //Vérification si je reçois toutes les informations au niveau de ma requête
+            require_once "views/commons/espacepro_messagerie_view.php";
+        }else{
+            throw new Exception ("Vous n'avez pas accès à cette page");
+        }
+    }
     
 
     // public function avis(){

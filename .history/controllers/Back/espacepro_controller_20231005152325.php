@@ -7,7 +7,7 @@ require_once(__ROOT__.'\models\back\espacepro_manager.php');
 
 
 // Utilisation du contrôleur pour afficher les voitures d'occasion
-//$controller = new EspaceproController();
+$controller = new EspaceproController();
 //$controller->visualisationvoituresoccasions();
 
 class EspaceproController {
@@ -97,7 +97,7 @@ public function modificationvoituresoccasions() {
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
+        header('Location: ' . URL . 'back/espacepro/modificationvoituresoccasions');
         exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");

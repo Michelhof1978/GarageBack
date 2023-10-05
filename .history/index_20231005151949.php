@@ -73,7 +73,7 @@ try{
                             // case "contenu" : $espacepro_controller->contenu(); //echo "contenu";
                             // break;
                             // case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
-                            //break;
+                            break;
                             case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
                             break;
                              case "modificationvoituresoccasions" : $espacepro_controller->modificationvoituresoccasions(); //echo "modification";

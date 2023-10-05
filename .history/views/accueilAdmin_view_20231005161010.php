@@ -11,7 +11,7 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $titre; ?></title>
 </head>
-<body >
+<body class="vh-100>
     <div class="text-center">
     <img class=" col-12 w-75"  src="../assets/logo2.png" alt="logo entreprise parrot">
 
