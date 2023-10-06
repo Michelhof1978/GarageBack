@@ -125,7 +125,7 @@ public function suppressionvoituresoccasions() {
 //CREATION
  public function creationTemplate(){
     if (Securite::verifAccessSession()) {
-        require_once "views/espacepro_creation_view.php";
+        require_once "views/espacepro_creation_voitures_occasions_view.php";
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
@@ -134,9 +134,9 @@ public function suppressionvoituresoccasions() {
 
 public function creationvoituresoccasions(){
     if (Securite::verifAccessSession()) {
-        $imageVoiture =($_POST['imageVoiture']);
-        $famille = ($_POST['famille']);
-        $marque = ($_POST['marque']);
+        $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
+        $famille = Securite::secureHTML($_POST['famille']);
+        $marque = Securite::secureHTML($_POST['marque']);
         $modele = ($_POST['modele']);
         $annee = ($_POST['annee']);
         $kilometrage = (int) ($_POST['kilometrage']);
@@ -159,7 +159,7 @@ public function creationvoituresoccasions(){
             "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
             "type" => "alert-success"
         ];
-        header('Location: ' .URL. 'back/espacepro/creationtemplate');
+        header('Location: ' .URL. 'back/espacepro/visualisationvoituresoccasions');
         exit();
 
       } else {

@@ -159,7 +159,7 @@ public function creationvoituresoccasions(){
             "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
             "type" => "alert-success"
         ];
-        header('Location: ' .URL. 'back/espacepro/creationtemplate');
+        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
         exit();
 
       } else {

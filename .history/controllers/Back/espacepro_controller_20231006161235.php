@@ -125,7 +125,7 @@ public function suppressionvoituresoccasions() {
 //CREATION
  public function creationTemplate(){
     if (Securite::verifAccessSession()) {
-        require_once "views/espacepro_creation_view.php";
+        require_once "views/espacepro_creation_voitures_occasions_view.php";
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
@@ -134,19 +134,19 @@ public function suppressionvoituresoccasions() {
 
 public function creationvoituresoccasions(){
     if (Securite::verifAccessSession()) {
-        $imageVoiture =($_POST['imageVoiture']);
-        $famille = ($_POST['famille']);
-        $marque = ($_POST['marque']);
-        $modele = ($_POST['modele']);
-        $annee = ($_POST['annee']);
-        $kilometrage = (int) ($_POST['kilometrage']);
-        $boitevitesse = ($_POST['boitevitesse']);
-        $energie = ($_POST['energie']);
-        $datecirculation = ($_POST['datecirculation']);
-        $puissance = ($_POST['puissance']);
-        $places = (int) ($_POST['places']);
-        $couleur = ($_POST['couleur']);
-        $description = ($_POST['description']);
+        $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
+        $famille = Securite::secureHTML($_POST['famille']);
+        $marque = Securite::secureHTML($_POST['marque']);
+        $modele = Securite::secureHTML($_POST['modele']);
+        $annee = Securite::secureHTML($_POST['annee']);
+        $kilometrage = (int) Securite::secureHTML($_POST['kilometrage']);
+        $boitevitesse = Securite::secureHTML($_POST['boitevitesse']);
+        $energie = Securite::secureHTML($_POST['energie']);
+        $datecirculation = Securite::secureHTML($_POST['datecirculation']);
+        $puissance = Securite::secureHTML($_POST['puissance']);
+        $places = (int) Securite::secureHTML($_POST['places']);
+        $couleur = Securite::secureHTML($_POST['couleur']);
+        $description = Securite::secureHTML($_POST['description']);
         $prix = (float) ($_POST['prix']);
         $imageCritere = ($_POST['imageCritere']);
        
@@ -159,7 +159,7 @@ public function creationvoituresoccasions(){
             "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
             "type" => "alert-success"
         ];
-        header('Location: ' .URL. 'back/espacepro/creationtemplate');
+        header('Location: ' .URL. 'back/espacepro/visualisationvoituresoccasions');
         exit();
 
       } else {
