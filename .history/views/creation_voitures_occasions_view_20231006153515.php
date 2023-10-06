@@ -26,12 +26,12 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="annee" class="form-label">Annee</label>
+    <label for="annee" class="form-label">Année</label>
     <input type="number" class="form-control" id="annee" name="annee">
   </div>
 
   <div class="form-group">
-    <label for="kilometrage" class="form-label">Kilometrage</label>
+    <label for="kilometrage" class="form-label">Kilomètrage</label>
     <input type="number" class="form-control" id="kilometrage" name="kilometrage">
   </div>
 

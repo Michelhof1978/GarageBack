@@ -98,7 +98,7 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere){
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
     boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere)
         
-    VALUES (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
+    values (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
         :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere) ";
 
 $stmt = $this->getBdd()->prepare($req);

@@ -80,7 +80,7 @@ try{
                              break;
                             case "suppressionvoituresoccasions" : $espacepro_controller->suppressionvoituresoccasions(); //echo "suppression";
                             break;
-                            case "creationtemplate" : $espacepro_controller->creationTemplate(); //echo "creation";
+                            case "creationtemplate" : $espacepro_controller->creation(); //echo "creation";
                             break;
                             case "creationvoituresoccasions" : $espacepro_controller->creationvoituresoccasions(); //echo "creation";
                             break;

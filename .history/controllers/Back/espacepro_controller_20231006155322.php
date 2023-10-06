@@ -125,7 +125,7 @@ public function suppressionvoituresoccasions() {
 //CREATION
  public function creationTemplate(){
     if (Securite::verifAccessSession()) {
-        require_once "views/espacepro_creation_voitures_occasions_view.php";
+        require_once(__ROOT__ . '\views\espacepro\creation_voitures_occasions_view.php');
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
@@ -150,12 +150,12 @@ public function creationvoituresoccasions(){
         $prix = (float) Securite::secureHTML($_POST['prix']);
         $imageCritere = Securite::secureHTML($_POST['imageCritere']);
        
-        $idVehicule = $this->espaceproManager->createVehicule(
-            $imageVoiture, $famille, $marque, $modele, $annee,
-            $kilometrage, $boitevitesse, $energie, $datecirculation,
-            $puissance, $places, $couleur, $description, $prix, $imageCritere
-        );
-        
+        // $idVehicule = $this->espaceproManager->createVehicule(
+        //     $imageVoiture, $famille, $marque, $modele, $annee,
+        //     $kilometrage, $boitevitesse, $energie, $datecirculation,
+        //     $puissance, $places, $couleur, $description, $prix, $imageCritere
+        // );
+
         $_SESSION['alert'] = [
             "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
             "type" => "alert-success"

@@ -125,7 +125,7 @@ public function suppressionvoituresoccasions() {
 //CREATION
  public function creationTemplate(){
     if (Securite::verifAccessSession()) {
-        require_once "views/espacepro_creation_voitures_occasions_view.php";
+        require_once(/views\espacepro\creation_voitures_occasions_view.php');
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
