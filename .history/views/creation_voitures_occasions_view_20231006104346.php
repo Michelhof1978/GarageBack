@@ -27,62 +27,60 @@ ob_start();
 
   <div class="form-group">
     <label for="annee" class="form-label">Annee</label>
-    <input type="number" class="form-control" id="annee" name="annee">
+    <input type="text" class="form-control" id="annee" name="annee">
   </div>
 
   <div class="form-group">
     <label for="kilometrage" class="form-label">Kilometrage</label>
-    <input type="number" class="form-control" id="kilometrage" name="kilometrage">
+    <input type="text" class="form-control" id="kilometrage" name="kilometrage">
   </div>
 
   <div class="form-group">
     <label for="boitevitesse" class="form-label">Boite de vitesse</label>
-    <input type="text" class="form-control" id="boitevitesse" name="boitevitesse">
+    <input type="text" class="form-control" id="libelle" name="libelle">
   </div>
 
   <div class="form-group">
-    <label for="energie" class="form-label">Energie</label>
-    <input type="text" class="form-control" id="energie" name="energie">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
   </div>
 
   <div class="form-group">
-    <label for="datecirculation" class="form-label">Date 1ère circulation</label>
-    <input type="date" class="form-control" id="datecirculation" name="datecirculation">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
   </div>
 
   <div class="form-group">
-    <label for="puissance" class="form-label">puissance</label>
-    <input type="number" class="form-control" id="puissance" name="puissance">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
   </div>
 
   <div class="form-group">
-    <label for="places" class="form-label">Places</label>
-    <input type="number" class="form-control" id="places" name="places">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
   </div>
 
   <div class="form-group">
-    <label for="couleur" class="form-label">Couleur</label>
-    <input type="text" class="form-control" id="couleur" name="couleur">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
   </div>
+
+  <div class="form-group">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
+  </div>
+
+  <div class="form-group">
+    <label for="libelle" class="form-label">Libelle</label>
+    <input type="text" class="form-control" id="libelle" name="libelle">
+  </div>
+
+  
 
   <div class="mb-3">
   <label for="description" class="form-label">Déscription</label>
   <textarea class="form-control" id="description" rows="3"></textarea>
 </div>
-  
-
-  <div class="form-group">
-    <label for="prix" class="form-label">Prix</label>
-    <input type="number" class="form-control" id="prix" name="prix">
-  </div>
-
-  <div class="form-group">
-    <label for="imageCritere" class="form-label">Image Critere</label>
-    <input type="text" class="form-control" id="imageCritere" name="imageCritere">
-  </div>
-
-  
-
   
   <button type="submit" class="btn btn-primary">Valider</button>
 </form>
@@ -92,6 +90,6 @@ ob_start();
 <?php
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
 $content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu dans une variable
-$titre = "Ajouter un Vehicule";
+$titre = "Page De Création Vehicules";
 require "views/commons/template.php";
 ?>

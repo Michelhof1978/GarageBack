@@ -52,12 +52,12 @@ ob_start();
 
   <div class="form-group">
     <label for="puissance" class="form-label">puissance</label>
-    <input type="number" class="form-control" id="puissance" name="puissance">
+    <input type="int" class="form-control" id="puissance" name="puissance">
   </div>
 
   <div class="form-group">
     <label for="places" class="form-label">Places</label>
-    <input type="number" class="form-control" id="places" name="places">
+    <input type="int" class="form-control" id="places" name="places">
   </div>
 
   <div class="form-group">
@@ -73,7 +73,7 @@ ob_start();
 
   <div class="form-group">
     <label for="prix" class="form-label">Prix</label>
-    <input type="number" class="form-control" id="prix" name="prix">
+    <input type="float" class="form-control" id="prix" name="prix">
   </div>
 
   <div class="form-group">
@@ -92,6 +92,6 @@ ob_start();
 <?php
 // Récupération du contenu mis en mémoire tampon et nettoyage de la mémoire tampon
 $content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu dans une variable
-$titre = "Ajouter un Vehicule";
+$titre = "Page De Création Vehicules";
 require "views/commons/template.php";
 ?>
