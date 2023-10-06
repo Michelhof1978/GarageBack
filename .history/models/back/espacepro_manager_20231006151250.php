@@ -100,6 +100,24 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere){
         
     values (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
         :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere) ";
+       
+        
+        
+       
+      
+      
+       
+     
+        
+       
+        
+        
+      
+      
+
+
+    
+   
 
 $stmt = $this->getBdd()->prepare($req);
 

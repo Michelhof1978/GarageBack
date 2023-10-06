@@ -54,7 +54,7 @@ class EspaceproManager extends Model {
             imageVoiture = :imageVoiture, 
             famille = :famille,
             marque = :marque, 
-            modele = :modele, 
+            modele = :model, 
             annee = :annee, 
             kilometrage = :kilometrage, 
             boitevitesse = :boitevitesse, 
@@ -74,7 +74,7 @@ class EspaceproManager extends Model {
     $stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
     $stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
     $stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
-    $stmt->bindValue(":modele", $modele, PDO::PARAM_STR);
+    $stmt->bindValue(":model", $model, PDO::PARAM_STR);
     $stmt->bindValue(":annee", $annee, PDO::PARAM_INT);
     $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
     $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
@@ -91,40 +91,7 @@ class EspaceproManager extends Model {
     $stmt->closeCursor();
 }
 
-public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
-$kilometrage, $boitevitesse, $energie, $datecirculation,
-$puissance, $places, $couleur, $description, $prix, $imageCritere){
-
-    $req = "Insert into vehicule(imageVoiture, famille, marque, modele, annee, kilometrage,
-    boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere)
-        
-    values (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
-        :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere) ";
-
-$stmt = $this->getBdd()->prepare($req);
-
-$stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
-$stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
-$stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
-$stmt->bindValue(":modele", $modele, PDO::PARAM_STR);
-$stmt->bindValue(":annee", $annee, PDO::PARAM_INT);
-$stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
-$stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
-$stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-$stmt->bindValue(":datecirculation", $datecirculation, PDO::PARAM_INT);
-$stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
-$stmt->bindValue(":places", $places, PDO::PARAM_INT);
-$stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
-$stmt->bindValue(":description", $description, PDO::PARAM_STR);
-$stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
-$stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-
-$stmt->execute();
-$stmt->closeCursor();
-
-return $this->getBdd()->lastInsertId();
-}
-
+public function
     
     public function getMessagerie(){
         $sql = "SELECT * FROM messagerie";

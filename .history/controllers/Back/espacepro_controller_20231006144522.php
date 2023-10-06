@@ -146,12 +146,6 @@ public function creationvoituresoccasions(){
             $kilometrage, $boitevitesse, $energie, $datecirculation,
             $puissance, $places, $couleur, $description, $prix, $imageCritere
         );
-        $_SESSION['alert'] = [
-            "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
-            "type" => "alert-success"
-        ];
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
-        exit();
 
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");

@@ -147,7 +147,7 @@ public function creationvoituresoccasions(){
             $puissance, $places, $couleur, $description, $prix, $imageCritere
         );
         $_SESSION['alert'] = [
-            "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
+            "message" => "Le véhicule a bien été crée sous l'identifiant : " .,
             "type" => "alert-success"
         ];
         header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
