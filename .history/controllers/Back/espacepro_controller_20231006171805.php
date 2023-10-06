@@ -123,59 +123,49 @@ public function suppressionvoituresoccasions() {
 }
 
 //CREATION
- public function creationTemplate(){
+//  public function creationTemplate(){
+//     if (Securite::verifAccessSession()) {
+//         require_once "views/espacepro_creation_view.php";
+//       } else {
+//          throw new Exception("Vous n'avez pas accès à cette page");
+//       }
+//  }
+
+
+public function creationvoituresoccasions(){
     if (Securite::verifAccessSession()) {
-        require_once "views/espacepro_creation_view.php";
+        $imageVoiture =($_POST['imageVoiture']);
+        $famille = ($_POST['famille']);
+        $marque = ($_POST['marque']);
+        $modele = ($_POST['modele']);
+        $annee = ($_POST['annee']);
+        $kilometrage = (int) ($_POST['kilometrage']);
+        $boitevitesse = ($_POST['boitevitesse']);
+        $energie = ($_POST['energie']);
+        $datecirculation = ($_POST['datecirculation']);
+        $puissance = ($_POST['puissance']);
+        $places = (int) ($_POST['places']);
+        $couleur = ($_POST['couleur']);
+        $description = ($_POST['description']);
+        $prix = (float) ($_POST['prix']);
+        $imageCritere = ($_POST['imageCritere']);
+       
+        $idVehicule = $this->espaceproManager->createVehicule(
+            $imageVoiture, $famille, $marque, $modele, $annee,
+            $kilometrage, $boitevitesse, $energie, $datecirculation,
+            $puissance, $places, $couleur, $description, $prix, $imageCritere);
+        
+        $_SESSION['alert'] = [
+            "message" => "Le véhicule a bien été crée sous l'identifiant : " .$idVehicule,
+            "type" => "alert-success"
+        ];
+        header('Location: ' .URL. 'back/espacepro/creationtemplate');
+        exit();
+
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
- }
-
-
- public function creationvoituresoccasions()
- {
-     if (Securite::verifAccessSession()) {
-         try {
-             $imageVoiture = ($_POST['imageVoiture']);
-             $famille = ($_POST['famille']);
-             $marque = ($_POST['marque']);
-             $modele = ($_POST['modele']);
-             $annee = ($_POST['annee']);
-             $kilometrage = (int) ($_POST['kilometrage']);
-             $boitevitesse = ($_POST['boitevitesse']);
-             $energie = ($_POST['energie']);
-             $datecirculation = ($_POST['datecirculation']);
-             $puissance = ($_POST['puissance']);
-             $places = (int) ($_POST['places']);
-             $couleur = ($_POST['couleur']);
-             $description = ($_POST['description']);
-             $prix = (float) ($_POST['prix']);
-             $imageCritere = ($_POST['imageCritere']);
- 
-             $idVehicule = $this->espaceproManager->createVehicule(
-                 $imageVoiture, $famille, $marque, $modele, $annee,
-                 $kilometrage, $boitevitesse, $energie, $datecirculation,
-                 $puissance, $places, $couleur, $description, $prix, $imageCritere);
- 
-             $_SESSION['alert'] = [
-                 "message" => "Le véhicule a bien été créé sous l'identifiant : " . $idVehicule,
-                 "type" => "alert-success"
-             ];
-             header('Location: ' . URL . 'back/espacepro/creationtemplate');
-             exit();
-         } catch (Exception $e) {
-             $_SESSION['alert'] = [
-                 "message" => "Erreur lors de la création du véhicule : " . $e->getMessage(),
-                 "type" => "alert-danger"
-             ];
-             header('Location: ' . URL . 'back/espacepro/creationtemplate');
-             exit();
-         }
-     } else {
-         throw new Exception("Vous n'avez pas accès à cette page");
-     }
- }
- 
+}
 
 
 

@@ -92,7 +92,7 @@ class EspaceproManager extends Model {
 }
 
 
-//CREATION
+//
 public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere){
