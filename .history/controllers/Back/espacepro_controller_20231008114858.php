@@ -156,14 +156,8 @@ public function suppressionvoituresoccasions() {
              $couleur = ($_POST['couleur']);
              $description = ($_POST['description']);
              $prix = (float) ($_POST['prix']);
-             $imageCritere = "";
-             if($_FILES['imageCritere']['size'] > 0){
-                 $repertoire = "public/images/";
-                 ////On va généner une image grâce à la fonction ds régles_utiles.php
-                 $imageCritere = ajoutImage($_FILES['imageCritere'],$repertoire);
-             }
-
-        
+             
+             $imageCritere = ($_POST['imageCritere']);
  
              $idVehicule = $this->espaceproManager->createVehicule(
                  $imageVoiture, $famille, $marque, $modele, $annee,
