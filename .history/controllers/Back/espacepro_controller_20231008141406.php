@@ -31,35 +31,25 @@ class EspaceproController {
 
 
 //SUPPRESSION
-// Contrôleur EspaceproController.php
-
-// ... Autres actions et fonctions du contrôleur ...
-
-public function suppressionvoituresoccasions()
-{
+public function suppressionvoituresoccasions() {
     if (isset($_POST['idVehicule']) && is_numeric($_POST['idVehicule']) && !empty($_POST['idVehicule'])) {
+
         // Récupérer l'ID du véhicule en utilisant secureHTML
+        //Convertit en INT car formulaire automatiquement en chaine de caract
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
+       //SUPPRESSION DE L IMAGE
+        $imageVoiture= $this->espaceproManager->getimageVoiture('idVehicule');
+        unlink("public/images/".$imageVoiture);//On efface du répértoire
 
-        // Obtenir le nom des images à supprimer
-        $imageVoiture = $this->espaceproManager->getimageVoiture($idVehicule);
-        $imageCritere = $this->espaceproManager->getimageCritere($idVehicule);
-
-        // Supprimer l'image du répertoire
-        if (file_exists("public/images/" . $imageVoiture)) {
-            unlink("public/images/" . $imageVoiture);
-        }
-
-        if (file_exists("public/images/" . $imageCritere)) {
-            unlink("public/images/" . $imageCritere);
-        }
+        $imageCritere= $this->espaceproManager->getimageCritere('idVehicule');
+        unlink("public/images/".$imageCritere);//On efface du répértoire
 
         // Vérifier si le véhicule existe dans la base de données
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
             // Le véhicule existe, donc nous pouvons le supprimer
             $this->espaceproManager->deleteDBvehicule($idVehicule);
-
-            // Message d'alerte session en relation avec template.php
+           
+           //Message d alerte session en relation avec template.php
             $_SESSION['alert'] = [
                 "message" => "Le véhicule est supprimé",
                 "type" => "alert-success"
@@ -72,9 +62,10 @@ public function suppressionvoituresoccasions()
             ];
         }
 
+
         // Rediriger l'utilisateur
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
-        exit();
+         header('Location: '.URL.'back/espacepro/visualisationvoituresoccasions');
+        exit(); // Placé après la redirection
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }

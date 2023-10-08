@@ -44,24 +44,24 @@ class EspaceproManager extends Model {
         }
     }
 
-    public function getimageVoiture($idVehicule){
-        $req = "SELECT imageVoiture from vehicule where idVehicule = :idVehicule";
+    public function getimageVoiture($idAnimal){
+        $req = "SELECT imageVoiture from  where animal_id = :idAnimal";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule",$idVehicule,PDO::PARAM_INT);
+        $stmt->bindValue(":idAnimal",$idAnimal,PDO::PARAM_INT);
         $stmt->execute();
         $image = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        return $image['imageVoiture'];
+        return $image['animal_image'];
     }
 
-    public function getimageCritere($idVehicule){
-        $req = "SELECT imageCritere from vehicule where idVehicule = :idVehicule";
+    public function getimageCritere($idAnimal){
+        $req = "SELECT animal_image from animal where animal_id = :idAnimal";
         $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idVehicule",$idVehicule,PDO::PARAM_INT);
+        $stmt->bindValue(":idAnimal",$idAnimal,PDO::PARAM_INT);
         $stmt->execute();
         $image = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        return $image['imageCritere'];
+        return $image['animal_image'];
     }
 ////////////FIN SUPPRESSION
 

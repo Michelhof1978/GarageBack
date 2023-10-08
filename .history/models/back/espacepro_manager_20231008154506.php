@@ -45,7 +45,7 @@ class EspaceproManager extends Model {
     }
 
     public function getimageVoiture($idVehicule){
-        $req = "SELECT imageVoiture from vehicule where idVehicule = :idVehicule";
+        $req = "SELECT imageVoiture from véhicule where idVehicule = :idVehicule";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":idVehicule",$idVehicule,PDO::PARAM_INT);
         $stmt->execute();
