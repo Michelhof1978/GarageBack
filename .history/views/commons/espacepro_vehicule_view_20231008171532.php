@@ -48,19 +48,21 @@
                     <td class="align-middle"><?= $vehicule['description'] ?></td>
                     <td class="align-middle"><?= $vehicule['prix'] ?></td>
 
-                    <td>    <!-- Permettra de voir l'image ds l'espace pro -->
-                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
-                    </td>
+                    <td class="align-middle">
+                         <!-- Permettra de voir l'image ds l espace pro -->
+    <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
+</td>
 
                     
 
                     <td>
                         <!-- Formulaire pour la modification -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
+                        <form method= "POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
                             <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                     </td>
+
                     <td>
                         <!-- Formulaire pour la suppression -->
                         <form method="POST" action="<?= URL ?>back/espacepro/suppressionvoituresoccasions" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">

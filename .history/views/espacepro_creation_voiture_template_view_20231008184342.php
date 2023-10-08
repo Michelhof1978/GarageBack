@@ -3,7 +3,8 @@
 //utile lorsque l'on doit effectuer des redirections HTTP ou lorsqu'on capturer la sortie pour la stocker dans une variable plutôt que de l'envoyer au navigateur
 ob_start(); 
 ?>
-<!-- //TEMPLATE POUR POUVOIR CREER UNE VOITURE -->
+
+
 <form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
   
   <div class="form-group">

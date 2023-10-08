@@ -3,7 +3,8 @@
 //utile lorsque l'on doit effectuer des redirections HTTP ou lorsqu'on capturer la sortie pour la stocker dans une variable plutôt que de l'envoyer au navigateur
 ob_start(); 
 ?>
-<!-- //TEMPLATE POUR POUVOIR CREER UNE VOITURE -->
+<!-- TEMPLATE POUR CREATION VEHICULE -->
+
 <form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
   
   <div class="form-group">
@@ -141,7 +142,7 @@ ob_start();
 
   <div class="form-group">
     <label for="imageCritere" class="form-label">Image Critere</label>
-    <input type="file" class="form-control" id="imageCritere" name="imageCritere">
+    <input type="file" class="form-control-file" id="imageCritere" name="imageCritere">
   </div>
 
   

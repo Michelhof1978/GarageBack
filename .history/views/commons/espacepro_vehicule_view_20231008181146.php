@@ -48,10 +48,10 @@
                     <td class="align-middle"><?= $vehicule['description'] ?></td>
                     <td class="align-middle"><?= $vehicule['prix'] ?></td>
 
-                    <td>    <!-- Permettra de voir l'image ds l'espace pro -->
-                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
+                    <td class="align-middle">    <!-- Permettra de voir l'image ds l espace pro -->
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px/>
+                       
                     </td>
-
                     
 
                     <td>
@@ -74,12 +74,12 @@
                 <?php if (isset($_POST['modifier']) && $_POST['idVehicule'] == $vehicule['idVehicule']): ?>
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
-                        <td><?= $vehicule['idVehicule'] ?></td>
-                        <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
-                        <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
-                        <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>
-                        <td><input type="text" name="modele" class="form-control" value="<?= $vehicule['modele'] ?>" /></td>
-                        <td><input type="number" name="annee" class="form-control" value="<?= $vehicule['annee'] ?>" /></td>
+                        <td class="align-middle"><?= $vehicule['idVehicule'] ?></td>
+                        <td class="align-middle"><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
+                        <td class="align-middle"><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
+                        <td class="align-middle"><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>
+                        <td class="align-middle"><input type="text" name="modele" class="form-control" value="<?= $vehicule['modele'] ?>" /></td>
+                        <td class="align-middle"><input type="number" name="annee" class="form-control" value="<?= $vehicule['annee'] ?>" /></td>
                         <td><input type="number" name="kilometrage" class="form-control" value="<?= $vehicule['kilometrage'] ?>" /></td>
                         <td><input type="text" name="boitevitesse" class="form-control" value="<?= $vehicule['boitevitesse'] ?>" /></td>
                         <td><input type="text" name="energie" class="form-control" value="<?= $vehicule['energie'] ?>" /></td>
