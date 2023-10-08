@@ -30,7 +30,7 @@
                     <th scope="row"><?= $vehicule['idVehicule'] ?></th>
                     
                     <td class="align-middle">    <!-- Permettra de voir l'image ds l espace pro -->
-                        <img src="<?= URL ?>public/images/<?= $vehicule['imageVoiture'] ?>" style="width:150px"/>
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageVoiture'] ?>" class="w-25"/>
                        
                     </td>
 
@@ -46,10 +46,10 @@
                     <td class="align-middle"><?= $vehicule['places'] ?></td>
                     <td class="align-middle"><?= $vehicule['couleur'] ?></td>
                     <td class="align-middle"><?= $vehicule['description'] ?></td>
-                    <td class="align-middle"><?= $vehicule['prix'] ?></td>
+                    <td><?= $vehicule['prix'] ?></td>
 
                     <td class="align-middle">    <!-- Permettra de voir l'image ds l espace pro -->
-                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px/>
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" class="w-25"/>
                        
                     </td>
                     

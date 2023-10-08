@@ -49,7 +49,7 @@
                     <td class="align-middle"><?= $vehicule['prix'] ?></td>
 
                     <td class="align-middle">    <!-- Permettra de voir l'image ds l espace pro -->
-                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px/>
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" class="w-100"/>
                        
                     </td>
                     
