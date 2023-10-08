@@ -66,25 +66,17 @@ ob_start();
     <input type="number" class="form-control" id="kilometrage" name="kilometrage">
   </div>
 
+  
+
   <div class="form-group">
     <label for="boitevitesse" class="form-label">Boite de vitesse</label>
-    <select class="form-control" id="boitevitesse" name="boitevitesse">
-        <option value="manuel">Manuel</option>
-        <option value="automatique">Automatique</option>
-        
-    </select>
-</div>
+    <input type="text" class="form-control" id="boitevitesse" name="boitevitesse">
+  </div>
 
-<div class="form-group">
+  <div class="form-group">
     <label for="energie" class="form-label">Energie</label>
-    <select class="form-control" id="energie" name="energie">
-        <option value="essence">Essence</option>
-        <option value="diesel">Diesel</option>
-        <option value="electrique">Electrique</option>
-        <option value="gpl">Gpl</option>
-    </select>
-</div>
-
+    <input type="text" class="form-control" id="energie" name="energie">
+  </div>
 
   <div class="form-group">
     <label for="datecirculation" class="form-label">Date 1ère circulation</label>
@@ -103,14 +95,8 @@ ob_start();
 
   <div class="form-group">
     <label for="couleur" class="form-label">Couleur</label>
-    <select class="form-control" id="couleur" name="couleur">
-        <option value="blanc">Blanc</option>
-        <option value="bleu">Bleu</option>
-        <option value="vert">Vert</option>
-        <option value="rouge">Rouge</option>
-    </select>
-</div>
-
+    <input type="text" class="form-control" id="couleur" name="couleur">
+  </div>
 
   <div class="mb-3">
   <label for="description" class="form-label">Description</label>

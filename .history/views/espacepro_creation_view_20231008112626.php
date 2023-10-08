@@ -80,7 +80,7 @@ ob_start();
     <select class="form-control" id="energie" name="energie">
         <option value="essence">Essence</option>
         <option value="diesel">Diesel</option>
-        <option value="electrique">Electrique</option>
+        <option value="electrique">Elèctrique</option>
         <option value="gpl">Gpl</option>
     </select>
 </div>

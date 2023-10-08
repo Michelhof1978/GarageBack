@@ -80,7 +80,7 @@ ob_start();
     <select class="form-control" id="energie" name="energie">
         <option value="essence">Essence</option>
         <option value="diesel">Diesel</option>
-        <option value="electrique">Electrique</option>
+        <option value="electrique">Elèctrique</option>
         <option value="gpl">Gpl</option>
     </select>
 </div>
@@ -104,13 +104,17 @@ ob_start();
   <div class="form-group">
     <label for="couleur" class="form-label">Couleur</label>
     <select class="form-control" id="couleur" name="couleur">
-        <option value="blanc">Blanc</option>
-        <option value="bleu">Bleu</option>
-        <option value="vert">Vert</option>
-        <option value="rouge">Rouge</option>
+        <option value="blanc">Essence</option>
+        <option value="bleu">Diesel</option>
+        <option value="vert">Elèctrique</option>
+        <option value="gp">Gpl</option>
     </select>
 </div>
 
+  <div class="form-group">
+    <label for="couleur" class="form-label">Couleur</label>
+    <input type="text" class="form-control" id="couleur" name="couleur">
+  </div>
 
   <div class="mb-3">
   <label for="description" class="form-label">Description</label>
