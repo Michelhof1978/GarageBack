@@ -37,12 +37,7 @@ public function suppressionvoituresoccasions() {
         // Récupérer l'ID du véhicule en utilisant secureHTML
         //Convertit en INT car formulaire automatiquement en chaine de caract
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
-       //SUPPRESSION DE L IMAGE
-        $imageVoiture= $this->espaceproManager->getimageVoiture('idVehicule');
-        unlink("public/images/".$imageVoiture);//On efface du répértoire
-
-        $imageCritere= $this->espaceproManager->getimageCritere('idVehicule');
-        unlink("public/images/".$imageCritere);//On efface du répértoire
+    
 
         // Vérifier si le véhicule existe dans la base de données
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
@@ -92,26 +87,25 @@ public function suppressionvoituresoccasions() {
         $prix = (float) Securite::secureHTML($_POST['prix']);
         $imageCritere = Securite::secureHTML($_POST['imageCritere']);
 
-       $this->espaceproManager->updateVehicule(
+            $this->espaceproManager->updateVehicule(
             $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
             $kilometrage, $boitevitesse, $energie, $datecirculation,
             $puissance, $places, $couleur, $description, $prix, $imageCritere
         );
 
-        
         $_SESSION['alert'] = [
             "message" => "Le véhicule a bien été modifié",
             "type" => "alert-success"
         ];
         header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
         exit();
-    
+    } 
 } else {
     throw new Exception("Vous n'avez pas accès à cette page");
 }
-    
-}
+    }
 
+}}
 
 
 //  public function modificationvoituresoccasions() {

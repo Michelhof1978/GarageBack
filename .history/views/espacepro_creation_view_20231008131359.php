@@ -12,28 +12,29 @@ ob_start();
 
   <div class="form-group">
     <label class="form-label">Famille</label>
-    <div class="form-check">
-        <input type="radio" id="utilitaire" name="famille" value="Utilitaire" class="form-check-input">
-        <label for="utilitaire" class="form-check-label">Utilitaire</label>
-    </div>
-    <div class="form-check">
-        <input type="radio" id="berline" name="famille" value="Berline" class="form-check-input">
-        <label for="berline" class="form-check-label">Berline</label>
-    </div>
-    <div class="form-check">
-        <input type="radio" id="familiale" name="famille" value="Familiale" class="form-check-input">
-        <label for="familiale" class="form-check-label">Familiale</label>
-    </div>
-    <div class="form-check">
-        <input type="radio" id="citadine" name="famille" value="Citadine" class="form-check-input">
-        <label for="citadine" class="form-check-label">Citadine</label>
-    </div>
-    <div class="form-check">
-        <input type="radio" id="suv" name="famille" value="Suv" class="form-check-input">
-        <label for="suv" class="form-check-label">SUV</label>
+    <div class="d-flex flex-wrap">
+        <div class="form-check ps-5 mb-4">
+            <input type="checkbox" id="utilitaire" name="famille[]" value="Utilitaire" class="form-check-input">
+            <label for="utilitaire" class="form-check-label">Utilitaire</label>
+        </div>
+        <div class="form-check ps-5 mb-4">
+            <input type="checkbox" id="berline" name="famille[]" value="Berline" class="form-check-input">
+            <label for="berline" class="form-check-label">Berline</label>
+        </div>
+        <div class="form-check ps-5 mb-4">
+            <input type="checkbox" id="familiale" name="famille[]" value="Familiale" class="form-check-input">
+            <label for="familiale" class="form-check-label">Familiale</label>
+        </div>
+        <div class="form-check ps-5 mb-4">
+            <input type="checkbox" id="citadine" name="famille[]" value="Citadine" class="form-check-input">
+            <label for="citadine" class="form-check-label">Citadine</label>
+        </div>
+        <div class="form-check ps-5 mb-4">
+            <input type="checkbox" id="suv" name="famille[]" value="Suv" class="form-check-input">
+            <label for="suv" class="form-check-label">SUV</label>
+        </div>
     </div>
 </div>
-
 
 
 

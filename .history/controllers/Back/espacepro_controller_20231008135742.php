@@ -37,13 +37,10 @@ public function suppressionvoituresoccasions() {
         // Récupérer l'ID du véhicule en utilisant secureHTML
         //Convertit en INT car formulaire automatiquement en chaine de caract
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
-       //SUPPRESSION DE L IMAGE
+       //SUU
         $imageVoiture= $this->espaceproManager->getimageVoiture('idVehicule');
-        unlink("public/images/".$imageVoiture);//On efface du répértoire
-
+        unlink("public/images/".)
         $imageCritere= $this->espaceproManager->getimageCritere('idVehicule');
-        unlink("public/images/".$imageCritere);//On efface du répértoire
-
         // Vérifier si le véhicule existe dans la base de données
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
             // Le véhicule existe, donc nous pouvons le supprimer

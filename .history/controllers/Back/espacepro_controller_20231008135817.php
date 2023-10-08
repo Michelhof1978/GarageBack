@@ -39,11 +39,8 @@ public function suppressionvoituresoccasions() {
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
        //SUPPRESSION DE L IMAGE
         $imageVoiture= $this->espaceproManager->getimageVoiture('idVehicule');
-        unlink("public/images/".$imageVoiture);//On efface du répértoire
-
+        unlink("public/images/".)//On efface du répértoire
         $imageCritere= $this->espaceproManager->getimageCritere('idVehicule');
-        unlink("public/images/".$imageCritere);//On efface du répértoire
-
         // Vérifier si le véhicule existe dans la base de données
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
             // Le véhicule existe, donc nous pouvons le supprimer
