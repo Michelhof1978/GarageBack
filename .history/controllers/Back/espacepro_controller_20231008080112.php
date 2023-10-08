@@ -3,7 +3,7 @@ ob_start();
 
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
-require_once(__ROOT__.'\controllers\back\regles_utiles.php');
+
 
 
 // Utilisation du contrôleur pour afficher les voitures d'occasion
@@ -87,14 +87,14 @@ public function suppressionvoituresoccasions() {
             isset($_POST['prix']) &&
             isset($_POST['imageCritere'])) {
             
-            $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
-            $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
-            $famille = Securite::secureHTML($_POST['famille']);
-            $marque = Securite::secureHTML($_POST['marque']);
-            $modele = Securite::secureHTML($_POST['modele']);
-            $annee = Securite::secureHTML($_POST['annee']);
-            $kilometrage = (int) Securite::secureHTML($_POST['kilometrage']);
-            $boitevitesse = Securite::secureHTML($_POST['boitevitesse']);
+            $idVehicule = (int) ($_POST['idVehicule']);
+            $imageVoiture = ($_POST['imageVoiture']);
+            $famille = ($_POST['famille']);
+            $marque = ($_POST['marque']);
+            $modele = ($_POST['modele']);
+            $annee = ($_POST['annee']);
+            $kilometrage = (int) ($_POST['kilometrage']);
+            $boitevitesse = ($_POST['boitevitesse']);
             $energie = Securite::secureHTML($_POST['energie']);
             $datecirculation = Securite::secureHTML($_POST['datecirculation']);
             $puissance = Securite::secureHTML($_POST['puissance']);
@@ -136,13 +136,7 @@ public function suppressionvoituresoccasions() {
  {
      if (Securite::verifAccessSession()) {
          try {
-            $imageVoiture = ($_POST['imageVoiture']);
-            if($_FILES['imageVoiture']['size'] > 0){
-                $repertoire = "public/images/";
-                ////On va généner une image grâce à la fonction ds régles_utiles.php
-                $imageVoiture = ajoutImage($_FILES['imageVoiture'],$repertoire);
-            }
-            
+             $imageVoiture = ($_POST['imageVoiture']);
              $famille = ($_POST['famille']);
              $marque = ($_POST['marque']);
              $modele = ($_POST['modele']);

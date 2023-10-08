@@ -139,7 +139,7 @@ public function suppressionvoituresoccasions() {
             $imageVoiture = ($_POST['imageVoiture']);
             if($_FILES['imageVoiture']['size'] > 0){
                 $repertoire = "public/images/";
-                ////On va généner une image grâce à la fonction ds régles_utiles.php
+                
                 $imageVoiture = ajoutImage($_FILES['imageVoiture'],$repertoire);
             }
             

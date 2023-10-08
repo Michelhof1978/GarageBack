@@ -13,7 +13,7 @@ ob_start();
 </head>
 <body >
     <div class="text-center">
-    <img class=" col-12 w-75"  src="../public/images/logo2.png" alt="logo entreprise parrot">
+    <img class=" col-12 w-75"  src="../public/images/" alt="logo entreprise parrot">
 
     </div>
 

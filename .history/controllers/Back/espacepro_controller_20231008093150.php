@@ -3,7 +3,7 @@ ob_start();
 
 require_once(__ROOT__.'\controllers\back\security.class.php');
 require_once(__ROOT__.'\models\back\espacepro_manager.php');
-require_once(__ROOT__.'\controllers\back\regles_utiles.php');
+require_once(__ROOT__.'\controllers\back\.php');
 
 
 // Utilisation du contrôleur pour afficher les voitures d'occasion
@@ -139,7 +139,6 @@ public function suppressionvoituresoccasions() {
             $imageVoiture = ($_POST['imageVoiture']);
             if($_FILES['imageVoiture']['size'] > 0){
                 $repertoire = "public/images/";
-                ////On va généner une image grâce à la fonction ds régles_utiles.php
                 $imageVoiture = ajoutImage($_FILES['imageVoiture'],$repertoire);
             }
             
