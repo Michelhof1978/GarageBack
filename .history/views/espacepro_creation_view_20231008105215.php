@@ -42,9 +42,9 @@ ob_start();
   <div class="form-group">
     <label for="annee" class="form-label">Année</label>
     <select class="form-control" id="annee" name="annee">
-        <option value="2010">2010</option>
-        <option value="2011">2011</option>
-        <option value="2012">2012</option>
+        <option value="option1">2010</option>
+        <option value="option2">2011</option>
+        <option value="option3">2012</option>
         <option value="2013">2013</option>
         <option value="2014">2014</option>
         <option value="2015">2015</option>
