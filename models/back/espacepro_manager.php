@@ -122,8 +122,8 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere){
 
-    $datecirculation = $_POST['datecirculation']; // Récupérez la date du formulaire au format 'd-m-Y'
-    $convertedDate = date("Y-m-d", strtotime($datecirculation)); // Convertissez la date au format 'Y-m-d'
+    $datecirculation = $_POST['datecirculation']; // Récupération de la date du formulaire au format 'd-m-Y'
+    $convertedDate = date("Y-m-d", strtotime($datecirculation)); // Converti la date au format 'Y-m-d'
     
 
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
@@ -142,7 +142,7 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere){
     $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
     $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
     $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-    $stmt->bindValue(":datecirculation", $datecirculation, PDO::PARAM_STR);
+    $stmt->bindValue(":datecirculation", $convertedDate, PDO::PARAM_STR);
     $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
     $stmt->bindValue(":places", $places, PDO::PARAM_INT);
     $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
