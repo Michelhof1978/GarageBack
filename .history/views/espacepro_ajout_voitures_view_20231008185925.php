@@ -104,8 +104,7 @@ ob_start();
 
   <div class="form-group">
     <label for="datecirculation" class="form-label">Date 1ère circulation</label>
-    <input type="date" class="form-control" id="datecirculation" name="datecirculation" format="dd-mm-yyyy">
-
+    <input type="date" class="form-control" id="datecirculation" name="datecirculation">
   </div>
 
   <div class="form-group">

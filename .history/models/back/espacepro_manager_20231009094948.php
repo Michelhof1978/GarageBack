@@ -7,17 +7,13 @@ class EspaceproManager extends Model {
 
     /////VISUALISATION
     public function getVoituresoccasions(){
-        $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
-                DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere
-                FROM vehicule";
+        $sql = "SELECT * FROM vehicule"; 
         $stmt = $this->getBdd()->prepare($sql);
         $stmt->execute();
         $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         return $voituresoccasions;
     }
-    
 
     ////////SUPPRESSION
     public function deleteDBvehicule($idVehicule) {
@@ -122,9 +118,9 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere){
 
-    $datecirculation = $_POST['datecirculation']; // Récupérez la date du formulaire au format 'd-m-Y'
-    $convertedDate = date("Y-m-d", strtotime($datecirculation)); // Convertissez la date au format 'Y-m-d'
-    
+   
+   // Convertir à nouveau la date au format "DD-MM-YYYY"
+   $datecirculation = date('d-m-Y', strtotime($datecirculation));
 
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
     boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere)
@@ -150,11 +146,7 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere){
     $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
     $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
 
-    if (!$stmt->execute()) {
-        $errorInfo = $stmt->errorInfo();
-        echo "Erreur d'insertion : " . $errorInfo[2];
-    }
-
+    $stmt->execute();
     $stmt->closeCursor();
 
     return $this->getBdd()->lastInsertId();
