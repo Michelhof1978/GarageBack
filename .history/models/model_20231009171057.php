@@ -20,7 +20,7 @@ abstract class Model {
     }
 
     public static function sendJSON($info){
-        header("Access-Control-Allow-Origin: *");//A la place de * mettre le lien internet quand le site sera en ligne
+        header("Access-Control-Allow-Origin: *");//A la place de * mettre le lien internet
         header("Content-Type: application/json");
         echo json_encode($info);
     }

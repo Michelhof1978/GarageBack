@@ -7,7 +7,7 @@ ob_start();
 <form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
   
   <div class="form-group">
-    <label for="imageVoiture" class="form-label">Photo Voiture</label>
+    <label for="imageVoiture" class="form-label"> Voiture</label>
     <input type="file" class="form-control" id="imageVoiture" name="imageVoiture">
   </div>
 
