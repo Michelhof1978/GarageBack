@@ -118,10 +118,10 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere){
 
-   // Convertir la date au format "YYYY-MM-DD"
+   // Convertissez la date au format "YYYY-MM-DD"
    $datecirculation = date('Y-m-d', strtotime($datecirculation));
 
-   // Convertir à nouveau la date au format "DD-MM-YYYY"
+   // Convertissez à nouveau la date au format "DD-MM-YYYY"
    $datecirculation = date('d-m-Y', strtotime($datecirculation));
 
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,

@@ -7,7 +7,7 @@ function ajoutImage($file, $dir){
     if(!file_exists($dir)) mkdir($dir,0777);//Si pas de répertoire de crée alors il va en créer un sur le serveur
 
     $extension = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
-    $random = rand(0,99999);//on va générer un nombre aléatoire pour donner un nom unique au fichier.
+    $random = rand(0,99999);//on va générer un nombre aléatoire pour que le 
     $target_file = $dir.$random."_".$file['name'];
     
     if(!getimagesize($file["tmp_name"]))//vérifier que le fichier est bien une image

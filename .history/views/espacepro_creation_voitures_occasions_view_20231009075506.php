@@ -7,7 +7,7 @@ ob_start();
   
   <div class="form-group">
     <label for="imageVoiture" class="form-label">Image Voiture</label>
-    <input type="text" class="form-control" id="imageVoiture" name="imageVoiture">
+    <input type="file" class="form-control" id="imageVoiture" name="imageVoiture">
   </div>
 
   <div class="form-group">
