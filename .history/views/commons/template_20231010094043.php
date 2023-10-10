@@ -10,7 +10,7 @@
     
 <?php require_once("views/commons/menu.php"); ?>
     <div class="container">
-        <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-primary"><?= $titre ?></h1>
+        <h1 class="rounded border border-dark m-2 p-2 text-center text-white bg-"><?= $titre ?></h1>
         
         
         <?php 
