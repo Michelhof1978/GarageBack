@@ -21,7 +21,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Image Critère</th>
-                <th scope="col">Date de création</th>
+                <th scope="col"></th>
                 <th scope="col">Actions</th>
 
             </tr>

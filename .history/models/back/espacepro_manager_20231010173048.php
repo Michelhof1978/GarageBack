@@ -123,11 +123,11 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
-    $datecirculation = $_POST['datecirculation'];
-    $created_at = $_POST['created_at'];
+    // $datecirculation = $_POST['datecirculation'];
+    // $created_at = $_POST['created_at'];
     
-    $convertedDateCirculation = date("Y-m-d", strtotime($datecirculation));
-    $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
+    // $convertedDateCirculation = date("Y-m-d", strtotime($datecirculation));
+    // $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
     
     
 
@@ -147,14 +147,14 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
     $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
     $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
     $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-    $stmt->bindValue(":datecirculation",  $convertedDateCirculation, PDO::PARAM_STR);
+    $stmt->bindValue(":datecirculation",  $ateCirculation, PDO::PARAM_STR);
     $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
     $stmt->bindValue(":places", $places, PDO::PARAM_INT);
     $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
     $stmt->bindValue(":description", $description, PDO::PARAM_STR);
     $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
     $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-    $stmt->bindValue(":created_at", $convertedCreatedAt, PDO::PARAM_STR);
+    $stmt->bindValue(":created_at", $createdAt, PDO::PARAM_STR);
 
     if (!$stmt->execute()) {
         $errorInfo = $stmt->errorInfo();

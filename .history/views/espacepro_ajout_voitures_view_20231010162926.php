@@ -146,8 +146,8 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="created_at" class="form-label">Annonce créee le :</label>
-    <input type="date" class="form-control" id="created_at" name="created_at" format="dd-mm-yyyy">
+    <label for="created_at" class="form-label">Image Critere</label>
+    <input type="date" class="form-control" id="imageCritere" name="imageCritere">
   </div>
 
   

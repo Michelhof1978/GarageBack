@@ -146,9 +146,9 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="created_at" class="form-label">Annonce créee le :</label>
-    <input type="date" class="form-control" id="created_at" name="created_at" format="dd-mm-yyyy">
-  </div>
+    <label for="created_at" class="form-label">Annonce créée le :</label>
+    <input type="text" class="form-control" id="created_at" name="created_at">
+</div>
 
   
   <button type="submit" class="btn btn-primary">Valider</button>
@@ -162,3 +162,24 @@ $content = ob_get_clean();// Fin de la mémoire tampon et stockage du contenu da
 $titre = "Ajouter un Vehicule";
 require "views/commons/template.php";
 ?>
+<script>
+    // Fonction pour formater la date en YYYY-MM-DD
+    function formatDateToISO(dateStr) {
+        const [day, month, year] = dateStr.split('-');
+        return `${year}-${month}-${day}`;
+    }
+
+    // Gestion de la soumission du formulaire
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Obtenez la date au format DD-MM-YYYY depuis le champ de formulaire
+        const formattedDate = document.getElementById('created_at').value;
+
+        // Convertissez-la au format YYYY-MM-DD
+        const isoDate = formatDateToISO(formattedDate);
+
+        // Utilisez isoDate pour l'envoyer au serveur
+        // ...
+    });
+</script>

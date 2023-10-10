@@ -124,11 +124,11 @@ $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
     $datecirculation = $_POST['datecirculation'];
-    $created_at = $_POST['created_at'];
-    
-    $convertedDateCirculation = date("Y-m-d", strtotime($datecirculation));
-    $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
-    
+$created_at = $_POST['created_at'];
+
+$convertedDateCirculation = date("Y-m-d", strtotime($datecirculation));
+$convertedCreatedAt = date("Y-m-d", strtotime($created_at));
+
     
 
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,

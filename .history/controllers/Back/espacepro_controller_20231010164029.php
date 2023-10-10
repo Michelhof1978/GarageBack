@@ -98,11 +98,11 @@ public function suppressionvoituresoccasions()
         $description = Securite::secureHTML($_POST['description']);
         $prix = (float) Securite::secureHTML($_POST['prix']);
         $imageCritere = Securite::secureHTML($_POST['imageCritere']);
-        $created_at = Securite::secureHTML($_POST['created_at']);
+
        $this->espaceproManager->updateVehicule(
             $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
             $kilometrage, $boitevitesse, $energie, $datecirculation,
-            $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at,
+            $puissance, $places, $couleur, $description, $prix, $imageCritere
         );
 
         
@@ -214,7 +214,7 @@ public function suppressionvoituresoccasions()
             $couleur = ($_POST['couleur']);
             $description = ($_POST['description']);
             $prix = (float) ($_POST['prix']);
-            $created_at = ($_POST['created_at']);
+            $created_at = ($_POST['datecirculation']);
 
             $idVehicule = $this->espaceproManager->createVehicule(
                 $imageVoiture, $famille, $marque, $modele, $annee,

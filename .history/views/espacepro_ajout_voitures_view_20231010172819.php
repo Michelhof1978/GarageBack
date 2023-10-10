@@ -146,9 +146,20 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="created_at" class="form-label">Annonce créee le :</label>
-    <input type="date" class="form-control" id="created_at" name="created_at" format="dd-mm-yyyy">
-  </div>
+    <label for="created_at" class="form-label">Annonce créée le :</label>
+    <input type="date" class="form-control" id="created_at" name="created_at">
+</div>
+
+<script>
+    // Obtenez la date actuelle au format YYYY-MM-DD
+    const currentDate = new Date().toISOString().split('T')[0];
+    
+    // Convertissez-la au format DD-MM-YYYY
+    const formattedDate = currentDate.split('-').reverse().join('-');
+    
+    // Remplissez le champ de formulaire avec la date formatée
+    document.getElementById('created_at').value = formattedDate;
+</script>
 
   
   <button type="submit" class="btn btn-primary">Valider</button>

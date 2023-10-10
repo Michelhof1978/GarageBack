@@ -146,9 +146,9 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="created_at" class="form-label">Annonce créee le :</label>
-    <input type="date" class="form-control" id="created_at" name="created_at" format="dd-mm-yyyy">
-  </div>
+    <label for="created_at" class="form-label">Annonce créée le :</label>
+    <input type="text" class="form-control" id="created_at" name="created_at" placeholder="DD-MM-YYYY">
+</div>
 
   
   <button type="submit" class="btn btn-primary">Valider</button>

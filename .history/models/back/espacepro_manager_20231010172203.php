@@ -123,12 +123,11 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
-    $datecirculation = $_POST['datecirculation'];
-    $created_at = $_POST['created_at'];
+    $datecirculation = $_POST['datecirculation']; // Récupération de la date du formulaire au format 'd-m-Y'
+    $created_at = $_POST['created_at']; // Récupération de la date du formulaire au format 'd-m-Y'
     
-    $convertedDateCirculation = date("Y-m-d", strtotime($datecirculation));
-    $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
-    
+    $convertedDateCirculation = date("Y-m-d", strtotime($datecirculation)); // Converti la date de circulation au format 'Y-m-d'
+    $convertedCreatedAt = date("Y-m-d", strtotime($created_at)); // Converti la date de création au format 'Y-m-d'
     
 
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,

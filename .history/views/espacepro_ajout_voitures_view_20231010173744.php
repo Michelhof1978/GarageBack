@@ -146,14 +146,46 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="created_at" class="form-label">Annonce créee le :</label>
-    <input type="date" class="form-control" id="created_at" name="created_at" format="dd-mm-yyyy">
-  </div>
+    <label for="created_at" class="form-label">Annonce créée le :</label>
+    <input type="text" class="form-control" id="created_at" name="created_at" placeholder="DD-MM-YYYY">
+</div>
 
   
   <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
+<script>
+    // Fonction pour valider et formater la date
+    function validateAndFormatDate(dateStr) {
+        // Utilisez une expression régulière pour vérifier le format
+        const datePattern = /^(\d{2})-(\d{2})-(\d{4})$/;
+        if (!datePattern.test(dateStr)) {
+            alert("Format de date invalide. Utilisez DD-MM-YYYY.");
+            return null;
+        }
+
+        // Formatez la date en YYYY-MM-DD
+        const [day, month, year] = dateStr.split('-');
+        return `${year}-${month}-${day}`;
+    }
+
+    // Gestion de la soumission du formulaire
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Obtenez la date depuis le champ de texte
+        const dateStr = document.getElementById('created_at').value;
+
+        // Validez et formatez la date
+        const isoDate = validateAndFormatDate(dateStr);
+
+        if (isoDate) {
+            // Utilisez isoDate pour l'envoyer au serveur
+            alert(`Date formatée : ${isoDate}`);
+            // ...
+        }
+    });
+</script>
 
 
 <?php
