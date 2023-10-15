@@ -31,7 +31,7 @@ public function getCarsByFilters($filters) {
     // construire la requête SQL de base qui récupère toutes les colonnes (*) de la table "vehicule". La condition WHERE 1 est utilisée pour que la requête soit toujours vraie, même s'il n'y a pas de filtres spécifiés.
     $sql = "SELECT * FROM vehicule WHERE 1"; 
 
-    if (isset($filters['famille'])) {//vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
+    if (isset($filters['famille'])) { //vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
         $sql .= " AND famille = :famille";
     }
 
@@ -122,5 +122,44 @@ if (isset($filters['limite'])) {
 
 
  }
+
+
+<CARD</CARD>
+import { Link } from "react-router-dom";
+
+
+const Card = (props) => {
+  return (
+    <div className="card">
+      <div className="card-body">
+        <a
+          href={props.image}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={props.image} alt={props.marque} />
+        </a>
+
+        <h5 className="card-title">{props.nom}</h5>
+        <p className="card-text">Modèle: {props.modele} </p>
+        <p className="card-text">Energie: {props.energie} </p>
+        <p className="card-text">Prix: {props.prix} €</p>
+      </div>
+      <div className="card-footer">
+        <Link
+          to={`/vehiculedetail/${props.id}`}
+          className="btn btn-primary"
+        >
+          En savoir plus
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
+-------------------------------------------------------------
+
+vehiculecard
 
 

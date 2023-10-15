@@ -67,4 +67,8 @@ $controller->getCarsByFilters($filters);
 
 
 
+// Création du controlleur du côté front qui va regrouper toutes nos routes
+
+
+
 ?>
