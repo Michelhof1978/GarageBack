@@ -7,7 +7,7 @@ $uri = $_SERVER['REQUEST_URI']; // URI = permet d'identification du chemin
 // echo $uri;
   define('__ROOT__', dirname(dirname(__FILE__)));
 
-  require_once(__ROOT__.'\controllers\front\vehicule_controller.php');
+//   require_once(__ROOT__.'\controllers\front\vehicule_controller.php');
     // echo $methode;
 
 if ($methode === "GET"){
@@ -64,6 +64,10 @@ $controller->getCarsByFilters($filters);
     http_response_code(404);
     echo json_encode(["error" => "endpoint not found"]);
 }
+
+
+
+// Création du controlleur du côté front qui va regrouper toutes nos routes
 
 
 

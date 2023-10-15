@@ -31,7 +31,7 @@ public function getCarsByFilters($filters) {
     // construire la requête SQL de base qui récupère toutes les colonnes (*) de la table "vehicule". La condition WHERE 1 est utilisée pour que la requête soit toujours vraie, même s'il n'y a pas de filtres spécifiés.
     $sql = "SELECT * FROM vehicule WHERE 1"; 
 
-    if (isset($filters['famille'])) {//vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
+    if (isset($filters['famille'])) { //vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
         $sql .= " AND famille = :famille";
     }
 
@@ -124,3 +124,4 @@ if (isset($filters['limite'])) {
  }
 
 
+<CARD</CARD>

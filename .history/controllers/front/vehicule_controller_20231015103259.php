@@ -24,7 +24,7 @@ class VehiculeController
            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
            header("Access-Control-Allow-Headers: Content-Type");
           
-        //   echo json_encode($cars);
+        //    echo json_encode($cars);
         }
     
 }

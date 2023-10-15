@@ -7,7 +7,7 @@ $uri = $_SERVER['REQUEST_URI']; // URI = permet d'identification du chemin
 // echo $uri;
   define('__ROOT__', dirname(dirname(__FILE__)));
 
-  require_once(__ROOT__.'\controllers\front\vehicule_controller.php');
+//   require_once(__ROOT__.'\controllers\front\vehicule_controller.php');
     // echo $methode;
 
 if ($methode === "GET"){
