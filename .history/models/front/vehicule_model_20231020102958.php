@@ -75,7 +75,7 @@ public function getCarsByFilters($filters) {
 
    //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
 if (isset($filters['famille'])) {
-   $familleArray = explode(",", $filters['famille']);
+   familleAray explode(",", $filters['famille']);
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }
 

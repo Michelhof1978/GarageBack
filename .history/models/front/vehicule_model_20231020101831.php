@@ -32,7 +32,8 @@ public function getCarsByFilters($filters) {
     $sql = "SELECT * FROM vehicule WHERE 1"; 
 
     if (isset($filters['famille'])) {//vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
-        $sql .= " AND famille IN (:famille)";
+       
+        $sql .= " AND famille = :famille";
     }
 
     if (isset($filters['marque'])) {
@@ -75,7 +76,6 @@ public function getCarsByFilters($filters) {
 
    //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
 if (isset($filters['famille'])) {
-   $familleArray = explode(",", $filters['famille']);
     $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }
 
