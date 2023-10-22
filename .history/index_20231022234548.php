@@ -19,7 +19,8 @@ $adminManager = new AdminManager();
 // Ensuite, instanciez AvisController en lui passant le gestionnaire.
 $avisController = new AvisController($adminManager);
 
-
+require_once("models/back/admin_manager.php");
+require ''; // Ajustez le chemin du fichier au besoin
 
 // Inclusion des contrôleurs
 require_once("controllers/front/vehicule_controller.php");

@@ -1,7 +1,6 @@
 <?php
 
 require_once(__ROOT__ . '\models\back\admin_manager.php');
-
 $adminManager = new AdminManager();
 
 class AvisController {
@@ -44,25 +43,6 @@ class AvisController {
         }
     }
 
-    public function getAvis() {
-        try {
-            $pdo = $this->adminManager->getDBAvis(); // Utilisez votre méthode getDBAvis pour obtenir la connexion PDO.
-            $sql = "SELECT * FROM avis";
-            $stmt = $pdo->query($sql);
-            $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            // Vous pouvez faire quelque chose avec les avis, par exemple les afficher.
-            foreach ($avis as $avisItem) {
-                echo "Nom : " . $avisItem['nom'] . "<br>";
-                echo "Note : " . $avisItem['note'] . "<br>";
-                // ... d'autres informations sur l'avis ...
-            }
-        } catch (PDOException $e) {
-            // Gérer les erreurs de base de données.
-            echo "Une erreur s'est produite lors de la récupération des avis.";
-        }
-    }
-
     private function insertAvisIntoDatabase($nom, $prenom, $note, $commentaire) {
         try {
             $pdo = $this->adminManager->getDBAvis(); // Utilisez votre méthode getDBAvis pour obtenir la connexion PDO.
@@ -75,4 +55,7 @@ class AvisController {
         }
     }
 }
-
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$note = $_POST['note'];
+$commentaire = $_POST['commentaire'];

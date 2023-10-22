@@ -20,6 +20,7 @@ $adminManager = new AdminManager();
 $avisController = new AvisController($adminManager);
 
 
+require 'models/back/admin_manager.php'; // Ajustez le chemin du fichier au besoin
 
 // Inclusion des contrôleurs
 require_once("controllers/front/vehicule_controller.php");

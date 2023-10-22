@@ -19,7 +19,7 @@ $adminManager = new AdminManager();
 // Ensuite, instanciez AvisController en lui passant le gestionnaire.
 $avisController = new AvisController($adminManager);
 
-
+require 'admin_manager.php'; // Ajustez le chemin du fichier au besoin
 
 // Inclusion des contrôleurs
 require_once("controllers/front/vehicule_controller.php");
@@ -80,7 +80,7 @@ try {
                         switch ($url[2]) {
                             case "avis":
                                 $espacepro_controller = new AvisController();
-                                $espacepro_controller->getAvis();
+                                $espacepro_controller-get>avis();
                                 break;
                             case "visualisationvoituresoccasions":
                                 $espacepro_controller = new EspaceproController();

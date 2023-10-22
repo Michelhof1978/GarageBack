@@ -1,4 +1,5 @@
 
+
 <?php
 //Aide pour meilleur affichage des description des erreurs ds la console
 error_reporting(E_ALL);
@@ -103,7 +104,14 @@ public function getLinkFromDatabase($idVehicule) {
                 return empty($contact) ? [] : $contact;
                 }
 
-              
+                public function getDBGarage(){
+                $req = "SELECT * FROM garage";
+                $stmt = $this->getBdd()->prepare($req);//Prépparation de la requête
+                $stmt->execute();//Exécution de la requête
+                    $garage = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt->closeCursor();//On ferme le curseur
+                return empty($garage) ? [] : $garage;
+                }
 }
 
 

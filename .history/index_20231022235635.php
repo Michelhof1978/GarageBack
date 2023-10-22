@@ -19,6 +19,7 @@ $adminManager = new AdminManager();
 // Ensuite, instanciez AvisController en lui passant le gestionnaire.
 $avisController = new AvisController($adminManager);
 
+require_once("models/back/admin_manager.php");
 
 
 // Inclusion des contrôleurs
@@ -27,6 +28,7 @@ require_once("controllers/front/contact_controller.php");
 require_once("controllers/back/admin_controller.php");
 require_once("controllers/back/espacepro_controller.php");
 require_once("controllers/front/avis_controller.php");
+require_once(__ROOT__ . '\models\back\admin_manager.php');
 
 
 

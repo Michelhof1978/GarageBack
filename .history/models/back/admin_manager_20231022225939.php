@@ -5,8 +5,6 @@
 
  require_once(__ROOT__.'\models\model.php');
 
- $adminManager = new AdminManager();
-
 
 class AdminManager extends Model{
     //Cette fonction va rechercher les informations admin et password ds la bdd et la renverra au controller

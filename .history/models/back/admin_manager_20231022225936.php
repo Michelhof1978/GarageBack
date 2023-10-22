@@ -2,10 +2,7 @@
 //Aide pour meilleur affichage des description des erreurs ds la console
  error_reporting(E_ALL);
  ini_set('display_errors', '1');
-
- require_once(__ROOT__.'\models\model.php');
-
- $adminManager = new AdminManager();
+require_once(__ROOT__.'\models\model.php');
 
 
 class AdminManager extends Model{

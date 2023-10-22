@@ -1,7 +1,6 @@
 <?php
 
 require_once(__ROOT__ . '\models\back\admin_manager.php');
-
 $adminManager = new AdminManager();
 
 class AvisController {
@@ -76,3 +75,7 @@ class AvisController {
     }
 }
 
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$note = $_POST['note'];
+$commentaire = $_POST['commentaire'];
