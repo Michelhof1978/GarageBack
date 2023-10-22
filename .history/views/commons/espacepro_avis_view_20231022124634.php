@@ -12,6 +12,7 @@
                 <th scope="col">Note</th>
                 <th scope="col">Contenu</th>
                 <th scope="col">Date de création</th>
+                <th scope="col">Image Critère</th>
                 <th scope="col">Actions</th>
 
             </tr>
@@ -29,31 +30,34 @@
                     <td class="align-middle"><?= $avis['contenu'] ?></td>
                     <td class="align-middle"><?= $avis['created_at'] ?></td>
                    
-        
+                   
+                    <td>    <!-- Permettra de voir l'image ds l'espace pro -->
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
+                    </td>
 
                     
 
                     <td>
                         <!-- Formulaire pour la modification -->
                         <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
-                            <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                            <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                     </td>
                     <td>
                         <!-- Formulaire pour la suppression -->
                         <form method="POST" action="<?= URL ?>back/espacepro/suppressionvoituresoccasions" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
-                        <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                            <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                     </td>
 
                     </tr>
                 
-                <?php if (isset($_POST['modifier']) && $_POST['idAvis'] == $avis['idAvis']): ?>
+                <?php if (isset($_POST['modifier']) && $_POST['idVehicule'] == $vehicule['idVehicule']): ?>
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
-                        <td><?= $avis['avis'] ?></td>
+                        <td><?= $vehicule['idVehicule'] ?></td>
                         <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
                         <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
                         <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>

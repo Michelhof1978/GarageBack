@@ -7,53 +7,77 @@
         <thead>
             <tr>
                 <th scope="col">Référence</th>
-                <th scope="col">Nom Clients</th>
-                <th scope="col">Prénom Clients</th>
-                <th scope="col">Note</th>
-                <th scope="col">Contenu</th>
+                <th scope="col">Nom slients</th>
+                <th scope="col">Famille</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Modèle</th>
+                <th scope="col">Année</th>
+                <th scope="col">Kilométrage</th>
+                <th scope="col">Boite de Vitesse</th>
+                <th scope="col">Énergie</th>
+                <th scope="col">1ère mise en Circulation</th>
+                <th scope="col">Puissance</th>
+                <th scope="col">Places</th>
+                <th scope="col">Couleur</th>
+                <th scope="col">Description</th>
+                <th scope="col">Prix</th>
                 <th scope="col">Date de création</th>
+                <th scope="col">Image Critère</th>
                 <th scope="col">Actions</th>
 
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($avis as $avi): ?>
+            <?php foreach ($vehicules as $vehicule): ?>
                 <tr>
-                    <th scope="row"><?= $avi['idAvis'] ?></th>
+                    <th scope="row"><?= $vehicule['idVehicule'] ?></th>
                     
-                    
-                    <td class="align-middle"><?= $avis['famille'] ?></td>
-                    <td class="align-middle"><?= $avis['nom'] ?></td>
-                    <td class="align-middle"><?= $avis['prenom'] ?></td>
-                    <td class="align-middle"><?= $avis['note'] ?></td>
-                    <td class="align-middle"><?= $avis['contenu'] ?></td>
-                    <td class="align-middle"><?= $avis['created_at'] ?></td>
-                   
-        
+                    <td class="align-middle">    <!-- Permettra de voir l'image ds l espace pro -->
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageVoiture'] ?>" style="width:150px"/>
+                       
+                    </td>
+
+                    <td class="align-middle"><?= $vehicule['famille'] ?></td>
+                    <td class="align-middle"><?= $vehicule['marque'] ?></td>
+                    <td class="align-middle"><?= $vehicule['modele'] ?></td>
+                    <td class="align-middle"><?= $vehicule['annee'] ?></td>
+                    <td class="align-middle"><?= $vehicule['kilometrage'] ?></td>
+                    <td class="align-middle"><?= $vehicule['boitevitesse'] ?></td>
+                    <td class="align-middle"><?= $vehicule['energie'] ?></td>
+                    <td class="align-middle"><?= $vehicule['datecirculation'] ?></td>
+                    <td class="align-middle"><?= $vehicule['puissance'] ?></td>
+                    <td class="align-middle"><?= $vehicule['places'] ?></td>
+                    <td class="align-middle"><?= $vehicule['couleur'] ?></td>
+                    <td class="align-middle"><?= $vehicule['description'] ?></td>
+                    <td class="align-middle"><?= $vehicule['prix'] ?></td>
+                    <td class="align-middle"><?= $vehicule['created_at'] ?></td>
+                    <td>    <!-- Permettra de voir l'image ds l'espace pro -->
+                        <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
+                    </td>
 
                     
 
                     <td>
                         <!-- Formulaire pour la modification -->
                         <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
-                            <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                            <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                         </form>
                     </td>
                     <td>
                         <!-- Formulaire pour la suppression -->
                         <form method="POST" action="<?= URL ?>back/espacepro/suppressionvoituresoccasions" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
-                        <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                            <input type="hidden" name="idVehicule" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                     </td>
 
                     </tr>
                 
-                <?php if (isset($_POST['modifier']) && $_POST['idAvis'] == $avis['idAvis']): ?>
+                <?php if (isset($_POST['modifier']) && $_POST['idVehicule'] == $vehicule['idVehicule']): ?>
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
-                        <td><?= $avis['avis'] ?></td>
+                        <td><?= $vehicule['idVehicule'] ?></td>
                         <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
                         <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
                         <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>

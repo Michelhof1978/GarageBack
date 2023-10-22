@@ -53,7 +53,7 @@
                 <?php if (isset($_POST['modifier']) && $_POST['idAvis'] == $avis['idAvis']): ?>
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/visualisationvoituresoccasions">
-                        <td><?= $avis['avis'] ?></td>
+                        <td><?= $avi['idVehicule'] ?></td>
                         <td><input type="text" name="imageVoiture" class="form-control" value="<?= $vehicule['imageVoiture'] ?>" /></td>
                         <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
                         <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>

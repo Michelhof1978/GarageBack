@@ -28,9 +28,6 @@ $admin_controller = new AdminController();
 require_once ("controllers/back/espacepro_controller.php");
 $espacepro_controller = new EspaceproController();
 
-require_once ("controllers/back/espacepro_controller.php");
-$espacepro_controller = new AvisController();
-
 try{
     if(empty($_GET['page'])){
         throw new Exception("La page n'existe pas");//Si l'URL est vide ou faussée, on lève une exception et on affiche une page d erreur.
@@ -69,11 +66,10 @@ try{
                     break; 
                     case "espacepro":
                         switch($url[2]){
-                            case "avis" : $espacepro_controller->avis(); //echo "avis";
-                            break;
                             //  case "messagerie" : $espacepro_controller->messagerie(); //echo "messagerie";
                             // break;
-                           
+                            case "avis" : $espacepro_controller->avis(); //echo "avis";
+                            break;
                             // case "contenu" : $espacepro_controller->contenu(); //echo "contenu";
                             // break;
                             // case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";

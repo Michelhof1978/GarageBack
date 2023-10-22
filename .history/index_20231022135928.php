@@ -69,11 +69,10 @@ try{
                     break; 
                     case "espacepro":
                         switch($url[2]){
+                            //  case "messagerie" : $espacepro_controller->messagerie(); //echo "messagerie";
+                             break;
                             case "avis" : $espacepro_controller->avis(); //echo "avis";
                             break;
-                            //  case "messagerie" : $espacepro_controller->messagerie(); //echo "messagerie";
-                            // break;
-                           
                             // case "contenu" : $espacepro_controller->contenu(); //echo "contenu";
                             // break;
                             // case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
