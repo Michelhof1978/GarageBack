@@ -1,7 +1,3 @@
-<?php
-
-require_once(__ROOT__ . '\models\back\admin_manager.php');
-
 class AvisController {
     private $adminManager; // Assurez-vous d'initialiser cette propriété correctement
 

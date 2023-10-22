@@ -1,14 +1,11 @@
+Je vais vous fournir un exemple de contrôleur amélioré avec les modifications suggérées. Assurez-vous d'ajuster le code pour correspondre à la structure de votre application et à vos besoins spécifiques.
+
+```php
 <?php
 
 require_once(__ROOT__ . '\models\back\admin_manager.php');
 
 class AvisController {
-    private $adminManager; // Assurez-vous d'initialiser cette propriété correctement
-
-    public function __construct($adminManager) {
-        $this->adminManager = $adminManager;
-    }
-
     public function enregistrerAvis() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupérer les données du formulaire
@@ -44,7 +41,7 @@ class AvisController {
 
     private function insertAvisIntoDatabase($nom, $prenom, $note, $commentaire) {
         try {
-            $pdo = $this->adminManager->getDBAvis(); // Utilisez votre méthode getDBAvis pour obtenir la connexion PDO.
+            $pdo = $this->getBdd(); // Utilisez votre méthode getBdd pour obtenir la connexion PDO.
             $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$nom, $prenom, $note, $commentaire]);
@@ -54,3 +51,6 @@ class AvisController {
         }
     }
 }
+```
+
+Veuillez noter que ce code suppose que vous avez des règles de validation et de sécurité en place. Vous devrez personnaliser les règles de validation en fonction de vos besoins spécifiques. Assurez-vous également que votre modèle `Model` gère la connexion à la base de données de manière appropriée.

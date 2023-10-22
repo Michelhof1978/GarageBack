@@ -13,11 +13,6 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :
 // Définition de la constante __ROOT__
 define('__ROOT__', dirname(__FILE__));
 
-// Instanciez votre gestionnaire (adminManager) ici.
-$adminManager = new AdminManager();
-
-// Ensuite, instanciez AvisController en lui passant le gestionnaire.
-$avisController = new AvisController($adminManager);
 
 
 // Inclusion des contrôleurs
@@ -26,8 +21,6 @@ require_once("controllers/front/contact_controller.php");
 require_once("controllers/back/admin_controller.php");
 require_once("controllers/back/espacepro_controller.php");
 require_once("controllers/front/avis_controller.php");
-
-
 
 try {
     if (empty($_GET['page'])) {

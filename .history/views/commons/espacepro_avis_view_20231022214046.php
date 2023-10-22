@@ -15,7 +15,7 @@
                     <th>Nom Clients</th>
                     <th>Prénom Clients</th>
                     <th>Note</th>
-                    <th>Commentaire</th>
+                    <th>Contenu</th>
                     <th>Date de création</th>
                 </tr>
             </thead>
@@ -26,7 +26,7 @@
                         <td><?= $avi['nom'] ?></td>
                         <td><?= $avi['prenom'] ?></td>
                         <td><?= $avi['note'] ?></td>
-                        <td><?= $avi['commentaire'] ?></td>
+                        <td><?= $avi['contenu'] ?></td>
                         <td><?= $avi['created_at'] ?></td>
                     </tr>
                 <?php endforeach; ?>

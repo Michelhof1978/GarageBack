@@ -15,7 +15,7 @@
                     <th>Nom Clients</th>
                     <th>Prénom Clients</th>
                     <th>Note</th>
-                    <th>Commentaire</th>
+                    <th>Contenu</th>
                     <th>Date de création</th>
                 </tr>
             </thead>
@@ -26,14 +26,17 @@
                         <td><?= $avi['nom'] ?></td>
                         <td><?= $avi['prenom'] ?></td>
                         <td><?= $avi['note'] ?></td>
-                        <td><?= $avi['commentaire'] ?></td>
+                        <td><?= $avi['contenu'] ?></td>
                         <td><?= $avi['created_at'] ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-   
+    <!-- Inclure les scripts JavaScript de Bootstrap (facultatif) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 

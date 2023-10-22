@@ -15,7 +15,7 @@
                     <th>Nom Clients</th>
                     <th>Prénom Clients</th>
                     <th>Note</th>
-                    <th>Commentaire</th>
+                    <th>Contenu</th>
                     <th>Date de création</th>
                 </tr>
             </thead>

@@ -26,7 +26,7 @@ require_once("controllers/front/contact_controller.php");
 require_once("controllers/back/admin_controller.php");
 require_once("controllers/back/espacepro_controller.php");
 require_once("controllers/front/avis_controller.php");
-
+require_once(__ROOT__ . '\models\back\admin_manager.php');
 
 
 try {

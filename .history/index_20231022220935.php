@@ -28,7 +28,6 @@ require_once("controllers/back/espacepro_controller.php");
 require_once("controllers/front/avis_controller.php");
 
 
-
 try {
     if (empty($_GET['page'])) {
         throw new Exception("La page n'existe pas");
