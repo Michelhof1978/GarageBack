@@ -32,17 +32,8 @@ public function getCarsByFilters($filters) {
     $sql = "SELECT * FROM vehicule WHERE 1"; 
 
     if (isset($filters['famille'])) {//vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
-        $values = explode(",", $filters['famille']);
-        $namedPlaceholders = implode(', ', array_map(function ($value)  {
-            
-            return ':value_' . str_replace(',', '', $value);
-        }, $values));
-
-        // echo $namedPlaceholders;
-        $sql .= " AND famille IN ($namedPlaceholders)";
-
-        // echo $sql;
-
+       
+        $sql .= " AND famille IN (:famille)";
         
     }
 
@@ -86,13 +77,8 @@ public function getCarsByFilters($filters) {
 
    //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
 if (isset($filters['famille'])) {
-    $values = explode(",", $filters['famille']);
-    foreach ($values as $value) {
-        // echo ':value_' . str_replace(',', '', $value);
-        $stmt->bindValue(':value_' . str_replace(',', '', $value), $value, PDO::PARAM_STR);
-   
-    }
-    
+   $values = explode(",", $filters['famille']);
+    $stmt->bindParam(':famille', $filters['famille'], PDO::PARAM_STR);
 }
 
 if (isset($filters['marque'])) {

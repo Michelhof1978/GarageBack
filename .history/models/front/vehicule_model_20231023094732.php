@@ -39,10 +39,7 @@ public function getCarsByFilters($filters) {
         }, $values));
 
         // echo $namedPlaceholders;
-        $sql .= " AND famille IN ($namedPlaceholders)";
-
-        // echo $sql;
-
+        // $sql .= " AND famille IN (" .  $namedPlaceholders  .")";
         
     }
 
@@ -89,7 +86,7 @@ if (isset($filters['famille'])) {
     $values = explode(",", $filters['famille']);
     foreach ($values as $value) {
         // echo ':value_' . str_replace(',', '', $value);
-        $stmt->bindValue(':value_' . str_replace(',', '', $value), $value, PDO::PARAM_STR);
+        $stmt->bindParam(':value_' . str_replace(',', '', $value), $value, PDO::PARAM_STR);
    
     }
     

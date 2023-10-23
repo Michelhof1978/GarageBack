@@ -41,7 +41,7 @@ public function getCarsByFilters($filters) {
         // echo $namedPlaceholders;
         $sql .= " AND famille IN ($namedPlaceholders)";
 
-        // echo $sql;
+        echo $sql;
 
         
     }
