@@ -1,6 +1,6 @@
 <?php
 
-require_once(__ROOT__.'\models\back\admin_manager.php');
+require_once(__ROOT__ . '..\models\back\admin_manager.php');
 
 $adminManager = new AdminManager();
 

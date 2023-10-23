@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 require_once("models/Model.php");
-
+require_once(__ROOT__.'\models\back\admin_manager.php');
 
 class APIManager extends Model{ //va hériter de Model et qui permettra la connexion à la BDD
 

@@ -6,7 +6,6 @@ ini_set('display_errors', '1');
 
 require_once("models/Model.php");
 
-
 class APIManager extends Model{ //va hériter de Model et qui permettra la connexion à la BDD
 
         public function getVoitureFilters($filtres = []) {
@@ -82,7 +81,7 @@ public function getLinkFromDatabase($idVehicule) {
 
 
         //AVIS
-        public function getAvis($nom, $prenom, $note, $commentaire) {
+        public function get($nom, $prenom, $note, $commentaire) {
             try {
                 $req = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
                 $stmt = $this->getBdd()->prepare($req);
