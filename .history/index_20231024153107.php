@@ -20,7 +20,7 @@ require_once ("controllers/front/vehicule_controller.php");
 $apiController = new VehiculeController();
 
 require_once ("controllers/front/avis_controller.php");
-$avis_controller = new AvisController();
+$apiController = new VehiculeController();
 
 require_once ("controllers/front/contact_controller.php");
 $contact_controller = new ContactController();

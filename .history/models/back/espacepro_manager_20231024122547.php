@@ -5,11 +5,10 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
-    /////VISUALISATION VEHICULE
+    /////VISUALISATION
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
                 annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere, created_at
                 FROM vehicule";
         $stmt = $this->getBdd()->prepare($sql);
@@ -68,9 +67,9 @@ class EspaceproManager extends Model {
         $stmt->closeCursor();
         return $image['imageCritere'];
     }
-////////////FIN SUPPRESSION VEHICULE
+////////////FIN SUPPRESSION
 
-    //MODIFICATION VEHICULE
+    //MODIFICATION
     
     public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque,
      $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, 
@@ -119,7 +118,7 @@ class EspaceproManager extends Model {
 }
 
 
-//CREATION VEHICULE
+//CREATION
 public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
 $kilometrage, $boitevitesse, $energie, $datecirculation,
 $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
@@ -167,18 +166,7 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
     return $this->getBdd()->lastInsertId();
 }
 
-//CREATION VEHICULE
 
-//VISUALIION AVIS
-public function getAvis(){
-    $sql = "SELECT idAvis, nom, prenom, commentaire, note, created_at
-            FROM avis";
-    $stmt = $this->getBdd()->prepare($sql);
-    $stmt->execute();
-    $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt->closeCursor();
-    return $avis;
-}
     
     // public function getMessagerie(){
     //     $sql = "SELECT * FROM messagerie";

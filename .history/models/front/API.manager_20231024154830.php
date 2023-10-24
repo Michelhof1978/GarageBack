@@ -53,7 +53,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
             // Ajouter le lien à chaque entrée du tableau
     foreach ($resultats as &$vehicule) {
         // Récupérer le lien depuis la colonne 'lien' de la table
-        $lien = $this->getLinkFromDatabase($vehicule['idVehicule']); // pour obtenir le lien de la base de données
+        $lien = $this->getLinkFromDatabase($vehicule['idVehicule']); // Remplacez 'getLinkFromDatabase' par le nom de votre fonction pour obtenir le lien de la base de données
         $vehicule['lien'] = $lien;
     }
 

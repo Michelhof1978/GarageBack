@@ -246,57 +246,22 @@ public function suppressionvoituresoccasions()
 // FIN CONTROLLER VEHICULE
 // ______________________________________________________________________________________________________________
 
-//CONTROLLER AVIS
+//
 
-//VISUALISATION AVIS
-public function visualisationavis()
+public function visualisationvoituresoccasions()//Visualisation des voitures en stock
 {
     if (Securite::verifAccessSession()) {
-        $avis = $this->espaceproManager->getAvis(); 
-        require_once(__ROOT__ . '\views\commons\espacepro_avis_view.php');
+        $vehicules = $this->espaceproManager->getVoituresoccasions(); // Utilisez $vehicules au lieu de $voituresoccasions
+        require_once(__ROOT__ . '\views\commons\espacepro_vehicule_view.php');
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
 }
 
 
- //SUPPRESSION AVIS
-public function suppressionavis()
-{
-    if (isset($_POST['idAvis']) && is_numeric($_POST['idAvis']) && !empty($_POST['idAvis'])) {
-        // Récupérer l'ID du véhicule en utilisant secureHTML
-        $idVehicule = (int) Securite::secureHTML($_POST['idAvis']);
-
-       
-
-        // Vérifier si le véhicule existe dans la base de données
-        if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            // Le véhicule existe, donc nous pouvons le supprimer
-            $this->espaceproManager->deleteDBvehicule($idVehicule);
-
-            // Message d'alerte session en relation avec template.php
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule est supprimé",
-                "type" => "alert-success"
-            ];
-        } else {
-            // Le véhicule n'existe pas, afficher un message d'erreur
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été trouvé",
-                "type" => "alert-danger"
-            ];
-        }
-
-        // Rediriger l'utilisateur
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
-        exit();
-    } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
-    }
-}
+ 
 
 
-// FIN CONTROLLER AVIS
 
 
 //CONTACT       

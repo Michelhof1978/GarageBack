@@ -263,11 +263,22 @@ public function visualisationavis()
  //SUPPRESSION AVIS
 public function suppressionavis()
 {
-    if (isset($_POST['idAvis']) && is_numeric($_POST['idAvis']) && !empty($_POST['idAvis'])) {
+    if (isset($_POST['idAvis']) && is_numeric($_POST['idAvis']) && !empty($_POST['idVehicule'])) {
         // Récupérer l'ID du véhicule en utilisant secureHTML
-        $idVehicule = (int) Securite::secureHTML($_POST['idAvis']);
+        $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
 
-       
+        // Obtenir le nom des images à supprimer
+        $imageVoiture = $this->espaceproManager->getimageVoiture($idVehicule);
+        $imageCritere = $this->espaceproManager->getimageCritere($idVehicule);
+
+        // Supprimer l'image du répertoire
+        if (file_exists("public/images/" . $imageVoiture)) {
+            unlink("public/images/" . $imageVoiture);
+        }
+
+        if (file_exists("public/images/" . $imageCritere)) {
+            unlink("public/images/" . $imageCritere);
+        }
 
         // Vérifier si le véhicule existe dans la base de données
         if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {

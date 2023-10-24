@@ -9,7 +9,6 @@ class EspaceproManager extends Model {
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
                 annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere, created_at
                 FROM vehicule";
         $stmt = $this->getBdd()->prepare($sql);
@@ -177,7 +176,7 @@ public function getAvis(){
     $stmt->execute();
     $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
-    return $avis;
+    return $voituresoccasions;
 }
     
     // public function getMessagerie(){

@@ -53,7 +53,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
             // Ajouter le lien à chaque entrée du tableau
     foreach ($resultats as &$vehicule) {
         // Récupérer le lien depuis la colonne 'lien' de la table
-        $lien = $this->getLinkFromDatabase($vehicule['idVehicule']); // pour obtenir le lien de la base de données
+        $lien = $this->getLinkFromDatabase($vehicule['idVehicule']); // Remplacez 'getLinkFromDatabase' par le nom de votre fonction pour obtenir le lien de la base de données
         $vehicule['lien'] = $lien;
     }
 
@@ -86,7 +86,7 @@ public function getLinkFromDatabase($idVehicule) {
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
+                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
                 annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere, created_at
                 FROM vehicule";
         $stmt = $this->getBdd()->prepare($sql);

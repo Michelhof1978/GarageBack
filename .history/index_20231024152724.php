@@ -19,9 +19,6 @@ define('__ROOT__', dirname(__FILE__));
 require_once ("controllers/front/vehicule_controller.php");
 $apiController = new VehiculeController();
 
-require_once ("controllers/front/avis_controller.php");
-$avis_controller = new AvisController();
-
 require_once ("controllers/front/contact_controller.php");
 $contact_controller = new ContactController();
 
@@ -76,11 +73,11 @@ try{
                             // break;
                             // case "horaire" : $espacepro_controller->horaire() ;//echo "horaire";
                             //break;
-                             case "visualisationavis" : $espacepro_controller->visualisationavis(); 
+                             case "visualisationavis" : $espacepro_controller->visualisationavis(); //echo "avis";
                             break;
-                            case "modificationavis" : $espacepro_controller->modificationavis(); 
+                            case "avis" : $espacepro_controller->visualisationavis(); //echo "avis";
                             break;
-                            case "suppressionavis" : $espacepro_controller->suppressionavis(); //echo "avis";
+                            case "visualisationavis" : $espacepro_controller->visualisationavis(); //echo "avis";
                             break;
                             case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
                             break;

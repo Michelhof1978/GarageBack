@@ -18,8 +18,6 @@ class EspaceproController {
         $this->espaceproManager = new EspaceproManager();
     }
 
-// CONTROLLER VEHICULE
-
     //VISUALISATION VEHICULE
     public function visualisationvoituresoccasions()//Visualisation des voitures en stock
     {
@@ -32,7 +30,7 @@ class EspaceproController {
     }
 
 
-//SUPPRESSION VEHICULE
+//SUPPRESSION
 public function suppressionvoituresoccasions()
 {
     if (isset($_POST['idVehicule']) && is_numeric($_POST['idVehicule']) && !empty($_POST['idVehicule'])) {
@@ -79,7 +77,7 @@ public function suppressionvoituresoccasions()
 }
 
 
- //MODIFICATION   VEHICULE
+ //MODIFICATION   
  public function modificationvoituresoccasions($idVehicule) {
     if (Securite::verifAccessSession()) {
        
@@ -177,7 +175,7 @@ public function suppressionvoituresoccasions()
 //     }
 // }
 
-//CREATION VEHICULE
+//CREATION
  public function creationTemplate(){
     if (Securite::verifAccessSession()) {
         require_once "views/espacepro_ajout_voitures_view.php";
@@ -243,63 +241,11 @@ public function suppressionvoituresoccasions()
     }
 }
 
-// FIN CONTROLLER VEHICULE
-// ______________________________________________________________________________________________________________
-
-//CONTROLLER AVIS
-
-//VISUALISATION AVIS
-public function visualisationavis()
-{
-    if (Securite::verifAccessSession()) {
-        $avis = $this->espaceproManager->getAvis(); 
-        require_once(__ROOT__ . '\views\commons\espacepro_avis_view.php');
-      } else {
-         throw new Exception("Vous n'avez pas accès à cette page");
-      }
-}
 
 
- //SUPPRESSION AVIS
-public function suppressionavis()
-{
-    if (isset($_POST['idAvis']) && is_numeric($_POST['idAvis']) && !empty($_POST['idAvis'])) {
-        // Récupérer l'ID du véhicule en utilisant secureHTML
-        $idVehicule = (int) Securite::secureHTML($_POST['idAvis']);
-
-       
-
-        // Vérifier si le véhicule existe dans la base de données
-        if ($this->espaceproManager->compterVehicule($idVehicule) > 0) {
-            // Le véhicule existe, donc nous pouvons le supprimer
-            $this->espaceproManager->deleteDBvehicule($idVehicule);
-
-            // Message d'alerte session en relation avec template.php
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule est supprimé",
-                "type" => "alert-success"
-            ];
-        } else {
-            // Le véhicule n'existe pas, afficher un message d'erreur
-            $_SESSION['alert'] = [
-                "message" => "Le véhicule n'a pas été trouvé",
-                "type" => "alert-danger"
-            ];
-        }
-
-        // Rediriger l'utilisateur
-        header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
-        exit();
-    } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
-    }
-}
 
 
-// FIN CONTROLLER AVIS
-
-
-//CONTACT       
+ //CONTACT       
 //  public function messagerie(){ //Si l admin est loggé, on affichera la page sinon l évera une erreur
 //         if(Securite::verifAccessSession()){
 //             $messagerie = $this->espaceproManager->getMessagerie();
@@ -311,7 +257,38 @@ public function suppressionavis()
 //     }
     
 
-    
+    // public function avis(){
+    //         if(Securite::verifAccessSession()){
+    //             $avis = $this->espaceproManager->getAvis();
+    //             // print_r($avis);
+    //             require_once "views/commons/espacepro_avis_view.php";
+    //         }else{
+    //             throw new Exception ("Vous n'avez pas accès à cette page");
+    //         }
+    // }
+
+    // public function contenu(){
+
+    //     if(Securite::verifAccessSession()){
+    //         $contenu = $this->espaceproManager->getContenu();
+    //          // print_r($contenu);
+    //         require_once "views/commons/espacepro_contenu_view.php";
+    //     }else{
+    //         throw new Exception ("Vous n'avez pas accès à cette page");
+    //     }
+
+    // }
+
+    // public function horaire(){
+    //     if(Securite::verifAccessSession()){
+    //         $horaire = $this->espaceproManager->getHoraire();
+    //          // print_r($horaire);
+    //         require_once "views/commons/espacepro_horaire_view.php";
+    //     } else{
+    //         throw new Exception ("Vous n'avez pas accès à cette page");
+    //     }
+    // }
+
 }
 
 ob_end_flush();

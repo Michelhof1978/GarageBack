@@ -53,7 +53,7 @@ class APIManager extends Model{ //va hériter de Model et qui permettra la conne
             // Ajouter le lien à chaque entrée du tableau
     foreach ($resultats as &$vehicule) {
         // Récupérer le lien depuis la colonne 'lien' de la table
-        $lien = $this->getLinkFromDatabase($vehicule['idVehicule']); // pour obtenir le lien de la base de données
+        $lien = $this->getLinkFromDatabase($vehicule['idVehicule']); // Remplacez 'getLinkFromDatabase' par le nom de votre fonction pour obtenir le lien de la base de données
         $vehicule['lien'] = $lien;
     }
 
@@ -81,12 +81,15 @@ public function getLinkFromDatabase($idVehicule) {
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
         
+//FIN VEHICULE MANAGER
+
+
 
  /////VISUALISATION VEHICULE
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
+                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
                 annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere, created_at
                 FROM vehicule";
         $stmt = $this->getBdd()->prepare($sql);
@@ -126,24 +129,6 @@ public function getLinkFromDatabase($idVehicule) {
         }
     }
 
-
-// AVIS MANAGER
-public function getAvis($nom, $prenom, $note, $commentaire) {
-    try {
-        $req = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->execute([$nom, $prenom, $note, $commentaire]);
-        return true;
-    } catch (PDOException $e) {
-        // A gerer les erreur
-       
-        return false;
-    }
-}
-// FIN AVIS MANAGER
-
-
-//CONTACT MANAGER
             public function getDBContact(){
                 $req = "SELECT * FROM contactform";
                 $stmt = $this->getBdd()->prepare($req);//Préparation de la requête
@@ -152,8 +137,6 @@ public function getAvis($nom, $prenom, $note, $commentaire) {
                 $stmt->closeCursor();//On ferme le curseur
                 return empty($contact) ? [] : $contact;
                 }
-
-//FIN CONTACT MANAGER
 
               
 }
