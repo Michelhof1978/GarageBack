@@ -171,7 +171,6 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 // ____________________________________________________________________________
 
 //VISUALISATION AVIS
-
 public function getAvis(){
     $sql = "SELECT idAvis, nom, prenom, commentaire, note,  
             DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
@@ -216,25 +215,47 @@ public function compterAvis($idAvis){
     
 //MODIFICATION AVIS
   
- public function updateAvis($idAvis, $nom, $prenom, $note,
- $commentaire, $created_at) {
+ public function updateAvis($idAvis, $, $famille, $marque,
+ $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, 
+ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at) {
 
-$req = "UPDATE avis SET 
-        idAvis = :idAvis,
-        nom = :nom, 
-        prenom = :prenom,
-        note = :note, 
-        commentaire = :commentaire, 
+$req = "UPDATE vehicule SET 
+        imageVoiture = :imageVoiture, 
+        famille = :famille,
+        marque = :marque, 
+        modele = :modele, 
+        annee = :annee, 
+        kilometrage = :kilometrage, 
+        boitevitesse = :boitevitesse, 
+        energie = :energie, 
+        datecirculation = :datecirculation,
+        puissance = :puissance, 
+        places = :places, 
+        couleur = :couleur, 
+        description = :description,
+        prix = :prix, 
+        imageCritere = :imageCritere, 
         created_at = :created_at,
-        WHERE idAvis = :idAvis";
+        WHERE idVehicule = :idVehicule";
     
 $stmt = $this->getBdd()->prepare($req);
 
-$stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-$stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
-$stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-$stmt->bindValue(":note", $note, PDO::PARAM_INT);
-$stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
+$stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+$stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
+$stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
+$stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
+$stmt->bindValue(":modele", $modele, PDO::PARAM_STR);
+$stmt->bindValue(":annee", $annee, PDO::PARAM_INT);
+$stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
+$stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
+$stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
+$stmt->bindValue(":datecirculation", $datecirculation, PDO::PARAM_STR);
+$stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
+$stmt->bindValue(":places", $places, PDO::PARAM_INT);
+$stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
+$stmt->bindValue(":description", $description, PDO::PARAM_STR);
+$stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
+$stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
 $stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
 $stmt->execute();
 $stmt->closeCursor();
@@ -242,37 +263,7 @@ $stmt->closeCursor();
 
 //FIN MODIFICATION AVIS
 
-//CREATION AVIS
-public function createAvis($idAvis, $nom, $prenom, $note,
-$commentaire, $created_at){
 
-    $created_at = $_POST['created_at'];
-    $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
-
-    $req = "INSERT INTO avis (nom, prenom, note, commentaire, created_at)
-        
-    VALUES (:nom, :prenom,:note, :commentaire, :created_at) ";
-
-    $stmt = $this->getBdd()->prepare($req);
-
-    $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
-    $stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-    $stmt->bindValue(":note", $note, PDO::PARAM_INT);
-    $stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
-    $stmt->bindValue(":created_at", $convertedCreatedAt, PDO::PARAM_STR);
-
-    if (!$stmt->execute()) {
-        $errorInfo = $stmt->errorInfo();
-        echo "Erreur d'insertion : " . $errorInfo[2];
-    }
-
-    $stmt->closeCursor();
-
-    return $this->getBdd()->lastInsertId();
-}
-
-//FIN CREATION AVIS
-// ---------------------------------------------------------------------------
 
    
 }

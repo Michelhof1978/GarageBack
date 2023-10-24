@@ -52,12 +52,13 @@
                         <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
                         <td><input type="text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
                         <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
-                        <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
-                        <td><input type="text" name="created_at" class="form-control" value="<?= $avi['created_at'] ?>" /></td>
+                        <td><textarea name='commentaire' class="form-control" rows="4"><?= $vehicule['description'] ?></textarea></td>
+                        <td><input type="number" name="prix" class="form-control" value="<?= $vehicule['prix'] ?>" /></td>
+                        <td><input type="text" name="imageCritere" class="form-control" value="<?= $vehicule['imageCritere'] ?>" /></td>
 
 
                         <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idAvis'] ?>" />
+                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idVehicule'] ?>" />
                             <button class="btn btn-primary" type="submit" name="valider">Valider</button>
                         </td>
                     </form>

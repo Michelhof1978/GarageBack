@@ -171,7 +171,6 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 // ____________________________________________________________________________
 
 //VISUALISATION AVIS
-
 public function getAvis(){
     $sql = "SELECT idAvis, nom, prenom, commentaire, note,  
             DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
@@ -215,64 +214,10 @@ public function compterAvis($idAvis){
 //FIN SUPPRESSION AVIS
     
 //MODIFICATION AVIS
-  
- public function updateAvis($idAvis, $nom, $prenom, $note,
- $commentaire, $created_at) {
 
-$req = "UPDATE avis SET 
-        idAvis = :idAvis,
-        nom = :nom, 
-        prenom = :prenom,
-        note = :note, 
-        commentaire = :commentaire, 
-        created_at = :created_at,
-        WHERE idAvis = :idAvis";
-    
-$stmt = $this->getBdd()->prepare($req);
 
-$stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-$stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
-$stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-$stmt->bindValue(":note", $note, PDO::PARAM_INT);
-$stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
-$stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
-$stmt->execute();
-$stmt->closeCursor();
-}
 
-//FIN MODIFICATION AVIS
 
-//CREATION AVIS
-public function createAvis($idAvis, $nom, $prenom, $note,
-$commentaire, $created_at){
-
-    $created_at = $_POST['created_at'];
-    $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
-
-    $req = "INSERT INTO avis (nom, prenom, note, commentaire, created_at)
-        
-    VALUES (:nom, :prenom,:note, :commentaire, :created_at) ";
-
-    $stmt = $this->getBdd()->prepare($req);
-
-    $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
-    $stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-    $stmt->bindValue(":note", $note, PDO::PARAM_INT);
-    $stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
-    $stmt->bindValue(":created_at", $convertedCreatedAt, PDO::PARAM_STR);
-
-    if (!$stmt->execute()) {
-        $errorInfo = $stmt->errorInfo();
-        echo "Erreur d'insertion : " . $errorInfo[2];
-    }
-
-    $stmt->closeCursor();
-
-    return $this->getBdd()->lastInsertId();
-}
-
-//FIN CREATION AVIS
-// ---------------------------------------------------------------------------
 
    
 }

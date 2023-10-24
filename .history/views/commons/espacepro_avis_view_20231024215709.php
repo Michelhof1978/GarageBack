@@ -57,7 +57,7 @@
 
 
                         <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idAvis'] ?>" />
+                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idVehicule'] ?>" />
                             <button class="btn btn-primary" type="submit" name="valider">Valider</button>
                         </td>
                     </form>

@@ -257,8 +257,8 @@ $commentaire, $created_at){
 
     $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
     $stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-    $stmt->bindValue(":note", $note, PDO::PARAM_INT);
-    $stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
+    $stmt->bindValue(":note", $annee, PDO::PARAM_INT);
+    $stmt->bindValue(":commentaire", $boitevitesse, PDO::PARAM_STR);
     $stmt->bindValue(":created_at", $convertedCreatedAt, PDO::PARAM_STR);
 
     if (!$stmt->execute()) {

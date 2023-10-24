@@ -38,32 +38,12 @@
                     </td>
                     <td>
                         <!-- Formulaire pour la suppression -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/suppressionavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
-                            <input type="hidden" name="idAvis" value="<?= $vehicule['idAvis'] ?>">
+                        <form method="POST" action="<?= URL ?>back/espacepro/suppressionvoituresoccasions" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+                            <input type="hidden" name="idAvis" value="<?= $vehicule['idVehicule'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                     </td>
                     </tr>
-
-                    <?php if (isset($_POST['modifier']) && $_POST['idAvis'] == $vehicule['idAvis']): ?>
-                <tr>
-                    <form method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
-                        <td><?= $avi['idAvis'] ?></td>
-                        <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
-                        <td><input type="text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
-                        <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
-                        <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
-                        <td><input type="text" name="created_at" class="form-control" value="<?= $avi['created_at'] ?>" /></td>
-
-
-                        <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idAvis'] ?>" />
-                            <button class="btn btn-primary" type="submit" name="valider">Valider</button>
-                        </td>
-                    </form>
-                </tr>
-                <?php endif; ?>
-
                 <?php endforeach; ?>
             </tbody>
         </table>

@@ -49,15 +49,24 @@
                 <tr>
                     <form method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
                         <td><?= $avi['idAvis'] ?></td>
-                        <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
-                        <td><input type="text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
-                        <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
-                        <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
-                        <td><input type="text" name="created_at" class="form-control" value="<?= $avi['created_at'] ?>" /></td>
+                        <td><input type="text" name="famille" class="form-control" value="<?= $vehicule['famille'] ?>" /></td>
+                        <td><input type="text" name="marque" class="form-control" value="<?= $vehicule['marque'] ?>" /></td>
+                        <td><input type="text" name="modele" class="form-control" value="<?= $vehicule['modele'] ?>" /></td>
+                        <td><input type="number" name="annee" class="form-control" value="<?= $vehicule['annee'] ?>" /></td>
+                        <td><input type="number" name="kilometrage" class="form-control" value="<?= $vehicule['kilometrage'] ?>" /></td>
+                        <td><input type="text" name="boitevitesse" class="form-control" value="<?= $vehicule['boitevitesse'] ?>" /></td>
+                        <td><input type="text" name="energie" class="form-control" value="<?= $vehicule['energie'] ?>" /></td>
+                        <td><input type="text" name="datecirculation" class="form-control" value="<?= $vehicule['datecirculation'] ?>" /></td>
+                        <td><input type="number" name="puissance" class="form-control" value="<?= $vehicule['puissance'] ?>" /></td>
+                        <td><input type="number" name="places" class="form-control" value="<?= $vehicule['places'] ?>" /></td>
+                        <td><input type="text" name="couleur" class="form-control" value="<?= $vehicule['couleur'] ?>" /></td>
+                        <td><textarea name='description' class="form-control" rows="4"><?= $vehicule['description'] ?></textarea></td>
+                        <td><input type="number" name="prix" class="form-control" value="<?= $vehicule['prix'] ?>" /></td>
+                        <td><input type="text" name="imageCritere" class="form-control" value="<?= $vehicule['imageCritere'] ?>" /></td>
 
 
                         <td colspan="2">
-                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idAvis'] ?>" />
+                            <input type="hidden" name="idvehicule" value="<?= $vehicule['idVehicule'] ?>" />
                             <button class="btn btn-primary" type="submit" name="valider">Valider</button>
                         </td>
                     </form>
