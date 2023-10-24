@@ -82,7 +82,7 @@ try{
                             break;
                             case "suppressionavis" : $espacepro_controller->suppressionavis(); 
                             break;
-                            case "creationavis" : $espacepro_controller->creationavis(); 
+                            case "creationavis" : $espacepro_controller->creationavis(); //echo "avis";
                             break;
                             case "visualisationvoituresoccasions" : $espacepro_controller->visualisationvoituresoccasions(); //echo "voituresoccasions";
                             break;

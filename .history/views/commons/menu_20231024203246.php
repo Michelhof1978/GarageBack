@@ -21,7 +21,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/messagerie">Messagerie</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/avis">Avis</a>
-                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationvoituresoccasions">Ajouter un avis client</a>
+                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationvoituresoccasions">Ajouter un avi</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/visualisationvoituresoccasions">Liste des véhicules</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationvoituresoccasions">Ajouter un véhicule</a>
                        
