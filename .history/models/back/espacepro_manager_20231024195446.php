@@ -179,8 +179,6 @@ public function getAvis(){
     $stmt->closeCursor();
     return $avis;
 }
-//FIN VISUALIION AVIS
-
 
  ////////SUPPRESSION AVIS
  public function deleteDBavis($idAvis) {
@@ -209,7 +207,8 @@ public function compterAvis($idAvis){
         return 0; // Ou gérer d'une autre manière appropriée.
     }
 }
-//FIN SUPPRESSION AVIS
+
+//FIN VISUALIION AVIS
     
 
 

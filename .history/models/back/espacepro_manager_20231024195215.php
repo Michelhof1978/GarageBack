@@ -179,8 +179,6 @@ public function getAvis(){
     $stmt->closeCursor();
     return $avis;
 }
-//FIN VISUALIION AVIS
-
 
  ////////SUPPRESSION AVIS
  public function deleteDBavis($idAvis) {
@@ -188,18 +186,18 @@ public function getAvis(){
         $req = "DELETE FROM `avis` WHERE `idAvis` = :idAvis";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->execute();
-        $stmt->closeCursor();
+        $stmt->execute();//pour exécuter la requête SQL de suppression
+        $stmt->closeCursor();//la méthode closeCursor est appelée pour fermer le curseur de la requête, libérant ainsi les ressources associées.
     } catch (PDOException $e) {
-        
+        // Gérer l'erreur de la requête de suppression
         echo "Erreur de suppression : " . $e->getMessage();
     }
 }
 
-public function compterAvis($idAvis){
-    $req = "SELECT COUNT(*) AS nb FROMvis WHERE idAvis = :idAvis"; 
+public function compterVehicule($idVehicule){
+    $req = "SELECT COUNT(*) AS nb FROM vehicule WHERE idVehicule = :idVehicule"; 
     $stmt = $this->getBdd()->prepare($req);
-    $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);//Ne pas oublier de le convertir en INT car les formulaire sont automatiquement en string
+    $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);//Ne pas oublier de le convertir en INT car les formulaire sont automatiquement en string
     if ($stmt->execute()) {
         $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
@@ -209,7 +207,11 @@ public function compterAvis($idAvis){
         return 0; // Ou gérer d'une autre manière appropriée.
     }
 }
-//FIN SUPPRESSION AVIS
+
+
+
+
+//FIN VISUALIION AVIS
     
 
 

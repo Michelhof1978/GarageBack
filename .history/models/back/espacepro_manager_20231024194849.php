@@ -179,42 +179,9 @@ public function getAvis(){
     $stmt->closeCursor();
     return $avis;
 }
+
 //FIN VISUALIION AVIS
-
-
- ////////SUPPRESSION AVIS
- public function deleteDBavis($idAvis) {
-    try {
-        $req = "DELETE FROM `avis` WHERE `idAvis` = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        
-        echo "Erreur de suppression : " . $e->getMessage();
-    }
-}
-
-public function compterAvis($idAvis){
-    $req = "SELECT COUNT(*) AS nb FROMvis WHERE idAvis = :idAvis"; 
-    $stmt = $this->getBdd()->prepare($req);
-    $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);//Ne pas oublier de le convertir en INT car les formulaire sont automatiquement en string
-    if ($stmt->execute()) {
-        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
-        return ($resultat) ? $resultat['nb'] : 0;
-    } else {
-        // Gérez l'erreur de la requête de base de données.
-        return 0; // Ou gérer d'une autre manière appropriée.
-    }
-}
-//FIN SUPPRESSION AVIS
     
-
-
-
-
     // public function getMessagerie(){
     //     $sql = "SELECT * FROM messagerie";
     //    $stmt = $this->getBdd()->prepare($sql);

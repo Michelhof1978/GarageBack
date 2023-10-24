@@ -179,7 +179,7 @@ public function getAvis(){
     $stmt->closeCursor();
     return $avis;
 }
-//FIN VISUALIION AVIS
+//VISUALIION AVIS
 
 
  ////////SUPPRESSION AVIS
