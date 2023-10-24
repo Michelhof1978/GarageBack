@@ -178,7 +178,15 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
     // }
 
-    
+    // public function getAvis(){
+    //     $sql = "SELECT * FROM avis";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $avis;
+    // }
+
    
     
 }
