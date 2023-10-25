@@ -165,10 +165,9 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
 //VISUALISATION AVIS
 
-//VISUALISATION AVIS
 public function getAvis(){
-    $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
-            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
+    $sql = "SELECT idAvis, nom, prenom, commentaire, note,  
+            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
             FROM avis";
     $stmt = $this->getBdd()->prepare($sql);
     $stmt->execute();
@@ -263,19 +262,18 @@ $commentaire, $created_at){
 
 //FIN CREATION AVIS
 
-//VALIDATION AVIS
-public function validationAvis($idAvis, $valide) {
-    try {
-        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        
-        echo "Erreur de validation d'avis : " . $e->getMessage();
-    }
+//VISUALISATION AVIS
+public function getAvis(){
+    $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
+            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
+            FROM avis";
+    $stmt = $this->getBdd()->prepare($sql);
+    $stmt->execute();
+    $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $avis;
+}
+//FIN VISUALISATION AVIS
 
 
 // ---------------------------------------------------------------------------

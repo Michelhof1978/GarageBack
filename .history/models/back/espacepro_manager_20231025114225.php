@@ -273,7 +273,7 @@ public function validationAvis($idAvis, $valide) {
         $stmt->execute();
         $stmt->closeCursor();
     } catch (PDOException $e) {
-        
+        // Gérer l'erreur de mise à jour de l'état de validation de l'avis
         echo "Erreur de validation d'avis : " . $e->getMessage();
     }
 

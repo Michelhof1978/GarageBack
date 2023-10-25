@@ -129,7 +129,7 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
     boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere, created_at)
         
     VALUES (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
-        :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere, :created_at, NOW() ) ";
+        :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere, :created_at, NOW() ";
 
     $stmt = $this->getBdd()->prepare($req);
 
@@ -141,14 +141,14 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
     $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
     $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
     $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-    $stmt->bindValue(":datecirculation",  $datecirculation, PDO::PARAM_STR);
+    $stmt->bindValue(":datecirculation",  $convertedDateCirculation, PDO::PARAM_STR);
     $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
     $stmt->bindValue(":places", $places, PDO::PARAM_INT);
     $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
     $stmt->bindValue(":description", $description, PDO::PARAM_STR);
     $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
     $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-    $stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
+    $stmt->bindValue(":created_at", $convertedCreatedAt, PDO::PARAM_STR);
 
     if (!$stmt->execute()) {
         $errorInfo = $stmt->errorInfo();
@@ -165,10 +165,9 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
 //VISUALISATION AVIS
 
-//VISUALISATION AVIS
 public function getAvis(){
-    $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
-            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
+    $sql = "SELECT idAvis, nom, prenom, commentaire, note,  
+            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
             FROM avis";
     $stmt = $this->getBdd()->prepare($sql);
     $stmt->execute();
@@ -262,22 +261,6 @@ $commentaire, $created_at){
 }
 
 //FIN CREATION AVIS
-
-//VALIDATION AVIS
-public function validationAvis($idAvis, $valide) {
-    try {
-        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        
-        echo "Erreur de validation d'avis : " . $e->getMessage();
-    }
-
-
 // ---------------------------------------------------------------------------
 
    

@@ -38,7 +38,7 @@
                     </td>
                     <td>
                         <!-- Formulaire pour la suppression -->
-                        <form method="POST" action="<?= URL ?>back/espacepro/suppressionavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+                        <form method="POST" action="<?= URL ?>back/espacepro/suppressionavis" ;">
                             <input type="hidden" name="idAvis" value="<?= $vehicule['idAvis'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
@@ -46,10 +46,10 @@
 
                     </td>
                     <td>
-                        <!-- Formulaire de validation-->
-                        <form method="POST" action="<?= URL ?>back/espacepro/validationavis">
+                        <!-- Formulaire pour la suppression -->
+                        <form method="POST" action="<?= URL ?>back/espacepro/validationavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idAvis" value="<?= $vehicule['idAvis'] ?>">
-                            <button type="submit" class="btn btn-danger" name="supprimer">Valider</button>
+                            <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                     </td>
                     </tr>

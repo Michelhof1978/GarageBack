@@ -165,10 +165,9 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
 //VISUALISATION AVIS
 
-//VISUALISATION AVIS
 public function getAvis(){
-    $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
-            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
+    $sql = "SELECT idAvis, nom, prenom, commentaire, note,  
+            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
             FROM avis";
     $stmt = $this->getBdd()->prepare($sql);
     $stmt->execute();
@@ -263,20 +262,40 @@ $commentaire, $created_at){
 
 //FIN CREATION AVIS
 
-//VALIDATION AVIS
-public function validationAvis($idAvis, $valide) {
-    try {
-        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        
-        echo "Erreur de validation d'avis : " . $e->getMessage();
-    }
+<?php
+class AvisValidationController {
+    public function validerAvis() {
+        // Recevez les données du formulaire React
+        $data = json_decode(file_get_contents('php://input'));
 
+        if (!$data) {
+            // Gérez l'erreur, les données du formulaire ne sont pas valides.
+            http_response_code(400); // Réponse Bad Request
+            echo json_encode(['message' => 'Données du formulaire non valides']);
+            return;
+        }
+
+        // Assurez-vous que les données contiennent les champs nécessaires (idAvis, validation, etc.)
+        if (!isset($data->idAvis) || !isset($data->validation)) {
+            // Gérez l'erreur, les champs requis sont manquants.
+            http_response_code(400); // Réponse Bad Request
+            echo json_encode(['message' => 'Champs requis manquants']);
+            return;
+        }
+
+        // Maintenant, vous pouvez utiliser le gestionnaire d'avis pour marquer l'avis comme validé.
+        $idAvis = $data->idAvis;
+        $validation = $data->validation;
+        
+        // Utilisez le gestionnaire d'avis pour valider l'avis
+        $avisManager = new AvisManager(); // Remplacez par le nom de votre gestionnaire d'avis.
+        $avisManager->validerAvis($idAvis, $validation);
+
+        // Répondre avec une confirmation
+        http_response_code(200); // Réponse OK
+        echo json_encode(['message' => 'Avis validé avec succès']);
+    }
+}
 
 // ---------------------------------------------------------------------------
 

@@ -165,10 +165,9 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
 //VISUALISATION AVIS
 
-//VISUALISATION AVIS
 public function getAvis(){
-    $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
-            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
+    $sql = "SELECT idAvis, nom, prenom, commentaire, note,  
+            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
             FROM avis";
     $stmt = $this->getBdd()->prepare($sql);
     $stmt->execute();
@@ -273,7 +272,7 @@ public function validationAvis($idAvis, $valide) {
         $stmt->execute();
         $stmt->closeCursor();
     } catch (PDOException $e) {
-        
+        // Gérer l'erreur de mise à jour de l'état de validation de l'avis
         echo "Erreur de validation d'avis : " . $e->getMessage();
     }
 

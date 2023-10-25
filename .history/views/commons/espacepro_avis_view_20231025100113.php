@@ -46,10 +46,10 @@
 
                     </td>
                     <td>
-                        <!-- Formulaire de validation-->
-                        <form method="POST" action="<?= URL ?>back/espacepro/validationavis">
+                        <!-- Formulaire pour la suppression -->
+                        <form method="POST" action="<?= URL ?>back/espacepro/avis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idAvis" value="<?= $vehicule['idAvis'] ?>">
-                            <button type="submit" class="btn btn-danger" name="supprimer">Valider</button>
+                            <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                     </td>
                     </tr>
