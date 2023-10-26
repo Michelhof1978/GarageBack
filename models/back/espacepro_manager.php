@@ -5,12 +5,14 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
-    /////VISUALISATION
+    /////VISUALISATION VEHICULE
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere, created_at
-                FROM vehicule";
+                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere,
+                DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
+                DATE_FORMAT(updated_at, '%d-%m-%Y') AS updated_at
+                FROM vehicule"; // Ajout de la virgule ici
         $stmt = $this->getBdd()->prepare($sql);
         $stmt->execute();
         $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -18,8 +20,9 @@ class EspaceproManager extends Model {
         return $voituresoccasions;
     }
     
+    
 
-    ////////SUPPRESSION
+    ////////SUPPRESSION VEHICULE
     public function deleteDBvehicule($idVehicule) {
         try {
             $req = "DELETE FROM `vehicule` WHERE `idVehicule` = :idVehicule";//Supprimera l'id véhicule de la table véhicule
@@ -67,36 +70,72 @@ class EspaceproManager extends Model {
         $stmt->closeCursor();
         return $image['imageCritere'];
     }
-////////////FIN SUPPRESSION
+////////////FIN SUPPRESSION VEHICULE
+    
+ // MODIFICATION VEHICULE
+        public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
+            
+            $updated_at = date("Y-m-d H:i:s");
+            
+            $req = "UPDATE vehicule SET 
+                    imageVoiture = :imageVoiture, 
+                    famille = :famille,
+                    marque = :marque, 
+                    modele = :modele, 
+                    annee = :annee, 
+                    kilometrage = :kilometrage, 
+                    boitevitesse = :boitevitesse, 
+                    energie = :energie, 
+                    datecirculation = :datecirculation,
+                    puissance = :puissance, 
+                    places = :places, 
+                    couleur = :couleur, 
+                    description = :description,
+                    prix = :prix, 
+                    imageCritere = :imageCritere, 
+                    updated_at = :updated_at
+                    WHERE idVehicule = :idVehicule";
+            
+            $stmt = $this->getBdd()->prepare($req);
+            
+            $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+            $stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
+            $stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
+            $stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
+            $stmt->bindValue(":modele", $modele, PDO::PARAM_STR);
+            $stmt->bindValue(":annee", $annee, PDO::PARAM_INT);
+            $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
+            $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
+            $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
+            $stmt->bindValue(":datecirculation", $datecirculation, PDO::PARAM_STR);
+            $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
+            $stmt->bindValue(":places", $places, PDO::PARAM_INT);
+            $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
+            $stmt->bindValue(":description", $description, PDO::PARAM_STR);
+            $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
+            $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
+            $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR);
+            
+            $stmt->execute();
+            $stmt->closeCursor();
+        }
+    
+    
+    
+    
 
-    //MODIFICATION
+//CREATION VEHICULE
+public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
+    $kilometrage, $boitevitesse, $energie, $datecirculation,
+    $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at)
+{
+    $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
+        boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere, created_at)
+        VALUES (:imageVoiture, :famille, :marque, :modele, :annee, :kilometrage, :boitevitesse, 
+        :energie, :datecirculation, :puissance, :places, :couleur, :description, :prix, :imageCritere, :created_at)";
     
-    public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque,
-     $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, 
-     $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at) {
-    
-    $req = "UPDATE vehicule SET 
-            imageVoiture = :imageVoiture, 
-            famille = :famille,
-            marque = :marque, 
-            modele = :modele, 
-            annee = :annee, 
-            kilometrage = :kilometrage, 
-            boitevitesse = :boitevitesse, 
-            energie = :energie, 
-            datecirculation = :datecirculation,
-            puissance = :puissance, 
-            places = :places, 
-            couleur = :couleur, 
-            description = :description,
-            prix = :prix, 
-            imageCritere = :imageCritere, 
-            created_at = :created_at,
-            WHERE idVehicule = :idVehicule";
-        
     $stmt = $this->getBdd()->prepare($req);
     
-    $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
     $stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
     $stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
     $stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
@@ -113,49 +152,7 @@ class EspaceproManager extends Model {
     $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
     $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
     $stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
-    $stmt->execute();
-    $stmt->closeCursor();
-}
-
-
-//CREATION
-public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
-$kilometrage, $boitevitesse, $energie, $datecirculation,
-$puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
-
-    $datecirculation = $_POST['datecirculation'];
-    $created_at = $_POST['created_at'];
     
-    $convertedDateCirculation = date("Y-m-d", strtotime($datecirculation));
-    $convertedCreatedAt = date("Y-m-d", strtotime($created_at));
-    
-    
-
-    $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
-    boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere, created_at)
-        
-    VALUES (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
-        :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere, :created_at) ";
-
-    $stmt = $this->getBdd()->prepare($req);
-
-    $stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
-    $stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
-    $stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
-    $stmt->bindValue(":modele", $modele, PDO::PARAM_STR);
-    $stmt->bindValue(":annee", $annee, PDO::PARAM_INT);
-    $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
-    $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
-    $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-    $stmt->bindValue(":datecirculation",  $convertedDateCirculation, PDO::PARAM_STR);
-    $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
-    $stmt->bindValue(":places", $places, PDO::PARAM_INT);
-    $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
-    $stmt->bindValue(":description", $description, PDO::PARAM_STR);
-    $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
-    $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-    $stmt->bindValue(":created_at", $convertedCreatedAt, PDO::PARAM_STR);
-
     if (!$stmt->execute()) {
         $errorInfo = $stmt->errorInfo();
         echo "Erreur d'insertion : " . $errorInfo[2];
@@ -178,7 +175,32 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 
     // }
 
-    
-   
+    // public function getAvis(){
+    //     $sql = "SELECT * FROM avis";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $avis;
+    // }
+
+    // public function getContenu(){
+    //     $sql = "SELECT * FROM contenu";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $contenu = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $contenu;
+    // }
+
+    // public function getHoraire(){
+    //     $sql = "SELECT * FROM horaire";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $horaire = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $horaire;
+    // }
+
     
 }
