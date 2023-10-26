@@ -164,113 +164,43 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 }
 
 
-//FIN CREATION VEHICULE
-// ____________________________________________________________________________
+    
+    // public function getMessagerie(){
+    //     $sql = "SELECT * FROM messagerie";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $messagerie = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $messagerie;
 
-// VISUALISATION AVIS
-public function getAvis()
-{
-    $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
-            DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
-            FROM avis";
-    $stmt = $this->getBdd()->prepare($sql);
-    $stmt->execute();
-    $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt->closeCursor();
-    return $avis;
-}
+    // }
 
-// SUPPRESSION AVIS
-public function deleteDBavis($idAvis)
-{
-    try {
-        $req = "DELETE FROM avis WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        echo "Erreur de suppression : " . $e->getMessage();
-    }
-}
+    // public function getAvis(){
+    //     $sql = "SELECT * FROM avis";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $avis;
+    // }
 
-public function compterAvis($idAvis)
-{
-    $req = "SELECT COUNT(*) AS nb FROM avis WHERE idAvis = :idAvis";
-    $stmt = $this->getBdd()->prepare($req);
-    $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-    if ($stmt->execute()) {
-        $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
-        $stmt->closeCursor();
-        return ($resultat) ? $resultat['nb'] : 0;
-    } else {
-        return 0;
-    }
-}
+    // public function getContenu(){
+    //     $sql = "SELECT * FROM contenu";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $contenu = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $contenu;
+    // }
 
-// MODIFICATION AVIS
-public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire,$updated_at)
-{
-    $updated_at = date("Y-m-d H:i:s");
+    // public function getHoraire(){
+    //     $sql = "SELECT * FROM horaire";
+    //    $stmt = $this->getBdd()->prepare($sql);
+    //    $stmt->execute();
+    //    $horaire = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //    $stmt->closeCursor();
+    //    return $horaire;
+    // }
 
-    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, :updated_at ";
-    $stmt = $this->getBdd()->prepare($req);
-
-    $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
-    $stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-    $stmt->bindValue(":note", $note, PDO::PARAM_INT);
-    $stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
-    $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR);
-    $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-
-    if (!$stmt->execute()) {
-        $errorInfo = $stmt->errorInfo();
-        echo "Erreur de mise à jour : " . $errorInfo[2];
-    }
-
-    $stmt->closeCursor();
-}
-
-// CREATION AVIS
-public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
-{
-    $req = "INSERT INTO avis (nom, prenom, note, commentaire, created_at)
-            VALUES (:nom, :prenom, :note, :commentaire, :created_at)";
-    $stmt = $this->getBdd()->prepare($req);
-
-    $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
-    $stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-    $stmt->bindValue(":note", $note, PDO::PARAM_INT);
-    $stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
-    $stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
-
-    if (!$stmt->execute()) {
-        $errorInfo = $stmt->errorInfo();
-        echo "Erreur d'insertion : " . $errorInfo[2];
-    }
-
-    $stmt->closeCursor();
-}
-
-
-//VALIDATION AVIS
-
-public function validationAvis($idAvis, $valide) {
-    try {
-        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        echo "Erreur de validation d'avis : " . $e->getMessage();
-    }
-}
-
-
-
-// ---------------------------------------------------------------------------
-
-   
+    
 }
