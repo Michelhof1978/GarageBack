@@ -253,18 +253,18 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
 
 //VALIDATION AVIS
 
- public function validateAvis($idAvis, $valide) {
-        try {
-            $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-            $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-            $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-            $stmt->execute();
-            $stmt->closeCursor();
-        } catch (PDOException $e) {
-            echo "Erreur de validation d'avis : " . $e->getMessage();
-        }
+public function validateAvis($idAvis, $valide) {
+    try {
+        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
+        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
+        $stmt->execute();
+        $stmt->closeCursor();
+    } catch (PDOException $e) {
+        echo "Erreur de validation d'avis : " . $e->getMessage();
     }
+}
 
 
 

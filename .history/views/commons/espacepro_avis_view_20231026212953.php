@@ -61,7 +61,7 @@
                 <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
             </form>
         <?php endif; ?>
-                      
+                        <?php endif; ?>
 
                         <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/suppressionavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">

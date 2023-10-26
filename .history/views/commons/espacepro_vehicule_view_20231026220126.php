@@ -54,8 +54,7 @@
                     <td>    <!-- Permettra de voir l'image ds l'espace pro -->
                         <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
                     </td>
-                    <td><?= isset($vehicule['created_at']) ? $vehicule['created_at'] : '' ?></td>
-                    <td><?= isset($vehicule['updated_at']) ? $vehicule['updated_at'] : '' ?></td>
+
                     
 
                     <td>

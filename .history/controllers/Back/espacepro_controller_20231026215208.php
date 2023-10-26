@@ -64,7 +64,7 @@ public function suppressionvoituresoccasions() {
 }
 
 // MODIFICATION VEHICULE
-public function modificationvoituresoccasions() {
+public function modificationvoituresoccasions($idVehicule) {
     if (Securite::verifAccessSession()) {
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
         $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
@@ -275,9 +275,6 @@ public function creationavis()
                 $nom = $_POST['nom'];
                 $prenom = $_POST['prenom'];
                 $note = (int)$_POST['note'];
-                $commentaire = $_POST['commentaire'];
-                $created_at = $_POST['created_at'];
-
 
                 // Vérifier que la note est au maximum 5
                 if ($note <= 5) {

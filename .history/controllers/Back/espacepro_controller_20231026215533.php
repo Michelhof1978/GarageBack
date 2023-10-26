@@ -64,7 +64,7 @@ public function suppressionvoituresoccasions() {
 }
 
 // MODIFICATION VEHICULE
-public function modificationvoituresoccasions() {
+public function modificationvoituresoccasions($idVehicule) {
     if (Securite::verifAccessSession()) {
         $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
         $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);

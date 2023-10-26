@@ -9,7 +9,7 @@
         <?php unset($_SESSION['alert']); ?>
     <?php endif; ?>
 
-    <?php $modeModification = false; ?>
+   
 
     <table class="table table-striped">
         <thead>

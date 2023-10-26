@@ -73,7 +73,7 @@ class EspaceproManager extends Model {
 ////////////FIN SUPPRESSION VEHICULE
     
  // MODIFICATION VEHICULE
-        public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
+        public function updateVehicule($idVehicule, $couleur, $description, $prix, $imageCritere, $updated_at)  {
             
             $updated_at = date("Y-m-d H:i:s");//Mettre la date actuelle
             

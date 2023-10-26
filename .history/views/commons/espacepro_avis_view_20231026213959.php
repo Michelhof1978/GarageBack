@@ -2,14 +2,14 @@
 
 <?php ob_start(); ?>
 
-<div class="container">
-    <h1>Liste des avis clients</h1>
-    <?php if (isset($_SESSION['alert'])): ?>
+<div class="container-fluid no-margin">
+    <h1 class="text-center">Liste des avis clients</h1>
+    <!-- <?php if (isset($_SESSION['alert'])): ?>
         <div class="alert alert-success"><?= $_SESSION['alert']['message'] ?></div>
         <?php unset($_SESSION['alert']); ?>
-    <?php endif; ?>
+    <?php endif; ?> -->
 
-    <?php $modeModification = false; ?>
+   
 
     <table class="table table-striped">
         <thead>
@@ -36,9 +36,9 @@
                     <td><?= isset($avi['created_at']) ? $avi['created_at'] : '' ?></td>
                     <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
                     <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
+                    
                     <td>
-                    <?php if ($modeModification === $avi['idAvis']): ?>
-            <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
+                   <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
     <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
     <table>
         <tr>
@@ -55,13 +55,12 @@
     </table>
 </form>
 
-                        <?php else: ?>
+                        
                             <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
                 <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
             </form>
-        <?php endif; ?>
-                      
+        
 
                         <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/suppressionavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">

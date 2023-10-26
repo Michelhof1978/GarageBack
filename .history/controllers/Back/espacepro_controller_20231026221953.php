@@ -82,6 +82,8 @@ public function modificationvoituresoccasions() {
         $description = Securite::secureHTML($_POST['description']);
         $prix = (float) Securite::secureHTML($_POST['prix']);
         $imageCritere = Securite::secureHTML($_POST['imageCritere']);
+        $updated_at = Securite::secureHTML($_POST['imageCritere']);
+
         $updated_at = date("Y-m-d H:i:s");
 
         $this->espaceproManager->updateVehicule(

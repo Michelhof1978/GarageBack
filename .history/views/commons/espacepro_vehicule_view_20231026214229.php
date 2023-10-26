@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <div class="container-fluid no-margin">
-    <h2 class="text-center">Liste des véhicules</h2>
+    <h2 class="text-center">Liste des véhicules</h1>
     <table class="table table-striped table-responsive w-100 mx-0"> <!-- table-responsive pour gérer l'overflow horizontal -->
         <thead>
             <tr>
@@ -20,9 +20,8 @@
                 <th scope="col">Couleur</th>
                 <th scope="col">Description</th>
                 <th scope="col">Prix</th>
-                <th scope="col">Image Critère</th>
                 <th scope="col">Date de création</th>
-                <th scope="col">Date de mise à jour</th>
+                <th scope="col">Image Critère</th>
                 <th scope="col">Actions</th>
 
             </tr>
@@ -50,12 +49,11 @@
                     <td class="align-middle"><?= $vehicule['couleur'] ?></td>
                     <td class="align-middle"><?= $vehicule['description'] ?></td>
                     <td class="align-middle"><?= $vehicule['prix'] ?></td>
-                  
+                    <td class="align-middle"><?= $vehicule['created_at'] ?></td>
                     <td>    <!-- Permettra de voir l'image ds l'espace pro -->
                         <img src="<?= URL ?>public/images/<?= $vehicule['imageCritere'] ?>" style="width:150px;"/>
                     </td>
-                    <td><?= isset($vehicule['created_at']) ? $vehicule['created_at'] : '' ?></td>
-                    <td><?= isset($vehicule['updated_at']) ? $vehicule['updated_at'] : '' ?></td>
+
                     
 
                     <td>

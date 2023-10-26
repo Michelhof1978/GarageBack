@@ -75,7 +75,7 @@ class EspaceproManager extends Model {
  // MODIFICATION VEHICULE
         public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
             
-            $updated_at = date("Y-m-d H:i:s");//Mettre la date actuelle
+            $updated_at = date("Y-m-d H:i:s");
             
             $req = "UPDATE vehicule SET 
                     imageVoiture = :imageVoiture, 
@@ -209,9 +209,11 @@ public function compterAvis($idAvis)
 }
 
 // MODIFICATION AVIS
-public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire, $updated_at)
+public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire,$updated_at)
 {
-    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, updated_at = :updated_at WHERE idAvis = :idAvis";
+    $updated_at = date("Y-m-d H:i:s");
+
+    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, :updated_at ";
     $stmt = $this->getBdd()->prepare($req);
 
     $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
@@ -253,18 +255,18 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
 
 //VALIDATION AVIS
 
- public function validateAvis($idAvis, $valide) {
-        try {
-            $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-            $stmt = $this->getBdd()->prepare($req);
-            $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-            $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-            $stmt->execute();
-            $stmt->closeCursor();
-        } catch (PDOException $e) {
-            echo "Erreur de validation d'avis : " . $e->getMessage();
-        }
+public function validationAvis($idAvis, $valide) {
+    try {
+        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
+        $stmt = $this->getBdd()->prepare($req);
+        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
+        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
+        $stmt->execute();
+        $stmt->closeCursor();
+    } catch (PDOException $e) {
+        echo "Erreur de validation d'avis : " . $e->getMessage();
     }
+}
 
 
 

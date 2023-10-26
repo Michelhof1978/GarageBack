@@ -9,7 +9,7 @@
         <?php unset($_SESSION['alert']); ?>
     <?php endif; ?>
 
-    <?php $modeModification = false; ?>
+   
 
     <table class="table table-striped">
         <thead>
@@ -37,7 +37,7 @@
                     <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
                     <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
                     <td>
-                    <?php if ($modeModification === $avi['idAvis']): ?>
+                   
             <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
     <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
     <table>
