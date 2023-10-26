@@ -312,12 +312,11 @@ public function creationavis()
 
 
 // VALIDATION AVIS
-public function validationavis($idAvis) {
+public function validationavis() {
     if (Securite::verifAccessSession()) {
         if (isset($_POST['idAvis'])) {
             $idAvis = (int) $_POST['idAvis'];
-            $valide = true; // Vous pouvez définir la valeur de $valide ici (true pour la validation).
-            $this->espaceproManager->validateAvis($idAvis, $valide);
+            $this->espaceproManager->validateAvis($idAvis);
 
             $_SESSION['alert'] = [
                 "message" => "L'avis a été validé avec succès",
@@ -326,14 +325,10 @@ public function validationavis($idAvis) {
 
             header('Location: ' . URL . 'back/espacepro/visualisationavis');
             exit();
-        } else {
-            throw new Exception("Données invalides pour la validation de l'avis");
-        }
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
-
 
 
 

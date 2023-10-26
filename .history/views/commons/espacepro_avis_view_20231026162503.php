@@ -1,5 +1,3 @@
-
-
 <?php ob_start(); ?>
 
 <div class="container">
@@ -33,16 +31,18 @@
                     <td><?= $avi['prenom'] ?></td>
                     <td><?= $avi['note'] ?></td>
                     <td><?= $avi['commentaire'] ?></td>
-                    <td><?= isset($avi['created_at']) ? $avi['created_at'] : '' ?></td>
+                    <td><?= $avi['created_at'] ?></td>
                     <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
                     <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
                     <td>
                         <?php if ($modeModification === $avi['idAvis']): ?>
+                            <!-- Formulaire de modification -->
                             <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
                                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                                <!-- Les champs de modification ici -->
                                 <td><?= $avi['idAvis'] ?></td>
                                 <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
-                                <td><input type= "text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
+                                <td><input type="text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
                                 <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
                                 <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
                                 <td colspan="2">
@@ -51,16 +51,19 @@
                                 </td>
                             </form>
                         <?php else: ?>
+                            <!-- Formulaire d'affichage ou de modification -->
                             <form method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
                                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
                                 <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                             </form>
                         <?php endif; ?>
 
+                        <!-- Formulaire de suppression -->
                         <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/suppressionavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
+                        <!-- Formulaire de validation -->
                         <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/validationavis">
                             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
                             <button type="submit" class="btn btn-success" name="valider">Valider</button>
@@ -77,3 +80,4 @@
 $content = ob_get_clean();
 $titre = "Liste Des Avis Clients";
 require "views/commons/template.php";
+?>

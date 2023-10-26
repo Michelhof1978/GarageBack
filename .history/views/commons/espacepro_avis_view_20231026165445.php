@@ -1,5 +1,3 @@
-
-
 <?php ob_start(); ?>
 
 <div class="container">
@@ -29,20 +27,12 @@
             <?php foreach ($avis as $avi): ?>
                 <tr>
                     <th scope="row"><?= $avi['idAvis'] ?></th>
-                    <td><?= $avi['nom'] ?></td>
-                    <td><?= $avi['prenom'] ?></td>
-                    <td><?= $avi['note'] ?></td>
-                    <td><?= $avi['commentaire'] ?></td>
-                    <td><?= isset($avi['created_at']) ? $avi['created_at'] : '' ?></td>
-                    <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
-                    <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
                     <td>
                         <?php if ($modeModification === $avi['idAvis']): ?>
                             <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
                                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
-                                <td><?= $avi['idAvis'] ?></td>
                                 <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
-                                <td><input type= "text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
+                                <td><input type="text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
                                 <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
                                 <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
                                 <td colspan="2">
@@ -50,6 +40,37 @@
                                     <button class="btn btn-primary" type="submit" name="valider">Valider</button>
                                 </td>
                             </form>
+                        <?php else: ?>
+                            <?= $avi['nom'] ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if ($modeModification === $avi['idAvis']): ?>
+                            <!-- Autres boutons de gestion pendant la modification -->
+                        <?php else: ?>
+                            <?= $avi['prenom'] ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if ($modeModification === $avi['idAvis']): ?>
+                            <!-- Autres boutons de gestion pendant la modification -->
+                        <?php else: ?>
+                            <?= $avi['note'] ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if ($modeModification === $avi['idAvis']): ?>
+                            <!-- Autres boutons de gestion pendant la modification -->
+                        <?php else: ?>
+                            <?= $avi['commentaire'] ?>
+                        <?php endif; ?>
+                    </td>
+                    <td><?= isset($avi['created_at']) ? $avi['created_at'] : '' ?></td>
+                    <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
+                    <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
+                    <td>
+                        <?php if ($modeModification === $avi['idAvis']): ?>
+                            <!-- Autres boutons de gestion pendant la modification -->
                         <?php else: ?>
                             <form method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
                                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
@@ -77,3 +98,4 @@
 $content = ob_get_clean();
 $titre = "Liste Des Avis Clients";
 require "views/commons/template.php";
+?>

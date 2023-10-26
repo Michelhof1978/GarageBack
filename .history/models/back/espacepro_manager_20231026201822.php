@@ -75,7 +75,7 @@ class EspaceproManager extends Model {
  // MODIFICATION VEHICULE
         public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
             
-            $updated_at = date("Y-m-d H:i:s");//Mettre la date actuelle
+            $updated_at = date("Y-m-d H:i:s");//Mettre la date automatiquement
             
             $req = "UPDATE vehicule SET 
                     imageVoiture = :imageVoiture, 
@@ -253,18 +253,24 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
 
 //VALIDATION AVIS
 
-public function validateAvis($idAvis, $valide) {
-    try {
-        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        echo "Erreur de validation d'avis : " . $e->getMessage();
+public function validateavis() {
+    if (Securite::verifAccessSession()) {
+        $this->espaceproManager->validationAvis();
+
+        // Affichez un message de succès
+        $_SESSION['alert'] = [
+            "message" => "Les avis ont été validés avec succès",
+            "type" => "alert-success"
+        ];
+
+        // Redirigez vers la page de visualisation des avis
+        header('Location: ' . URL . 'back/espacepro/visualisationavis');
+        exit();
+    } else {
+        throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
+
 
 
 

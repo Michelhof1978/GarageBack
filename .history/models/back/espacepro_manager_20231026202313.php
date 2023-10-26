@@ -253,7 +253,7 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
 
 //VALIDATION AVIS
 
-public function validateAvis($idAvis, $valide) {
+public function validate($idAvis, $valide) {
     try {
         $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
         $stmt = $this->getBdd()->prepare($req);

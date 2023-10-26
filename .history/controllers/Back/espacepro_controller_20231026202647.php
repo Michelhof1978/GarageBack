@@ -312,11 +312,10 @@ public function creationavis()
 
 
 // VALIDATION AVIS
-public function validationavis($idAvis) {
+public function validationavis($idAvis, $valide) {
     if (Securite::verifAccessSession()) {
         if (isset($_POST['idAvis'])) {
             $idAvis = (int) $_POST['idAvis'];
-            $valide = true; // Vous pouvez définir la valeur de $valide ici (true pour la validation).
             $this->espaceproManager->validateAvis($idAvis, $valide);
 
             $_SESSION['alert'] = [
@@ -333,7 +332,6 @@ public function validationavis($idAvis) {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
-
 
 
 

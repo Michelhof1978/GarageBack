@@ -330,7 +330,7 @@ public function validationavis($idAvis) {
             throw new Exception("Données invalides pour la validation de l'avis");
         }
     } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
+        throw an Exception("Vous n'avez pas accès à cette page");
     }
 }
 

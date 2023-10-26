@@ -12,7 +12,7 @@ class EspaceproController {
     private $espaceproManager;
 
     public function __construct() {
-        $this->espaceproManager = new EspaceproManager();
+        $this->espaceproManager = new EspaceproManager($pdo);
     }
 
 // CONTROLLER VEHICULE
@@ -314,26 +314,25 @@ public function creationavis()
 // VALIDATION AVIS
 public function validationavis($idAvis) {
     if (Securite::verifAccessSession()) {
-        if (isset($_POST['idAvis'])) {
-            $idAvis = (int) $_POST['idAvis'];
-            $valide = true; // Vous pouvez définir la valeur de $valide ici (true pour la validation).
-            $this->espaceproManager->validateAvis($idAvis, $valide);
+        // Récupérez l'ID de l'avis à partir des données POST
+        $idAvis = $_POST['idAvis'];
 
-            $_SESSION['alert'] = [
-                "message" => "L'avis a été validé avec succès",
-                "type" => "alert-success"
-            ];
+        // Effectuez la mise à jour dans la base de données
+        $this->espaceproManager->validateAvis($idAvis);
 
-            header('Location: ' . URL . 'back/espacepro/visualisationavis');
-            exit();
-        } else {
-            throw new Exception("Données invalides pour la validation de l'avis");
-        }
+        // Affichez un message de succès
+        $_SESSION['alert'] = [
+            "message" => "L'avis a été validé avec succès",
+            "type" => "alert-success"
+        ];
+
+        // Redirigez vers la page de visualisation des avis
+        header('Location: ' . URL . 'back/espacepro/visualisationavis');
+        exit();
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
-
 
 
 

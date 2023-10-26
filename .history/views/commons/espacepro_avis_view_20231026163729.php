@@ -1,5 +1,4 @@
 
-
 <?php ob_start(); ?>
 
 <div class="container">
@@ -33,29 +32,39 @@
                     <td><?= $avi['prenom'] ?></td>
                     <td><?= $avi['note'] ?></td>
                     <td><?= $avi['commentaire'] ?></td>
-                    <td><?= isset($avi['created_at']) ? $avi['created_at'] : '' ?></td>
+                    <td><?= isset($avi['created_at']) ? $avi['created_a'] : '' ?></td>
                     <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
                     <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
                     <td>
-                        <?php if ($modeModification === $avi['idAvis']): ?>
-                            <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
-                                <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
-                                <td><?= $avi['idAvis'] ?></td>
-                                <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
-                                <td><input type= "text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
-                                <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
-                                <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
-                                <td colspan="2">
-                                    <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>" />
-                                    <button class="btn btn-primary" type="submit" name="valider">Valider</button>
-                                </td>
-                            </form>
-                        <?php else: ?>
-                            <form method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
-                                <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
-                                <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
-                            </form>
-                        <?php endif; ?>
+    <?php if ($modeModification === $avi['idAvis']): ?>
+        <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
+            <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+            <td><?= $avi['idAvis'] ?></td>
+            <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
+            <td><input type="text" name="prenom" class="form-control" value="<?= $avi['prenom'] ?>" /></td>
+            <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
+            <td><textarea name="commentaire" class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
+            <td colspan="2">
+                <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>" />
+                <button class="btn btn-primary" type="submit" name="valider">Valider</button>
+            </td>
+        </form>
+    <?php else: ?>
+        <!-- Affichage en texte statique pour les autres champs -->
+        <td><?= $avi['idAvis'] ?></td>
+        <td><?= $avi['nom'] ?></td>
+        <td><?= $avi['prenom'] ?></td>
+        <td><?= $avi['note'] ?></td>
+        <td><?= $avi['commentaire'] ?></td>
+        <td colspan="2">
+            <form method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
+                <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
+            </form>
+        </td>
+    <?php endif; ?>
+</td>
+
 
                         <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/suppressionavis" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
                             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">

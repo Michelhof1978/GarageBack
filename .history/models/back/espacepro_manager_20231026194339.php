@@ -5,21 +5,25 @@ require_once(__ROOT__.'\models\model.php');
 
 class EspaceproManager extends Model {
 
+    public function __construct($pdo) {
+        parent::__construct(); // Appel du constructeur du parent
+        $this->pdo = $pdo; // Vous pouvez stocker l'instance PDO ici si nécessaire
+    }
+
     /////VISUALISATION VEHICULE
-    public function getVoituresoccasions(){
+    public function getVoituresoccasions() {
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
                 annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere,
                 DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
                 DATE_FORMAT(updated_at, '%d-%m-%Y') AS updated_at
-                FROM vehicule"; // Ajout de la virgule ici
-        $stmt = $this->getBdd()->prepare($sql);
+                FROM vehicule";
+        $stmt = $this->pdo->prepare($sql); // Utilisation de l'instance PDO passée dans le constructeur
         $stmt->execute();
         $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
-        return $voituresoccasions;
+         return $voituresoccasions;
     }
-    
     
 
     ////////SUPPRESSION VEHICULE
@@ -75,7 +79,7 @@ class EspaceproManager extends Model {
  // MODIFICATION VEHICULE
         public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
             
-            $updated_at = date("Y-m-d H:i:s");//Mettre la date actuelle
+            $updated_at = date("Y-m-d H:i:s");//Mettre la date automatiquement
             
             $req = "UPDATE vehicule SET 
                     imageVoiture = :imageVoiture, 
@@ -253,18 +257,19 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
 
 //VALIDATION AVIS
 
-public function validateAvis($idAvis, $valide) {
-    try {
-        $req = "UPDATE avis SET valide = :valide WHERE idAvis = :idAvis";
-        $stmt = $this->getBdd()->prepare($req);
-        $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
-        $stmt->bindValue(":valide", $valide, PDO::PARAM_BOOL);
-        $stmt->execute();
-        $stmt->closeCursor();
-    } catch (PDOException $e) {
-        echo "Erreur de validation d'avis : " . $e->getMessage();
-    }
+public function validateAvis($idAvis) {
+    // Remplacez 'avis' par le nom de votre table d'avis dans la requête SQL.
+    $validate = "UPDATE avis SET valide = 1 WHERE idAvis = :idAvis";
+    
+    // Utilisez la propriété $pdo pour exécuter la requête SQL en toute sécurité.
+    $stmt = $this->pdo->prepare($validate);
+    $stmt->bindValue(':idAvis', $idAvis, PDO::PARAM_INT);
+    
+    // Exécutez la requête SQL
+    $stmt->execute();
 }
+
+
 
 
 

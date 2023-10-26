@@ -33,7 +33,7 @@
                     <td><?= $avi['prenom'] ?></td>
                     <td><?= $avi['note'] ?></td>
                     <td><?= $avi['commentaire'] ?></td>
-                    <td><?= isset($avi['created_at']) ? $avi['created_at'] : '' ?></td>
+                    <td><?= isset($avi['created_at']) ? $avi['created_a'] : '' ?></td>
                     <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
                     <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
                     <td>
