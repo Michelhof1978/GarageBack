@@ -263,20 +263,18 @@ public function creationTemplateAvis()
 public function creationavis()
 {
     if (Securite::verifAccessSession()) {
-        try {
-            if (
-                isset($_POST['nom']) &&
-                isset($_POST['prenom']) &&
-                isset($_POST['note']) &&
-                isset($_POST['commentaire']) &&
-                isset($_POST['created_at'])
-            ) {
-                $nom = $_POST['nom'];
-                $prenom = $_POST['prenom'];
-                $note = (int)$_POST['note'];
-
-                // Vérifier que la note est au maximum 5
-                if ($note <= 5) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Vérifier si le formulaire a été soumis (POST)
+            try {
+                if (
+                    !empty($_POST['nom']) &&
+                    !empty($_POST['prenom']) &&
+                    isset($_POST['note']) && // Vous pouvez utiliser empty ici aussi si la note ne doit pas être vide
+                    !empty($_POST['commentaire']) &&
+                    !empty($_POST['created_at'])
+                ) {
+                    $nom = $_POST['nom'];
+                    $prenom = $_POST['prenom'];
+                    $note = (int) $_POST['note'];
                     $commentaire = $_POST['commentaire'];
                     $created_at = date('Y-m-d H:i:s'); // Date actuelle
 
@@ -295,25 +293,26 @@ public function creationavis()
                             "type" => "alert-danger"
                         ];
                     }
+                    header('Location: ' . URL . 'back/espacepro/creationtemplateavis');
+                    exit();
                 } else {
                     $_SESSION['alert'] = [
-                        "message" => "Erreur lors de la création de l'avis : la note doit être au maximum à 5",
+                        "message" => "Merci de remplir tous les champs !",
                         "type" => "alert-danger"
                     ];
+                    header('Location: ' . URL . 'back/espacepro/creationtemplateavis');
+                    exit();
                 }
-
+            } catch (Exception $e) {
+                $_SESSION['alert'] = [
+                    "message" => "Erreur lors de la création de l'avis : " . $e->getMessage(),
+                    "type" => "alert-danger"
+                ];
                 header('Location: ' . URL . 'back/espacepro/creationtemplateavis');
                 exit();
-            } else {
-                throw new Exception("Merci de remplir tous les champs !");
             }
-        } catch (Exception $e) {
-            $_SESSION['alert'] = [
-                "message" => "Erreur lors de la création de l'avis : " . $e->getMessage(),
-                "type" => "alert-danger"
-            ];
-            header('Location: ' . URL . 'back/espacepro/creationtemplateavis');
-            exit();
+        } else {
+            // Le formulaire n'a pas été soumis, donc ne rien faire ici
         }
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");

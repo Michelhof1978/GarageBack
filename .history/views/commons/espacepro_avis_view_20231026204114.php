@@ -51,7 +51,7 @@
                                 </td>
                             </form>
                         <?php else: ?>
-                            <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
+                            <form  method="POST" action="<?= URL ?>back/espacepro/visualisationavis">
                                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
                                 <button type="submit" class="btn btn-warning" name="modifier">Modifier</button>
                             </form>
@@ -62,16 +62,9 @@
                             <button type="submit" class="btn btn-danger" name="supprimer">Supprimer</button>
                         </form>
                         <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/validationavis">
-    <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
-    <?php
-    if (!$avi['valide']) { // Vérifier si l'avis n'est pas encore validé
-    ?>
-        <button type="submit" class="btn btn-success" name="valider">Valider</button>
-    <?php
-    }
-    ?>
-</form>
-
+                            <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
+                            <button type="submit" class="btn btn-success" name="valider">Valider</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
