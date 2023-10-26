@@ -4,7 +4,8 @@
 ob_start(); 
 ?>
 <!-- //TEMPLATE POUR POUVOIR CREER UNE VOITURE -->
-<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">  
+<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
+  
   <div class="form-group">
     <label for="imageVoiture" class="form-label">Photo Voiture</label>
     <input type="file" class="form-control" id="imageVoiture" name="imageVoiture">

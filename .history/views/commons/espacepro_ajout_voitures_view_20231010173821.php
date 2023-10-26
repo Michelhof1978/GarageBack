@@ -4,7 +4,8 @@
 ob_start(); 
 ?>
 <!-- //TEMPLATE POUR POUVOIR CREER UNE VOITURE -->
-<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">  
+<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
+  
   <div class="form-group">
     <label for="imageVoiture" class="form-label">Photo Voiture</label>
     <input type="file" class="form-control" id="imageVoiture" name="imageVoiture">
@@ -13,23 +14,23 @@ ob_start();
   <div class="form-group">
     <label class="form-label">Famille</label>
     <div class="form-check">
-        <input type="radio" id="utilitaire" name="famille" value="utilitaire" class="form-check-input">
+        <input type="radio" id="utilitaire" name="famille" value="Utilitaire" class="form-check-input">
         <label for="utilitaire" class="form-check-label">Utilitaire</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="berline" name="famille" value="berline" class="form-check-input">
+        <input type="radio" id="berline" name="famille" value="Berline" class="form-check-input">
         <label for="berline" class="form-check-label">Berline</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="familiale" name="famille" value="familiale" class="form-check-input">
+        <input type="radio" id="familiale" name="famille" value="Familiale" class="form-check-input">
         <label for="familiale" class="form-check-label">Familiale</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="citadine" name="famille" value="citadine" class="form-check-input">
+        <input type="radio" id="citadine" name="famille" value="Citadine" class="form-check-input">
         <label for="citadine" class="form-check-label">Citadine</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="suv" name="famille" value="suv" class="form-check-input">
+        <input type="radio" id="suv" name="famille" value="Suv" class="form-check-input">
         <label for="suv" class="form-check-label">SUV</label>
     </div>
 </div>
@@ -38,7 +39,7 @@ ob_start();
 
 
 <div class="form-group">
-    <label for="marque" class="form-label">Marque</label>
+    <label for="marque" class="form-label">marque</label>
     <select class="form-control" id="marque" name="marque">
         <option value="citroen">citroen</option>
         <option value="peugeot">peugeot</option>
@@ -50,7 +51,7 @@ ob_start();
 
 
   <div class="form-group">
-    <label for="modele" class="form-label">Modèle</label>
+    <label for="modele" class="form-label">Modele</label>
     <input type="text" class="form-control" id="modele" name="modele">
   </div>
 
@@ -108,7 +109,7 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="puissance" class="form-label">Puissance</label>
+    <label for="puissance" class="form-label">puissance</label>
     <input type="number" class="form-control" id="puissance" name="puissance">
   </div>
 
@@ -145,10 +146,9 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="created_at" class="form-label">Annonce créée le :</label>
-    <input type="date" class="form-control" id="created_at" name="created_at" value="<?php echo date('Y-m-d'); ?>">
+    <label for="created_at" class="form-label">Annonce créee le :</label>
+    <input type="date" class="form-control" id="created_at" name="created_at" format="dd-mm-yyyy">
   </div>
-
 
   
   <button type="submit" class="btn btn-primary">Valider</button>

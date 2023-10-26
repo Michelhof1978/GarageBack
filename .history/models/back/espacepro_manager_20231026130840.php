@@ -126,9 +126,9 @@ class EspaceproManager extends Model {
 
 //CREATION VEHICULE
 public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
-    $kilometrage, $boitevitesse, $energie, $datecirculation,
-    $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at)
-{
+$kilometrage, $boitevitesse, $energie, $datecirculation,
+$puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
+  
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
         boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere, created_at)
         VALUES (:imageVoiture, :famille, :marque, :modele, :annee, :kilometrage, :boitevitesse, 
@@ -144,7 +144,7 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
     $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
     $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
     $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-    $stmt->bindValue(":datecirculation", $datecirculation, PDO::PARAM_STR);
+    $stmt->bindValue(":datecirculation",  $datecirculation, PDO::PARAM_STR);
     $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
     $stmt->bindValue(":places", $places, PDO::PARAM_INT);
     $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
@@ -162,7 +162,6 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 
     return $this->getBdd()->lastInsertId();
 }
-
 
 //FIN CREATION VEHICULE
 // ____________________________________________________________________________

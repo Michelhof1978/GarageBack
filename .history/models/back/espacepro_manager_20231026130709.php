@@ -9,17 +9,16 @@ class EspaceproManager extends Model {
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere,
+                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere
                 DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
-                DATE_FORMAT(updated_at, '%d-%m-%Y') AS updated_at
-                FROM vehicule"; // Ajout de la virgule ici
+                DATE_FORMAT(updated_at, '%d-%m-%Y') AS updated_at,
+                FROM vehicule";
         $stmt = $this->getBdd()->prepare($sql);
         $stmt->execute();
         $voituresoccasions = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->closeCursor();
         return $voituresoccasions;
     }
-    
     
 
     ////////SUPPRESSION VEHICULE
@@ -126,16 +125,18 @@ class EspaceproManager extends Model {
 
 //CREATION VEHICULE
 public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee,
-    $kilometrage, $boitevitesse, $energie, $datecirculation,
-    $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at)
-{
+$kilometrage, $boitevitesse, $energie, $datecirculation,
+$puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
+  
+
     $req = "INSERT INTO vehicule (imageVoiture, famille, marque, modele, annee, kilometrage,
-        boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere, created_at)
-        VALUES (:imageVoiture, :famille, :marque, :modele, :annee, :kilometrage, :boitevitesse, 
-        :energie, :datecirculation, :puissance, :places, :couleur, :description, :prix, :imageCritere, :created_at)";
-    
+    boitevitesse, energie, datecirculation, puissance, places, couleur, description, prix, imageCritere, created_at)
+        
+    VALUES (:imageVoiture, :famille,:marque, :modele, :annee, :kilometrage,   :boitevitesse, 
+        :energie, :datecirculation, :puissance, :places, :couleur, :description,  :prix,   :imageCritere, :created_at, NOW() ) ";
+
     $stmt = $this->getBdd()->prepare($req);
-    
+
     $stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
     $stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
     $stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
@@ -144,7 +145,7 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
     $stmt->bindValue(":kilometrage", $kilometrage, PDO::PARAM_INT);
     $stmt->bindValue(":boitevitesse", $boitevitesse, PDO::PARAM_STR);
     $stmt->bindValue(":energie", $energie, PDO::PARAM_STR);
-    $stmt->bindValue(":datecirculation", $datecirculation, PDO::PARAM_STR);
+    $stmt->bindValue(":datecirculation",  $datecirculation, PDO::PARAM_STR);
     $stmt->bindValue(":puissance", $puissance, PDO::PARAM_INT);
     $stmt->bindValue(":places", $places, PDO::PARAM_INT);
     $stmt->bindValue(":couleur", $couleur, PDO::PARAM_STR);
@@ -152,7 +153,7 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
     $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
     $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
     $stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
-    
+
     if (!$stmt->execute()) {
         $errorInfo = $stmt->errorInfo();
         echo "Erreur d'insertion : " . $errorInfo[2];
@@ -162,7 +163,6 @@ public function createVehicule($imageVoiture, $famille, $marque, $modele, $annee
 
     return $this->getBdd()->lastInsertId();
 }
-
 
 //FIN CREATION VEHICULE
 // ____________________________________________________________________________

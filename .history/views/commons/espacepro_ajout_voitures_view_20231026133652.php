@@ -4,7 +4,8 @@
 ob_start(); 
 ?>
 <!-- //TEMPLATE POUR POUVOIR CREER UNE VOITURE -->
-<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">  
+<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
+  
   <div class="form-group">
     <label for="imageVoiture" class="form-label">Photo Voiture</label>
     <input type="file" class="form-control" id="imageVoiture" name="imageVoiture">
@@ -25,11 +26,11 @@ ob_start();
         <label for="familiale" class="form-check-label">Familiale</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="citadine" name="famille" value="citadine" class="form-check-input">
+        <input type="radio" id="citadine" name="famille" value="Citadine" class="form-check-input">
         <label for="citadine" class="form-check-label">Citadine</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="suv" name="famille" value="suv" class="form-check-input">
+        <input type="radio" id="suv" name="famille" value="Suv" class="form-check-input">
         <label for="suv" class="form-check-label">SUV</label>
     </div>
 </div>
@@ -38,7 +39,7 @@ ob_start();
 
 
 <div class="form-group">
-    <label for="marque" class="form-label">Marque</label>
+    <label for="marque" class="form-label">marque</label>
     <select class="form-control" id="marque" name="marque">
         <option value="citroen">citroen</option>
         <option value="peugeot">peugeot</option>
@@ -50,7 +51,7 @@ ob_start();
 
 
   <div class="form-group">
-    <label for="modele" class="form-label">Modèle</label>
+    <label for="modele" class="form-label">Modele</label>
     <input type="text" class="form-control" id="modele" name="modele">
   </div>
 
@@ -108,7 +109,7 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="puissance" class="form-label">Puissance</label>
+    <label for="puissance" class="form-label">puissance</label>
     <input type="number" class="form-control" id="puissance" name="puissance">
   </div>
 

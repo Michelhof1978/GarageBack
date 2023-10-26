@@ -4,50 +4,33 @@
 ob_start(); 
 ?>
 <!-- //TEMPLATE POUR POUVOIR CREER UNE VOITURE -->
-<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">  
+<form method="POST" action="<?= URL ?>back/espacepro/creationvoituresoccasions" enctype="multipart/form-data">
   <div class="form-group">
     <label for="imageVoiture" class="form-label">Photo Voiture</label>
     <input type="file" class="form-control" id="imageVoiture" name="imageVoiture">
   </div>
 
   <div class="form-group">
-    <label class="form-label">Famille</label>
+    <label for="famille" class="form-label">Famille</label>
     <div class="form-check">
         <input type="radio" id="utilitaire" name="famille" value="utilitaire" class="form-check-input">
         <label for="utilitaire" class="form-check-label">Utilitaire</label>
     </div>
     <div class="form-check">
-        <input type="radio" id="berline" name="famille" value="berline" class="form-check-input">
+        <input type="radio" id="berline" name="famille" value="erline" class "form-check-input">
         <label for="berline" class="form-check-label">Berline</label>
     </div>
-    <div class="form-check">
-        <input type="radio" id="familiale" name="famille" value="familiale" class="form-check-input">
-        <label for="familiale" class="form-check-label">Familiale</label>
-    </div>
-    <div class="form-check">
-        <input type="radio" id="citadine" name="famille" value="citadine" class="form-check-input">
-        <label for="citadine" class="form-check-label">Citadine</label>
-    </div>
-    <div class="form-check">
-        <input type="radio" id="suv" name="famille" value="suv" class="form-check-input">
-        <label for="suv" class="form-check-label">SUV</label>
-    </div>
-</div>
+    <!-- Ajoutez les autres options de famille ici -->
+  </div>
 
-
-
-
-<div class="form-group">
+  <div class="form-group">
     <label for="marque" class="form-label">Marque</label>
     <select class="form-control" id="marque" name="marque">
-        <option value="citroen">citroen</option>
-        <option value="peugeot">peugeot</option>
-        <option value="kia">kia</option>
-        <option value="Bmw">Bmw</option>
+        <option value="citroen">Citroen</option>
+        <option value="peugeot">Peugeot</option>
+        <!-- Ajoutez les autres options de marque ici -->
     </select>
-</div>
-
-
+  </div>
 
   <div class="form-group">
     <label for="modele" class="form-label">Modèle</label>
@@ -59,25 +42,12 @@ ob_start();
     <select class="form-control" id="annee" name="annee">
         <option value="2010">2010</option>
         <option value="2011">2011</option>
-        <option value="2012">2012</option>
-        <option value="2013">2013</option>
-        <option value="2014">2014</option>
-        <option value="2015">2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
+        <!-- Ajoutez les autres options d'année ici -->
     </select>
-</div>
-
-  
+  </div>
 
   <div class="form-group">
-    <label for="kilometrage" class="form-label">Kilomètrage</label>
+    <label for="kilometrage" class="form-label">Kilométrage</label>
     <input type="number" class="form-control" id="kilometrage" name="kilometrage">
   </div>
 
@@ -86,25 +56,21 @@ ob_start();
     <select class="form-control" id="boitevitesse" name="boitevitesse">
         <option value="manuel">Manuel</option>
         <option value="automatique">Automatique</option>
-        
     </select>
-</div>
+  </div>
 
-<div class="form-group">
-    <label for="energie" class="form-label">Energie</label>
+  <div class="form-group">
+    <label for="energie" class="form-label">Énergie</label>
     <select class="form-control" id="energie" name="energie">
         <option value="essence">Essence</option>
         <option value="diesel">Diesel</option>
-        <option value="electrique">Electrique</option>
-        <option value="gpl">Gpl</option>
+        <!-- Ajoutez les autres options d'énergie ici -->
     </select>
-</div>
-
+  </div>
 
   <div class="form-group">
     <label for="datecirculation" class="form-label">Date 1ère circulation</label>
     <input type="date" class="form-control" id="datecirculation" name="datecirculation" format="dd-mm-yyyy">
-
   </div>
 
   <div class="form-group">
@@ -122,17 +88,14 @@ ob_start();
     <select class="form-control" id="couleur" name="couleur">
         <option value="blanc">Blanc</option>
         <option value="bleu">Bleu</option>
-        <option value="vert">Vert</option>
-        <option value="rouge">Rouge</option>
+        <!-- Ajoutez les autres options de couleur ici -->
     </select>
-</div>
-
+  </div>
 
   <div class="mb-3">
-  <label for="description" class="form-label">Description</label>
-  <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-</div>
-  
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+  </div>
 
   <div class="form-group">
     <label for="prix" class="form-label">Prix</label>
@@ -140,7 +103,7 @@ ob_start();
   </div>
 
   <div class="form-group">
-    <label for="imageCritere" class="form-label">Image Critere</label>
+    <label for="imageCritere" class="form-label">Image Critère</label>
     <input type="file" class="form-control" id="imageCritere" name="imageCritere">
   </div>
 
@@ -149,8 +112,6 @@ ob_start();
     <input type="date" class="form-control" id="created_at" name="created_at" value="<?php echo date('Y-m-d'); ?>">
   </div>
 
-
-  
   <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
