@@ -59,7 +59,7 @@ public function suppressionvoituresoccasions() {
         header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
         exit();
     } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
+        throw an Exception("Vous n'avez pas accès à cette page");
     }
 }
 
@@ -154,19 +154,8 @@ public function creationvoituresoccasions() {
 
             header('Location: ' . URL . 'back/espacepro/creationtemplatevehicule');
             exit();
-        } catch (Exception $e) {
-            $_SESSION['alert'] = [
-                "message" => "Erreur lors de la création du véhicule : " . $e->getMessage(),
-                "type" => "alert-danger"
-            ];
-            header('Location: ' . URL . 'back/espacepro/creationtemplatevehicule');
-            exit();
         }
-    } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
-    }
-}
-        
+    
 // FIN CONTROLLER VEHICULE
 // ______________________________________________________________________________________________________________
 
@@ -224,10 +213,9 @@ public function modificationavis()
                 $prenom = Securite::secureHTML($_POST['prenom']);
                 $note = (float) $_POST['note']; // Utilisez float pour traiter les décimales
                 $commentaire = Securite::secureHTML($_POST['commentaire']);
-                $updated_at = date("Y-m-d H:i:s"); // Obtenez la date et l'heure actuelles
 
                 $this->espaceproManager->updateAvis(
-                    $idAvis, $nom, $prenom, $note, $commentaire, $updated_at
+                    $idAvis, $nom, $prenom, $note, $commentaire
                 );
 
                 $_SESSION['alert'] = [
@@ -257,78 +245,61 @@ public function creationTemplateAvis()
     }
 }
 
-public function creationavis()
-{
+public function creationvoituresoccasions() {
     if (Securite::verifAccessSession()) {
         try {
-            if (
-                isset($_POST['nom']) &&
-                isset($_POST['prenom']) &&
-                isset($_POST['note']) &&
-                isset($_POST['commentaire']) &&
-                isset($_POST['created_at'])
-            ) {
-                $nom = ($_POST['nom']);
-                $prenom = ($_POST['prenom']);
-                $note = (int) ($_POST['note']);
-                $commentaire = ($_POST['commentaire']);
-                $created_at = ($_POST['created_at']);
-
-                $idAvis = $this->espaceproManager->createAvis(
-                    $nom, $prenom, $note, $commentaire, $created_at
-                );
-
-                if ($idAvis > 0) { // Vérifier si l'avis a été créé avec succès
-                    $_SESSION['alert'] = [
-                        "message" => "L'avis a bien été créé sous l'identifiant : " . $idAvis,
-                        "type" => "alert-success"
-                    ];
-                } else {
-                    $_SESSION['alert'] = [
-                        "message" => "Erreur lors de la création de l'avis : l'identifiant est incorrect",
-                        "type" => "alert-danger"
-                    ];
-                }
-                header('Location: ' . URL . 'back/espacepro/creationtemplateavis');
-                exit();
-            } else {
-                throw new Exception("Données de création d'avis manquantes");
+            $imageVoiture = "";
+            if ($_FILES['imageVoiture']['size'] > 0) {
+                $repertoire = "public/images/";
+                $imageVoiture = ajoutImage($_FILES['imageVoiture'], $repertoire);
             }
+
+            $imageCritere = "";
+            if ($_FILES['imageCritere']['size'] > 0) {
+                $repertoire = "public/images/";
+                $imageCritere = ajoutImage($_FILES['imageCritere'], $repertoire);
+            }
+
+            $famille = ($_POST['famille']);
+            $marque = ($_POST['marque']);
+            $modele = ($_POST['modele']);
+            $annee = ($_POST['annee']);
+            $kilometrage = (int) ($_POST['kilometrage']);
+            $boitevitesse = ($_POST['boitevitesse']);
+            $energie = ($_POST['energie']);
+            $datecirculation = ($_POST['datecirculation']);
+            $puissance = ($_POST['puissance']);
+            $places = (int) ($_POST['places']);
+            $couleur = ($_POST['couleur']);
+            $description = ($_POST['description']);
+            $prix = (float) ($_POST['prix']);
+            $created_at = ($_POST['created_at']);
+
+            $idVehicule = $this->espaceproManager->createVehicule(
+                $imageVoiture, $famille, $marque, $modele, $annee,
+                $kilometrage, $boitevitesse, $energie, $datecirculation,
+                $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at
+            );
+
+            $_SESSION['alert'] = [
+                "message" => "Le véhicule a bien été créé sous l'identifiant : " . $idVehicule,
+                "type" => "alert-success"
+            ];
+
+            header('Location: ' . URL . 'back/espacepro/creationtemplatevehicule');
+            exit();
         } catch (Exception $e) {
             $_SESSION['alert'] = [
-                "message" => "Erreur lors de la création de l'avis : " . $e->getMessage(),
+                "message" => "Erreur lors de la création du véhicule : " . $e->getMessage(),
                 "type" => "alert-danger"
             ];
-            header('Location: ' . URL . 'back/espacepro/creationtemplateavis');
+            header('Location: ' . URL . 'back/espacepro/creationtemplatevehicule');
             exit();
         }
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
-
-
-// VALIDATION AVIS
-public function validationavis($idAvis)
-{
-    if (Securite::verifAccessSession()) {
-        // Effectuez la validation de l'avis avec l'ID $idAvis en le marquant comme valide (true)
-        $this->espaceproManager->validationAvis($idAvis, true);
-
-        // Affichez un message de succès
-        $_SESSION['alert'] = [
-            "message" => "L'avis a été validé avec succès",
-            "type" => "alert-success"
-        ];
-
-        // Redirigez vers la page de visualisation des avis
-        header('Location: ' . URL . 'back/espacepro/visualisationavis');
-        exit();
-    } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
-    }
-}
-
 
 
 // FIN CONTROLLER AVIS

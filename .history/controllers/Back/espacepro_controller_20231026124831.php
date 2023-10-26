@@ -59,7 +59,7 @@ public function suppressionvoituresoccasions() {
         header('Location: ' . URL . 'back/espacepro/visualisationvoituresoccasions');
         exit();
     } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
+        throw an Exception("Vous n'avez pas accès à cette page");
     }
 }
 
@@ -224,10 +224,9 @@ public function modificationavis()
                 $prenom = Securite::secureHTML($_POST['prenom']);
                 $note = (float) $_POST['note']; // Utilisez float pour traiter les décimales
                 $commentaire = Securite::secureHTML($_POST['commentaire']);
-                $updated_at = date("Y-m-d H:i:s"); // Obtenez la date et l'heure actuelles
 
                 $this->espaceproManager->updateAvis(
-                    $idAvis, $nom, $prenom, $note, $commentaire, $updated_at
+                    $idAvis, $nom, $prenom, $note, $commentaire
                 );
 
                 $_SESSION['alert'] = [

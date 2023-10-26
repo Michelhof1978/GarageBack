@@ -240,7 +240,7 @@ public function modificationavis()
                 throw new Exception("Données de modification d'avis manquantes");
             }
         } else {
-            throw new Exception("Requête invalide pour la modification d'avis");
+            throw an Exception("Requête invalide pour la modification d'avis");
         }
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
