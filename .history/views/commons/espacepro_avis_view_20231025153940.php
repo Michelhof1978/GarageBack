@@ -9,9 +9,6 @@ ob_start();
         <div class="alert alert-success"><?= $_SESSION['alert']['message'] ?></div>
         <?php unset($_SESSION['alert']); ?>
     <?php endif; ?>
-
-    <?php $modeModification = false; ?>
-
     <table class="table table-striped">
         <thead>
             <tr>

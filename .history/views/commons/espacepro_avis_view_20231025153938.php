@@ -9,9 +9,6 @@ ob_start();
         <div class="alert alert-success"><?= $_SESSION['alert']['message'] ?></div>
         <?php unset($_SESSION['alert']); ?>
     <?php endif; ?>
-
-    <?php $modeModification = false; ?>
-
     <table class="table table-striped">
         <thead>
             <tr>
@@ -67,7 +64,7 @@ ob_start();
             <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
             <td colspan="2">
             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>" />
-            <?php var_dump($_POST); ?>
+                   
             <button class="btn btn-primary" type="submit" name="valider">Valider</button>
                 </td>
             </form>

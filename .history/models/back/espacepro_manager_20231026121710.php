@@ -92,7 +92,7 @@ class EspaceproManager extends Model {
                     description = :description,
                     prix = :prix, 
                     imageCritere = :imageCritere, 
-                    updated_at = :updated_at
+                    updated_at = :updated_at"
                     WHERE idVehicule = :idVehicule";
             
             $stmt = $this->getBdd()->prepare($req);

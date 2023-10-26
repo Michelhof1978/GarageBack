@@ -72,10 +72,7 @@ class EspaceproManager extends Model {
 ////////////FIN SUPPRESSION VEHICULE
     
  // MODIFICATION VEHICULE
-        public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
-            
-            $updated_at = date("Y-m-d H:i:s");
-            
+        public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at  {
             $req = "UPDATE vehicule SET 
                     imageVoiture = :imageVoiture, 
                     famille = :famille,
@@ -113,7 +110,7 @@ class EspaceproManager extends Model {
             $stmt->bindValue(":description", $description, PDO::PARAM_STR);
             $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
             $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-            $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR);
+            $stmt->bindValue(":updated_at", $updaed_at, PDO::PARAM_STR);
             
             $stmt->execute();
             $stmt->closeCursor();
@@ -209,11 +206,11 @@ public function compterAvis($idAvis)
 }
 
 // MODIFICATION AVIS
-public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire,$updated_at)
+public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire)
 {
     $updated_at = date("Y-m-d H:i:s");
 
-    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, :updated_at ";
+    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, updated_at = :updated_at WHERE idAvis = :idAvis";
     $stmt = $this->getBdd()->prepare($req);
 
     $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);

@@ -9,9 +9,8 @@ class EspaceproManager extends Model {
     public function getVoituresoccasions(){
         $sql = "SELECT idVehicule, imageVoiture, famille, marque, modele, 
                 DATE_FORMAT(datecirculation, '%d-%m-%Y') AS datecirculation, 
-                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere
                 DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at,
-                DATE_FORMAT(updated_at, '%d-%m-%Y') AS updated_at,
+                annee, kilometrage, boitevitesse, energie, puissance, places, couleur, description, prix, imageCritere, created_at
                 FROM vehicule";
         $stmt = $this->getBdd()->prepare($sql);
         $stmt->execute();
@@ -72,10 +71,7 @@ class EspaceproManager extends Model {
 ////////////FIN SUPPRESSION VEHICULE
     
  // MODIFICATION VEHICULE
-        public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)  {
-            
-            $updated_at = date("Y-m-d H:i:s");
-            
+        public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at) {
             $req = "UPDATE vehicule SET 
                     imageVoiture = :imageVoiture, 
                     famille = :famille,
@@ -92,7 +88,7 @@ class EspaceproManager extends Model {
                     description = :description,
                     prix = :prix, 
                     imageCritere = :imageCritere, 
-                    updated_at = :updated_at
+                    created_at = :created_at
                     WHERE idVehicule = :idVehicule";
             
             $stmt = $this->getBdd()->prepare($req);
@@ -113,7 +109,7 @@ class EspaceproManager extends Model {
             $stmt->bindValue(":description", $description, PDO::PARAM_STR);
             $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
             $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-            $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR);
+            $stmt->bindValue(":created_at", $created_at, PDO::PARAM_STR);
             
             $stmt->execute();
             $stmt->closeCursor();
@@ -167,9 +163,10 @@ $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at){
 //FIN CREATION VEHICULE
 // ____________________________________________________________________________
 
-// VISUALISATION AVIS
-public function getAvis()
-{
+//VISUALISATION AVIS
+
+//VISUALISATION AVIS
+public function getAvis(){
     $sql = "SELECT idAvis, nom, prenom, commentaire, note, valide,
             DATE_FORMAT(created_at, '%d-%m-%Y') AS created_at
             FROM avis";
@@ -179,24 +176,25 @@ public function getAvis()
     $stmt->closeCursor();
     return $avis;
 }
+//FIN VISUALISATION AVIS
 
-// SUPPRESSION AVIS
-public function deleteDBavis($idAvis)
-{
+
+ ////////SUPPRESSION AVIS
+ public function deleteDBavis($idAvis) {
     try {
-        $req = "DELETE FROM avis WHERE idAvis = :idAvis";
+        $req = "DELETE FROM `avis` WHERE `idAvis` = :idAvis";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
         $stmt->execute();
         $stmt->closeCursor();
     } catch (PDOException $e) {
+        
         echo "Erreur de suppression : " . $e->getMessage();
     }
 }
 
-public function compterAvis($idAvis)
-{
-    $req = "SELECT COUNT(*) AS nb FROM avis WHERE idAvis = :idAvis";
+public function compterAvis($idAvis){
+    $req = "SELECT COUNT(*) AS nb FROM avis WHERE idAvis = :idAvis"; 
     $stmt = $this->getBdd()->prepare($req);
     $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
     if ($stmt->execute()) {
@@ -204,23 +202,29 @@ public function compterAvis($idAvis)
         $stmt->closeCursor();
         return ($resultat) ? $resultat['nb'] : 0;
     } else {
-        return 0;
+        
+        return 0; 
     }
 }
+//FIN SUPPRESSION AVIS
+    
+//MODIFICATION AVIS
+  
+ // ...
 
-// MODIFICATION AVIS
-public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire,$updated_at)
+public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire)
 {
+    // Avant de mettre à jour l'avis, enregistrez la date de mise à jour
     $updated_at = date("Y-m-d H:i:s");
 
-    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, :updated_at ";
+    $req = "UPDATE avis SET nom = :nom, prenom = :prenom, note = :note, commentaire = :commentaire, updated_at = :updated_at WHERE idAvis = :idAvis";
     $stmt = $this->getBdd()->prepare($req);
 
     $stmt->bindValue(":nom", $nom, PDO::PARAM_STR);
     $stmt->bindValue(":prenom", $prenom, PDO::PARAM_STR);
     $stmt->bindValue(":note", $note, PDO::PARAM_INT);
     $stmt->bindValue(":commentaire", $commentaire, PDO::PARAM_STR);
-    $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR);
+    $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR); // Mettez à jour la date de mise à jour
     $stmt->bindValue(":idAvis", $idAvis, PDO::PARAM_INT);
 
     if (!$stmt->execute()) {
@@ -231,9 +235,11 @@ public function updateAvis($idAvis, $nom, $prenom, $note, $commentaire,$updated_
     $stmt->closeCursor();
 }
 
-// CREATION AVIS
-public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
-{
+
+//FIN MODIFICATION AVIS
+
+//CREATION AVIS
+public function createAvis($nom, $prenom, $note, $commentaire, $created_at) {
     $req = "INSERT INTO avis (nom, prenom, note, commentaire, created_at)
             VALUES (:nom, :prenom, :note, :commentaire, :created_at)";
     $stmt = $this->getBdd()->prepare($req);
@@ -252,6 +258,9 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
     $stmt->closeCursor();
 }
 
+
+
+//FIN CREATION AVIS
 
 //VALIDATION AVIS
 

@@ -100,7 +100,7 @@ public function suppressionvoituresoccasions()
        $this->espaceproManager->updateVehicule(
             $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
             $kilometrage, $boitevitesse, $energie, $datecirculation,
-            $puissance, $places, $couleur, $description, $prix, $imageCritere,
+            $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at,
         );
 
         

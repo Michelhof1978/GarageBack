@@ -96,11 +96,11 @@ public function suppressionvoituresoccasions()
         $description = Securite::secureHTML($_POST['description']);
         $prix = (float) Securite::secureHTML($_POST['prix']);
         $imageCritere = Securite::secureHTML($_POST['imageCritere']);
-        
+        $created_at = Securite::secureHTML($_POST['created_at']);
        $this->espaceproManager->updateVehicule(
             $idVehicule, $imageVoiture, $famille, $marque, $modele, $annee,
             $kilometrage, $boitevitesse, $energie, $datecirculation,
-            $puissance, $places, $couleur, $description, $prix, $imageCritere,
+            $puissance, $places, $couleur, $description, $prix, $imageCritere, $created_at,
         );
 
         
@@ -117,10 +117,12 @@ public function suppressionvoituresoccasions()
     
 }
 
+
+
 //CREATION VEHICULE
  public function creationTemplateVehicule(){
     if (Securite::verifAccessSession()) {
-        require_once "views/commons/espacepro_ajout_voitures_view.php";
+        require_once "views/espacepro_ajout_voitures_view.php";
       } else {
          throw new Exception("Vous n'avez pas accès à cette page");
       }
@@ -239,7 +241,7 @@ public function modificationavis()
                 $nom = Securite::secureHTML($_POST['nom']);
                 $prenom = Securite::secureHTML($_POST['prenom']);
                 $note = (float) $_POST['note']; // Utilisez float pour traiter les décimales
-                $commentaire = Securite::secureHTML($_POST['commentaire']);
+                $commentaire = Securite::secureHTML($_POST['commentaire'];
 
                 $this->espaceproManager->updateAvis(
                     $idAvis, $nom, $prenom, $note, $commentaire
@@ -318,7 +320,7 @@ public function creationavis()
             exit();
         }
     } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
+        throw an Exception("Vous n'avez pas accès à cette page");
     }
 }
 
@@ -343,6 +345,14 @@ public function validationavis($idAvis)
         throw new Exception("Vous n'avez pas accès à cette page");
     }
 }
+
+
+
+
+
+
+
+
 
 
 

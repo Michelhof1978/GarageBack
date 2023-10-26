@@ -9,9 +9,6 @@ ob_start();
         <div class="alert alert-success"><?= $_SESSION['alert']['message'] ?></div>
         <?php unset($_SESSION['alert']); ?>
     <?php endif; ?>
-
-    <?php $modeModification = false; ?>
-
     <table class="table table-striped">
         <thead>
             <tr>
@@ -38,7 +35,10 @@ ob_start();
                     <td><?= isset($avi['updated_at']) ? $avi['updated_at'] : '' ?></td>
                     <td><?= $avi['valide'] ? 'Validé' : 'Non Validé' ?></td>
                     <td>
-                   
+                    <?php foreach ($avis as $avi): ?>
+    <tr>
+        <!-- ... Affichage des données de l'avis ... -->
+        <td>
             <!-- Formulaire pour la modification -->
             <form class="mb-2" method="POST" action="<?= URL ?>back/espacepro/modificationavis">
                 <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
@@ -57,8 +57,8 @@ ob_start();
         </td>
     </tr>
     <?php if (isset($_POST['modifier']) && $_POST['idAvis'] == $avi['idAvis']): ?>
-        <tr>
-            <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
+    <tr>
+        <form method="POST" action="<?= URL ?>back/espacepro/modificationavis">
             <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>">
             <td><?= $avi['idAvis'] ?></td>
             <td><input type="text" name="nom" class="form-control" value="<?= $avi['nom'] ?>" /></td>
@@ -66,12 +66,10 @@ ob_start();
             <td><input type="number" name="note" class="form-control" value="<?= $avi['note'] ?>" /></td>
             <td><textarea name='commentaire' class="form-control" rows="4"><?= $avi['commentaire'] ?></textarea></td>
             <td colspan="2">
-            <input type="hidden" name="idAvis" value="<?= $avi['idAvis'] ?>" />
-            <?php var_dump($_POST); ?>
-            <button class="btn btn-primary" type="submit" name="valider">Valider</button>
-                </td>
-            </form>
-        </tr>
+                <button class="btn btn-primary" type="submit" name="valider">Valider</button>
+            </td>
+        </form>
+    </tr>
     <?php endif; ?>
 <?php endforeach; ?>
 
