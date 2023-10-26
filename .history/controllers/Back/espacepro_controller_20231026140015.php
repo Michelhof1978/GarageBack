@@ -128,19 +128,19 @@ public function creationvoituresoccasions() {
                 $imageCritere = ajoutImage($_FILES['imageCritere'], $repertoire);
             }
 
-            $famille = isset($_POST['famille']) ? $_POST['famille'] : '';
-            $marque = isset($_POST['marque']) ? $_POST['marque'] : '';
-            $modele = isset($_POST['modele']) ? $_POST['modele'] : '';
-            $annee = isset($_POST['annee']) ? (int) $_POST['annee'] : 0;
-            $kilometrage = isset($_POST['kilometrage']) ? (int) $_POST['kilometrage'] : 0;
-            $boitevitesse = isset($_POST['boitevitesse']) ? $_POST['boitevitesse'] : '';
-            $energie = isset($_POST['energie']) ? $_POST['energie'] : '';
-            $datecirculation = isset($_POST['datecirculation']) ? $_POST['datecirculation'] : '';
-            $puissance = isset($_POST['puissance']) ? (int) $_POST['puissance'] : 0;
-            $places = isset($_POST['places']) ? (int) $_POST['places'] : 0;
-            $couleur = isset($_POST['couleur']) ? $_POST['couleur'] : '';
-            $description = isset($_POST['description']) ? $_POST['description'] : '';
-            $prix = isset($_POST['prix']) ? (float) $_POST['prix'] : 0;
+            $famille = $_POST['famille'];
+            $marque = $_POST['marque'];
+            $modele = $_POST['modele'];
+            $annee = $_POST['annee'];
+            $kilometrage = (int) $_POST['kilometrage'];
+            $boitevitesse = $_POST['boitevitesse'];
+            $energie = $_POST['energie'];
+            $datecirculation = $_POST['datecirculation'];
+            $puissance = $_POST['puissance'];
+            $places = (int) $_POST['places'];
+            $couleur = $_POST['couleur'];
+            $description = $_POST['description'];
+            $prix = (float) $_POST['prix'];
             $created_at = date('Y-m-d H:i:s'); // Date actuelle
 
             $idVehicule = $this->espaceproManager->createVehicule(
@@ -276,7 +276,7 @@ public function creationavis()
                 $prenom = ($_POST['prenom']);
                 $note = (int) ($_POST['note']);
                 $commentaire = ($_POST['commentaire']);
-                $created_at = date('Y-m-d H:i:s'); // Date actuelle
+                $created_at = ($_POST['created_at']);
 
                 $idAvis = $this->espaceproManager->createAvis(
                     $nom, $prenom, $note, $commentaire, $created_at

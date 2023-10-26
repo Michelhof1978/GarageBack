@@ -276,7 +276,7 @@ public function creationavis()
                 $prenom = ($_POST['prenom']);
                 $note = (int) ($_POST['note']);
                 $commentaire = ($_POST['commentaire']);
-                $created_at = date('Y-m-d H:i:s'); // Date actuelle
+                $created_at = ($_POST['created_at']);
 
                 $idAvis = $this->espaceproManager->createAvis(
                     $nom, $prenom, $note, $commentaire, $created_at

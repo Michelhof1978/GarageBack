@@ -29,7 +29,7 @@ ob_start();
 </div>
 
 <div class="form-group">
-    <label for="created_at" class="form-label">Avis crée le :</label>
+    <label for="created_at" class="form-label">Annonce crée le :</label>
     <input type="date" class="form-control" id="created_at" name="created_at" value="<?php echo date('Y-m-d'); ?>">
   </div>
 

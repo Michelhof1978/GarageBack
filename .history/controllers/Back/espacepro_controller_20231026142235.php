@@ -252,15 +252,6 @@ public function modificationavis()
 }
 
 // CREATION AVIS
-public function creationTemplateAvis()
-{
-    if (Securite::verifAccessSession()) {
-        require_once "views/commons/espacepro_ajout_avis_view.php";
-    } else {
-        throw new Exception("Vous n'avez pas accès à cette page");
-    }
-}
-
 public function creationavis()
 {
     if (Securite::verifAccessSession()) {
@@ -269,8 +260,7 @@ public function creationavis()
                 isset($_POST['nom']) &&
                 isset($_POST['prenom']) &&
                 isset($_POST['note']) &&
-                isset($_POST['commentaire']) &&
-                isset($_POST['created_at'])
+                isset($_POST['commentaire'])
             ) {
                 $nom = ($_POST['nom']);
                 $prenom = ($_POST['prenom']);
