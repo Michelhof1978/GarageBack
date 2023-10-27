@@ -40,15 +40,15 @@ class AvisController {
         }
     }
 
-    public function getAvis($avis) {
+    public function getAvis() {
         try {
             $pdo = $this->avisManager->getDBAvis(); 
             $sql = "SELECT * FROM avis";
             $stmt = $pdo->query($sql);
-            $avisData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             header('Content-Type: application/json'); // Indique que la réponse est au format JSON
-            echo json_encode($avisData); // Renvoie les avis au format JSON
+            echo json_encode($avis); // Renvoie les avis au format JSON
         } catch (PDOException $e) {
             // Gérez les erreurs si nécessaire
             header('Content-Type: application/json');

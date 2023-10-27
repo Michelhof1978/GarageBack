@@ -3,7 +3,6 @@ require_once(__ROOT__.'/models/front/avis_model.php');
 
 class AvisController {
     private $avisManager; 
-
     public function __construct($avisManager) {
         $this->avisManager = $avisManager;
     }
@@ -40,19 +39,23 @@ class AvisController {
         }
     }
 
-    public function getAvis($avis) {
+    public function getAvis() {
         try {
             $pdo = $this->avisManager->getDBAvis(); 
             $sql = "SELECT * FROM avis";
             $stmt = $pdo->query($sql);
-            $avisData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            header('Content-Type: application/json'); // Indique que la réponse est au format JSON
-            echo json_encode($avisData); // Renvoie les avis au format JSON
+          
+            foreach ($avis as $avi) {
+                echo "Nom : " . $avi['nom'] . "<br>";
+                echo "Prénom : " . $avi['prenom'] . "<br>";
+                echo "Note : " . $avi['note'] . "<br>";
+                echo "Commentaire: " . $avi['commentaire'] . "<br>";
+            }
         } catch (PDOException $e) {
-            // Gérez les erreurs si nécessaire
-            header('Content-Type: application/json');
-            echo json_encode(['error' => 'Une erreur s\'est produite lors de la récupération des avis.']);
+           
+            echo "Une erreur s'est produite lors de la récupération des avis.";
         }
     }
 

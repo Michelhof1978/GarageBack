@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // Classe de base pour le modèle
-class AvisManager {
+class AvisModel {
     private $dbh;
 
     public function __construct() {
@@ -19,17 +19,11 @@ class AvisManager {
         }
     }
 
-    public function getDBAvis() {
-        return $this->dbh;
-    }
-
     public function getAvisVerifies() {
-        $sql = "SELECT * FROM avis WHERE valide = 1"; //Je récupère uniquement les avis à l'état true
+        $sql = "SELECT * FROM avis WHERE valide = 1"; //Je récupére uniquement les avis à l'état true
         $stmt = $this->dbh->query($sql);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
 }
-
-

@@ -3,6 +3,9 @@ $methode = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 define('__ROOT__', dirname(dirname(__FILE__)));
 
+$methode = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+define('__ROOT__', dirname(dirname(__FILE__));
 
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
 

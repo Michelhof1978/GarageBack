@@ -46,8 +46,8 @@ class EspaceproManager extends Model {
             $stmt->closeCursor();
             return ($resultat) ? $resultat['nb'] : 0;
         } else {
-            // Gére l'erreur de la requête de base de données.
-            return 0; // Ou gére d'une autre manière appropriée.
+            // Gérez l'erreur de la requête de base de données.
+            return 0; // Ou gérer d'une autre manière appropriée.
         }
     }
 
