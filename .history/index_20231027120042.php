@@ -19,8 +19,8 @@ define('__ROOT__', dirname(__FILE__));
 require_once ("controllers/front/vehicule_controller.php");
 $apiController = new VehiculeController();
 
-require_once ("models/front/avis_model.php");
-$avisManager = new AvisManager();
+require_once ("models/AvisManager.php"); // Assurez-vous que le chemin vers AvisManager.php est correct
+$avisManager = new AvisManager(); // Instanciez la classe AvisManager
 
 require_once ("controllers/front/avis_controller.php");
 $avis_controller = new AvisController($avisManager);
@@ -49,7 +49,7 @@ try{
                     break;
                     case "contact" : $contact_controller -> getContact();
                     break;
-                    case "avis": $avis_controller -> getAvis($avisManager);
+                    case "avis": $avis_controller -> getAvis();
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }

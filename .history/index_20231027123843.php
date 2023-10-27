@@ -19,7 +19,7 @@ define('__ROOT__', dirname(__FILE__));
 require_once ("controllers/front/vehicule_controller.php");
 $apiController = new VehiculeController();
 
-require_once ("models/front/avis_model.php");
+require_once ("models/front/avis_mode.php");
 $avisManager = new AvisManager();
 
 require_once ("controllers/front/avis_controller.php");

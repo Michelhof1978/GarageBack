@@ -4,7 +4,6 @@ $uri = $_SERVER['REQUEST_URI'];
 define('__ROOT__', dirname(dirname(__FILE__)));
 
 
-
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
 
 $avisManager = new AvisManager();
@@ -29,7 +28,7 @@ if ($methode === "GET") {
         $avis['commentaire'] = $_GET['commentaire'];
     }
 
-    $avisController->getAvis($avis); // Vous devez appeler getAvis après avoir défini $avis
+    $controller->getAvis($avis); // Vous devez appeler getAvis après avoir défini $avis
 } else {
     http_response_code(404);
     echo json_encode(["error" => "endpoint not found"]);
