@@ -1,5 +1,5 @@
 <?php
-require_once(__ROOT__.'\models\front\avis_model.php');
+require_once(__ROOT__.'models/front/avis_model.php'); 
 
 class AvisController {
     private $avisManager; 
@@ -9,19 +9,14 @@ class AvisController {
     }
 
     public function enregistrerAvis() {
-        // Définir les en-têtes CORS ici
-        header("Access-Control-Allow-Origin: http://localhost:3000");
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        header("Access-Control-Allow-Credentials: true");
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Récupère les données du formulaire
+            // Récupére les données du formulaire
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
             $note = $_POST['note'];
             $commentaire = $_POST['commentaire'];
 
+            
             if (empty($nom) || empty($prenom) || empty($note) || empty($commentaire)) {
                 echo "Tous les champs sont obligatoires.";
                 return;
@@ -32,10 +27,11 @@ class AvisController {
                 return;
             }
 
+           
             $result = $this->insertAvisBDD($nom, $prenom, $note, $commentaire);
 
             if ($result) {
-                // Avis enregistré avec succès, redirection vers la page de confirmation
+                // Avis enregistré avec succès, redirection vers page avis
                 header("Location: /confirmation");
                 return;
             } else {
@@ -44,22 +40,17 @@ class AvisController {
         }
     }
 
-    public function getAvisVerifies() {
-        // Définir les en-têtes CORS ici
-        header("Access-Control-Allow-Origin: http://localhost:3000");
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        header("Access-Control-Allow-Credentials: true");
-
+    public function getAvis($avis) {
         try {
             $pdo = $this->avisManager->getDBAvis(); 
-            $sql = "SELECT * FROM avis WHERE valide = 1"; // Ne récupère que les avis validés
+            $sql = "SELECT * FROM avis";
             $stmt = $pdo->query($sql);
             $avisData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            header('Content-Type: application/json');
-            echo json_encode($avisData);
+            header('Content-Type: application/json'); // Indique que la réponse est au format JSON
+            echo json_encode($avisData); // Renvoie les avis au format JSON
         } catch (PDOException $e) {
+            // Gérez les erreurs si nécessaire
             header('Content-Type: application/json');
             echo json_encode(['error' => 'Une erreur s\'est produite lors de la récupération des avis.']);
         }

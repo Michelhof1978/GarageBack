@@ -70,7 +70,7 @@ class AvisController {
             $pdo = $this->avisManager->getDBAvis();
             $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([$nom, $prenom, $note, $commentaire]);
+            $stmt->execute([$nom, prenom, $note, $commentaire]);
             return true;
         } catch (PDOException $e) {
             return false;

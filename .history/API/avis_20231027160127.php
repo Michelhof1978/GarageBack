@@ -5,13 +5,13 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
 
-
+<?php
 header("Access-Control-Allow-Origin: http://localhost:3000");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header("Access-Control-Allow-Credentials: true");
 
-
+// Le reste de votre code...
 
 
 

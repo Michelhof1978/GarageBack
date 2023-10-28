@@ -3,17 +3,14 @@ $methode = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 define('__ROOT__', dirname(dirname(__FILE__)));
 
+
+
+<?php
+$methode = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+define('__ROOT__', dirname(dirname(__FILE__));
+
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
-
-
-header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-header("Access-Control-Allow-Credentials: true");
-
-
-
-
 
 $avisManager = new AvisManager();
 $avisController = new AvisController($avisManager);
@@ -37,13 +34,13 @@ if ($methode === "GET") {
         $avis['commentaire'] = $_GET['commentaire'];
     }
 
-    $avisController->getAvisVerifies($avis);
+    $avisController->getAvis($avis);
 } elseif ($methode === "POST") {  // Ajout de la prise en charge des requêtes POST
     $data = json_decode(file_get_contents("php://input"), true);  // Récupérer les données POST JSON
 
     if ($data !== null) {
         // Traitement des données POST
-        $avisController->enregistrerAvis($data);
+        $avisController->createAvis($data);
     } else {
         http_response_code(400);
         echo json_encode(["error" => "Invalid JSON data"]);

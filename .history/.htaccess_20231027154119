@@ -1,0 +1,9 @@
+# configuration  réécriture d'URL
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# ça sera toujours la page index.php qui sera appelée
+RewriteRule ^(.*)$ index.php?page=$1
+

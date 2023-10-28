@@ -49,7 +49,8 @@ try{
                     break;
                     case "contact" : $contact_controller -> getContact();
                     break;
-                    case "avis": $avis_controller -> getAvisVerifies($avisManager);
+                    case "avis": $avis_controller ->     public function getAvisVerifies() {
+                        ($avisManager);
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }

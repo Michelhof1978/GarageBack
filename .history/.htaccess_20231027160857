@@ -1,0 +1,14 @@
+# configuration  réécriture d'URL
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# ça sera toujours la page index.php qui sera appelée
+RewriteRule ^(.*)$ index.php?page=$1
+
+# Activer les en-têtes CORS pour tous les domaines
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+Header set Access-Control-Allow-Credentials "true"
