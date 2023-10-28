@@ -1,6 +1,6 @@
 <?php
-// AJOUT DE DONNEES DS BDD POUR TEST
-// Connexion à la base de données
+AJOUT DE DONNEES DS BDD POUR TEST
+Connexion à la base de données
 $host = "localhost";
 $dbname = "garage";
 $username = "root";

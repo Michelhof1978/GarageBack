@@ -42,7 +42,7 @@ ob_start();
     <select class="form-control" id="marque" name="marque">
         <option value="citroen">Citroen</option>
         <option value="peugeot">Peugeot</option>
-        <option value="kia">Kia</option>
+        <option value="kia">kia</option>
         <option value="Bmw">Bmw</option>
     </select>
 </div>
