@@ -54,7 +54,7 @@ try{
                     break;
                     case "avis": $avis_controller -> getAvisVerifies($avisManager);
                     break;
-                    case "prestation": $prestation_controller -> getPrestation();
+                    case "prestation": $prestation_ -> getPrestation();
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }
@@ -78,8 +78,6 @@ try{
                             case "suppressionprestation" : $espacepro_controller->suppressionprestation(); 
                             break;
                             case "creationprestation" : $espacepro_controller->creationprestation(); 
-                            break;
-                            case "creationtemplateprestation" : $espacepro_controller->creationTemplatePrestation(); 
                             break;
                              case "visualisationavis" : $espacepro_controller->visualisationavis(); 
                             break;

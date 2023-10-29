@@ -79,7 +79,7 @@ try{
                             break;
                             case "creationprestation" : $espacepro_controller->creationprestation(); 
                             break;
-                            case "creationtemplateprestation" : $espacepro_controller->creationTemplatePrestation(); 
+                            case "creationtemplate" : $espacepro_controller->creationTemplateAvis(); 
                             break;
                              case "visualisationavis" : $espacepro_controller->visualisationavis(); 
                             break;

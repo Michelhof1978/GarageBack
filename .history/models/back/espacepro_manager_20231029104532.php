@@ -355,6 +355,7 @@ public function getimagePrestation($idPrestation){
 
 //CREATION PRESTATION
 
+// Modification de la signature de createPrestation
 public function createPrestation($imagePrestation, $nom, $description, $prix, $created_at)
 {
     $req = "INSERT INTO prestation (imagePrestation, nom, description, prix, created_at)

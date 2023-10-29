@@ -37,7 +37,7 @@
                     <td>
                         <!-- Formulaire pour la modification -->
                         <form method="POST" action="<?= URL ?>back/espacepro/visualisationprestation">
-                            <input type="hidden" name="idPrestation" value="<?= $prestation['idPrestation'] ?>">
+                            <input type="hidden" name="idPrestation" value="<?= $pres['idPrestation'] ?>">
                             <button type="submit" class="btn btn-warning" name="prestation">Modifier</button>
                         </form>
                     </td>

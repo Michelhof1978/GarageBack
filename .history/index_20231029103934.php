@@ -79,8 +79,6 @@ try{
                             break;
                             case "creationprestation" : $espacepro_controller->creationprestation(); 
                             break;
-                            case "creationtemplateprestation" : $espacepro_controller->creationTemplatePrestation(); 
-                            break;
                              case "visualisationavis" : $espacepro_controller->visualisationavis(); 
                             break;
                             case "modificationavis" : $espacepro_controller->modificationavis($idAvis); 
