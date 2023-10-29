@@ -3,6 +3,10 @@ $methode = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 define('__ROOT__', dirname(dirname(__FILE__)));
 
+<?php
+$methode = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+define('__ROOT__', dirname(dirname(__FILE__));
 
 require_once(__ROOT__ . '/controllers/front/prestation_controller.php');
 

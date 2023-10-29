@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-require_once('C:\wamp64\www\GarageBack\models\front\prestation_model.php');
+require_once(__DIR__ . '\..\models\front\prestation_model.php'); // Utilisation de __DIR__
 
 class PrestationController
 {
@@ -16,7 +16,7 @@ class PrestationController
 
     public function getPrestation()
     {
-        $prestation = $this->apiManager->getAllPrestations();
+        $prestations = $this->apiManager->getDBprestation();
     
           //Configurez les entêtes avant d'envoyer la réponse
            header('Content-Type: application/json');
@@ -24,7 +24,7 @@ class PrestationController
            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
            header("Access-Control-Allow-Headers: Content-Type");
           
-           echo json_encode($prestation);
+           echo json_encode($prestations);
         }
     
 }

@@ -3,20 +3,20 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-require_once('C:\wamp64\www\GarageBack\models\front\prestation_model.php');
+require_once(__ROOT__.'\models\front\vehicule_model.php');
 
-class PrestationController
+class VehiculeController
 {
     private $apiManager;
 
     public function __construct()
     {
-        $this->apiManager = new PrestationModel();
+        $this->apiManager = new VehiculeModel();
     }
 
-    public function getPrestation()
+    public function getCarsByFilters($filtres)
     {
-        $prestation = $this->apiManager->getAllPrestations();
+        $cars = $this->apiManager->getCarsByFilters($filtres);
     
           //Configurez les entêtes avant d'envoyer la réponse
            header('Content-Type: application/json');
@@ -24,7 +24,7 @@ class PrestationController
            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
            header("Access-Control-Allow-Headers: Content-Type");
           
-           echo json_encode($prestation);
+           echo json_encode($cars);
         }
     
 }

@@ -16,7 +16,7 @@ class PrestationController
 
     public function getPrestation()
     {
-        $prestation = $this->apiManager->getAllPrestations();
+        $prestations = $this->apiManager->getDBprestation();
     
           //Configurez les entêtes avant d'envoyer la réponse
            header('Content-Type: application/json');
@@ -24,7 +24,7 @@ class PrestationController
            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
            header("Access-Control-Allow-Headers: Content-Type");
           
-           echo json_encode($prestation);
+           echo json_encode($prestations);
         }
     
 }

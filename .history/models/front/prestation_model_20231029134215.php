@@ -18,7 +18,7 @@ class PrestationModel {
         }
     }
 
-    public function getAllPrestations() {
+    public function getDBrestations() {
         // Requête SQL pour récupérer toutes les prestations
         $sql = "SELECT * FROM prestation";
 

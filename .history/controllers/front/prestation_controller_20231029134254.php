@@ -16,7 +16,7 @@ class PrestationController
 
     public function getPrestation()
     {
-        $prestation = $this->apiManager->getAllPrestations();
+        $prestation = $this->apiManager->getAllPrestation();
     
           //Configurez les entêtes avant d'envoyer la réponse
            header('Content-Type: application/json');

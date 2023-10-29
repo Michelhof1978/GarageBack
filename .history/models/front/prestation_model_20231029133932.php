@@ -18,29 +18,17 @@ class PrestationModel {
         }
     }
 
-    public function getAllPrestations() {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         // Requête SQL pour récupérer toutes les prestations
         $sql = "SELECT * FROM prestation";
-
+        
         try {
-            $stmt = $this->dbh->query($sql); // Utilisez $this->dbh au lieu de $pdo
+            $stmt = $pdo->query($sql);
             $prestations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $prestations; // Retournez les données au lieu d'utiliser echo
+            echo json_encode($prestations);
         } catch (PDOException $e) {
-            return ['error' => 'Erreur de récupération des prestations : ' . $e->getMessage()]; // Retournez une erreur au lieu d'utiliser echo
+            echo json_encode(['error' => 'Erreur de récupération des prestations : ' . $e->getMessage()]);
         }
     }
-}
-
-// Créez une instance de la classe PrestationModel
-$prestationModel = new PrestationModel();
-
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $prestations = $prestationModel->getAllPrestations();
-
-    // Utilisez un en-tête pour indiquer que la réponse est au format JSON
-    header('Content-Type: application/json');
-
-    echo json_encode($prestations); // Utilisez echo ici
 }
 ?>
