@@ -22,9 +22,6 @@ $apiController = new VehiculeController();
 require_once ("models/front/avis_model.php");
 $avisManager = new AvisManager();
 
-require_once ("controllers/front/prestation_controller.php");
-$prestation_controller = new PrestationController();
-
 require_once ("controllers/front/avis_controller.php");
 $avis_controller = new AvisController($avisManager);
 
@@ -54,7 +51,7 @@ try{
                     break;
                     case "avis": $avis_controller -> getAvisVerifies($avisManager);
                     break;
-                    case "prestation": $prestation -> getPrestation();
+                    case "service": $service_controller -> getService();
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }
@@ -71,13 +68,13 @@ try{
                     break; 
                     case "espacepro":
                         switch($url[2]){
-                            case "visualisationprestation" : $espacepro_controller->visualisationprestation(); 
+                            case "visualisationservice" : $espacepro_controller->visualisationavis(); 
                             break;
-                            case "modificationprestation" : $espacepro_controller->modificationprestation(); 
+                            case "modificationservice" : $espacepro_controller->modificationavis($idAvis); 
                             break;
-                            case "suppressionprestation" : $espacepro_controller->suppressionprestation(); 
+                            case "suppressionservice" : $espacepro_controller->suppressionservice(); 
                             break;
-                            case "creationprestation" : $espacepro_controller->creationprestation(); 
+                            case "creationservice" : $espacepro_controller->creationservice(); 
                             break;
                              case "visualisationavis" : $espacepro_controller->visualisationavis(); 
                             break;

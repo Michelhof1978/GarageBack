@@ -25,7 +25,7 @@
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/visualisationvoituresoccasions">Liste des véhicules</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationvoituresoccasions">Ajouter un véhicule</a>
                         <a class="dropdown-item" href="<?= URL ?>back/espacepro/visualisationprestation">Liste des prestations</a>
-                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationprestation">Ajouter une prestation</a>
+                        <a class="dropdown-item" href="<?= URL ?>back/espacepro/creationprestation">Ajouter un service</a>
                        
                     </div>
                 </li>

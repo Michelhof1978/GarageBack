@@ -71,11 +71,11 @@ try{
                     break; 
                     case "espacepro":
                         switch($url[2]){
-                            case "visualisationprestation" : $espacepro_controller->visualisationprestation(); 
+                            case "visualisationprestation" : $espacepro_controller->visualisationservice(); 
                             break;
-                            case "modificationprestation" : $espacepro_controller->modificationprestation(); 
+                            case "modificationprestation" : $espacepro_controller->modificationservice(); 
                             break;
-                            case "suppressionprestation" : $espacepro_controller->suppressionprestation(); 
+                            case "suppressionprestation" : $espacepro_controller->suppressionservice(); 
                             break;
                             case "creationprestation" : $espacepro_controller->creationprestation(); 
                             break;

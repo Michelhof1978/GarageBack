@@ -22,9 +22,6 @@ $apiController = new VehiculeController();
 require_once ("models/front/avis_model.php");
 $avisManager = new AvisManager();
 
-require_once ("controllers/front/prestation_controller.php");
-$prestation_controller = new PrestationController();
-
 require_once ("controllers/front/avis_controller.php");
 $avis_controller = new AvisController($avisManager);
 
@@ -54,8 +51,7 @@ try{
                     break;
                     case "avis": $avis_controller -> getAvisVerifies($avisManager);
                     break;
-                    case "prestation": $prestation -> getPrestation();
-                    break;
+                    
                     default : throw new Exception ("La page n'existe pas");
                 }
             break;
@@ -71,14 +67,6 @@ try{
                     break; 
                     case "espacepro":
                         switch($url[2]){
-                            case "visualisationprestation" : $espacepro_controller->visualisationprestation(); 
-                            break;
-                            case "modificationprestation" : $espacepro_controller->modificationprestation(); 
-                            break;
-                            case "suppressionprestation" : $espacepro_controller->suppressionprestation(); 
-                            break;
-                            case "creationprestation" : $espacepro_controller->creationprestation(); 
-                            break;
                              case "visualisationavis" : $espacepro_controller->visualisationavis(); 
                             break;
                             case "modificationavis" : $espacepro_controller->modificationavis($idAvis); 
