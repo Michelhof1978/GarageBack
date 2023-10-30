@@ -53,9 +53,9 @@ try {
                         break;
                     case "contact": $contact_controller->getContact();
                         break;
-                    // case "avis": $avis_controller->getAvisVerifiés($avisManager); 
+                    case "avis": $avis_controller->getD($avisManager); // Utilisez le bon nom de méthode
                         break;
-                    case "prestation": $prestation_controller->getAllPrestations($prestationManager); 
+                    case "prestation": $prestation_controller->getAllPrestations($prestationManager); // Utilisez le gestionnaire de prestation
                         break;
                     default: throw new Exception("La page n'existe pas");
                 }
