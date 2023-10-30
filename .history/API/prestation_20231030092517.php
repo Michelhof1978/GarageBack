@@ -6,15 +6,20 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__ . '/controllers/front/prestation_controller.php');
 
 
+<?php
+$methode = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+define('__ROOT__', dirname(dirname(__FILE__));
 
+require_once(__ROOT__ . '/controllers/front/PrestationController.php');
 
+if ($methode === "GET") {
     // Configuration de la base de données
-    $db_host = "localhost"; // Adresse de votre serveur MySQL
-    $db_name = "garage"; // Nom de votre base de données
-    $db_user = "root"; // Nom d'utilisateur MySQL
-    $db_pass = ""; // Mot de passe MySQL
-    
-    if ($methode === "GET") {
+    $db_host = "votre_hôte"; // Adresse de votre serveur MySQL
+    $db_name = "votre_base_de_données"; // Nom de votre base de données
+    $db_user = "votre_utilisateur"; // Nom d'utilisateur MySQL
+    $db_pass = "votre_mot_de_passe"; // Mot de passe MySQL
+
     try {
         // Créez une connexion PDO avec votre base de données
         $dbh = new PDO("mysql:host={$db_host};dbname={$db_name}", $db_user, $db_pass);

@@ -54,7 +54,7 @@ try{
                     break;
                     case "avis": $avis_controller -> getAvisVerifies($avisManager);
                     break;
-                    case "prestation": $prestation_controller -> getAllPrestations();
+                    case "prestation": $prestation_controller -> getAllPrestations($dbh);
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }

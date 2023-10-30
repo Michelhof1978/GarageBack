@@ -13,7 +13,6 @@ require_once(__ROOT__ . '/controllers/front/prestation_controller.php');
     $db_name = "garage"; // Nom de votre base de données
     $db_user = "root"; // Nom d'utilisateur MySQL
     $db_pass = ""; // Mot de passe MySQL
-    
     if ($methode === "GET") {
     try {
         // Créez une connexion PDO avec votre base de données

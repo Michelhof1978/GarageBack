@@ -8,7 +8,7 @@ class PrestationModel {
         $this->dbh = $dbh;
     }
 
-    public function getDBPrestations() {
+    public function getAllPrestations() {
         $stmt = $this->dbh->prepare('SELECT * FROM prestation');
         $stmt->execute();
         $prestations = $stmt->fetchAll(PDO::FETCH_ASSOC);

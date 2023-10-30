@@ -23,7 +23,7 @@ require_once ("models/front/avis_model.php");
 $avisManager = new AvisManager();
 
 require_once ("controllers/front/prestation_controller.php");
-$prestation_controller = new PrestationController($dbh);
+$prestation_controller = new PrestationController();
 
 require_once ("controllers/front/avis_controller.php");
 $avis_controller = new AvisController($avisManager);
@@ -54,7 +54,7 @@ try{
                     break;
                     case "avis": $avis_controller -> getAvisVerifies($avisManager);
                     break;
-                    case "prestation": $prestation_controller -> getAllPrestations();
+                    case "prestation": $prestation_controller -> getAPrestation();
                     break;
                     default : throw new Exception ("La page n'existe pas");
                 }
