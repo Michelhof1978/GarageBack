@@ -32,12 +32,10 @@ public function getCarsByFilters($filters) {
     $sql = "SELECT * FROM vehicule WHERE 1"; 
 
     if (isset($filters['famille'])) {//vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1
-       // divise la valeur de ce filtre en un tableau en utilisant la virgule comme séparateur
         $values = explode(",", $filters['famille']);
-        //Les emplacements nommés générés sont ensuite combinés en une chaîne unique séparée par des virgules à l'aide de la fonction implode. 
-        //Cette chaîne est stockée dans la variable $namedPlaceholders.
+        //
         $namedPlaceholders = implode(', ', array_map(function ($value)  {
-            //str_replace va supprimer les virgules de chaque valeur et l'a transformera en chaine de caractère, la valeur sera ensuite concaténée
+            
             return ':value_' . str_replace(',', '', $value);
         }, $values));
 

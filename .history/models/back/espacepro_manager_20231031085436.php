@@ -248,7 +248,6 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
     }
 
     $stmt->closeCursor();
-    return $this->getBdd()->lastInsertId();
 }
 
 

@@ -37,7 +37,7 @@ public function getCarsByFilters($filters) {
         //Les emplacements nommés générés sont ensuite combinés en une chaîne unique séparée par des virgules à l'aide de la fonction implode. 
         //Cette chaîne est stockée dans la variable $namedPlaceholders.
         $namedPlaceholders = implode(', ', array_map(function ($value)  {
-            //str_replace va supprimer les virgules de chaque valeur et l'a transformera en chaine de caractère, la valeur sera ensuite concaténée
+            //str_replace va supprimer les virgules
             return ':value_' . str_replace(',', '', $value);
         }, $values));
 

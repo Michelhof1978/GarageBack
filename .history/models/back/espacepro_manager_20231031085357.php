@@ -248,7 +248,6 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
     }
 
     $stmt->closeCursor();
-    return $this->getBdd()->lastInsertId();
 }
 
 
@@ -375,9 +374,8 @@ public function createPrestation($imagePrestation, $nom, $description, $prix, $c
     }
 
     $stmt->closeCursor();
-// Pour obtenir l'ID généré par la base de données, j'ai fait appel à la fonction
-// `lastInsertId()`, qui est une fonctionnalité de l'extension PDO.
-    return $this->getBdd()->lastInsertId();
+
+    return $this->getBdd()->lastInsertId();// Pour obtenir l'ID généré par la base de données, j'ai fait appel à la fonction `lastInsertId()`, qui est une fonctionnalité de l'extension PDO.
 }
 
 //FIN PRESTATION
