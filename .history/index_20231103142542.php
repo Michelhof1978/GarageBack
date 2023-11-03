@@ -53,7 +53,7 @@ try {
                         break;
                     case "contact": $contact_controller->getContact();
                         break;
-                    case "avis": $avis_controller->getAvisVerifies(); 
+                    case "avis": $avis_controller->getAvisVerifes(); 
                         break;
                     case "prestation": $prestation_controller->getAllPrestations($prestationManager); 
                         break;
