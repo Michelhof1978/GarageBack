@@ -1,19 +1,20 @@
 <?php
+$methode = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+define('__ROOT__', dirname(dirname(__FILE__)));
+
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
-require_once(__DIR__ . '/index.php');
-
-
 
 // Autorise l'origine http://localhost:3000 à accéder à ce script
 header("Access-Control-Allow-Origin: http://localhost:3000");
 
 // Autorise les méthodes HTTP spécifiques
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Methods: POST");
 
 // Autorise les en-têtes personnalisés
-header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Headers: Content-Type");
 
-// Répond uniquement aux requêtes OPTIONS si l'origine est autorisée
+// Répond uniquement aux requêtes si l'origine est autorisée
 if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     http_response_code(204);
     exit;
@@ -22,10 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 // Autorise les cookies (si nécessaire)
 header("Access-Control-Allow-Credentials: true");
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Max-Age: 3600");
+
+
+
+
 $avisManager = new AvisManager();
 $avisController = new AvisController($avisManager);
 
-if ($_SERVER["REQUEST_METHOD"] === "GET") {
+if ($methode === "GET") {
     $avis = array();
 
     if (isset($_GET['nom'])) {
@@ -45,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     }
 
     $avisController->getAvisVerifies($avis);
-} elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
+} if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Récupérez les données du formulaire
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -54,11 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         // Assurez-vous d'appeler la méthode pour enregistrer l'avis
         $avisController->enregistrerAvis($data);
     } else {
-        http_response_code(400); // Code de réponse pour une mauvaise requête
-        echo json_encode(["error" => "Données POST invalides"]);
+        $response = ["message" => "Avis enregistré avec succès"];
+        echo json_encode($response);
     }
+
+
 } else {
-    http_response_code(404); // Code de réponse pour une ressource non trouvée
-    echo json_encode(["error" => "Endpoint non trouvé"]);
+    http_response_code(404);
+    echo json_encode(["error" => "endpoint not found"]);
 }
 ?>

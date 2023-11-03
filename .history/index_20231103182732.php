@@ -149,6 +149,7 @@ try {
     }
 } catch (Exception $e) {
     $msg = $e->getMessage();
-   
+    // Affichez ou gérez l'erreur de la manière appropriée, par exemple, redirigez vers une page d'erreur.
+    // Vous pouvez également utiliser $msg pour afficher un message d'erreur à l'utilisateur.
 }
 ?>

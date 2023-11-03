@@ -27,7 +27,7 @@ $prestationManager = new PrestationManager();
 $prestation_controller = new PrestationController($prestationManager);
 
 require_once("controllers/front/avis_controller.php");
-$avis_controller = new AvisController($avisManager);
+$avis_controller = new AvisController();
 
 require_once("controllers/front/contact_controller.php");
 $contact_controller = new ContactController();

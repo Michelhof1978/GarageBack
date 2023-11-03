@@ -1,5 +1,5 @@
 <?php
-
+define('__ROOT__', dirname(__FILE__));
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
 
 

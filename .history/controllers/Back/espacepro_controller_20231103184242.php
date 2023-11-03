@@ -212,7 +212,7 @@ public function suppressionavis()
 }
 
 // MODIFICATION AVIS
-public function modificationavis()
+public function modificationavis($idAvis)
 {
     if (Securite::verifAccessSession()) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

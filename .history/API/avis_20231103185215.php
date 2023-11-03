@@ -1,7 +1,6 @@
 <?php
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
-require_once(__DIR__ . '/index.php');
-
+require_once(__ROOT__.'/index..php');
 
 
 // Autorise l'origine http://localhost:3000 à accéder à ce script

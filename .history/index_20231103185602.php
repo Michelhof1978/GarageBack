@@ -106,7 +106,7 @@ try {
                                 $espacepro_controller->visualisationavis();
                                 break;
                             case "modificationavis":
-                                $espacepro_controller->modificationavis();
+                                $espacepro_controller->modificationavis( $idPrestation);
                                 break;
                             case "suppressionavis":
                                 $espacepro_controller->suppressionavis();
