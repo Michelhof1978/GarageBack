@@ -6,24 +6,9 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
 
 
-// Autorise l'origine http://localhost:3000 à accéder à ce script
 header("Access-Control-Allow-Origin: http://localhost:3000");
-
-// Autorise les méthodes HTTP spécifiques
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-
-// Autorise les en-têtes personnalisés
-header("Access-Control-Allow-Headers: *");
-
-// Répond uniquement aux requêtes OPTIONS si l'origine est autorisée
-if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
-    http_response_code(204);
-    exit;
-}
-
-// Autorise les cookies (si nécessaire)
-header("Access-Control-Allow-Credentials: true");
-
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With");
 
 
 

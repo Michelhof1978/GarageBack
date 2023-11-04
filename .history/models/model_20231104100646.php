@@ -3,6 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+require_once("chemin_vers_model.php");
 
 
 class Model {

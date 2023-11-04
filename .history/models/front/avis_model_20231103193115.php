@@ -3,11 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
-require_once(__ROOT__.'/models/model.php');
-
-
-class AvisManager extends Model {
+class AvisManager {
     private $dbh;
 
     public function __construct() {
@@ -34,7 +30,7 @@ class AvisManager extends Model {
         return $results;
     }
 
-    public function enregistrerAvis($nom, $prenom, $note, $commentaire) {
+    public function enregistrerAvis() {
         $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
         $stmt = $this->dbh->prepare($sql);
     

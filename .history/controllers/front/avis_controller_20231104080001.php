@@ -2,28 +2,13 @@
 
 require_once(__ROOT__.'/models/front/avis_model.php');
 
+
 class AvisController {
     private $avisManager; 
 
     public function __construct($avisManager) {
         $this->avisManager = $avisManager;
     }
-
-    public function getAvisNonValides() {
-        try {
-            $pdo = $this->avisManager->getDBAvis(); 
-            $sql = "SELECT * FROM avis WHERE valide = 0"; // Sélectionne les avis non validés
-            $stmt = $pdo->query($sql);
-            $avisNonValides = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            header('Content-Type: application/json');
-            echo json_encode($avisNonValides);
-        } catch (PDOException $e) {
-            header('Content-Type: application/json');
-            echo json_encode(['error' => 'Une erreur s\'est produite lors de la récupération des avis non validés.']);
-        }
-    }
-    
 
     public function enregistrerAvis($data) {
         $nom = $data["nom"];
@@ -57,6 +42,12 @@ class AvisController {
     
 
     public function getAvisVerifies() {
+       
+        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+        header("Access-Control-Allow-Credentials: true");
+
         try {
             $pdo = $this->avisManager->getDBAvis(); 
             $sql = "SELECT * FROM avis WHERE valide = 1"; // Ne récupère que les avis validés
@@ -74,7 +65,7 @@ class AvisController {
     private function insertAvisBDD($nom, $prenom, $note, $commentaire) {
         try {
             $pdo = $this->avisManager->getDBAvis();
-            $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, valide) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
+            $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$nom, $prenom, $note, $commentaire]);
             return true;
@@ -83,8 +74,3 @@ class AvisController {
         }
     }
 }
-?>
-
-
-
-

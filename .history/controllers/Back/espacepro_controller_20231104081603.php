@@ -353,7 +353,7 @@ public function getAvisNonValides()
 {
     if (Securite::verifAccessSession()) {
         $avisNonValides = $this->espaceproManager->getAvisNonValides(); // Assurez-vous que cette méthode existe dans votre espaceproManager
-        require_once(__ROOT__ . '/views/commons/espacepro_avis_view.php'); 
+        require_once(__ROOT__ . '/views/commons/espacepro_avis_view.php'); // Créez une vue pour afficher les avis non validés
     } else {
         throw new Exception("Vous n'avez pas accès à cette page");
     }

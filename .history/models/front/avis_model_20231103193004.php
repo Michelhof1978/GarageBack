@@ -3,11 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
-require_once(__ROOT__.'/models/model.php');
-
-
-class AvisManager extends Model {
+class AvisManager {
     private $dbh;
 
     public function __construct() {
@@ -22,11 +18,11 @@ class AvisManager extends Model {
         }
     }
 
-    public function getDBAvis() {
+    public function getDBAvis($nom, $prenom, $note, $commentaire) {
         return $this->dbh;
     }
 
-    public function getAvisVerifies() {
+    public function getAvisVerifies($nom, $prenom, $note, $commentaire) {
         $sql = "SELECT * FROM avis WHERE valide = 1"; // Je récupère uniquement les avis à l'état true
         $stmt = $this->dbh->query($sql);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

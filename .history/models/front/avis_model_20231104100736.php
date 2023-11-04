@@ -3,9 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
-require_once(__ROOT__.'/models/model.php');
-
+require_once("/models/model.php");
 
 class AvisManager extends Model {
     private $dbh;

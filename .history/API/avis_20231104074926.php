@@ -1,9 +1,8 @@
 <?php
-$methode = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
-define('__ROOT__', dirname(dirname(__FILE__)));
 
 require_once(__ROOT__.'/controllers/front/avis_controller.php');
+require_once(__DIR__ . '/index.php');
+
 
 
 // Autorise l'origine http://localhost:3000 à accéder à ce script
@@ -24,13 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 // Autorise les cookies (si nécessaire)
 header("Access-Control-Allow-Credentials: true");
 
-
-
-
 $avisManager = new AvisManager();
 $avisController = new AvisController($avisManager);
 
-if ($methode === "GET") {
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
     $avis = array();
 
     if (isset($_GET['nom'])) {
@@ -50,8 +46,8 @@ if ($methode === "GET") {
     }
 
     $avisController->getAvisVerifies($avis);
-} if ($methode === "POST") {
-    // Récupérer les données POST JSON
+} elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Récupérez les données du formulaire
     $data = json_decode(file_get_contents("php://input"), true);
 
     if ($data !== null) {
@@ -59,13 +55,11 @@ if ($methode === "GET") {
         // Assurez-vous d'appeler la méthode pour enregistrer l'avis
         $avisController->enregistrerAvis($data);
     } else {
-        http_response_code(400);
-        echo json_encode(["error" => "Invalid JSON data"]);
+        http_response_code(400); // Code de réponse pour une mauvaise requête
+        echo json_encode(["error" => "Données POST invalides"]);
     }
-
-
 } else {
-    http_response_code(404);
-    echo json_encode(["error" => "endpoint not found"]);
+    http_response_code(404); // Code de réponse pour une ressource non trouvée
+    echo json_encode(["error" => "Endpoint non trouvé"]);
 }
 ?>

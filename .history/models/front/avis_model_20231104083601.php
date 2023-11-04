@@ -3,11 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
-require_once(__ROOT__.'/models/model.php');
-
-
-class AvisManager extends Model {
+class AvisManager {
     private $dbh;
 
     public function __construct() {
@@ -28,12 +24,12 @@ class AvisManager extends Model {
 
     public function getAvisVerifies() {
         $sql = "SELECT * FROM avis WHERE valide = 1"; // Je récupère uniquement les avis à l'état true
-        $stmt = $this->dbh->query($sql);
+        $stmt = $this->()->query($sql);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
         return $results;
     }
-
+    
     public function enregistrerAvis($nom, $prenom, $note, $commentaire) {
         $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, garage_idGarage) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
         $stmt = $this->dbh->prepare($sql);

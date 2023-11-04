@@ -9,22 +9,6 @@ class AvisController {
         $this->avisManager = $avisManager;
     }
 
-    public function getAvisNonValides() {
-        try {
-            $pdo = $this->avisManager->getDBAvis(); 
-            $sql = "SELECT * FROM avis WHERE valide = 0"; // Sélectionne les avis non validés
-            $stmt = $pdo->query($sql);
-            $avisNonValides = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            header('Content-Type: application/json');
-            echo json_encode($avisNonValides);
-        } catch (PDOException $e) {
-            header('Content-Type: application/json');
-            echo json_encode(['error' => 'Une erreur s\'est produite lors de la récupération des avis non validés.']);
-        }
-    }
-    
-
     public function enregistrerAvis($data) {
         $nom = $data["nom"];
         $prenom = $data["prenom"];
@@ -74,7 +58,7 @@ class AvisController {
     private function insertAvisBDD($nom, $prenom, $note, $commentaire) {
         try {
             $pdo = $this->avisManager->getDBAvis();
-            $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated_at, valide) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
+            $sql = "INSERT INTO avis (nom, prenom, note, commentaire, created_at, updated, valide) VALUES (?, ?, ?, ?, NOW(), NOW(), 1)";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$nom, $prenom, $note, $commentaire]);
             return true;
@@ -84,7 +68,4 @@ class AvisController {
     }
 }
 ?>
-
-
-
 

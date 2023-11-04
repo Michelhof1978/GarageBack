@@ -267,13 +267,7 @@ public function createAvis($nom, $prenom, $note, $commentaire, $created_at)
         }
     }
 
-    public function getAvisNonValides()
-    {
-        $sql = "SELECT * FROM avis WHERE valide = 0"; // Sélectionne les avis non validés
-        $stmt = $this->getBdd()->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    
+
 
 // ---------------------------------------------------------------------------
 
