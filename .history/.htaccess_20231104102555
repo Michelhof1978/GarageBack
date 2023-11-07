@@ -1,0 +1,18 @@
+# Configuration de la réécriture d'URL
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Toutes les requêtes OPTIONS sont autorisées sans réécriture
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ - [NC,L]
+
+# Tout autre trafic est réécrit pour passer par index.php
+RewriteRule ^(.*)$ index.php?page=$1 [NC,L]
+
+# En-têtes CORS
+Header set Access-Control-Allow-Origin "http://localhost:3000"
+Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+Header set Access-Control-Allow-Credentials "true"
