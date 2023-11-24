@@ -26,7 +26,7 @@ class AdminController
     // public function connexion() {
 
     //     echo password_hash("michelaquiche", PASSWORD_DEFAULT);
-    
+    // //     echo "connexion";
     //  }
     //////////////////////////////////////////////////////////////////////////
 
@@ -45,39 +45,39 @@ class AdminController
 
 
     // On va gérer la soumission de données de connexion, verifier leur validté et définir une variable de session en fonction de la réussite ou pas de l'authentification et ainsi rediruger à la page admin ou login si echec
-    public function connexion()
-    {
-        if (!empty($_POST["login"]) && !empty($_POST["password"])) {
-            $login = Securite::secureHtml($_POST["login"]); //securite en lien avec security.class.php
-            $password = Securite::secureHtml($_POST["password"]);
+    // public function connexion()
+    // {
+    //     if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+    //         $login = Securite::secureHtml($_POST["login"]); //securite en lien avec security.class.php
+    //         $password = Securite::secureHtml($_POST["password"]);
 
-            if ($this->AdminManager->isConnexionValid($login, $password)) {
-                $_SESSION['access'] = "admin"; // Pour activer les variables de session, il va falloir que je les active en début de page ds index.php
-                header('Location: ' . URL . "back/admin");
-                exit();
-            } else {
-                header('Location: ' . URL . "back/login");
-                exit();
-            }
-        }
-    }
+    //         if ($this->AdminManager->isConnexionValid($login, $password)) {
+    //             $_SESSION['access'] = "admin"; // Pour activer les variables de session, il va falloir que je les active en début de page ds index.php
+    //             header('Location: ' . URL . "back/admin");
+    //             exit();
+    //         } else {
+    //             header('Location: ' . URL . "back/login");
+    //             exit();
+    //         }
+    //     }
+    // }
 
 
-    //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
-    public function getAccueilAdmin()
-    {
-        if (Securite::verifAccessSession()) {
-            require "./views/accueilAdmin_view.php";
-        } else {
-            header('Location: ' . URL . "back/login");
-            exit();
-        }
-    }
+    // //vérification si l utilisateur s i il a bien les identifiants et qu'ils sont bien remplis
+    // public function getAccueilAdmin()
+    // {
+    //     if (Securite::verifAccessSession()) {
+    //         require "./views/accueilAdmin_view.php";
+    //     } else {
+    //         header('Location: ' . URL . "back/login");
+    //         exit();
+    //     }
+    // }
 
-    public function deconnexion()
-    {
-        session_destroy(); //Va supprimer la variable de session
-        header('Location: ' . URL . "back/login"); //redirection sur la page connexion
-        exit();
-    }
+    // public function deconnexion()
+    // {
+    //     session_destroy(); //Va supprimer la variable de session
+    //     header('Location: ' . URL . "back/login"); //redirection sur la page connexion
+    //     exit();
+    // }
 }

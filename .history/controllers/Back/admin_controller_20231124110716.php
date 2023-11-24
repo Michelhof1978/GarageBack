@@ -26,7 +26,7 @@ class AdminController
     // public function connexion() {
 
     //     echo password_hash("michelaquiche", PASSWORD_DEFAULT);
-    
+    // //     echo "connexion";
     //  }
     //////////////////////////////////////////////////////////////////////////
 
