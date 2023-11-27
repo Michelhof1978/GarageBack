@@ -8,11 +8,10 @@ ini_set('display_errors', '1');
 //classe VehiculeModel qui va gérer l'accès aux données des véhicules
 class VehiculeModel
 {
-//Connexion en privé à la bdd
-    private $dbh;
-    
 
-//Dans le constructeur de la classe, une connexion à la base de données est établie en utilisant l'extension PDO (PHP Data Objects)
+    private $dbh;
+    //Connexion en privé à la bdd
+    
     public function __construct()
     {
         $dsn = 'mysql:host=localhost;dbname=garage;charset=utf8';

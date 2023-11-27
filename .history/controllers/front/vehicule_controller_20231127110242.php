@@ -23,7 +23,7 @@ class VehiculeController
 //Appelle la méthode getCarsByFilters du modèle VehiculeModel pour obtenir les données des véhicules en fonction des filtres fournis.
         $cars = $this->apiManager->getCarsByFilters($filtres);
 
-//Configuration  entêtes avant d'envoyer la réponse
+        //Configuration  entêtes avant d'envoyer la réponse
         header('Content-Type: application/json');
         header("Access-Control-Allow-Origin: http://localhost:3000");
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS");

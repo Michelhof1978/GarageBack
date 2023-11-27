@@ -5,14 +5,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-//classe VehiculeModel qui va gérer l'accès aux données des véhicules
+
 class VehiculeModel
 {
-//Connexion en privé à la bdd
-    private $dbh;
-    
 
-//Dans le constructeur de la classe, une connexion à la base de données est établie en utilisant l'extension PDO (PHP Data Objects)
+    private $dbh;
+    //Connexion en privé à la bdd
     public function __construct()
     {
         $dsn = 'mysql:host=localhost;dbname=garage;charset=utf8';
@@ -27,11 +25,9 @@ class VehiculeModel
         }
     }
 
-//fonction  publique qui prend un paramètre $filters qui est un tableau associatif contenant les filtres pour la recherche des voitures.
+    //fonction  publique qui prend un paramètre $filters qui est un tableau associatif contenant les filtres pour la recherche des voitures.
     public function getCarsByFilters($filters)
-    {
-
-// construire la requête SQL de base qui récupère toutes les colonnes (*) de la table "vehicule". La condition WHERE 1 est utilisée pour que la requête soit toujours vraie, même s'il n'y a pas de filtres spécifiés.
+    {        // construire la requête SQL de base qui récupère toutes les colonnes (*) de la table "vehicule". La condition WHERE 1 est utilisée pour que la requête soit toujours vraie, même s'il n'y a pas de filtres spécifiés.
         $sql = "SELECT * FROM vehicule WHERE 1";
 
         if (isset($filters['famille'])) { //vérification des filtres et va ajouter au statement et va ajouter les AND 1 par 1

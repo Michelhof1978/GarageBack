@@ -67,7 +67,7 @@ $controller = new VehiculeController();
 $controller->getCarsByFilters($filters);
 
 
-//Si la méthode de la requête n'est pas GET, le script renvoie une réponse HTTP 404 (not found) avec un message d'erreur au format JSON.
+
 }else {
     // echo"pas getrequests";
     

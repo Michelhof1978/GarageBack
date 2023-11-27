@@ -61,13 +61,10 @@ if (isset($_GET['limite'])) {
     $filters['limite'] = intval($_GET['limite']);
 }
 
-//Création d'une instance du contrôleur des véhicules et appel de la méthode appropriée 
-//Un objet du contrôleur des véhicules est créé, et la méthode getCarsByFilters est appelée avec les filtres extraits
 $controller = new VehiculeController();
 $controller->getCarsByFilters($filters);
 
 
-//Si la méthode de la requête n'est pas GET, le script renvoie une réponse HTTP 404 (not found) avec un message d'erreur au format JSON.
 }else {
     // echo"pas getrequests";
     
