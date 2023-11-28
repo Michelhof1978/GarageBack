@@ -88,18 +88,17 @@ class VehiculeModel
             $sql .= " LIMIT :limite";
         }
 
-// Preparation et execution de la requête sql
+        // Preparation et execution de la requête sql
         $stmt = $this->dbh->prepare($sql);
 
 
-//Ajoute des conditions à la requête SQL en fonction des filtres spécifiés dans le tableau $filters
-//Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
-        if (isset($filters['famille'])) {
 
-//La fonction `explode()` en PHP est utilisée pour diviser une chaîne de caractères en un tableau de sous-chaînes, en utilisant un délimiteur spécifié
+        //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
+        if (isset($filters['famille'])) {
+            
             $values = explode(",", $filters['famille']);
             foreach ($values as $value) {
- // echo ':value_' . str_replace(',', '', $value);
+                // echo ':value_' . str_replace(',', '', $value);
                 $stmt->bindValue(':value_' . str_replace(',', '', $value), $value, PDO::PARAM_STR);
             }
         }

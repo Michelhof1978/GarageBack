@@ -92,7 +92,7 @@ class VehiculeModel
         $stmt = $this->dbh->prepare($sql);
 
 
-//Ajoute des conditions à la requête SQL en fonction des filtres spécifiés dans le tableau $filters
+
 //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
         if (isset($filters['famille'])) {
 

@@ -45,11 +45,8 @@ try {
 
         //Explication en bas de la page 
         $url = explode("/", filter_var($_GET['page'], FILTER_SANITIZE_URL)); // On récupère l'URL et on la filtre pour pouvoir la mieux sécuriser.
-    //    echo "<pre>";
-    //    print_r($url);
-    //    echo "</pre>";
-    //    echo "La page demandé est : ".$_GET['page'];
-    
+       echo "<pre>
+       </pre>
         if (count($url) < 2) {
             throw new Exception("La page n'existe pas");
         }

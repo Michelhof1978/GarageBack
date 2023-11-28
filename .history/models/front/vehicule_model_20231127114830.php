@@ -40,7 +40,7 @@ class VehiculeModel
 // divise la valeur de ce filtre en un tableau en utilisant la virgule comme séparateur
             $values = explode(",", $filters['famille']);
 
-//La fonction implode() en PHP est utilisée pour concaténer les éléments d'un tableau en une seule chaîne de caractères. 
+//
 //Les emplacements nommés générés sont ensuite combinés en une chaîne unique séparée par des virgules à l'aide de la fonction implode. 
 //Cette chaîne est stockée dans la variable $namedPlaceholders.
             $namedPlaceholders = implode(', ', array_map(function ($value) {
@@ -88,18 +88,16 @@ class VehiculeModel
             $sql .= " LIMIT :limite";
         }
 
-// Preparation et execution de la requête sql
+        // Preparation et execution de la requête sql
         $stmt = $this->dbh->prepare($sql);
 
 
-//Ajoute des conditions à la requête SQL en fonction des filtres spécifiés dans le tableau $filters
-//Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
-        if (isset($filters['famille'])) {
 
-//La fonction `explode()` en PHP est utilisée pour diviser une chaîne de caractères en un tableau de sous-chaînes, en utilisant un délimiteur spécifié
+        //Liaison des valeurs des filtres aux paramètres de la requête SQL, puis exécute la requête et récupère les résultats
+        if (isset($filters['famille'])) {
             $values = explode(",", $filters['famille']);
             foreach ($values as $value) {
- // echo ':value_' . str_replace(',', '', $value);
+                // echo ':value_' . str_replace(',', '', $value);
                 $stmt->bindValue(':value_' . str_replace(',', '', $value), $value, PDO::PARAM_STR);
             }
         }
