@@ -31,7 +31,6 @@ class Model
 //Retourne la connexion à la base de données ($pdo). Si la connexion n'était pas définie avant, elle le sera après l'appel à setBdd()
         return self::$pdo;
     }
-    
 //convertir les données qui sont au format tableau en format json
     public static function sendJSON($info)
     {

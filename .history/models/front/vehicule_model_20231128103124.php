@@ -104,9 +104,7 @@ class VehiculeModel
             }
         }
 
-//Tableau associatif = vérifie si la clé 'marque' existe dans le tableau associatif $filters. Si la clé existe, elle utilise la méthode bindParam de l'objet PDOStatement ($stmt) pour lier la valeur correspondante du tableau à un paramètre de requête nommé :marque
-        if (isset($filters['marque'])) {// La fonction isset retourne true si la clé existe et a une valeur différente de null, false sinon.
-//PDO::PARAM_STR indique que le type de la valeur est une chaîne de caractères. Cela est important pour que PDO traite correctement la valeur lors de l'exécution de la requête.          
+        if (isset($filters['marque'])) {
             $stmt->bindParam(':marque', $filters['marque'], PDO::PARAM_STR);
         }
 
@@ -137,7 +135,7 @@ class VehiculeModel
         if (isset($filters['limite'])) {
             $stmt->bindParam(':limite', $filters['limite'], PDO::PARAM_INT);
         }
-
+        
         $stmt->execute();
 
 //PDO::FETCH_ASSOC est un mode de récupération qui indique à PDO de retourner un tableau 
@@ -145,6 +143,8 @@ class VehiculeModel
 // les valeurs correspondantes. Chaque ligne du tableau résultant représente un
 // enregistrement de la base de données.
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 
         return $results;
     }
