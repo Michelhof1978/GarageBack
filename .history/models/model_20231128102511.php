@@ -24,11 +24,9 @@ class Model
 //La méthode est déclarée avec le niveau d'accès protected, ce qui signifie qu'elle est accessible uniquement à l'intérieur de la classe où elle est définie et par ses classes dérivées (héritées).
     protected function getBdd()
     {
-//Si la propriété $pdo est nulle, la méthode appelle la méthode statique setBdd() pour initialiser la connexion à la base de données.
         if (self::$pdo === null) {
             self::setBdd();
         }
-//Retourne la connexion à la base de données ($pdo). Si la connexion n'était pas définie avant, elle le sera après l'appel à setBdd()
         return self::$pdo;
     }
 
