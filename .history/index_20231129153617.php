@@ -98,7 +98,7 @@ try {
                                 $espacepro_controller->visualisationprestation();
                                 break;
                             case "modificationprestation":
-                                $espacepro_controller->modificationprestation();
+                                $espacepro_controller->modificationprestation($idVehicule);
                                 break;
                             case "suppressionprestation":
                                 $espacepro_controller->suppressionprestation();
@@ -131,7 +131,7 @@ try {
                                 $espacepro_controller->visualisationvoituresoccasions();
                                 break;
                             case "modificationvoituresoccasions":
-                                $espacepro_controller->modificationvoituresoccasions($idVehicule);
+                                $espacepro_controller->modificationvoituresoccasions();
                                 break;
                             case "suppressionvoituresoccasions":
                                 $espacepro_controller->suppressionvoituresoccasions();

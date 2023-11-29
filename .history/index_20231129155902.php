@@ -131,7 +131,7 @@ try {
                                 $espacepro_controller->visualisationvoituresoccasions();
                                 break;
                             case "modificationvoituresoccasions":
-                                $espacepro_controller->modificationvoituresoccasions($idVehicule);
+                                $espacepro_controller->modificationvoituresoccasions();
                                 break;
                             case "suppressionvoituresoccasions":
                                 $espacepro_controller->suppressionvoituresoccasions();

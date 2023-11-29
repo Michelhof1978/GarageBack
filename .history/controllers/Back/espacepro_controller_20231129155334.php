@@ -68,7 +68,7 @@ class EspaceproController
     }
 
     // MODIFICATION VEHICULE
-    public function modificationvoituresoccasions($idVehicule)
+    public function modificationvoituresoccasions()
     {
         if (Securite::verifAccessSession()) {
             $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
@@ -90,7 +90,7 @@ class EspaceproController
             $updated_at = date("Y-m-d H:i:s");
 
             $this->espaceproManager->updateVehicule(
-                $idVehicule,
+               
                 $imageVoiture,
                 $famille,
                 $marque,

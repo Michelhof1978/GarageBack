@@ -79,9 +79,11 @@ class EspaceproManager extends Model
     ////////////FIN SUPPRESSION VEHICULE
 
     // MODIFICATION VEHICULE
-    public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere)
+    public function updateVehicule($idVehicule, $imageVoiture, $famille, $marque, $modele, $annee, $kilometrage, $boitevitesse, $energie, $datecirculation, $puissance, $places, $couleur, $description, $prix, $imageCritere, $updated_at)
     {
-    
+
+        $updated_at = date("Y-m-d H:i:s"); //Mettre la date actuelle
+
         $req = "UPDATE vehicule SET 
                     imageVoiture = :imageVoiture, 
                     famille = :famille,
@@ -98,12 +100,12 @@ class EspaceproManager extends Model
                     description = :description,
                     prix = :prix, 
                     imageCritere = :imageCritere, 
-                    updated_at = NOW() 
+                    updated_at = :updated_at
                     WHERE idVehicule = :idVehicule";
-    
+
         $stmt = $this->getBdd()->prepare($req);
-    
-        $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
+
+        // $stmt->bindValue(":idVehicule", $idVehicule, PDO::PARAM_INT);
         $stmt->bindValue(":imageVoiture", $imageVoiture, PDO::PARAM_STR);
         $stmt->bindValue(":famille", $famille, PDO::PARAM_STR);
         $stmt->bindValue(":marque", $marque, PDO::PARAM_STR);
@@ -119,11 +121,12 @@ class EspaceproManager extends Model
         $stmt->bindValue(":description", $description, PDO::PARAM_STR);
         $stmt->bindValue(":prix", $prix, PDO::PARAM_INT);
         $stmt->bindValue(":imageCritere", $imageCritere, PDO::PARAM_STR);
-    
+        $stmt->bindValue(":updated_at", $updated_at, PDO::PARAM_STR);
+
         $stmt->execute();
         $stmt->closeCursor();
     }
-    
+
 
 
     //CREATION VEHICULE

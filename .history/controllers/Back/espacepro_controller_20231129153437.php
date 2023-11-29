@@ -71,7 +71,7 @@ class EspaceproController
     public function modificationvoituresoccasions($idVehicule)
     {
         if (Securite::verifAccessSession()) {
-            $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
+            // $idVehicule = (int) Securite::secureHTML($_POST['idVehicule']);
             $imageVoiture = Securite::secureHTML($_POST['imageVoiture']);
             $famille = Securite::secureHTML($_POST['famille']);
             $marque = Securite::secureHTML($_POST['marque']);
